@@ -1,5 +1,5 @@
 {
-  "name": "@inubekit/your-component-name",
+  "name": "@inubekit/inubekit",
   "homepage": "https://inubeds.vercel.app/",
   "author": "inube",
   "main": "dist/index.es.js",
@@ -18,7 +18,8 @@
     }
   },
   "files": [
-    "dist/index.es.js"
+    "dist/index.es.js",
+    "dist/index.es.d.ts"
   ],
   "scripts": {
     "dev": "vite",
@@ -78,7 +79,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/selsa-inube/inubekit-REPOSITORY-NAME.git"
+    "url": "git+https://github.com/selsa-inube/inubekit.git"
   },
   "auto": {
     "plugins": [
