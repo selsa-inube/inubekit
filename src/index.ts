@@ -8,4 +8,4 @@ export type {
   IIconSpacing,
   IIconVariant,
 } from "./components/Icon/props";
-export { tokens as IconTokens } from "./components/Icon/Tokens/tokens";
+export { tokens as IconTokens } from "./components/Icon/tokens";

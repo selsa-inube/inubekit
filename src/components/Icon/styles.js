@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { tokens } from "./Tokens/tokens";
+import { tokens } from "./tokens";
 
 const StyledIcon = styled.figure`
   display: inline-block;

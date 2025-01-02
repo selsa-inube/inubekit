@@ -17,6 +17,7 @@ export default defineConfig({
         "react/jsx-runtime",
         "styled-components",
         "react-icons",
+        "@inubekit/foundations",
       ],
     },
   },

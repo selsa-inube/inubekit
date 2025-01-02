@@ -6,7 +6,7 @@ import { Icon, IIcon } from ".";
 import { props, parameters } from "./props";
 
 const story = {
-  title: "Icon",
+  title: "data/Icon",
   component: Icon,
   parameters,
   argTypes: props,
