@@ -50,3 +50,6 @@ export type {
 export { useFonts } from "./components/Hooks/useFonts";
 export { useMediaQueries } from "./components/Hooks/useMediaQueries";
 export { useMediaQuery } from "./components/Hooks/useMediaQuery";
+
+export { Divider } from "./components/Divider";
+export type { IDivider } from "./components/Divider";
