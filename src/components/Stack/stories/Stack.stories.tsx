@@ -1,6 +1,6 @@
-import { Stack, IStack } from "./index";
-import { props } from "./props";
-import { Squares } from "./squares";
+import { Stack, IStack } from "../index";
+import { props } from "../props";
+import { Squares } from "./Squares";
 
 const story = {
   title: "layout/Stack",

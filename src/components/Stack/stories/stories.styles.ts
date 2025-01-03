@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { inube } from "../Foundations";
+import { inube } from "../../Foundations";
 
 const StyledSquare = styled.div`
   display: flex;

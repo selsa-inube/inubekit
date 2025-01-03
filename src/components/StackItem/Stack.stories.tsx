@@ -1,4 +1,4 @@
-import { Squares } from "../Stack/squares";
+import { Squares } from "../Stack/stories/Squares";
 import { IStackItem, StackItem } from "./index";
 import { Stack } from "../Stack";
 import { props } from "./props";
