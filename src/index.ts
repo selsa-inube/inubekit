@@ -22,5 +22,17 @@ export type {
 } from "./components/Text/props";
 
 export { Avatar } from "./components/Avatar";
-
 export type { IAvatar } from "./components/Avatar";
+
+export { Stack } from "./components/Stack";
+export { StackItem } from "./components/StackItem";
+export type { IStack } from "./components/Stack";
+export type { IStackItem } from "./components/StackItem";
+export type {
+  IStackAlignContent,
+  IStackAlignItem,
+  IStackDirectionAlignment,
+  IStackJustifyContent,
+  IStackWrapControl,
+} from "./components/Stack/props";
+export type { IStackItemAlignSelfProperties } from "./components/StackItem/props";
