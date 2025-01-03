@@ -36,3 +36,13 @@ export type {
   IStackWrapControl,
 } from "./components/Stack/props";
 export type { IStackItemAlignSelfProperties } from "./components/StackItem/props";
+
+export { Grid } from "./components/Grid";
+export type { IGrid } from "./components/Grid";
+export type {
+  IGridJustifyContent,
+  IGridAlignItems,
+  IGridAutoFlow,
+  IGridAlignContent,
+  IGridJustifyItems,
+} from "./components/Grid/props";
