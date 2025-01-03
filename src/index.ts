@@ -1,5 +1,7 @@
 export * from ".";
 
+export { inube } from "./components/foundations";
+
 export { Icon } from "./components/Icon";
 export type { IIcon } from "./components/Icon";
 export type {
