@@ -46,3 +46,7 @@ export type {
   IGridAlignContent,
   IGridJustifyItems,
 } from "./components/Grid/props";
+
+export { useFonts } from "./components/Hooks/useFonts";
+export { useMediaQueries } from "./components/Hooks/useMediaQueries";
+export { useMediaQuery } from "./components/Hooks/useMediaQuery";
