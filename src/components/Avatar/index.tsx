@@ -1,4 +1,4 @@
-import { Icon } from "@inubekit/icon";
+import { Icon } from "../Icon";
 import { MdPersonOutline } from "react-icons/md";
 
 interface IAvatar {

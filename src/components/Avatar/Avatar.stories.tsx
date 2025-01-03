@@ -3,7 +3,7 @@ import { Avatar } from "./index";
 import { props, parameters } from "./props";
 
 const story = {
-  title: "Avatar",
+  title: "data/Avatar",
   components: [Avatar],
   parameters,
   argTypes: props,
