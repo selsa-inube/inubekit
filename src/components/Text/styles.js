@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { tokens } from "./tokens";
-import { inube } from "../foundations";
+import { inube } from "../Foundations";
 
 const StyledText = styled.p`
   font-family: ${({ theme, $type, $size }) =>

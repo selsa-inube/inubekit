@@ -1,6 +1,6 @@
 export * from ".";
 
-export { inube } from "./components/foundations";
+export { inube } from "./components/Foundations";
 
 export { Icon } from "./components/Icon";
 export type { IIcon } from "./components/Icon";
@@ -20,3 +20,7 @@ export type {
   ITextSize,
   ITextType,
 } from "./components/Text/props";
+
+export { Avatar } from "./components/Avatar";
+
+export type { IAvatar } from "./components/Avatar";
