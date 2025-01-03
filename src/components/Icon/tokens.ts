@@ -1,4 +1,4 @@
-import { inube } from "@inubekit/foundations";
+import { inube } from "../foundations";
 
 const tokens = {
   primary: {
