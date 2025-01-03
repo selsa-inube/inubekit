@@ -10,4 +10,13 @@ export type {
   IIconSpacing,
   IIconVariant,
 } from "./components/Icon/props";
-export { tokens as IconTokens } from "./components/Icon/tokens";
+
+export { Text } from "./components/Text";
+export type { IText } from "./components/Text";
+export type {
+  ITextAlignment,
+  ITextAppearance,
+  ITextHTMLElement,
+  ITextSize,
+  ITextType,
+} from "./components/Text/props";
