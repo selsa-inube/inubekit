@@ -61,3 +61,7 @@ export type { ITab } from "./components/Tabs/Tab";
 export { Link } from "./components/Link";
 export type { ILink } from "./components/Link";
 export type { ILinkType, ILinkSize } from "./components/Link/props";
+
+export { Label } from "./components/Label";
+export type { ILabel } from "./components/Label";
+export type { ILabelSize } from "./components/Label/props";
