@@ -25,9 +25,7 @@ export { Avatar } from "./components/Avatar";
 export type { IAvatar } from "./components/Avatar";
 
 export { Stack } from "./components/Stack";
-export { StackItem } from "./components/StackItem";
 export type { IStack } from "./components/Stack";
-export type { IStackItem } from "./components/StackItem";
 export type {
   IStackAlignContent,
   IStackAlignItem,
@@ -35,15 +33,17 @@ export type {
   IStackJustifyContent,
   IStackWrapControl,
 } from "./components/Stack/props";
+export { StackItem } from "./components/StackItem";
+export type { IStackItem } from "./components/StackItem";
 export type { IStackItemAlignSelfProperties } from "./components/StackItem/props";
 
 export { Grid } from "./components/Grid";
 export type { IGrid } from "./components/Grid";
 export type {
-  IGridJustifyContent,
+  IGridAlignContent,
   IGridAlignItems,
   IGridAutoFlow,
-  IGridAlignContent,
+  IGridJustifyContent,
   IGridJustifyItems,
 } from "./components/Grid/props";
 
@@ -53,3 +53,7 @@ export { useMediaQuery } from "./components/Hooks/useMediaQuery";
 
 export { Divider } from "./components/Divider";
 export type { IDivider } from "./components/Divider";
+
+export { Tabs } from "./components/Tabs";
+export type { ITabs } from "./components/Tabs";
+export type { ITab } from "./components/Tabs/Tab";
