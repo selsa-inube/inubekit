@@ -65,3 +65,15 @@ export type { ILinkType, ILinkSize } from "./components/Link/props";
 export { Label } from "./components/Label";
 export type { ILabel } from "./components/Label";
 export type { ILabelSize } from "./components/Label/props";
+
+export { Breadcrumbs } from "./components/Breadcrumbs";
+export type { IBreadcrumbEllipsis } from "./components/Breadcrumbs/BreadcrumbEllipsis";
+export type { IBreadcrumbEllipsisSize } from "./components/Breadcrumbs/BreadcrumbEllipsis/props";
+export type { IBreadcrumbLink } from "./components/Breadcrumbs/BreadcrumbLink";
+export type { IBreadcrumbLinkSize } from "./components/Breadcrumbs/BreadcrumbLink/props";
+export type { IBreadcrumbMenu } from "./components/Breadcrumbs/BreadcrumbMenu";
+export type {
+  IBreadcrumbsRoutes,
+  IBreadcrumbsRoute,
+  IBreadcrumbsSize,
+} from "./components/Breadcrumbs/props";
