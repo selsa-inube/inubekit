@@ -57,3 +57,7 @@ export type { IDivider } from "./components/Divider";
 export { Tabs } from "./components/Tabs";
 export type { ITabs } from "./components/Tabs";
 export type { ITab } from "./components/Tabs/Tab";
+
+export { Link } from "./components/Link";
+export type { ILink } from "./components/Link";
+export type { ILinkType, ILinkSize } from "./components/Link/props";
