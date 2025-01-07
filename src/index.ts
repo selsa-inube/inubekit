@@ -77,3 +77,6 @@ export type {
   IBreadcrumbsRoute,
   IBreadcrumbsSize,
 } from "./components/Breadcrumbs/props";
+
+export { Blanket } from "./components/Blanket";
+export type { IBlanket } from "./components/Blanket";
