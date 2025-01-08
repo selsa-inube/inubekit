@@ -125,3 +125,6 @@ export { FlagPortal } from "./components/Flag/FlagPortal";
 export { FlagContext, FlagProvider } from "./components/Flag/FlagsProvider";
 export type { FlagContextType } from "./components/Flag/FlagsProvider";
 export { useFlag } from "./components/Flag/useFlag";
+
+export { SkeletonIcon } from "./components/Skeleton/SkeletonIcon";
+export { SkeletonLine } from "./components/Skeleton/SkeletonLine";
