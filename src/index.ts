@@ -80,3 +80,10 @@ export type {
 
 export { Blanket } from "./components/Blanket";
 export type { IBlanket } from "./components/Blanket";
+
+export { Spinner } from "./components/Spinner";
+export type { ISpinner } from "./components/Spinner";
+export type {
+  ISpinnerSize,
+  ISpinnerAppearance,
+} from "./components/Spinner/props";
