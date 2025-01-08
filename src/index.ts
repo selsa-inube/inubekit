@@ -105,3 +105,11 @@ export { Numberfield } from "./components/Input/Numberfield";
 export { Moneyfield } from "./components/Input/Moneyfield";
 export { Searchfield } from "./components/Input/Searchfield";
 export type { IInput } from "./components/Input/Input";
+
+export { Assisted } from "./components/Assisted";
+export type { IAssisted } from "./components/Assisted";
+export type {
+  IAssistedStep,
+  IAssistedSize,
+  IAssistedControls,
+} from "./components/Assisted/props";
