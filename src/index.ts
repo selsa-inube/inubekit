@@ -128,3 +128,7 @@ export { useFlag } from "./components/Flag/useFlag";
 
 export { SkeletonIcon } from "./components/Skeleton/SkeletonIcon";
 export { SkeletonLine } from "./components/Skeleton/SkeletonLine";
+
+export { Fieldset } from "./components/Fieldset";
+export type { IFieldset } from "./components/Fieldset";
+export type { IFieldsetSpacing } from "./components/Fieldset/props";
