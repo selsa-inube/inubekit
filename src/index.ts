@@ -96,3 +96,12 @@ export type {
   IButtonType,
   IButtonSpacing,
 } from "./components/Button/props";
+
+export { Input } from "./components/Input/Input";
+export { Textfield } from "./components/Input/Textfield";
+export { Emailfield } from "./components/Input/Emailfield";
+export { Phonefield } from "./components/Input/Phonefield";
+export { Numberfield } from "./components/Input/Numberfield";
+export { Moneyfield } from "./components/Input/Moneyfield";
+export { Searchfield } from "./components/Input/Searchfield";
+export type { IInput } from "./components/Input/Input";
