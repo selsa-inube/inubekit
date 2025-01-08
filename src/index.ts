@@ -87,3 +87,12 @@ export type {
   ISpinnerSize,
   ISpinnerAppearance,
 } from "./components/Spinner/props";
+
+export { Button } from "./components/Button";
+export type { IButton } from "./components/Button";
+export type {
+  IButtonAppearance,
+  IButtonVariant,
+  IButtonType,
+  IButtonSpacing,
+} from "./components/Button/props";
