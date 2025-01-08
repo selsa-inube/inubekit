@@ -113,3 +113,7 @@ export type {
   IAssistedSize,
   IAssistedControls,
 } from "./components/Assisted/props";
+
+export { CountdownBar } from "./components/CountdownBar";
+export type { ICountdownBar } from "./components/CountdownBar";
+export type { ICountdownBarAppearance } from "./components/CountdownBar/props";
