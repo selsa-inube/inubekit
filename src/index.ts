@@ -165,3 +165,26 @@ export type {
   IFNavSection,
   IFNavMenuSection,
 } from "./components/FullscreenNav";
+
+export { Caption } from "./components/Table/Caption";
+export { Col } from "./components/Table/Col";
+export { Colgroup } from "./components/Table/Colgroup";
+export { Pagination } from "./components/Table/Pagination";
+export { Table } from "./components/Table";
+export { Tbody } from "./components/Table/Tbody";
+export { Td } from "./components/Table/Td";
+export { Tfoot } from "./components/Table/Tfoot";
+export { Th } from "./components/Table/Th";
+export { Thead } from "./components/Table/Thead";
+export { Tr } from "./components/Table/Tr";
+export type { ICaption } from "./components/Table/Caption";
+export type { ICol } from "./components/Table/Col";
+export type { IColgroup } from "./components/Table/Colgroup";
+export type { IPagination } from "./components/Table/Pagination";
+export type { ITable } from "./components/Table";
+export type { ITbody } from "./components/Table/Tbody";
+export type { ITd } from "./components/Table/Td";
+export type { ITfoot } from "./components/Table/Tfoot";
+export type { ITh } from "./components/Table/Th";
+export type { IThead } from "./components/Table/Thead";
+export type { ITr } from "./components/Table/Tr";
