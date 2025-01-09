@@ -136,3 +136,13 @@ export type { IFieldsetSpacing } from "./components/Fieldset/props";
 export { Tag } from "./components/Tag";
 export type { ITag } from "./components/Tag";
 export type { ITagAppearance, ITagWeight } from "./components/Tag/props";
+
+export { Nav } from "./components/Nav/Nav";
+export { NavLink } from "./components/Nav/NavLink";
+export type { INav, INavAction } from "./components/Nav/Nav";
+export type { INavLink } from "./components/Nav/NavLink";
+export type {
+  ILink as ILinkNav,
+  INavSection,
+  INavNavigation,
+} from "./components/Nav/Nav/props";
