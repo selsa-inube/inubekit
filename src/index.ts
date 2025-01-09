@@ -188,3 +188,6 @@ export type { ITfoot } from "./components/Table/Tfoot";
 export type { ITh } from "./components/Table/Th";
 export type { IThead } from "./components/Table/Thead";
 export type { ITr } from "./components/Table/Tr";
+
+export { Checkbox } from "./components/Checkbox";
+export type { ICheckbox } from "./components/Checkbox";
