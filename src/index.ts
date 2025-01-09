@@ -146,3 +146,7 @@ export type {
   INavSection,
   INavNavigation,
 } from "./components/Nav/Nav/props";
+
+export { Toggle } from "./components/Toogle";
+export type { IToggle } from "./components/Toogle";
+export type { IToggleSize } from "./components/Toogle/props";
