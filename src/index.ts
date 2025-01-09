@@ -132,3 +132,7 @@ export { SkeletonLine } from "./components/Skeleton/SkeletonLine";
 export { Fieldset } from "./components/Fieldset";
 export type { IFieldset } from "./components/Fieldset";
 export type { IFieldsetSpacing } from "./components/Fieldset/props";
+
+export { Tag } from "./components/Tag";
+export type { ITag } from "./components/Tag";
+export type { ITagAppearance, ITagWeight } from "./components/Tag/props";
