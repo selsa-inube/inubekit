@@ -150,3 +150,10 @@ export type {
 export { Toggle } from "./components/Toogle";
 export type { IToggle } from "./components/Toogle";
 export type { IToggleSize } from "./components/Toogle/props";
+
+export { Textarea } from "./components/Textarea";
+export type { ITextarea } from "./components/Textarea";
+export type {
+  ITextareaAppearence,
+  ITextareaStatus,
+} from "./components/Textarea/props";
