@@ -157,3 +157,11 @@ export type {
   ITextareaAppearence,
   ITextareaStatus,
 } from "./components/Textarea/props";
+
+export { FullscreenNav } from "./components/FullscreenNav";
+export type {
+  IFNav,
+  IFNavigation,
+  IFNavSection,
+  IFNavMenuSection,
+} from "./components/FullscreenNav";
