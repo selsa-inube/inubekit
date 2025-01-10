@@ -206,3 +206,6 @@ export type { IAutocomplete } from "./components/Autocomplete";
 
 export { Autosuggest } from "./components/Autosuggest";
 export type { IAutosuggest } from "./components/Autosuggest";
+
+export { Checkpicker } from "./components/Checkpicker";
+export type { ICheckpicker } from "./components/Checkpicker";
