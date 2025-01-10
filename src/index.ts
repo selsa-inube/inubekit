@@ -203,3 +203,6 @@ export type { ISelectSize } from "./components/Select/props";
 
 export { Autocomplete } from "./components/Autocomplete";
 export type { IAutocomplete } from "./components/Autocomplete";
+
+export { Autosuggest } from "./components/Autosuggest";
+export type { IAutosuggest } from "./components/Autosuggest";
