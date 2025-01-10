@@ -217,3 +217,6 @@ export type { IDateSize, IDateStatus } from "./components/Date/props";
 export { Monthpicker } from "./components/Monthpicker";
 export type { IMonthpicker } from "./components/Monthpicker";
 export type { IMonthpickerOrder } from "./components/Monthpicker/props";
+
+export { ProgressBar } from "./components/ProgressBar";
+export type { IProgressBar } from "./components/ProgressBar";
