@@ -48,6 +48,8 @@ interface IFNav {
   actions?: INavAction[];
   footerLabel?: string;
   footerLogo?: string;
+  logoutPath?: string;
+  logoutTitle?: string;
 }
 
 const MultiSections = ({ navigation }: IFNav) => {

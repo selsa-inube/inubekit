@@ -236,3 +236,6 @@ export type {
   ILink as ILinkUser,
   IAction,
 } from "./components/User/props";
+
+export { Header } from "./components/Header";
+export type { IHeader } from "./components/Header";
