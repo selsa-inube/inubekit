@@ -227,3 +227,12 @@ export type { IRadio } from "./components/Radio";
 export { Yearpicker } from "./components/Yearpicker";
 export type { IYearpicker } from "./components/Yearpicker";
 export type { IYearpickerOrder } from "./components/Yearpicker/props";
+
+export { User } from "./components/User";
+export type { IUser } from "./components/User";
+export type {
+  IUserSize,
+  IMenuSection,
+  ILink as ILinkUser,
+  IAction,
+} from "./components/User/props";
