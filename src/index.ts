@@ -213,3 +213,7 @@ export type { ICheckpicker } from "./components/Checkpicker";
 export { Date } from "./components/Date";
 export type { IDate } from "./components/Date";
 export type { IDateSize, IDateStatus } from "./components/Date/props";
+
+export { Monthpicker } from "./components/Monthpicker";
+export type { IMonthpicker } from "./components/Monthpicker";
+export type { IMonthpickerOrder } from "./components/Monthpicker/props";
