@@ -200,3 +200,6 @@ export type { IOption } from "./components/Select";
 export type { IOptionList } from "./components/Select/OptionList";
 export type { IOptionItem } from "./components/Select/OptionItem";
 export type { ISelectSize } from "./components/Select/props";
+
+export { Autocomplete } from "./components/Autocomplete";
+export type { IAutocomplete } from "./components/Autocomplete";
