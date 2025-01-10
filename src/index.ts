@@ -220,3 +220,6 @@ export type { IMonthpickerOrder } from "./components/Monthpicker/props";
 
 export { ProgressBar } from "./components/ProgressBar";
 export type { IProgressBar } from "./components/ProgressBar";
+
+export { Radio } from "./components/Radio";
+export type { IRadio } from "./components/Radio";
