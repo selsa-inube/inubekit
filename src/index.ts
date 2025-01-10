@@ -191,3 +191,12 @@ export type { ITr } from "./components/Table/Tr";
 
 export { Checkbox } from "./components/Checkbox";
 export type { ICheckbox } from "./components/Checkbox";
+
+export { Select } from "./components/Select";
+export { OptionList } from "./components/Select/OptionList";
+export { OptionItem } from "./components/Select/OptionItem";
+export type { ISelect } from "./components/Select";
+export type { IOption } from "./components/Select";
+export type { IOptionList } from "./components/Select/OptionList";
+export type { IOptionItem } from "./components/Select/OptionItem";
+export type { ISelectSize } from "./components/Select/props";
