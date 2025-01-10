@@ -209,3 +209,7 @@ export type { IAutosuggest } from "./components/Autosuggest";
 
 export { Checkpicker } from "./components/Checkpicker";
 export type { ICheckpicker } from "./components/Checkpicker";
+
+export { Date } from "./components/Date";
+export type { IDate } from "./components/Date";
+export type { IDateSize, IDateStatus } from "./components/Date/props";
