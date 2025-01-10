@@ -223,3 +223,7 @@ export type { IProgressBar } from "./components/ProgressBar";
 
 export { Radio } from "./components/Radio";
 export type { IRadio } from "./components/Radio";
+
+export { Yearpicker } from "./components/Yearpicker";
+export type { IYearpicker } from "./components/Yearpicker";
+export type { IYearpickerOrder } from "./components/Yearpicker/props";
