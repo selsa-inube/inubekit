@@ -5,7 +5,7 @@ import { parameters, props } from "../../Input/props";
 import { IInput } from "../../Input";
 
 const story = {
-  title: "Inputs/EmailField",
+  title: "Inputs/Input/Email",
   component: EmailfieldController,
   argTypes: props,
   parameters,
