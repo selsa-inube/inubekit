@@ -4,7 +4,7 @@ import { parameters, props } from "../../Input/props";
 import { IInput } from "../../Input";
 
 const story = {
-  title: "Inputs/Phonefield",
+  title: "Inputs/Input/Phone",
   component: PhonefieldController,
   argTypes: props,
   parameters,

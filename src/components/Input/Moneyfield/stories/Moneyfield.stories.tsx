@@ -3,7 +3,7 @@ import { parameters, props } from "../../Input/props";
 import { MoneyfieldController } from "./Moneyfield.Controller";
 import { IInput } from "../../Input";
 const story = {
-  title: "Inputs/MoneyField",
+  title: "Inputs/Input/Money",
   component: MoneyfieldController,
   argTypes: props,
   parameters,

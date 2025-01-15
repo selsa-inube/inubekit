@@ -4,7 +4,7 @@ import { parameters, props } from "../../Input/props";
 import { IInput } from "../../Input";
 
 const story = {
-  title: "Inputs/NumberField",
+  title: "Inputs/Input/Number",
   component: NumberfieldController,
   argTypes: props,
   parameters,

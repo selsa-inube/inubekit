@@ -4,7 +4,7 @@ import { parameters, props } from "../../Input/props";
 import { IInput } from "../../Input";
 
 const story = {
-  title: "Inputs/Searchfield",
+  title: "Inputs/Input/Search",
   component: SearchfieldController,
   argTypes: props,
   parameters,
