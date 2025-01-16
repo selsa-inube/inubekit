@@ -7,7 +7,7 @@ This library publishes the `<Text />` component.
 The library is publish in npm.
 
 ```bash
-npm install @inubekit/text
+npm install @inubekit/inubekit
 ```
 
 ## Dependencies
@@ -17,7 +17,7 @@ npm install @inubekit/text
 ## Import
 
 ```jsx
-import { Text } from "@inubekit/text";
+import { Text } from "@inubekit/inubekit";
 ```
 
 ## Props
@@ -27,7 +27,7 @@ import { Text } from "@inubekit/text";
 This prop lets you control the characters you want to render inside the component. It is recommended that you use this prop by typing the characters between the opening and closing tags of the component.
 
 ```jsx
-import { Text } from "@inubekit/text";
+import { Text } from "@inubekit/inubekit";
 
 function Example() {
   return <Text>Type here your text</Text>;
@@ -41,7 +41,7 @@ Controls the color of the rendered text. This prop implements the `ITextAppearan
 1. `"primary" | "success" | "warning" | "danger" | "help" | "dark" | "gray" | "light"`
 2. **default: "dark"**
 
-Each option has a default color value implemented and exported from `@inubekit/foundations` to be used inside the styles of the component. Check the [personalization](#personalization) section to see how to change these defaults.
+Each option has a default color value implemented and exported from `Foundations` component to be used inside the styles of the component. Check the [personalization](#personalization) section to see how to change these defaults.
 
 ### as (optional)
 
@@ -148,13 +148,15 @@ You can check the list of tokens in [TOKENS.md](./TOKENS.md)
 
 By default, all components of inubekit are able to use "Roboto" as its fontface. If you want to change this in your app, you have to complete a two step process:
 
-1. Install the new font-face you want to use (if such font-face is not pre-installed in the browser). This installation can be performed by the conventional method of adding link elements in your the index.html document of your app (compilation option) or by dinamically installing the font in runtime. For the second option, check the useFonts() hook exported from [@inubekit/hooks](https://www.npmjs.com/package/@inubekit/hooks).
-2. After installing the font-faces, you can then use them consistently in the whole app. For that, you must edit the typography tokens in the client token structure so that instead of using "Roboto" you can apply the new font. To see the structure of typography tokens you can check [@inubekit/foundations](https://www.npmjs.com/package/@inubekit/foundations). If you change the typography token values, the `<Text />` component will automatically use them to render texts. The same will happen to the rest of components that use the typography tokens as well in their styles definitions.
+1. Install the new font-face you want to use (if such font-face is not pre-installed in the browser). This installation can be performed by the conventional method of adding link elements in your the index.html document of your app (compilation option) or by dinamically installing the font in runtime. For the second option, check the useFonts() hook found in the **Hooks** component.
+2. After installing the font-faces, you can then use them consistently in the whole app. For that, you must edit the typography tokens in the client token structure so that instead of using "Roboto" you can apply the new font. To see the structure of typography tokens you can refer to the **Foundations** component.
+
+If you change the typography token values, the `<Text />` component will automatically use them to render texts. The same will happen to the rest of components that use the typography tokens as well in their styles definitions.
 
 ```js
 businessUnit = {
   typography: {
-    // .. structure defined in @inubekit/foundations
+    // .. structure defined in Foundations component
   },
 };
 ```
@@ -166,4 +168,4 @@ You can change the presentation of the component by adjusting its tokens. This m
 1. You must use the current token structure, since the component styling relies on that data structure to get the values.
 2. Color tokens rely on the palette token structure. This means that the business unit should already have a set of colors defined as a palette and those colors serve as options to be assigned here.
 
-> 💡 To see more details about the palette token structure check **@ınubekit/foundations**.
+> 💡 To see more details about the palette token structure check the **Foundations component** in the library.
