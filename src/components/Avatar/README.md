@@ -1,32 +1,34 @@
 # Avatar
 
-This library publishes the `<Avatar />` component.
+Esta librería publica el componente `<Avatar />`.
 
-## Installation
+## Instalación
+
+La librería está publicada en npm.
 
 ```bash
-npm install @inubekit/avatar
+npm install @inubekit/inubekit
 ```
 
-## Dependencies
+## Dependencias
 
-- **styled-components**: this library must be installed in your project in order to be able to use the component.
+- **styled-components**: esta librería debe estar instalada en tu proyecto para poder usar el componente.
 
-## Import
+## Importación
 
 ```jsx
-import { Avatar } from "@inubekit/avatar";
+import { Avatar } from "@inubekit/inubekit";
 ```
 
 ## Props
 
-### onClick (optional)
+### onClick (opcional)
 
-This prop gets a function that will be executed when the user click on the component. The function will get the click event as an argument when executed.
+Esta propiedad recibe una función que se ejecutará cuando el usuario haga clic en el componente. La función recibirá el evento de clic como argumento al ejecutarse.
 
-## Personalization
+## Personalización
 
 ### Tokens
 
-- This component doesn't support tokens.
-- The component implements the `<Icon />` component, and the appearance of it will match what the business unit defines as a primary icon. For more information check [@inubekit/icon](https://www.npmjs.com/package/@inubekit/icon)
+- Este componente no soporta tokens.
+- El componente implementa `<Icon />` y su apariencia coincidirá con lo que la unidad de negocio define como un ícono primario. Para más información, consulta el componente [Icon](../Icon/README.md).
