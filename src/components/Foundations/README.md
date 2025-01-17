@@ -7,7 +7,13 @@ This library publishes core tokens that are used by each individual component. T
 The library is publish in npm.
 
 ```bash
-npm install @inubekit/foundations
+npm install @inubekit/inubekit
+```
+
+## Import
+
+```jsx
+import { inube } from "@inubekit/inubekit";
 ```
 
 ## Usage
@@ -40,4 +46,4 @@ This part of the structure is shared among multiple components that need to rend
 Options for installing fonts:
 
 1. You can manually install the font in your app by using links in your index.html or by installing it directly with @font-face rules in CSS.
-2. You can use the `useFonts()` hook provided by [@inubekit/hooks](https://www.npmjs.com/package/@inubekit/hooks) to install fonts dynamically in runtime (useful when your single application must support multiple clients, each one with a different font).
+2. You can use the `useFonts()` hook found in the **Hooks** component to install fonts dynamically in runtime (useful when your single application must support multiple clients, each one with a different font).
