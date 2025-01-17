@@ -1,20 +1,20 @@
 # Text
 
-This library publishes the `<Text />` component.
+Esta librería publica el componente `<Text />`.
 
-## Installation
+## Instalación
 
-The library is publish in npm.
+La librería está publicada en npm.
 
 ```bash
 npm install @inubekit/inubekit
 ```
 
-## Dependencies
+## Dependencias
 
-- **styled-components**: this library must be installed in your project in order to be able to use the component.
+- **styled-components**: esta librería debe estar instalada en tu proyecto para poder usar el componente.
 
-## Import
+## Importación
 
 ```jsx
 import { Text } from "@inubekit/inubekit";
@@ -24,148 +24,148 @@ import { Text } from "@inubekit/inubekit";
 
 ### children
 
-This prop lets you control the characters you want to render inside the component. It is recommended that you use this prop by typing the characters between the opening and closing tags of the component.
+Esta propiedad te permite controlar los caracteres que deseas renderizar dentro del componente. Se recomienda usar esta propiedad escribiendo los caracteres entre las etiquetas de apertura y cierre del componente.
 
 ```jsx
 import { Text } from "@inubekit/inubekit";
 
-function Example() {
-  return <Text>Type here your text</Text>;
+function Ejemplo() {
+  return <Text>Escribe aquí tu texto</Text>;
 }
 ```
 
-### appearance (optional)
+### appearance (opcional)
 
-Controls the color of the rendered text. This prop implements the `ITextAppearance` interface which controls that you can only use the following set of options:
+Controla el color del texto renderizado. Esta propiedad implementa la interfaz `ITextAppearance`,que garantiza que solo puedas usar las siguientes opciones:
 
 1. `"primary" | "success" | "warning" | "danger" | "help" | "dark" | "gray" | "light"`
-2. **default: "dark"**
+2. **Por defecto: "dark"**
 
-Each option has a default color value implemented and exported from `Foundations` component to be used inside the styles of the component. Check the [personalization](#personalization) section to see how to change these defaults.
+Cada opción tiene un valor de color predeterminado implementado y exportado desde el componente `Foundations` para ser usado dentro de los estilos del componente. Consulta la sección de [personalización](#personalización) para saber cómo cambiar estos valores predeterminados.
 
-### as (optional)
+### as (opcional)
 
-If you want to change the element that is going to be inserted in the DOM, you can use the `as` prop.
+Si deseas cambiar el elemento que se insertará en el DOM, puedes usar la propiedad `as`.
 
-This prop implements the `ITextHTMLElement`interface which lets you use the following set of options:
+Esta propiedad implementa la interfaz `ITextHTMLElement`, que permite usar las siguientes opciones:
 
 1. `"blockquote" | "figcaption" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "legend" | "p" | "span"`.
-2. **default: "p"**
+2. **Por defecto: "p"**
 
-### type (optional)
+### type (opcional)
 
-This component implements 5 types of texts, which enable text to have different roles within an interface. Possible options are implemented through the `ITextType` interface:
+Este componente implementa 5 tipos de texto, que permiten asignar diferentes roles al texto dentro de una interfaz. Las opciones posibles están implementadas a través de la interfaz `ITextType`:
 
 1. `"display" | "headline" | "title" | "body" | "label"`
-2. **default: "body"**
+2. **Por defecto: "body"**
 
-Check the [personalization](#personalization) section to see how to change the CSS values that correspond to each type.
+Consulta la sección de [personalización](#personalización) para saber cómo cambiar los valores CSS que corresponden a cada tipo.
 
-### size (optional)
+### size (opcional)
 
-Even though there are 5 types of texts, each type has three internal variants in size. This is useful particularly in responsive scenarios. Possible options are implemented through the `ITextSize` interface:
+Aunque hay 5 tipos de texto, cada tipo tiene tres variantes internas en tamaño. Esto es particularmente útil en escenarios responsivos. Las opciones posibles están implementadas a través de la interfaz `ITextSize`:
 
 1. `"large" | "medium" | "small"`
-2. **default: "large"**
+2. **Por defecto: "large"**
 
-Check the [personalization](#personalization) section to see how to change the CSS values that correspond to each type.
+Consulta la sección de [personalización](#personalización) para saber cómo cambiar los valores CSS que corresponden a cada tamaño.
 
-### weight (optional)
+### weight (opcional)
 
-Controls the `font-weight` CSS property of the text. It receives numbers or strings that are suitable with the CSS property.
+Controla la propiedad CSS `font-weight` del texto. Recibe números o cadenas compatibles con esta propiedad CSS.
 
-1. **default: "normal"**
-2. You can explore the mapping between values and names in [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-weight#common_weight_name_mapping).
-3. **IMPORTANT:** when you create the typography for the business unit, you must provide the URL to add the @font-face that corresponds with the font-weight you want to use in components like <Text />. This means that if you set here the value "bold" for your text, the @font-face should have defined how to create the bold variant for the business unit font-family. If you forget to do so, the browser will attempt to build by itself the variant, which may cause that the characters look different from what the author of the font intended. See more about this in [typography](#typography) personalization.
+1. **Por defecto: "normal"**
+2. Puedes explorar el mapeo entre valores y nombres en [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-weight#common_weight_name_mapping).
+3. **IMPORTANTE:** cuando crees la tipografía para la unidad de negocio, debes proporcionar la URL para agregar el @font-face que corresponda al peso de fuente que desees usar en componentes como <Text />. Esto significa que si usted establece aquí el valor "bold" para su texto, la @font-face debería haber definido cómo crear la variante negrita para la familia de fuentes de la unidad de negocio. Si olvidas hacerlo, el navegador intentará construir la variante por sí mismo, lo que puede hacer que los caracteres se vean diferentes a lo previsto. Consulta más información en la sección de [tipografía](#tipografía).
 
-### margin (optional)
+### margin (opcional)
 
-Lets you control the `margin` CSS property.
+Permite controlar la propiedad CSS `margin`.
 
-1. **default: "0px"**
-2. You can pass any string value that is a valid margin CSS value.
+1. **Por defecto: "0px"**
+2. Puedes pasar cualquier valor válido de margin en CSS.
 
-### padding (optional)
+### padding (opcional)
 
-Lets you control the `padding` CSS property.
+Permite controlar la propiedad CSS `padding`.
 
-1. **default: "0px"**
-2. You can pass any string value that is a valid padding CSS value.
+1. **Por defecto: "0px"**
+2. Puedes pasar cualquier valor válido de padding en CSS.
 
-### textAlign (optional)
+### textAlign (opcional)
 
-Lets you control the `text-align` CSS property.
+Permite controlar la propiedad CSS `text-align`.
 
-1. **default: "start"**
-2. You can pass any string value that is a valid text-align CSS value. Check possible options in [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align#values)
+1. **Por defecto: "start"**
+2. Puedes pasar cualquier valor válido de text-align en CSS. Consulta las opciones posibles en [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align#values)
 
-### ellipsis (optional)
+### ellipsis (opcional)
 
-Boolean prop that lets you control how to handle the text when it overflows its parent container. Behind the scenes, this is just the implementation of the `text-overflow` CSS property.
+Propiedad booleana que permite controlar cómo manejar el texto cuando excede el contenedor principal. Implementa la propiedad CSS `text-overflow`.
 
-1. **default: false**
-2. When `false`, the CSS property will use the "clip" variant, which causes the text to be truncated. See more in [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow#values)
+1. **Por defecto: false**
+2. Cuando es `false`, la propiedad CSS usará la variante "clip", truncando el texto. Consulta más en [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow#values)
 
-### disabled (optional)
+### disabled (opcional)
 
-Each text [appearance](#appearance-optional) can have a status of `disabled`. This boolean prop lets you toggle that status.
+Cada [appearance](#appearance-opcional) del texto puede tener un estado `disabled`. Esta propiedad booleana te permite activar o desactivar ese estado.
 
-1. **default: false**
-2. See [personalization](#personalization) for more information about how to adjust the disabled styling per appearance variant.
+1. **Por defecto: false**
+2. Consulta la sección de [personalización](#personalización) para más información sobre cómo ajustar el estilo deshabilitado por variante de apariencia.
 
-### onClick (optional)
+### onClick (opcional)
 
-This prop gets a function that will be executed when the user click on the text (if the text is enabled). The function will get the click event as an argument when executed.
+Esta propiedad recibe una función que se ejecutará cuando el usuario haga clic en el texto (si el texto está habilitado). La función recibirá el evento de clic como argumento.
 
-### cursorHover (optional)
+### cursorHover (opcional)
 
-Boolean prop that lets you enable a hover behavior for the text. This will change the cursor and color when the text is hovered. Its **default** value is `false`.
+Propiedad booleana que permite habilitar un comportamiento de hover para el texto. Esto cambiará el cursor y el color cuando el texto sea hovered. Su valor **por defecto** es `false`.
 
-### parentHover (optional)
+### parentHover (opcional)
 
-Sometimes the text belongs to a bigger component and we want to change the rendering of the text to a hover state even when the cursor is over the bigger component but not exactly over the text itself.
+A veces, el texto pertenece a un componente más grande y queremos cambiar el estado del texto a hover incluso cuando el cursor está sobre el componente más grande pero no directamente sobre el texto.
 
-- **default**: `false`
-- This behavior is common when that bigger component is a card. In that case we would like to change the text to its hover state when the cursor is over the card.
-- Its usage means that the parent component of the text will have to intercept the hover on itself and then change the `parentHover` prop value to `true`.
-- While `cursorHover` let's the text intercept the hover by the itself using its own CSS rules for that, `parentHover` is a controlled prop that forces the hover behavior on the text.
+- **Por defecto:** `false`
+- Este comportamiento es común cuando ese componente más grande es una tarjeta. En ese caso, queremos que el texto cambie a su estado hover cuando el cursor esté sobre la tarjeta.
+- Su uso significa que el componente padre del texto tendrá que interceptar el hover sobre sí mismo y luego cambiar el valor de la proposición de `parentHover` a `true`.
+- En `cursorHover` vamos a interceptar el texto de hover utilizando sus propias reglas CSS. Por otro lado, `parentHover` es una prop controlada que define el comportamiento de hover en el texto.
 
-## Personalization
+## Personalización
 
-### Token structure
+### Estructura de tokens
 
-The tokens for this component follow the structure `business-unit.component.appearance.property.subproperty.modifier`.
+Los tokens para este componente siguen la estructura `business-unit.component.appearance.property.subproperty.modifier`.
 
-### Properties
+### Propiedades
 
-- **content**: used to control the color of the text.
+- **content**: se utiliza para controlar el color del texto.
 
 ### Tokens
 
-You can check the list of tokens in [TOKENS.md](./TOKENS.md)
+Puedes consultar la lista de tokens en [TOKENS.md](./TOKENS.md)
 
-### Typography
+### Tipografía
 
-By default, all components of inubekit are able to use "Roboto" as its fontface. If you want to change this in your app, you have to complete a two step process:
+Por defecto, todos los componentes de inubekit utilizan "Roboto" como fuente. Si deseas cambiar esto en tu aplicación, debes completar dos pasos:
 
-1. Install the new font-face you want to use (if such font-face is not pre-installed in the browser). This installation can be performed by the conventional method of adding link elements in your the index.html document of your app (compilation option) or by dinamically installing the font in runtime. For the second option, check the useFonts() hook found in the **Hooks** component.
-2. After installing the font-faces, you can then use them consistently in the whole app. For that, you must edit the typography tokens in the client token structure so that instead of using "Roboto" you can apply the new font. To see the structure of typography tokens you can refer to the **Foundations** component.
+1. Instala la nueva fuente que deseas usar (si esta fuente no está preinstalada en el navegador). Esta instalación puede realizarse mediante el método convencional de agregar elementos de enlace en tu documento index.html de la aplicación (opción de compilación) o instalando dinámicamente la fuente en tiempo de ejecución. Para la segunda opción, consulta el hook useFonts() que se encuentra en el componente **Hooks**.
+2. Después de instalar las fuentes, puedes utilizarlas de manera consistente en toda la aplicación. Para ello, debes editar los tokens de tipografía en la estructura de tokens del cliente, de modo que en lugar de usar "Roboto", puedas aplicar la nueva fuente. Para ver la estructura de los tokens de tipografía, puedes referirte al componente **Foundations**.
 
-If you change the typography token values, the `<Text />` component will automatically use them to render texts. The same will happen to the rest of components that use the typography tokens as well in their styles definitions.
+Si cambias los valores de los tokens de tipografía, el componente `<Text />` los usará automáticamente para renderizar los textos. Lo mismo ocurrirá con el resto de componentes que utilicen los tokens de tipografía en sus estilos.
 
 ```js
 businessUnit = {
   typography: {
-    // .. structure defined in Foundations component
+    // .. estructura definida en el componente Foundations
   },
 };
 ```
 
-### Changing tokens
+### Cambiando tokens
 
-You can change the presentation of the component by adjusting its tokens. This modification has the next constraints:
+Puedes cambiar la presentación del componente ajustando sus tokens. Estas modificaciones tienen las siguientes restricciones:
 
-1. You must use the current token structure, since the component styling relies on that data structure to get the values.
-2. Color tokens rely on the palette token structure. This means that the business unit should already have a set of colors defined as a palette and those colors serve as options to be assigned here.
+1. Debes usar la estructura actual de tokens, ya que el estilo del componente depende de esa estructura de datos.
+2. Los tokens de color dependen de la estructura de tokens de paleta. Esto significa que la unidad de negocio debe tener un conjunto de colores definidos como paleta, y esos colores sirven como opciones para asignar aquí.
 
-> 💡 To see more details about the palette token structure check the **Foundations component** in the library.
+> 💡 Para ver más detalles sobre la estructura de tokens de paleta, consulta el componente **Foundations** en la librería.
