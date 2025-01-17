@@ -1,36 +1,36 @@
 # Icon
 
-This library publishes the `<Icon />` component.
+Esta librería publica el componente `<Icon />`.
 
-## Installation
+## Instalación
 
-The library is publish in npm.
+La librería está publicada en npm.
 
 ```bash
-npm install @inubekit/icon
+npm install @inubekit/inubekit
 ```
 
-## Dependencies
+## Dependencias
 
-- **styled-components**: this library must be installed in your project in order to be able to use the component.
-- **react-icons**: This component is implemented using [react-icons](https://react-icons.github.io/react-icons/) as a dependency, since all the icons that can be rendered must belong to that library.
+- **styled-components**: esta librería debe estar instalada en tu proyecto para poder usar el componente.
+- **react-icons**: Este componente se implementa utilizando [react-icons](https://react-icons.github.io/react-icons/) como una dependencia, ya que todos los íconos que se pueden renderizar deben pertenecer a esa biblioteca.
 
-## Import
+## Importación
 
 ```jsx
-import { Icon } from "@inubekit/icon";
+import { Icon } from "@inubekit/inubekit";
 ```
 
 ## Props
 
 ### icon
 
-Use this prop to indicate which icon from react-icons you wish to render.
+Use esta propiedad para indicar qué ícono de react-icons desea renderizar.
 
-**Note:** As a design rule, use icons from Material Design Icons _(md)_ only. The whole design system is based on that set of icons.
+**Nota:** Como regla de diseño, utilice íconos solo de Material Design Icons _(md)_. odo el sistema de diseño se basa en ese conjunto de íconos.
 
 ```jsx
-import { Icon } from "@inubekit/icon";
+import { Icon } from "@inubekit/inubekit";
 import { MdAdd } from "react-icons/md";
 
 function Example() {
@@ -42,87 +42,87 @@ function Example() {
 }
 ```
 
-### appearance (required)
+### appearance (requerido)
 
-Controls the color of the rendered icon. This prop implements the IIconAppearance interface which controls that you can only use the following set of options:
+Controla el color del ícono renderizado. Esta propiedad implementa la interfaz IIconAppearance, que asegura que solo se puedan utilizar las siguientes opciones:
 
 `"primary" | "success" | "warning" | "danger" | "help" | "dark" | "gray" | "light"`
 
-Each option has a default color value implemented and exported from `@inubekit/foundations` to be used inside the styles of the component. Check the [personalization](#personalization) section to see how to change these defaults.
+Cada opción tiene un valor de color predeterminado implementado y exportado desde el componente `Foundations` para ser utilizado dentro de los estilos del componente. Consulta la sección de [personalización](#personalización) para ver cómo cambiar estos valores predeterminados.
 
-### size (optional)
+### size (opcional)
 
-Control the size of the icon using any dimensional value you need. Consider:
+Controla el tamaño del ícono utilizando cualquier valor dimensional que necesites. Considera lo siguiente:
 
-1. **default**: "24px".
-2. You can pass any string as long as it is a valid value for `width` and `height` CSS properties.
-3. You will see below that you can change the variant, shape and spacing props of the icon. Regardless of those values, the whole icon will use the size you specify in this prop (just like working with the `box-sizing: "border-box"` CSS property)
+1. **Por defecto:**: "24px".
+2. Puedes pasar cualquier cadena siempre que sea un valor válido para las propiedades CSS `width` y `height`.
+3. Verás a continuación que puedes cambiar las propiedades de variante, forma y espaciado del ícono. Independientemente de esos valores, todo el ícono utilizará el tamaño que especifiques en esta propiedad (al igual que al trabajar con la propiedad CSS `box-sizing: "border-box"`).
 
-### variant (optional)
+### variant (opcional)
 
-Icons may require a frame sometimes. This prop implements the IIconVariant interface so you control that frame with three possible values:
+Los íconos pueden requerir un marco en ocasiones. Esta propiedad implementa la interfaz IIconVariant, por lo que puedes controlar ese marco con tres valores posibles:
 
-- `"empty"` **(default)**: The icon is rendered alone. Just the icon and nothing else.
-- `"outlined"`: Use this value if the icon should be surrounded with a border. The border uses the same color as the icon.
-- `"filled"`: Use this value if you want the icon to be on top of a solid background. In this case, the [appearance](#appearance-required) you selected will affect the background color and the icon will use a contrast color on top.
+- `"empty"` **(Por defecto)**: El ícono se renderiza solo. Solo el ícono y nada más.
+- `"outlined"`: Utiliza este valor si el ícono debe estar rodeado por un borde. El borde utiliza el mismo color que el ícono.
+- `"filled"`: Utiliza este valor si deseas que el ícono esté sobre un fondo sólido. En este caso, la [appearance](#appearance-requerido) que seleccionaste afectará el color de fondo y el ícono utilizará un color de contraste encima.
 
-### shape (optional)
+### shape (opcional)
 
-Derived from the variant prop, in some scenarios we may want to change the shape of the icon's frame. This prop implements the IIconShape interface so you can use the following shapes:
+Derivado de la propiedad de variante, en algunos escenarios podemos querer cambiar la forma del marco del ícono. Esta propiedad implementa la interfaz IIconShape, por lo que puedes utilizar las siguientes formas:
 
-- `"rectangle"` **(default)**
+- `"rectangle"` **(Por defecto)**
 - `"circle"`
 
-### spacing (optional)
+### spacing (opcional)
 
-Some icons have an internal implementation that causes the icon to be close or almost touch the border of its container. This can become a frequent issue when you implement a frame around the icon. For these scenarios, the spacing prop implements the IIconSpacing interface so you can control the space between the icon and its container like this:
+Algunos íconos tienen una implementación interna que hace que el ícono esté cerca o casi toque el borde de su contenedor. Esto puede convertirse en un problema frecuente cuando implementas un marco alrededor del ícono. Para estos escenarios, la propiedad de espaciado implementa la interfaz IIconSpacing, por lo que puedes controlar el espacio entre el ícono y su contenedor de la siguiente manera
 
-- `narrow` **(default)**: There is a "2px" padding between the icon and its container.
-- `compact`: There is a "4px" padding.
-- `wide`: There is a "8px" padding.
+- `narrow` **(Por defecto)**: Hay un padding de "2px" entre el ícono y su contenedor.
+- `compact`: Hay un padding de "4px".
+- `wide`: Hay un padding de "8px".
 
-### disabled (optional)
+### disabled (opcional)
 
-This is a boolean prop to control whether the icon should be disabled or not. There are some default styling values when the icon is disabled, if you want to change them check the [personalization](#personalization) section.
+Esta es una propiedad booleano para controlar si el ícono debe estar deshabilitado o no. Hay algunos valores de estilo predeterminados cuando el ícono está deshabilitado; si deseas cambiarlos, consulta la sección de [personalización](#personalización).
 
-### onClick (optional)
+### onClick (opcional)
 
-This prop gets a function that will be executed when the user click on the icon (if the icon is enabled). The function will get the click event as an argument when executed.
+Esta propiedad recibe una función que se ejecutará cuando el usuario haga clic en el ícono (si el ícono está habilitado). La función recibirá el evento de clic como argumento al ser ejecutada.
 
 ### cursorHover (optional)
 
-Boolean prop that lets you enable a hover behavior for the icon. This will change the cursor when the icon is hovered as well as the color of the icon (and its frame if it has one). Its **default** value is `false`.
+Propiedad booleano que te permite habilitar un comportamiento de hover para el ícono. Esto cambiará el cursor cuando el ícono esté en estado de hover, así como el color del ícono (y su marco si lo tiene). Su valor **por defecto** es `false`.
 
 ### parentHover (optional)
 
-Sometimes the icon belongs to a bigger component and we want to change the rendering of the icon to a hover state even when the cursor is over the bigger component but not exactly over the icon itself.
+A veces, el ícono pertenece a un componente más grande y queremos cambiar la representación del ícono a un estado de hover incluso cuando el cursor está sobre el componente más grande, pero no exactamente sobre el ícono en sí.
 
-- **default**: `false`
-- This behavior is common when that bigger component is a card. In that case we would like to change the icon to its hover state when the cursor is over the card.
-- Its usage means that the parent component of the icon will have to intercept the hover on itself and then change the `parentHover` prop value to `true`.
-- While `cursorHover` let's the icon intercept the hover by the itself using its own CSS rules for that, `parentHover` is a controlled prop that forces the hover behavior on the icon.
+- **Por defecto**: `false`
+- Este comportamiento es común cuando ese componente más grande es una tarjeta. En ese caso, nos gustaría cambiar el ícono a su estado de hover cuando el cursor está sobre la tarjeta.
+- Su uso significa que el componente padre del ícono deberá interceptar el hover sobre sí mismo y luego cambiar el valor de la propiedad `parentHover` a `true`.
+- Mientras que `cursorHover` permite que el ícono intercepte el hover por sí mismo utilizando sus propias reglas CSS para eso, `parentHover` es una propiedad controlada que fuerza el comportamiento de hover en el ícono.
 
-## Personalization
+## Personalización
 
-### Token structure
+### Estructura de tokens
 
-The tokens for this component follow the structure `business-unit.component.appearance.property.subproperty.modifier`.
+Los tokens para este componente siguen la estructura `business-unit.component.appearance.property.subproperty.modifier`.
 
-### Properties
+### Propiedades
 
-- **content**: used to control the color of the icon.
-- **background**: used to control the background of the icon when the `filled` variant applies.
-- **contrast**: used to control the color of the icon when the `filled` variant applies.
+- **content**: se utiliza para controlar el color del ícono.
+- **background**: se utiliza para controlar el fondo del ícono cuando se aplica la variante `filled`.
+- **contrast**: se utiliza para controlar el color del ícono cuando se aplica la variante `filled`.
 
 ### Tokens
 
-You can check the list of tokens in [TOKENS.md](./TOKENS.md)
+Puedes consultar la lista de tokens en [TOKENS.md](./TOKENS.md)
 
-### Changing tokens
+### Cambiando tokens
 
-You can change the presentation of the component by adjusting its tokens. This modification has the next constraints:
+Puedes cambiar la presentación del componente ajustando sus tokens. Esta modificación tiene las siguientes restricciones:
 
-1. You must use the current token structure, since the component styling relies on that data structure to get the values.
-2. The tokens rely on the palette token structure. This means that the business unit should already have a set of colors defined as a palette and those colors serve as options to be assigned here.
+1. Debes utilizar la estructura de tokens actual, ya que el estilo del componente depende de esa estructura de datos para obtener los valores.
+2. Los tokens se basan en la estructura de tokens de palette. Esto significa que la unidad de negocio debe tener ya un conjunto de colores definidos como palette, y esos colores sirven como opciones para ser asignadas aquí.
 
-> 💡 To see more details about the palette token structure check **@ınubekit/foundations**.
+> 💡 Para ver más detalles sobre la estructura de tokens de paleta, consulta el componente **Foundations** en la librería.
