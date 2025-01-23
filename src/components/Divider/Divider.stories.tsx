@@ -12,6 +12,8 @@ const Default = (args: IDivider) => <Divider {...args} />;
 
 Default.args = {
   dashed: false,
+  marginTop: "24px",
+  marginBottom: "8px",
 };
 
 export { Default };
