@@ -3,10 +3,11 @@ import { tokens } from "./tokens";
 
 const StyledDivider = styled.hr`
   border: 0;
+  width: 100%;
   border-top: 2px ${({ $dashed }) => ($dashed ? "dashed" : "solid")}
     ${({ theme }) => theme?.divider?.stroke?.color || tokens.stroke.color};
-  width: 100%;
-  margin: 0;
+  margin: ${({ $marginTop, $marginBottom }) =>
+    `${$marginTop} 0 ${$marginBottom}`};
 `;
 
 export { StyledDivider };
