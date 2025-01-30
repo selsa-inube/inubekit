@@ -1,5 +1,3 @@
-import { useLocation } from "react-router-dom";
-
 import { Text } from "../../Text";
 import { ITextAppearance } from "../../Text/props";
 import { Stack } from "../../Stack";
@@ -49,8 +47,6 @@ const defaultAnimationValues = {
 const Links = (props: INavLink) => {
   const { section } = props;
 
-  const location = useLocation();
-
   const LinkElements = section.map((sectionObject) => (
     <NavLink
       key={sectionObject.id}
@@ -58,7 +54,7 @@ const Links = (props: INavLink) => {
       label={sectionObject.label}
       icon={sectionObject.icon}
       path={sectionObject.path}
-      selected={location.pathname === sectionObject.path}
+      selected={sectionObject.isActive}
     />
   ));
   return <>{LinkElements}</>;
@@ -81,35 +77,36 @@ const MultiSections = ({
     tokens.subtitle.appearance.expanded;
 
   useEffect(() => {
-    if (collapse && Object.keys(navigation.sections).length > 0) {
+    if (collapse) {
+      const activeSection = Object.values(navigation.sections).find((section) =>
+        Object.values(section.links).some((link) => link.isActive),
+      );
+
       setExpandedSection(
-        Object.keys(navigation.sections)[0].toLocaleUpperCase(),
+        activeSection?.name || Object.values(navigation.sections)[0]?.name,
       );
     }
   }, [collapse, navigation.sections]);
 
   const toggleSection = (sectionName: string) => {
-    setExpandedSection((prevSection) =>
-      prevSection === sectionName ? null : sectionName,
-    );
+    setExpandedSection((prev) => (prev === sectionName ? null : sectionName));
   };
 
   return (
     <Stack direction="column">
-      {Object.keys(navigation.sections).map((section) => {
-        const isExpanded = collapse
-          ? expandedSection === navigation.sections[section].name
-          : true;
+      {Object.keys(navigation.sections).map((sectionKey) => {
+        const section = navigation.sections[sectionKey];
+        const isExpanded = collapse ? expandedSection === section.name : true;
 
         return (
           <Stack
-            key={navigation.sections[section].name}
+            key={navigation.sections[sectionKey].name}
             direction="column"
             justifyContent="center"
           >
             <StyledCollapseContainer
               onClick={() =>
-                collapse && toggleSection(navigation.sections[section].name)
+                collapse && toggleSection(navigation.sections[sectionKey].name)
               }
               $collapse={collapse}
               $expanded={isExpanded}
@@ -133,7 +130,7 @@ const MultiSections = ({
                   textAlign="start"
                   weight="bold"
                 >
-                  {navigation.sections[section].name}
+                  {navigation.sections[sectionKey].name}
                 </Text>
                 {collapse && (
                   <Icon
@@ -157,7 +154,9 @@ const MultiSections = ({
               {isExpanded && (
                 <Stack direction="column">
                   <Links
-                    section={Object.values(navigation.sections[section].links)}
+                    section={Object.values(
+                      navigation.sections[sectionKey].links,
+                    )}
                   />
                 </Stack>
               )}

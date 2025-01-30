@@ -3,6 +3,7 @@ interface ILink {
   label: string;
   icon: React.ReactNode;
   path: string;
+  isActive?: boolean;
 }
 
 interface INavSection {

@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
 import {
   MdKey,
   MdMeetingRoom,
@@ -37,7 +37,32 @@ const story = {
   ],
 };
 
-const WithFooterProps = (args: INav) => <Nav {...args} />;
+const WithFooterProps = (args: INav) => {
+  const location = useLocation();
+
+  const updatedNavigation = {
+    ...args.navigation,
+    sections: Object.fromEntries(
+      Object.entries(args.navigation.sections).map(([key, section]) => [
+        key,
+        {
+          ...section,
+          links: Object.fromEntries(
+            Object.entries(section.links).map(([linkKey, link]) => [
+              linkKey,
+              {
+                ...link,
+                isActive: location.pathname === link.path,
+              },
+            ]),
+          ),
+        },
+      ]),
+    ),
+  };
+
+  return <Nav {...{ ...args, navigation: updatedNavigation }} />;
+};
 
 WithFooterProps.args = {
   navigation: {
