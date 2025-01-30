@@ -35,6 +35,7 @@ interface IFNavSection {
 
 interface IFNavMenuSection {
   navigation: IFNavigation;
+  onClose: () => void;
 }
 
 interface IFNavigation {
@@ -52,7 +53,7 @@ interface IFNav {
   logoutTitle?: string;
 }
 
-const MultiSections = ({ navigation }: IFNav) => {
+const MultiSections = ({ navigation, onClose }: IFNavMenuSection) => {
   const sections = Object.keys(navigation.sections);
   const theme = useContext(ThemeContext) as { fullscreenNav: typeof tokens };
   const selectedNavLinkAppearance =
@@ -61,6 +62,7 @@ const MultiSections = ({ navigation }: IFNav) => {
   const regularNavLinkAppearance =
     (theme?.fullscreenNav?.link?.appearance?.regular as IIconAppearance) ||
     tokens.link.appearance.regular;
+
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   const toggleSection = (section: string) => {
@@ -120,7 +122,10 @@ const MultiSections = ({ navigation }: IFNav) => {
                     label={linkValue.label}
                     icon={linkValue.icon}
                     path={linkValue.path}
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onClose();
+                    }}
                   />
                 ),
               )}
@@ -132,12 +137,14 @@ const MultiSections = ({ navigation }: IFNav) => {
   );
 };
 
-const TwoSections = ({ navigation }: IFNavMenuSection) => {
+const TwoSections = ({ navigation, onClose }: IFNavMenuSection) => {
   const navigationSectionValues = Object.values(navigation.sections);
   const theme = useContext(ThemeContext) as { fullscreenNav: typeof tokens };
+
   const titleAppearance =
     (theme?.fullscreenNav?.title?.appearance as ITextAppearance) ||
     tokens.title.appearance;
+
   return (
     <Stack direction="column">
       {navigationSectionValues.map((sectionValue) => (
@@ -160,6 +167,7 @@ const TwoSections = ({ navigation }: IFNavMenuSection) => {
                 label={linkValue.label}
                 icon={linkValue.icon}
                 path={linkValue.path}
+                onClick={() => onClose()}
               />
             ))}
           </Stack>
@@ -169,7 +177,7 @@ const TwoSections = ({ navigation }: IFNavMenuSection) => {
   );
 };
 
-const OneSection = ({ navigation }: IFNavMenuSection) => {
+const OneSection = ({ navigation, onClose }: IFNavMenuSection) => {
   const sectionValue = Object.values(navigation.sections)[0];
 
   return (
@@ -181,6 +189,7 @@ const OneSection = ({ navigation }: IFNavMenuSection) => {
           label={linkValue.label}
           icon={linkValue.icon}
           path={linkValue.path}
+          onClick={() => onClose()}
         />
       ))}
     </Stack>
@@ -189,11 +198,9 @@ const OneSection = ({ navigation }: IFNavMenuSection) => {
 
 const sectionsComponents: {
   [key: number]: ({ navigation }: IFNavMenuSection) => JSX.Element;
-  default: (props: IFNav) => JSX.Element;
 } = {
   1: OneSection,
   2: TwoSections,
-  default: MultiSections,
 };
 
 const FullscreenMenu = (
@@ -203,26 +210,26 @@ const FullscreenMenu = (
     navigation,
     actions,
     onClose,
-    footerLabel = "©2024 - Inube",
+    footerLabel = "©2025 - Inube",
     footerLogo,
   } = props;
+
   const theme = useContext(ThemeContext) as { fullscreenNav: typeof tokens };
+
   const titleFullscreenNavAppearance =
     (theme?.fullscreenNav?.title?.appearance as ITextAppearance) ||
     tokens.title.appearance;
-  const fullscreenNavCopyrightAppearance =
-    (theme?.fullscreenNav?.copyright?.appearance as ITextAppearance) ||
-    tokens.copyright.appearance;
+
   const fullscreenNavCloseIconAppearance =
     (theme?.fullscreenNav?.burger?.appearance as IIconAppearance) ||
     tokens.burger.appearance;
+
   const sections = Object.keys(navigation.sections);
-  const SectionComponent =
-    sectionsComponents[sections.length] || sectionsComponents.default;
+  const SectionComponent = sectionsComponents[sections.length] || MultiSections;
 
   return (
     <StyledFullscreenNav>
-      <Grid templateColumns="1fr auto" padding="32px 24px 16px 16px">
+      <Grid templateColumns="1fr auto" padding="32px 24px">
         <Text
           type="title"
           size="small"
@@ -239,7 +246,7 @@ const FullscreenMenu = (
           cursorHover={true}
         />
       </Grid>
-      <SectionComponent navigation={navigation} />
+      <SectionComponent navigation={navigation} onClose={onClose} />
       <StyledSeparatorLine />
       {actions && actions.length > 0 && (
         <>
@@ -249,7 +256,10 @@ const FullscreenMenu = (
               id={id}
               label={label}
               icon={icon}
-              onClick={action}
+              onClick={() => {
+                action();
+                onClose();
+              }}
             />
           ))}
         </>
@@ -259,12 +269,7 @@ const FullscreenMenu = (
           {footerLogo ? (
             <StyledFooterLogoImage src={footerLogo} alt="" />
           ) : (
-            <Text
-              type="label"
-              size="medium"
-              appearance={fullscreenNavCopyrightAppearance}
-              weight="bold"
-            >
+            <Text type="label" size="medium" weight="bold">
               {footerLabel}
             </Text>
           )}
@@ -314,5 +319,6 @@ const FullscreenNav = (props: IFNav) => {
     </>
   );
 };
+
 export { FullscreenNav };
 export type { IFNav, IFNavigation, IFNavSection, IFNavMenuSection };
