@@ -55,6 +55,10 @@ const props = {
     description:
       "(boolean): If `true`, the submit button will be disabled. Default is `false`.",
   },
+  showCurrentStepNumber: {
+    description:
+      "(boolean): The user is located at any step, but the current step number is hidden.",
+  },
   controls: {
     description:
       "(Object): An object to customize the button text. It may include `goBackText`, `goNextText`, and `submitText` to change the default button labels.",

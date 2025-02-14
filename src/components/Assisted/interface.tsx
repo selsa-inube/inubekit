@@ -23,6 +23,7 @@ interface IAssistedUI {
   disableNext: IAssisted["disableNext"];
   disableBack: IAssisted["disableBack"];
   disableSubmit: IAssisted["disableSubmit"];
+  showCurrentStepNumber: boolean;
   onBackClick: IAssisted["onBackClick"];
   onNextClick: IAssisted["onNextClick"];
   onSubmitClick: IAssisted["onSubmitClick"];
@@ -37,6 +38,7 @@ function AssistedUI(props: IAssistedUI) {
     disableNext,
     disableBack,
     disableSubmit,
+    showCurrentStepNumber,
     onBackClick,
     onNextClick,
     onSubmitClick,
@@ -68,10 +70,12 @@ function AssistedUI(props: IAssistedUI) {
           </Button>
           <Stack direction="column" gap="12px">
             <Stack gap="8px">
-              <StepIndicator
-                stepNumber={step.number}
-                isLastStep={isLastStep()}
-              />
+              {showCurrentStepNumber && (
+                <StepIndicator
+                  stepNumber={step.number}
+                  isLastStep={isLastStep()}
+                />
+              )}
               <Text
                 type="title"
                 weight="bold"
@@ -88,9 +92,11 @@ function AssistedUI(props: IAssistedUI) {
             </Stack>
             <Stack alignItems="center" gap="8px">
               <ProgressBar currentStep={step.number} totalSteps={totalSteps} />
-              <Text type="label" size="small" weight="bold">
-                {step.number}/{totalSteps}
-              </Text>
+              {showCurrentStepNumber && (
+                <Text type="label" size="small" weight="bold">
+                  {step.number}/{totalSteps}
+                </Text>
+              )}
             </Stack>
             <Text
               type="label"
@@ -144,20 +150,28 @@ function AssistedUI(props: IAssistedUI) {
             }
           />
           <Stack alignItems="center" gap="8px">
-            <StepIndicator stepNumber={step.number} isLastStep={isLastStep()} />
-            <Text
-              type="title"
-              weight="bold"
-              size="small"
-              ellipsis
-              appearance={
-                theme
-                  ? (theme.assisted.title.appearance as IText["appearance"])
-                  : (tokens.title.appearance as IText["appearance"])
-              }
-            >
-              {step.name}
-            </Text>
+            <>
+              {showCurrentStepNumber && (
+                <StepIndicator
+                  stepNumber={step.number}
+                  isLastStep={isLastStep()}
+                />
+              )}
+
+              <Text
+                type="title"
+                weight="bold"
+                size="small"
+                ellipsis
+                appearance={
+                  theme
+                    ? (theme.assisted.title.appearance as IText["appearance"])
+                    : (tokens.title.appearance as IText["appearance"])
+                }
+              >
+                {step.name}
+              </Text>
+            </>
           </Stack>
           <Icon
             icon={<MdArrowForward />}

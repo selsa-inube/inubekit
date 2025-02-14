@@ -8,6 +8,7 @@ interface IAssisted {
   disableNext?: boolean;
   disableBack?: boolean;
   disableSubmit?: boolean;
+  showCurrentStepNumber?: boolean;
   onBackClick: (step: IAssistedStep) => void;
   onNextClick: (step: IAssistedStep) => void;
   onSubmitClick: (step: IAssistedStep) => void;
@@ -22,6 +23,7 @@ const Assisted = (props: IAssisted) => {
     disableNext = false,
     disableBack = false,
     disableSubmit = false,
+    showCurrentStepNumber = true,
     onBackClick,
     onNextClick,
     onSubmitClick,
@@ -64,6 +66,7 @@ const Assisted = (props: IAssisted) => {
       disableNext={disableNext}
       disableBack={disableBack}
       disableSubmit={disableSubmit}
+      showCurrentStepNumber={showCurrentStepNumber}
       onBackClick={interceptOnBackClick}
       onNextClick={interceptOnNextClick}
       onSubmitClick={interceptOnSendClick}
