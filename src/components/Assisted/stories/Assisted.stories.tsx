@@ -55,6 +55,7 @@ Default.args = {
   disableBack: false,
   disableNext: false,
   disableSubmit: false,
+  showCurrentStepNumber: true,
   controls: {
     goBackText: "Anterior",
     goNextText: "Siguiente",

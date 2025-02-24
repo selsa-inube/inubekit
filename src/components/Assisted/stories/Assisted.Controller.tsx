@@ -5,6 +5,7 @@ import { IAssistedStep } from "../props";
 interface IAssistedController {
   steps: IAssistedStep[];
   size: IAssisted["size"];
+  showCurrentStepNumber: boolean;
   disableBack: IAssisted["disableBack"];
   disableNext: IAssisted["disableNext"];
   disableSubmit: IAssisted["disableSubmit"];
@@ -12,8 +13,15 @@ interface IAssistedController {
 }
 
 const AssistedController = (props: IAssistedController) => {
-  const { steps, size, controls, disableBack, disableNext, disableSubmit } =
-    props;
+  const {
+    steps,
+    size,
+    showCurrentStepNumber,
+    controls,
+    disableBack,
+    disableNext,
+    disableSubmit,
+  } = props;
   const [currentStepNumber, setCurrentStepNumber] = useState(1);
   const stepsList = Object.values(steps);
   const step = stepsList.find((step) => step.number === currentStepNumber);
@@ -43,6 +51,7 @@ const AssistedController = (props: IAssistedController) => {
       disableNext={disableNext}
       disableBack={disableBack}
       disableSubmit={disableSubmit}
+      showCurrentStepNumber={showCurrentStepNumber}
       totalSteps={stepsList.length}
       onBackClick={handleBackClick}
       onNextClick={handleNextClick}
