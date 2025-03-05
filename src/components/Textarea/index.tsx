@@ -133,7 +133,12 @@ const Textarea = (props: ITextarea) => {
     <StyledContainer $fullwidth={fullwidth} $disabled={disabled}>
       <Stack width="100%" margin="0 0 4px 0">
         {(label || required) && (
-          <Stack alignItems="center" padding="0 0 0 16px" height="15px">
+          <Stack
+            alignItems="center"
+            padding="0 0 0 16px"
+            height="15px"
+            gap="4px"
+          >
             {label && (
               <StyledLabelContainer>
                 <Label
