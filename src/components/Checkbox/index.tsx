@@ -82,16 +82,16 @@ const Checkbox = (props: ICheckbox) => {
       </StyledLabel>
       {label && (
         <StyledPreventSelectableLabel>
-          <Label htmlFor={id} disabled={disabled}>
-            <Stack direction="row" alignItems="center" gap="4px">
+          <Stack direction="row" alignItems="center" gap="4px">
+            <Label htmlFor={id} disabled={disabled}>
               {label}
-              {required && (
-                <Text type="label" appearance="danger" size="small">
-                  *
-                </Text>
-              )}
-            </Stack>
-          </Label>
+            </Label>
+            {required && (
+              <Text type="label" appearance="danger" size="small">
+                *
+              </Text>
+            )}
+          </Stack>
         </StyledPreventSelectableLabel>
       )}
     </Stack>

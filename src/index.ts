@@ -239,3 +239,6 @@ export type {
 
 export { Header } from "./components/Header";
 export type { IHeader } from "./components/Header";
+
+export { Box } from "./components/Box";
+export type { IBox } from "./components/Box";
