@@ -81,7 +81,7 @@ const StyledMessageContainer = styled.div`
   }
 `;
 
-const StyledLabelContainer = styled.span`
+const StyledLabelContainer = styled.div`
   text-wrap: nowrap;
 `;
 
