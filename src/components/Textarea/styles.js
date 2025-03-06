@@ -81,9 +81,10 @@ const StyledMessageContainer = styled.div`
   }
 `;
 
-const StyledLabelContainer = styled.p`
+const StyledLabelContainer = styled.div`
   text-wrap: nowrap;
 `;
+
 export {
   StyledContainer,
   StyledLabelContainer,
