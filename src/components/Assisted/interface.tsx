@@ -136,7 +136,11 @@ function AssistedUI(props: IAssistedUI) {
   return (
     <StyledAssisted $size={size}>
       <Stack direction="column" gap="8px">
-        <Grid templateColumns="auto 1fr auto" gap="8px" alignItems="center">
+        <Grid
+          gap="8px"
+          alignItems="center"
+          templateColumns="auto auto 1fr auto"
+        >
           <Icon
             icon={<MdArrowBack />}
             size="20px"
@@ -149,30 +153,22 @@ function AssistedUI(props: IAssistedUI) {
                 : (tokens.button.appearance as IIcon["appearance"])
             }
           />
-          <Stack alignItems="center" gap="8px">
-            <>
-              {showCurrentStepNumber && (
-                <StepIndicator
-                  stepNumber={step.number}
-                  isLastStep={isLastStep()}
-                />
-              )}
-
-              <Text
-                type="title"
-                weight="bold"
-                size="small"
-                ellipsis
-                appearance={
-                  theme
-                    ? (theme.assisted.title.appearance as IText["appearance"])
-                    : (tokens.title.appearance as IText["appearance"])
-                }
-              >
-                {step.name}
-              </Text>
-            </>
-          </Stack>
+          {showCurrentStepNumber && (
+            <StepIndicator stepNumber={step.number} isLastStep={isLastStep()} />
+          )}
+          <Text
+            type="title"
+            weight="bold"
+            size="small"
+            ellipsis
+            appearance={
+              theme
+                ? (theme.assisted.title.appearance as IText["appearance"])
+                : (tokens.title.appearance as IText["appearance"])
+            }
+          >
+            {step.name}
+          </Text>
           <Icon
             icon={<MdArrowForward />}
             size="20px"
