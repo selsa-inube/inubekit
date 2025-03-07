@@ -4,6 +4,42 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v1.2.0] - 2025-03-07 (Fri)
+
+### ✨ Added
+
+- **Prop showCurrentStepNumber en Assisted:** Se añadió esta nueva propiedad booleana para controlar la visualización del número del paso actual.
+
+- **Componente Box:** Creación del nuevo componente Box con su respectiva documentación.
+
+- **Documentación README:** Se añadió el README para los componentes Assisted, Checkbox y Textarea.
+
+- **Documentación TOKENS:** Se agregaron archivos de tokens para el componente Checkbox.
+
+### 🔄 Changed
+
+- **Refactorización en Nav:** Ajuste del padding y width de la propiedad footerLogo.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🐛 Fixed
+
+- **Errores en consola:** Se solucionaron problemas de jerarquización de etiquetas HTML en los componentes Checkbox y Textarea.
+
+- **Componente Assisted (versión móvil):** Corrección del colapso del componente Text cuando el nombre del paso era extenso (size="small").
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v1.1.0] - 2025-02-03 (Mon)
 
 ### ✨ Added
