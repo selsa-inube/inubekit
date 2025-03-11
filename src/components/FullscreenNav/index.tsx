@@ -26,6 +26,7 @@ import {
   StyledFooter,
   StyledFooterLogoImage,
 } from "./styles";
+import { FullscreenNavContext, useFullscreenNav } from "./fullscreenNavContext";
 import { tokens } from "./tokens";
 
 interface IFNavSection {
@@ -35,7 +36,6 @@ interface IFNavSection {
 
 interface IFNavMenuSection {
   navigation: IFNavigation;
-  onClose: () => void;
 }
 
 interface IFNavigation {
@@ -53,9 +53,11 @@ interface IFNav {
   logoutTitle?: string;
 }
 
-const MultiSections = ({ navigation, onClose }: IFNavMenuSection) => {
+const MultiSections = ({ navigation }: IFNavMenuSection) => {
   const sections = Object.keys(navigation.sections);
   const theme = useContext(ThemeContext) as { fullscreenNav: typeof tokens };
+  const { onClose } = useFullscreenNav();
+
   const selectedNavLinkAppearance =
     (theme?.fullscreenNav?.link?.appearance?.selected as IIconAppearance) ||
     tokens.link.appearance.selected;
@@ -66,11 +68,7 @@ const MultiSections = ({ navigation, onClose }: IFNavMenuSection) => {
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   const toggleSection = (section: string) => {
-    if (section === openSection) {
-      setOpenSection("");
-      return;
-    }
-    setOpenSection(section);
+    setOpenSection((prev) => (prev === section ? "" : section));
   };
 
   return (
@@ -137,9 +135,10 @@ const MultiSections = ({ navigation, onClose }: IFNavMenuSection) => {
   );
 };
 
-const TwoSections = ({ navigation, onClose }: IFNavMenuSection) => {
+const TwoSections = ({ navigation }: IFNavMenuSection) => {
   const navigationSectionValues = Object.values(navigation.sections);
   const theme = useContext(ThemeContext) as { fullscreenNav: typeof tokens };
+  const { onClose } = useFullscreenNav();
 
   const titleAppearance =
     (theme?.fullscreenNav?.title?.appearance as ITextAppearance) ||
@@ -167,7 +166,7 @@ const TwoSections = ({ navigation, onClose }: IFNavMenuSection) => {
                 label={linkValue.label}
                 icon={linkValue.icon}
                 path={linkValue.path}
-                onClick={() => onClose()}
+                onClick={onClose}
               />
             ))}
           </Stack>
@@ -177,8 +176,9 @@ const TwoSections = ({ navigation, onClose }: IFNavMenuSection) => {
   );
 };
 
-const OneSection = ({ navigation, onClose }: IFNavMenuSection) => {
+const OneSection = ({ navigation }: IFNavMenuSection) => {
   const sectionValue = Object.values(navigation.sections)[0];
+  const { onClose } = useFullscreenNav();
 
   return (
     <Stack direction="column">
@@ -189,7 +189,7 @@ const OneSection = ({ navigation, onClose }: IFNavMenuSection) => {
           label={linkValue.label}
           icon={linkValue.icon}
           path={linkValue.path}
-          onClick={() => onClose()}
+          onClick={onClose}
         />
       ))}
     </Stack>
@@ -203,17 +203,14 @@ const sectionsComponents: {
   2: TwoSections,
 };
 
-const FullscreenMenu = (
-  props: Omit<IFNav, "portalId"> & { onClose: () => void },
-) => {
+const FullscreenMenu = (props: Omit<IFNav, "portalId">) => {
   const {
     navigation,
     actions,
-    onClose,
     footerLabel = "©2025 - Inube",
     footerLogo,
   } = props;
-
+  const { onClose } = useFullscreenNav();
   const theme = useContext(ThemeContext) as { fullscreenNav: typeof tokens };
 
   const titleFullscreenNavAppearance =
@@ -241,12 +238,12 @@ const FullscreenMenu = (
         <Icon
           appearance={fullscreenNavCloseIconAppearance}
           icon={<MdClose />}
-          onClick={() => onClose()}
+          onClick={onClose}
           size="24px"
           cursorHover={true}
         />
       </Grid>
-      <SectionComponent navigation={navigation} onClose={onClose} />
+      <SectionComponent navigation={navigation} />
       <StyledSeparatorLine />
       {actions && actions.length > 0 && (
         <>
@@ -307,13 +304,16 @@ const FullscreenNav = (props: IFNav) => {
       </StyledContDropMenu>
       {isMenuOpen &&
         createPortal(
-          <FullscreenMenu
-            navigation={navigation}
-            actions={actions}
-            footerLabel={footerLabel}
-            footerLogo={footerLogo}
-            onClose={() => setIsMenuOpen(false)}
-          />,
+          <FullscreenNavContext.Provider
+            value={{ isMenuOpen, onClose: () => setIsMenuOpen(false) }}
+          >
+            <FullscreenMenu
+              navigation={navigation}
+              actions={actions}
+              footerLabel={footerLabel}
+              footerLogo={footerLogo}
+            />
+          </FullscreenNavContext.Provider>,
           node,
         )}
     </>
