@@ -21,7 +21,10 @@ import { Logo } from "./logo";
 const story = {
   title: "navigation/Header",
   components: [Header],
-  parameters,
+  parameters: {
+    ...parameters,
+    layout: "fullscreen",
+  },
   argTypes: props,
   decorators: [
     (Story: React.ElementType) => (

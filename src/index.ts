@@ -159,12 +159,7 @@ export type {
 } from "./components/Textarea/props";
 
 export { FullscreenNav } from "./components/FullscreenNav";
-export type {
-  IFNav,
-  IFNavigation,
-  IFNavSection,
-  IFNavMenuSection,
-} from "./components/FullscreenNav";
+export type { IFullscreenNav } from "./components/FullscreenNav";
 
 export { Caption } from "./components/Table/Caption";
 export { Col } from "./components/Table/Col";
