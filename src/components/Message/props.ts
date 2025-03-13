@@ -18,7 +18,7 @@ const parameters = {
   docs: {
     description: {
       component:
-        "Represent a label for an elemenent in a user interface. This can be associated with a control either by using the for attribute",
+        "Component that stores information to show the user without the need to be invasive.",
     },
   },
 };
@@ -26,12 +26,6 @@ const parameters = {
 const props = {
   title: {
     description: "The title to be displayed",
-    table: {
-      defaultValue: { summary: false },
-    },
-  },
-  icon: {
-    description: "The icon to be displayed",
     table: {
       defaultValue: { summary: false },
     },
@@ -52,8 +46,20 @@ const props = {
       defaultValue: { summary: "large" },
     },
   },
-  children: {
-    description: "The content to be displayed",
+  description: {
+    description: "The description to be displayed",
+    table: {
+      defaultValue: { summary: false },
+    },
+  },
+  primaryActionText: {
+    description: "The text for the primary action",
+    table: {
+      defaultValue: { summary: false },
+    },
+  },
+  secondaryActionText: {
+    description: "The text for the secondary action",
     table: {
       defaultValue: { summary: false },
     },

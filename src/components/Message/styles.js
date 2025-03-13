@@ -3,13 +3,15 @@ import { tokens } from "./tokens";
 
 const StyledMessageContent = styled.div`
   display: flex;
-  align-items: center;
-  padding: 16px;
-  gap: 8px;
+  flex-direction: column;
+  justify-content: center;
+  padding: ${({ $size }) => ($size === "small" ? "16px" : "20px")};
+  gap: 12px;
   border-radius: 4px;
+  width: ${({ $size }) => ($size === "small" ? "312px" : "500px")};
   background-color: ${({ theme, $appearance }) =>
-    theme?.message?.[$appearance]?.content?.color ||
-    tokens[$appearance].content.color};
+    theme?.message?.[$appearance]?.background?.color ||
+    tokens[$appearance].background.color};
 `;
 
 export { StyledMessageContent };

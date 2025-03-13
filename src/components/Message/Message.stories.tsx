@@ -1,10 +1,9 @@
 import { StoryFn } from "@storybook/react";
-import { MdCheckCircleOutline } from "react-icons/md";
 import { IMessage, Message } from ".";
 import { parameters, props } from "./props";
 
 const story = {
-  title: "inputs/Message",
+  title: "feedback/Message",
   components: [Message],
   parameters,
   argTypes: props,
@@ -14,9 +13,13 @@ const Default: StoryFn<IMessage> = (args) => <Message {...args} />;
 
 Default.args = {
   title: "Message",
-  icon: <MdCheckCircleOutline />,
   appearance: "success",
-  size: "large",
+  size: "small",
+  description: "This is a message description",
+  primaryActionText: "Continue",
+  secondaryActionText: "Cancel",
+  primaryAction: () => alert("Primary action clicked"),
+  secondaryAction: () => alert("Secondary action clicked"),
 };
 
 export { Default };

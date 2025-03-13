@@ -2,43 +2,139 @@ import { inube } from "../Foundations";
 
 const tokens = {
   primary: {
-    content: {
+    background: {
       color: inube.palette.blue.B50,
+    },
+    icon: {
+      appearance: "primary",
+    },
+    content: {
+      appearance: "gray",
+    },
+    action: {
+      appearance: {
+        primary: "primary",
+        secondary: "gray",
+      },
     },
   },
   success: {
-    content: {
+    background: {
       color: inube.palette.green.G50,
+    },
+    icon: {
+      appearance: "success",
+    },
+    content: {
+      appearance: "gray",
+    },
+    action: {
+      appearance: {
+        primary: "success",
+        secondary: "gray",
+      },
     },
   },
   warning: {
-    content: {
+    background: {
       color: inube.palette.yellow.Y50,
+    },
+    icon: {
+      appearance: "warning",
+    },
+    content: {
+      appearance: "gray",
+    },
+    action: {
+      appearance: {
+        primary: "warning",
+        secondary: "gray",
+      },
     },
   },
   danger: {
-    content: {
+    background: {
       color: inube.palette.red.R50,
+    },
+    icon: {
+      appearance: "danger",
+    },
+    content: {
+      appearance: "gray",
+    },
+    action: {
+      appearance: {
+        primary: "danger",
+        secondary: "gray",
+      },
     },
   },
   help: {
-    content: {
+    background: {
       color: inube.palette.purple.P50,
+    },
+    icon: {
+      appearance: "help",
+    },
+    content: {
+      appearance: "gray",
+    },
+    action: {
+      appearance: {
+        primary: "help",
+        secondary: "gray",
+      },
     },
   },
   dark: {
+    background: {
+      color: inube.palette.neutral.N30,
+    },
+    icon: {
+      appearance: "dark",
+    },
     content: {
-      color: inube.palette.neutral.N900,
+      appearance: "gray",
+    },
+    action: {
+      appearance: {
+        primary: "dark",
+        secondary: "gray",
+      },
     },
   },
   gray: {
+    background: {
+      color: inube.palette.neutral.N10,
+    },
+    icon: {
+      appearance: "gray",
+    },
     content: {
-      color: inube.palette.neutral.N50,
+      appearance: "gray",
+    },
+    action: {
+      appearance: {
+        primary: "dark",
+        secondary: "gray",
+      },
     },
   },
   light: {
-    content: {
+    background: {
       color: inube.palette.neutral.N0,
+    },
+    icon: {
+      appearance: "dark",
+    },
+    content: {
+      appearance: "gray",
+    },
+    action: {
+      appearance: {
+        primary: "dark",
+        secondary: "gray",
+      },
     },
   },
 };
