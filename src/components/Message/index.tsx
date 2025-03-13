@@ -79,7 +79,17 @@ const Message = (props: IMessage) => {
           size="20px"
           icon={getIcon(appearance)}
         />
-        <Text type="label" size="large" weight="bold">
+        <Text
+          type="label"
+          size="large"
+          weight="bold"
+          appearance={
+            theme
+              ? (theme.message[appearance].title
+                  .appearance as MessageAppearanceType)
+              : (tokens[appearance].title.appearance as MessageAppearanceType)
+          }
+        >
           {title}
         </Text>
       </Stack>
@@ -104,7 +114,13 @@ const Message = (props: IMessage) => {
         <Stack direction="row" gap="8px" justifyContent="flex-end">
           {secondaryActionText && (
             <Button
-              appearance="gray"
+              appearance={
+                theme
+                  ? (theme.message[appearance].action.appearance
+                      .secondary as MessageAppearanceType)
+                  : (tokens[appearance].action.appearance
+                      .secondary as MessageAppearanceType)
+              }
               variant="outlined"
               spacing="compact"
               onClick={secondaryAction}

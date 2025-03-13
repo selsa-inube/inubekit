@@ -8,6 +8,9 @@ const tokens = {
     icon: {
       appearance: "primary",
     },
+    title: {
+      appearance: "dark",
+    },
     content: {
       appearance: "gray",
     },
@@ -24,6 +27,9 @@ const tokens = {
     },
     icon: {
       appearance: "success",
+    },
+    title: {
+      appearance: "dark",
     },
     content: {
       appearance: "gray",
@@ -42,6 +48,9 @@ const tokens = {
     icon: {
       appearance: "warning",
     },
+    title: {
+      appearance: "dark",
+    },
     content: {
       appearance: "gray",
     },
@@ -58,6 +67,9 @@ const tokens = {
     },
     icon: {
       appearance: "danger",
+    },
+    title: {
+      appearance: "dark",
     },
     content: {
       appearance: "gray",
@@ -76,6 +88,9 @@ const tokens = {
     icon: {
       appearance: "help",
     },
+    title: {
+      appearance: "dark",
+    },
     content: {
       appearance: "gray",
     },
@@ -91,6 +106,9 @@ const tokens = {
       color: inube.palette.neutral.N30,
     },
     icon: {
+      appearance: "dark",
+    },
+    title: {
       appearance: "dark",
     },
     content: {
@@ -110,6 +128,9 @@ const tokens = {
     icon: {
       appearance: "gray",
     },
+    title: {
+      appearance: "dark",
+    },
     content: {
       appearance: "gray",
     },
@@ -125,6 +146,9 @@ const tokens = {
       color: inube.palette.neutral.N0,
     },
     icon: {
+      appearance: "dark",
+    },
+    title: {
       appearance: "dark",
     },
     content: {
