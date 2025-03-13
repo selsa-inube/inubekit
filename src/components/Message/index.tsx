@@ -79,33 +79,13 @@ const Message = (props: IMessage) => {
           size="20px"
           icon={getIcon(appearance)}
         />
-        <Text
-          type="label"
-          size="large"
-          weight="bold"
-          appearance={
-            theme
-              ? (theme.message[appearance].title
-                  .appearance as MessageAppearanceType)
-              : (tokens[appearance].title.appearance as MessageAppearanceType)
-          }
-        >
+        <Text type="label" size="large" weight="bold" appearance="dark">
           {title}
         </Text>
       </Stack>
 
       {description && (
-        <Text
-          type="body"
-          size="medium"
-          weight="normal"
-          appearance={
-            theme
-              ? (theme.message[appearance].content
-                  .appearance as MessageAppearanceType)
-              : (tokens[appearance].content.appearance as MessageAppearanceType)
-          }
-        >
+        <Text type="body" size="medium" weight="normal" appearance="gray">
           {description}
         </Text>
       )}
