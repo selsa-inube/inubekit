@@ -8,9 +8,13 @@ const StyledButton = styled.button`
   transition: all 0.3s ease;
   min-width: 100px;
   max-width: ${({ $fullwidth }) => ($fullwidth ? "none" : "300px")};
-  width: ${({ $fullwidth }) => {
+  width: ${({ $fullwidth, $width }) => {
     if ($fullwidth) {
       return "100%";
+    }
+
+    if ($width) {
+      return $width;
     }
 
     return "fit-content";

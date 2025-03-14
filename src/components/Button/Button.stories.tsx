@@ -29,6 +29,7 @@ Default.args = {
   spacing: "wide",
   variant: "filled",
   fullwidth: false,
+  width: "",
   onClick: () => console.log("clicked from Default-story"),
   cursorHover: false,
   parentHover: false,
