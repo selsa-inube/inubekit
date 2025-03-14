@@ -19,10 +19,10 @@ const StyledFlag = styled.li`
   background-color: ${({ theme }) =>
     theme?.palette?.neutral?.N0 || inube.palette.neutral.N0};
   width: 400px;
-  min-height: 82px;
+  min-height: 78px;
   @media screen and (max-width: 528px) {
-    height: 62px;
-    width: calc(100vw - 64px);
+    width: 100%;
+    min-height: 58px;
   }
 `;
 
