@@ -17,6 +17,8 @@ import { tokens } from "./tokens";
 interface IMessage {
   title: string;
   appearance?: MessageAppearanceType;
+  fullwidth?: boolean;
+  width?: string;
   size?: MessageSizeType;
   description?: string;
   primaryActionText?: string;
@@ -29,7 +31,9 @@ const Message = (props: IMessage) => {
   const {
     title,
     appearance = "success",
-    size,
+    fullwidth,
+    width,
+    size = "large",
     description,
     primaryActionText,
     secondaryActionText,
@@ -63,12 +67,12 @@ const Message = (props: IMessage) => {
   };
 
   return (
-    <StyledMessageContent $appearance={appearance} $size={size}>
-      <Stack
-        direction="row"
-        alignItems="center"
-        gap={size === "large" ? "8px" : "12px"}
-      >
+    <StyledMessageContent
+      $appearance={appearance}
+      $fullwidth={fullwidth}
+      $width={width}
+    >
+      <Stack direction="row" alignItems="center" gap="8px">
         <Icon
           appearance={
             theme
@@ -79,13 +83,13 @@ const Message = (props: IMessage) => {
           size="20px"
           icon={getIcon(appearance)}
         />
-        <Text type="label" size="large" weight="bold" appearance="dark">
+        <Text type="label" size={size} weight="bold" appearance="dark">
           {title}
         </Text>
       </Stack>
 
       {description && (
-        <Text type="body" size="medium" weight="normal" appearance="gray">
+        <Text type="body" size={size} weight="normal" appearance="gray">
           {description}
         </Text>
       )}

@@ -5,10 +5,10 @@ const StyledMessageContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: ${({ $size }) => ($size === "small" ? "16px" : "20px")};
+  padding: 20px;
   gap: 12px;
   border-radius: 4px;
-  width: ${({ $size }) => ($size === "small" ? "312px" : "500px")};
+  width: ${({ $fullwidth, $width }) => ($fullwidth ? "100%" : $width)};
   background-color: ${({ theme, $appearance }) =>
     theme?.message?.[$appearance]?.background?.color ||
     tokens[$appearance].background.color};

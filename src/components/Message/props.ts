@@ -9,7 +9,7 @@ const appearances = [
   "light",
 ] as const;
 
-const sizes = ["small", "large"] as const;
+const sizes = ["medium", "large"] as const;
 
 type MessageAppearanceType = (typeof appearances)[number];
 type MessageSizeType = (typeof sizes)[number];
@@ -38,10 +38,14 @@ const props = {
       defaultValue: { summary: "success" },
     },
   },
-  size: {
-    description: "The size of the message",
-    options: sizes,
-    control: { type: "select" },
+  fullwidth: {
+    description: "The fullwidth of the message",
+    table: {
+      defaultValue: { summary: "large" },
+    },
+  },
+  width: {
+    description: "The width of the message",
     table: {
       defaultValue: { summary: "large" },
     },
@@ -66,5 +70,5 @@ const props = {
   },
 };
 
-export { parameters, props, sizes };
+export { parameters, props };
 export type { MessageAppearanceType, MessageSizeType };
