@@ -13,6 +13,7 @@ Default.args = {
   title: "Message",
   appearance: "success",
   size: "large",
+  fullwidth: true,
   width: "320px",
   description: "This is a message description",
   primaryActionText: "Continue",

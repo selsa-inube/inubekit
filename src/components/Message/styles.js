@@ -12,6 +12,7 @@ const StyledMessageContent = styled.div`
   background-color: ${({ theme, $appearance }) =>
     theme?.message?.[$appearance]?.background?.color ||
     tokens[$appearance].background.color};
+  box-sizing: border-box;
 `;
 
 export { StyledMessageContent };

@@ -31,7 +31,7 @@ const Message = (props: IMessage) => {
   const {
     title,
     appearance = "success",
-    fullwidth,
+    fullwidth = false,
     width,
     size = "large",
     description,
