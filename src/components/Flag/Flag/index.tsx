@@ -44,12 +44,11 @@ const Flag = (props: IFlag) => {
   const [isPaused, setIsPaused] = useState(false);
   const { removeFlag } = useContext(FlagContext) as FlagContextType;
 
-  const newDescription = () => {
-    const maxLength = 80;
-    if (description.length > maxLength) {
-      return `${description.substring(0, maxLength)}...`;
+  const truncateText = (text: string, maxLength: number) => {
+    if (text.length > maxLength) {
+      return `${text.substring(0, maxLength)}...`;
     } else {
-      return description;
+      return text;
     }
   };
 
@@ -68,29 +67,49 @@ const Flag = (props: IFlag) => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <Stack justifyContent="space-between" padding="16px">
+      <Stack justifyContent="space-between" padding="12px 16px">
         <Stack
           alignItems="center"
           gap="16px"
-          height={isSmallScreen ? "26px" : "fit-content"}
+          width="100%"
+          height={isSmallScreen ? "auto" : "fit-content"}
         >
-          <Icon size="24px" appearance={appearance} icon={selectedIcon} />
-          <Stack direction="column" gap="6px">
-            <Text type="label" size="large" textAlign="start" weight="bold">
-              {title}
-            </Text>
-            <Text size="medium" appearance="gray" textAlign="start">
-              {newDescription()}
+          <Icon
+            appearance={appearance}
+            icon={selectedIcon}
+            size={isSmallScreen ? "20px" : "24px"}
+          />
+          <Stack
+            direction="column"
+            width="100%"
+            gap={isSmallScreen ? "2px" : "6px"}
+          >
+            <Stack justifyContent="space-between" width="100%" gap="4px">
+              <Text
+                type="label"
+                size={isSmallScreen ? "medium" : "large"}
+                textAlign="start"
+                weight="bold"
+              >
+                {truncateText(title, 40)}
+              </Text>
+              <Icon
+                size="16px"
+                onClick={handleRemoveFlag}
+                appearance="dark"
+                icon={<MdClear />}
+                cursorHover={true}
+              />
+            </Stack>
+            <Text
+              size={isSmallScreen ? "small" : "medium"}
+              appearance="gray"
+              textAlign="start"
+            >
+              {truncateText(description, 80)}
             </Text>
           </Stack>
         </Stack>
-        <Icon
-          size="16px"
-          onClick={handleRemoveFlag}
-          appearance="dark"
-          icon={<MdClear />}
-          cursorHover={true}
-        />
       </Stack>
       {duration && (
         <CountdownBar

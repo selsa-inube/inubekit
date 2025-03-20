@@ -25,6 +25,7 @@ interface IButton {
   type?: IButtonType;
   spacing?: IButtonSpacing;
   variant?: IButtonVariant;
+  width?: string;
   fullwidth?: boolean;
   onClick?: (e?: Event) => void;
   path?: string;
@@ -55,6 +56,7 @@ const ButtonStructure = (props: IButton) => {
     type = "button",
     spacing = "wide",
     variant = "filled",
+    width,
     fullwidth = false,
     onClick,
     cursorHover = false,
@@ -97,6 +99,7 @@ const ButtonStructure = (props: IButton) => {
       type={type}
       $spacing={spacing}
       $variant={variant}
+      $width={width}
       $fullwidth={fullwidth}
       onClick={disabled ? null : interceptClick}
       $cursorHover={cursorHover}
