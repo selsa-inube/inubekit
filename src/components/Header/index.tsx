@@ -65,8 +65,10 @@ const Header = (props: IHeader) => {
                 title={navigation.nav.title}
                 sections={navigation.nav.sections}
                 actions={navigation.nav.actions}
-                footerLabel={navigation.nav.footerLogo}
+                footerLabel={navigation.nav.footerLabel}
                 footerLogo={navigation.nav.footerLogo}
+                displaySubtitles={navigation.nav.displaySubtitles}
+                collapse={navigation.nav.collapse}
               />
             )}
           </StyledFullscreenNav>

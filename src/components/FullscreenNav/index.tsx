@@ -16,7 +16,11 @@ import { IIconAppearance } from "../Icon/props";
 interface IFullscreenNavSection {
   subtitle: string;
   links: INavLink[];
+  displaySubtitles?: boolean;
+  collapse?: boolean;
+  isOpen: boolean;
   onClose: () => void;
+  onToggle: () => void;
 }
 
 interface IFullscreenNav {
@@ -26,11 +30,21 @@ interface IFullscreenNav {
   actions?: INavAction[];
   footerLabel?: string;
   footerLogo?: string;
+  displaySubtitles?: boolean;
+  collapse?: boolean;
 }
 
 const FullscreenNav = (props: IFullscreenNav) => {
-  const { reactPortalId, title, sections, actions, footerLabel, footerLogo } =
-    props;
+  const {
+    reactPortalId,
+    title,
+    sections,
+    actions,
+    footerLabel,
+    footerLogo,
+    displaySubtitles = false,
+    collapse = false,
+  } = props;
 
   const theme = useContext(ThemeContext) as { fullscreenNav: typeof tokens };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -64,6 +78,8 @@ const FullscreenNav = (props: IFullscreenNav) => {
             actions={actions}
             footerLabel={footerLabel}
             footerLogo={footerLogo}
+            displaySubtitles={displaySubtitles}
+            collapse={collapse}
             onClose={() => setIsMenuOpen(false)}
           />,
           node,

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "styled-components";
 
 import { tokens } from "../tokens";
@@ -14,7 +14,6 @@ import { MdClose } from "react-icons/md";
 
 import { IFullscreenNav } from "..";
 import { ITextAppearance } from "src/components/Text/props";
-import { IIconAppearance } from "src/components/Icon/props";
 
 import {
   StyledFullscreenNav,
@@ -29,24 +28,49 @@ interface IFullscreenNavMenu {
   actions?: IFullscreenNav["actions"];
   footerLabel?: IFullscreenNav["footerLabel"];
   footerLogo?: IFullscreenNav["footerLogo"];
+  displaySubtitles?: IFullscreenNav["displaySubtitles"];
+  collapse?: IFullscreenNav["collapse"];
   onClose: () => void;
 }
 
 const FNavMenu = (props: IFullscreenNavMenu) => {
-  const { title, sections, actions, footerLabel, footerLogo, onClose } = props;
+  const {
+    title,
+    sections,
+    actions,
+    footerLabel,
+    footerLogo,
+    displaySubtitles,
+    collapse,
+    onClose,
+  } = props;
+
+  const [openSection, setOpenSection] = useState<string | null>(
+    sections.length > 0 ? sections[0].subtitle : null,
+  );
+
+  const toggleSection = (subtitle: string) => {
+    setOpenSection((current) => {
+      if (current === subtitle) {
+        return null;
+      }
+      return subtitle;
+    });
+  };
+
   const theme = useContext(ThemeContext) as { fullscreenNav: typeof tokens };
 
   const titleAppearance =
     (theme?.fullscreenNav?.title?.appearance as ITextAppearance) ||
     tokens.title.appearance;
 
-  const crossAppearance =
-    (theme?.fullscreenNav?.burger?.appearance as IIconAppearance) ||
-    tokens.burger.appearance;
+  const copyrightAppearance =
+    (theme?.fullscreenNav?.copyright?.appearance as ITextAppearance) ||
+    tokens.copyright.appearance;
 
   return (
     <StyledFullscreenNav>
-      <Grid templateColumns="1fr auto" padding="32px 16px">
+      <Grid templateColumns="1fr auto" padding="32px 16px 16px">
         <Text
           type="title"
           size="small"
@@ -56,10 +80,10 @@ const FNavMenu = (props: IFullscreenNavMenu) => {
           {title}
         </Text>
         <Icon
-          appearance={crossAppearance}
+          appearance={titleAppearance}
           icon={<MdClose />}
           onClick={onClose}
-          size="24px"
+          size="20px"
           cursorHover={true}
         />
       </Grid>
@@ -68,10 +92,16 @@ const FNavMenu = (props: IFullscreenNavMenu) => {
           key={section.subtitle}
           subtitle={section.subtitle}
           links={section.links}
+          displaySubtitles={displaySubtitles}
+          collapse={collapse}
+          isOpen={openSection === section.subtitle}
           onClose={onClose}
+          onToggle={() => toggleSection(section.subtitle)}
         />
       ))}
-      <Divider marginTop="12px" marginBottom="12px" />
+      <Stack padding="0px 16px">
+        <Divider marginTop="12px" marginBottom="12px" />
+      </Stack>
       {actions && actions.length > 0 && (
         <>
           {actions.map((action) => (
@@ -93,15 +123,7 @@ const FNavMenu = (props: IFullscreenNavMenu) => {
           {footerLogo ? (
             <StyledFooterLogoImage src={footerLogo} alt="" />
           ) : (
-            <Text
-              type="label"
-              size="medium"
-              appearance={
-                (theme?.fullscreenNav?.copyright
-                  ?.appearance as ITextAppearance) ||
-                tokens.copyright.appearance
-              }
-            >
+            <Text type="label" size="medium" appearance={copyrightAppearance}>
               {footerLabel}
             </Text>
           )}
