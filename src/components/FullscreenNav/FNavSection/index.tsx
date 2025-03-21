@@ -23,6 +23,7 @@ function FullscreenNavSection(props: IFullscreenNavSection) {
 
   const theme = useContext(ThemeContext) as { fullscreenNav: typeof tokens };
   const isCollapsible = displaySubtitles && collapse;
+  const shouldExpand = isCollapsible && isOpen;
 
   const subtitleAppearance = {
     expanded:
@@ -51,7 +52,7 @@ function FullscreenNavSection(props: IFullscreenNavSection) {
             type="title"
             size="small"
             appearance={
-              isCollapsible && isOpen
+              shouldExpand
                 ? subtitleAppearance.expanded
                 : subtitleAppearance.regular
             }
@@ -65,7 +66,7 @@ function FullscreenNavSection(props: IFullscreenNavSection) {
             <Stack padding="0px 16px">
               <Icon
                 appearance={
-                  isCollapsible && isOpen
+                  shouldExpand
                     ? subtitleAppearance.expanded
                     : subtitleAppearance.regular
                 }

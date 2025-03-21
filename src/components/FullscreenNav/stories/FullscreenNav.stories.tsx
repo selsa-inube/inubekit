@@ -27,7 +27,8 @@ const WithLogo = (args: IFullscreenNav) => <FullscreenNav {...args} />;
 
 WithLogo.args = {
   ...defaultFullscreenNavProps,
-  footerLogo: "https://i.imgur.com/YYrs6cF.png",
+  footerLogo:
+    "https://res.cloudinary.com/dqssv7qtd/image/upload/v1742589607/selsa-logo_wjo1pt.png",
 };
 
 export default story;
