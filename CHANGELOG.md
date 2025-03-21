@@ -4,6 +4,36 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v1.3.0] - 2025-03-21 (Fri)
+
+### ✨ Added
+
+- **Componente Message:** Nuevo componente creado para mostrar mensajes.
+
+- **Propiedad width en Button:** Se agregó la propiedad "width" para definir ancho específico.
+
+### 🔄 Changed
+
+- **Componente Flag (versión móvil):** Ajuste de estilos para evitar cortes visuales.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🐛 Fixed
+
+- _No se reportaron errores corregidos en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v1.2.0] - 2025-03-07 (Fri)
 
 ### ✨ Added
@@ -85,7 +115,7 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 - `inubekit-assisted`
 - `inubekit-autocomplete`
 - `inubekit-autosuggest`
-- `inubekit-avatar` - _Componente documentado_
+- `inubekit-avatar`
 - `inubekit-blanket`
 - `inubekit-breadcrumbs`
 - `inubekit-button`
@@ -93,21 +123,21 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 - `inubekit-checkpicker`
 - `inubekit-countdownbar`
 - `inubekit-date`
-- `inubekit-divider` - _Componente documentado_
+- `inubekit-divider`
 - `inubekit-fieldset`
 - `inubekit-flag`
-- `inubekit-foundations` - _Componente documentado_
-- `inubekit-fullscreennav` - _Componente documentado_
+- `inubekit-foundations`
+- `inubekit-fullscreennav`
 - `inubekit-grid`
 - `inubekit-header`
 - `inubekit-hooks`
-- `inubekit-icon` - _Componente documentado_
+- `inubekit-icon`
 - `inubekit-input`
 - `inubekit-label`
 - `inubekit-link`
 - `inubekit-menu`
 - `inubekit-monthpicker`
-- `inubekit-nav` - _Componente documentado_
+- `inubekit-nav`
 - `inubekit-progressbar`
 - `inubekit-radio`
 - `inubekit-select`
@@ -117,7 +147,7 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 - `inubekit-table`
 - `inubekit-tabs`
 - `inubekit-tag`
-- `inubekit-text` - _Componente documentado_
+- `inubekit-text`
 - `inubekit-textarea`
 - `inubekit-toggle`
 - `inubekit-user`
