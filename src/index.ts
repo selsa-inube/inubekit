@@ -138,14 +138,14 @@ export type { ITag } from "./components/Tag";
 export type { ITagAppearance, ITagWeight } from "./components/Tag/props";
 
 export { Nav } from "./components/Nav/Nav";
-export { NavLink } from "./components/Nav/NavLink";
 export type { INav, INavAction } from "./components/Nav/Nav";
-export type { INavLink } from "./components/Nav/NavLink";
 export type {
   ILink as ILinkNav,
-  INavSection,
   INavNavigation,
+  INavSection,
 } from "./components/Nav/Nav/props";
+export { NavLink } from "./components/Nav/NavLink";
+export type { INavLink } from "./components/Nav/NavLink";
 
 export { Toggle } from "./components/Toogle";
 export type { IToggle } from "./components/Toogle";
@@ -159,41 +159,39 @@ export type {
 } from "./components/Textarea/props";
 
 export { FullscreenNav } from "./components/FullscreenNav";
-export type { IFullscreenNav } from "./components/FullscreenNav";
 
-export { Caption } from "./components/Table/Caption";
-export { Col } from "./components/Table/Col";
-export { Colgroup } from "./components/Table/Colgroup";
-export { Pagination } from "./components/Table/Pagination";
 export { Table } from "./components/Table";
-export { Tbody } from "./components/Table/Tbody";
-export { Td } from "./components/Table/Td";
-export { Tfoot } from "./components/Table/Tfoot";
-export { Th } from "./components/Table/Th";
-export { Thead } from "./components/Table/Thead";
-export { Tr } from "./components/Table/Tr";
-export type { ICaption } from "./components/Table/Caption";
-export type { ICol } from "./components/Table/Col";
-export type { IColgroup } from "./components/Table/Colgroup";
-export type { IPagination } from "./components/Table/Pagination";
 export type { ITable } from "./components/Table";
+export { Caption } from "./components/Table/Caption";
+export type { ICaption } from "./components/Table/Caption";
+export { Col } from "./components/Table/Col";
+export type { ICol } from "./components/Table/Col";
+export { Colgroup } from "./components/Table/Colgroup";
+export type { IColgroup } from "./components/Table/Colgroup";
+export { Pagination } from "./components/Table/Pagination";
+export type { IPagination } from "./components/Table/Pagination";
+export { Tbody } from "./components/Table/Tbody";
 export type { ITbody } from "./components/Table/Tbody";
+export { Td } from "./components/Table/Td";
 export type { ITd } from "./components/Table/Td";
+export { Tfoot } from "./components/Table/Tfoot";
 export type { ITfoot } from "./components/Table/Tfoot";
+export { Th } from "./components/Table/Th";
 export type { ITh } from "./components/Table/Th";
+export { Thead } from "./components/Table/Thead";
 export type { IThead } from "./components/Table/Thead";
+export { Tr } from "./components/Table/Tr";
 export type { ITr } from "./components/Table/Tr";
 
 export { Checkbox } from "./components/Checkbox";
 export type { ICheckbox } from "./components/Checkbox";
 
 export { Select } from "./components/Select";
-export { OptionList } from "./components/Select/OptionList";
+export type { IOption, ISelect } from "./components/Select";
 export { OptionItem } from "./components/Select/OptionItem";
-export type { ISelect } from "./components/Select";
-export type { IOption } from "./components/Select";
-export type { IOptionList } from "./components/Select/OptionList";
 export type { IOptionItem } from "./components/Select/OptionItem";
+export { OptionList } from "./components/Select/OptionList";
+export type { IOptionList } from "./components/Select/OptionList";
 export type { ISelectSize } from "./components/Select/props";
 
 export { Autocomplete } from "./components/Autocomplete";
@@ -226,10 +224,10 @@ export type { IYearpickerOrder } from "./components/Yearpicker/props";
 export { User } from "./components/User";
 export type { IUser } from "./components/User";
 export type {
-  IUserSize,
-  IMenuSection,
-  ILink as ILinkUser,
   IAction,
+  ILink as ILinkUser,
+  IMenuSection,
+  IUserSize,
 } from "./components/User/props";
 
 export { Header } from "./components/Header";
@@ -237,3 +235,6 @@ export type { IHeader } from "./components/Header";
 
 export { Box } from "./components/Box";
 export type { IBox } from "./components/Box";
+
+export { Message } from "./components/Message";
+export type { IMessage } from "./components/Message";
