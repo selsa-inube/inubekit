@@ -78,12 +78,25 @@ const wrapControls = [
 
 type IStackWrapControl = (typeof wrapControls)[number];
 
+const structureProperties = ["div", "ul", "ol"] as const;
+
+type IStackStructure = (typeof structureProperties)[number];
+
 const props = {
   children: {
     options: "",
     control: { type: "string" },
     description:
       "This prop enables the component to receive React nodes which in turn are the ones that the Stack will organize in a layout.",
+  },
+
+  as: {
+    options: structureProperties,
+    control: { type: "select" },
+    description: "Define the main container HTML tag",
+    table: {
+      defaultValue: { summary: "div" },
+    },
   },
 
   wrap: {
@@ -190,4 +203,5 @@ export type {
   IStackDirectionAlignment,
   IStackJustifyContent,
   IStackWrapControl,
+  IStackStructure,
 };

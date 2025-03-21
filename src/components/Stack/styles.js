@@ -12,6 +12,11 @@ const StyledFlex = styled.div`
   gap: ${({ $gap }) => $gap};
   margin: ${({ $margin }) => $margin};
   padding: ${({ $padding }) => $padding};
+
+  ul&,
+  ol& {
+    list-style: none;
+  }
 `;
 
 export { StyledFlex };

@@ -11,6 +11,16 @@ const StyledSquare = styled.div`
   height: 50px;
   width: 70px;
   color: ${inube.palette.neutral.N500};
+
+  ul& {
+    background-color: ${inube.palette.blue.B50};
+    color: ${inube.palette.blue.B500};
+  }
+
+  ol& {
+    background-color: ${inube.palette.green.G50};
+    color: ${inube.palette.green.G500};
+  }
 `;
 
 export { StyledSquare };
