@@ -21,7 +21,10 @@ import { Logo } from "./logo";
 const story = {
   title: "navigation/Header",
   components: [Header],
-  parameters,
+  parameters: {
+    ...parameters,
+    layout: "fullscreen",
+  },
   argTypes: props,
   decorators: [
     (Story: React.ElementType) => (
@@ -35,70 +38,76 @@ const story = {
 const Default = (args: IHeader) => <Header {...args} />;
 
 Default.args = {
-  portalId: "portals",
   navigation: {
-    items: {
+    nav: {
+      reactPortalId: "portals",
       title: "MENU",
-      sections: {
-        administrate: {
-          name: "Administrate",
-          links: {
-            privileges: {
+      sections: [
+        {
+          subtitle: "Administrate",
+          links: [
+            {
               id: "privileges",
               label: "Privileges",
               icon: <MdKey />,
               path: "/privileges",
             },
-            accounting: {
+            {
               id: "accounting",
               label: "Accounting",
               icon: <MdMeetingRoom />,
               path: "/accounting",
             },
-            contacts: {
+            {
               id: "contacts",
               label: "Contacts",
               icon: <MdPhone />,
               path: "/contacts",
             },
-            crm: {
-              id: "crm",
-              label: "CRM",
-              icon: <MdStarBorder />,
-              path: "/crm",
-            },
-          },
+            { id: "crm", label: "CRM", icon: <MdStarBorder />, path: "/crm" },
+          ],
         },
-        request: {
-          name: "Request",
-          links: {
-            documents: {
+        {
+          subtitle: "Request",
+          links: [
+            {
               id: "documents",
               label: "Documents",
               icon: <MdBadge />,
               path: "/documents",
             },
-            marketing: {
+            {
               id: "marketing",
               label: "Marketing",
               icon: <MdStarBorder />,
               path: "/marketing",
             },
-            savings: {
+            {
               id: "savings",
               label: "Savings",
               icon: <MdAccountBalanceWallet />,
               path: "/savings",
             },
-            credit: {
+            {
               id: "credit",
               label: "Credit",
               icon: <MdAccountBalance />,
               path: "/credit",
             },
-          },
+          ],
         },
-      },
+      ],
+      actions: [
+        {
+          id: "action1",
+          label: "Logout",
+          action: () => console.log("Logout"),
+          icon: <MdLogout />,
+        },
+      ],
+      footerLabel: "©2025 - Inube",
+      displaySubtitles: true,
+      collapse: true,
     },
     breakpoint: "700px",
   },

@@ -7,12 +7,14 @@ const props = {
       },
     },
   },
-  portalId: {
+  reactPortalId: {
     description: "id of the portal element",
   },
-  navigation: {
-    description:
-      "(objects): shall be designed to accept an array of objects with a predetermined structure, as specified below: Each object shall contain the following attributes",
+  title: {
+    description: "corresponds to the menu title",
+  },
+  sections: {
+    description: "an array of sections that can be performed from the menu.",
   },
   actions: {
     description: "an array of actions that can be performed from the menu.",
@@ -24,8 +26,11 @@ const props = {
     description:
       "URL of an image that will be displayed as a logo in the footer.",
   },
-  logoutPath: {
-    description: "path to the logout page",
+  displaySubtitles: {
+    description: "value that determines whether the subtitles will be visible",
+  },
+  collapse: {
+    description: "value that determines whether sections will be collapsible",
   },
 };
 

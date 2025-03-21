@@ -6,7 +6,7 @@ import { useMediaQuery } from "../Hooks/useMediaQuery";
 import { Stack } from "../Stack";
 import { Text } from "../Text";
 import { ITextAppearance } from "../Text/props";
-import { FullscreenNav, IFNavigation } from "../FullscreenNav";
+import { FullscreenNav, IFullscreenNav } from "../FullscreenNav";
 
 import { IHeaderLink } from "./props";
 import {
@@ -20,10 +20,9 @@ import { tokens } from "./tokens";
 import { Grid } from "../Grid";
 
 interface IHeader {
-  portalId: string;
   logoURL: JSX.Element;
   navigation?: {
-    items: IFNavigation;
+    nav: IFullscreenNav;
     breakpoint?: string;
   };
   user?: {
@@ -39,7 +38,7 @@ interface IHeader {
 }
 
 const Header = (props: IHeader) => {
-  const { portalId, navigation, logoURL, user, links, menu = [] } = props;
+  const { navigation, logoURL, user, links, menu = [] } = props;
   const theme = useContext(ThemeContext) as { header: typeof tokens };
   const linkAppearance =
     (theme?.header?.content?.appearance as ITextAppearance) ||
@@ -60,12 +59,16 @@ const Header = (props: IHeader) => {
       >
         <Stack gap="8px" alignItems="center" margin="0 0 0 16px">
           <StyledFullscreenNav $display={navigationBreakpoint}>
-            {navigation && navigation.items && (
+            {navigation?.nav && (
               <FullscreenNav
-                portalId={portalId}
-                navigation={navigation.items}
-                logoutPath="/logout"
-                logoutTitle="Logout"
+                reactPortalId={navigation.nav.reactPortalId}
+                title={navigation.nav.title}
+                sections={navigation.nav.sections}
+                actions={navigation.nav.actions}
+                footerLabel={navigation.nav.footerLabel}
+                footerLogo={navigation.nav.footerLogo}
+                displaySubtitles={navigation.nav.displaySubtitles}
+                collapse={navigation.nav.collapse}
               />
             )}
           </StyledFullscreenNav>
