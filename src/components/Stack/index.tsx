@@ -5,10 +5,12 @@ import {
   IStackJustifyContent,
   IStackAlignItem,
   IStackAlignContent,
+  IStackStructure,
 } from "./props";
 
 interface IStack {
   children?: React.ReactNode;
+  as?: IStackStructure;
   wrap?: IStackWrapControl;
   direction?: IStackDirectionAlignment;
   justifyContent?: IStackJustifyContent;
@@ -24,6 +26,7 @@ interface IStack {
 const Stack = (props: IStack) => {
   const {
     children,
+    as = "div",
     wrap,
     direction,
     justifyContent,
@@ -38,6 +41,7 @@ const Stack = (props: IStack) => {
 
   return (
     <StyledFlex
+      as={as}
       $direction={direction}
       $justifyContent={justifyContent}
       $alignItems={alignItems}
