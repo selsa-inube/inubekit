@@ -160,10 +160,8 @@ export type {
 
 export { FullscreenNav } from "./components/FullscreenNav";
 export type {
-  IFNav,
-  IFNavigation,
-  IFNavMenuSection,
-  IFNavSection,
+  IFullscreenNav,
+  IFullscreenNavSection,
 } from "./components/FullscreenNav";
 
 export { Table } from "./components/Table";
