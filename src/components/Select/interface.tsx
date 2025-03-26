@@ -177,7 +177,9 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
           $focused={focused}
           onFocus={onFocus}
           onBlur={onBlur}
-          onChange={onChange}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onChange(name, e.target.value)
+          }
           onClick={onClick}
           onKeyUp={onKeyUp}
           readOnly={readOnly}
