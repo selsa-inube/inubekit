@@ -4,6 +4,56 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v2.0.0] - 2025-03-31 (Mon)
+
+### ✨ Added
+
+- **Extensión del componente Stack**: Ahora puede renderizarse como `<ul>` u `<ol>`.
+
+- **Documentación README**:
+
+  - Se añadieron READMEs para los componentes **Autocomplete**, **Select** y **Header**.
+  - Se actualizó el README del componente **FullscreenNav** para reflejar los cambios estructurales.
+
+### 🔄 Changed
+
+- **Refactorización de fullscreenNav**:
+
+  - **Atributos modificados**: La interfaz `IFullscreenNav` ahora requiere nuevos parámetros.
+
+  - **Detalles técnicos de su nueva interface**:
+
+    ```jsx
+    interface IFullscreenNav {
+      reactPortalId: string;
+      title?: string;
+      sections: IFullscreenNavSection[];
+      actions?: INavAction[];
+      footerLabel?: string;
+      footerLogo?: string;
+      displaySubtitles?: boolean;
+      collapse?: boolean;
+    }
+    ```
+
+  - **Impacto**: Requiere ajustes en componentes que lo usan (ej. `Header`).
+
+  - **Migración**: Se recomienda revisar el documento README del componente, el cual se encuentra actualizado, para asegurar implementaciones correctas.
+
+### 🐛 Fixed
+
+- **Evento vacío en Autocomplete/Select**: Se corrigió el retorno de `name` y `value` en el evento `onChange`.
+
+### ⚠️ Deprecated
+
+- **Implementaciones antiguas de fullscreenNav**: Las propiedades y composición previas están obsoletas. Usar la nueva estructura.
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v1.3.0] - 2025-03-21 (Fri)
 
 ### ✨ Added
