@@ -4,7 +4,7 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
-## [v2.0.0] - 2025-03-31 (Mon)
+## [v2.0.0] - 2025-04-01 (Tue)
 
 ### ✨ Added
 
@@ -15,11 +15,11 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
   - Se añadieron READMEs para los componentes **Autocomplete**, **Select** y **Header**.
   - Se actualizó el README del componente **FullscreenNav** para reflejar los cambios estructurales.
 
-### 🔄 Changed
+### 🔥 Breaking Change
 
 - **Refactorización de fullscreenNav**:
 
-  - **Atributos modificados**: La interfaz `IFullscreenNav` ahora requiere nuevos parámetros.
+  - **Atributos modificados**: La interfaz `IFNav` ahora es `IFullscreenNav` y requiere nuevos parámetros.
 
   - **Detalles técnicos de su nueva interface**:
 
@@ -36,7 +36,28 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
     }
     ```
 
-  - **Impacto**: Requiere ajustes en componentes que lo usan (ej. `Header`).
+    - **Cambios en props**
+
+      - _**Renombrados**_
+
+        - `portalId` → `reactPortalId`
+        - `navigation` → `sections (estructura diferente)`
+
+      - _**Eliminados**_
+
+        - `logoutPath`
+        - `logoutTitle`
+
+      - _**Nuevos**_
+        - `title`
+        - `collapse`
+        - `displaySubtitles`
+
+  - **Impacto**
+
+    - **Componentes de inubekit afectados:** Header (requiere actualización de implementación).
+
+    - **Componentes propios del proyecto:** Revisar todos los que usen FullscreenNav para adaptar la nueva interfaz.
 
   - **Migración**: Se recomienda revisar el documento README del componente, el cual se encuentra actualizado, para asegurar implementaciones correctas.
 
