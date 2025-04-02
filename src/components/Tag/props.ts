@@ -49,6 +49,10 @@ const props = {
       "Determines if the tag can be removed. When true, a close icon is displayed. Defaults to false.",
     type: { name: "boolean" },
   },
+  withIcon: {
+    description: "Determines whether the tag should be accompanied by an icon.",
+    type: { name: "boolean" },
+  },
   weight: {
     control: "select",
     options: weights,
