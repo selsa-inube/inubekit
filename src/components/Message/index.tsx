@@ -2,6 +2,7 @@ import { useContext } from "react";
 import {
   MdCheckCircleOutline,
   MdErrorOutline,
+  MdInfoOutline,
   MdOutlineChat,
   MdOutlineReportProblem,
 } from "react-icons/md";
@@ -54,7 +55,7 @@ const Message = (props: IMessage) => {
       case "danger":
         return <MdErrorOutline />;
       case "help":
-        return <MdErrorOutline />;
+        return <MdInfoOutline />;
       case "gray":
         return <MdOutlineChat />;
       case "dark":

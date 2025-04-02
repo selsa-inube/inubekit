@@ -5,7 +5,14 @@ import { ITextAppearance } from "../Text/props";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
 import { Icon } from "../Icon";
-import { MdClear } from "react-icons/md";
+import {
+  MdCheckCircleOutline,
+  MdClear,
+  MdErrorOutline,
+  MdInfoOutline,
+  MdOutlineChat,
+  MdOutlineReportProblem,
+} from "react-icons/md";
 import { Stack } from "../Stack";
 import { tokens } from "./tokens";
 
@@ -15,6 +22,7 @@ interface ITag {
   weight?: ITagWeight;
   label: string;
   removable?: boolean;
+  withIcon?: boolean;
   onClose?: (e: React.MouseEvent<Element, MouseEvent>) => void;
 }
 
@@ -24,8 +32,10 @@ const Tag = (props: ITag) => {
     weight = "normal",
     label,
     removable = false,
+    withIcon = false,
     onClose,
   } = props;
+
   const theme = useContext(ThemeContext) as { tag: typeof tokens };
   const textAppearance = (appearance: ITextAppearance, weight: ITagWeight) => {
     return (theme?.tag?.[appearance][weight]?.content?.appearance ||
@@ -44,24 +54,57 @@ const Tag = (props: ITag) => {
     }
   };
 
+  const getIcon = (appearance: ITextAppearance) => {
+    switch (appearance) {
+      case "primary":
+        return <MdOutlineChat />;
+      case "success":
+        return <MdCheckCircleOutline />;
+      case "warning":
+        return <MdOutlineReportProblem />;
+      case "danger":
+        return <MdErrorOutline />;
+      case "help":
+        return <MdInfoOutline />;
+      case "gray":
+        return <MdOutlineChat />;
+      case "dark":
+        return <MdOutlineChat />;
+      case "light":
+        return <MdOutlineChat />;
+      default:
+        return <MdOutlineChat />;
+    }
+  };
+
   return (
     <StyledTag $appearance={appearance} $weight={weight} $removable={removable}>
-      <Stack alignItems="center" gap="2px">
-        <Text
-          type="label"
-          appearance={textAppearance(appearance, weight)}
-          size="small"
-          textAlign="start"
-          weight="bold"
-        >
-          {label}
-        </Text>
+      <Stack alignItems="center" gap="4px">
+        <Stack alignItems="center" gap="2px">
+          {withIcon && (
+            <Icon
+              onClick={interceptonClose}
+              appearance={textAppearance(appearance, weight)}
+              icon={getIcon(appearance)}
+              size="12px"
+            />
+          )}
+          <Text
+            type="label"
+            appearance={textAppearance(appearance, weight)}
+            size="small"
+            textAlign="start"
+            weight="bold"
+          >
+            {label}
+          </Text>
+        </Stack>
         {removable && (
           <Icon
             onClick={interceptonClose}
             appearance={textAppearance(appearance, weight)}
             icon={<MdClear />}
-            size="11px"
+            size="12px"
           />
         )}
       </Stack>
