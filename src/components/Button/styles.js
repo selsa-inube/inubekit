@@ -9,16 +9,11 @@ const StyledButton = styled.button`
   min-width: 100px;
   max-width: ${({ $fullwidth }) => ($fullwidth ? "none" : "300px")};
   width: ${({ $fullwidth, $width }) => {
-    if ($fullwidth) {
-      return "100%";
-    }
-
-    if ($width) {
-      return $width;
-    }
-
+    if ($fullwidth) return "100%";
+    if ($width) return $width;
     return "fit-content";
   }};
+  position: relative;
 
   background-color: ${({
     theme,
@@ -59,9 +54,7 @@ const StyledButton = styled.button`
     $parentHover,
   }) => {
     if ($disabled) {
-      if ($variant !== "outlined") {
-        return "transparent";
-      }
+      if ($variant !== "outlined") return "transparent";
       return (
         theme?.button?.[$appearance].border?.color?.disabled ||
         tokens[$appearance].border.color.disabled
@@ -72,9 +65,7 @@ const StyledButton = styled.button`
         theme?.button?.[$appearance].border?.color?.hover ||
         tokens[$appearance].border.color.hover
       );
-    if ($variant === "none") {
-      return "transparent";
-    }
+    if ($variant === "none") return "transparent";
 
     return (
       theme?.button?.[$appearance].border?.color?.regular ||
@@ -83,14 +74,8 @@ const StyledButton = styled.button`
   }};
 
   cursor: ${({ $disabled, $loading }) => {
-    if ($disabled) {
-      return "not-allowed";
-    }
-
-    if ($loading.toString() === "true") {
-      return "progress";
-    }
-
+    if ($disabled) return "not-allowed";
+    if ($loading.toString() === "true") return "progress";
     return "pointer";
   }};
 
@@ -103,16 +88,13 @@ const StyledButton = styled.button`
       $cursorHover,
     }) => {
       if (!$disabled && $cursorHover) {
-        if ($variant === "none") {
-          return "transparent";
-        }
+        if ($variant === "none") return "transparent";
         return (
           theme?.button?.[$appearance].border?.color?.hover ||
           tokens[$appearance].border.color.hover
         );
       }
     }};
-
     background-color: ${({
       theme,
       $appearance,
@@ -133,8 +115,29 @@ const StyledButton = styled.button`
   }
 `;
 
+const ButtonContentWrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .button-content {
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .spinner-wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-export { StyledButton, StyledLink };
+export { StyledButton, StyledLink, ButtonContentWrapper };
