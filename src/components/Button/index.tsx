@@ -9,7 +9,13 @@ import {
   IButtonVariant,
 } from "./props";
 
-import { StyledButton, StyledLink, ButtonContentWrapper } from "./styles";
+import {
+  StyledButton,
+  StyledLink,
+  ButtonContentWrapper,
+  ButtonContent,
+  SpinnerWrapper,
+} from "./styles";
 import { useState, useContext } from "react";
 import { ThemeContext } from "styled-components";
 import { tokens } from "./tokens";
@@ -107,10 +113,7 @@ const ButtonStructure = (props: IButton) => {
       onMouseLeave={handleMouseLeave}
     >
       <ButtonContentWrapper>
-        <div
-          className="button-content"
-          style={{ visibility: loading ? "hidden" : "visible" }}
-        >
+        <ButtonContent $loading={loading}>
           <Stack alignItems="center" justifyContent="center" gap="8px">
             {iconBefore && (
               <Icon
@@ -155,9 +158,9 @@ const ButtonStructure = (props: IButton) => {
               />
             )}
           </Stack>
-        </div>
+        </ButtonContent>
         {loading && !disabled && (
-          <div className="spinner-wrapper">
+          <SpinnerWrapper>
             <Spinner
               appearance={
                 variant === "filled"
@@ -167,7 +170,7 @@ const ButtonStructure = (props: IButton) => {
               transparent={variant === "filled"}
               size="small"
             />
-          </div>
+          </SpinnerWrapper>
         )}
       </ButtonContentWrapper>
     </StyledButton>

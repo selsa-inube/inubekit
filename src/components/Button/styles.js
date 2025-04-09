@@ -120,24 +120,31 @@ const ButtonContentWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
 
-  .button-content {
-    min-height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+const ButtonContent = styled.div`
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: ${({ $loading }) => ($loading ? "hidden" : "visible")};
+`;
 
-  .spinner-wrapper {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+const SpinnerWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-export { StyledButton, StyledLink, ButtonContentWrapper };
+export {
+  StyledButton,
+  StyledLink,
+  ButtonContentWrapper,
+  ButtonContent,
+  SpinnerWrapper,
+};
