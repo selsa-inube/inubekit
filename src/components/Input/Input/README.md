@@ -56,43 +56,74 @@ Mensaje de ayuda o error que se muestra debajo del campo.
 
 ### status (opcional)
 
-Estado del campo: `"valid"`, `"invalid"` o `"pending"`.
+Estado del campo.
+
+1. `"valid" | "invalid" | "pending"`
+
+_No tiene valor por defecto._
 
 ### disabled (opcional)
 
 Indica si el campo está deshabilitado.
 
+1. `true | false`
+2. **Por defecto: `false`**
+
 ### readOnly (opcional)
 
 Indica si el campo es de solo lectura.
+
+1. `true | false`
+2. **Por defecto: `false`**
 
 ### required (opcional)
 
 Indica si el campo es obligatorio.
 
+1. `true | false`
+2. **Por defecto: `false`**
+
 ### fullwidth (opcional)
 
 Hace que el campo ocupe el 100% del ancho disponible.
 
+1. `true | false`
+2. **Por defecto: `false`**
+
 ### size (opcional)
 
-Tamaño del campo: `"compact"` o `"wide"`.
+Controla el tamaño del campo de entrada.
+
+1. `"wide" | "compact"`
+2. **Por defecto: `"wide"`**
 
 ### counter (opcional)
 
 Muestra un contador de caracteres.
 
+1. `true | false`
+2. **Por defecto: `false`**
+
 ### maxLength (opcional)
 
 Número máximo de caracteres permitidos.
 
+_Tipo: `number`_
+
+_No tiene valor por defecto._
+
 ### type (opcional)
 
-Tipo de entrada: `"text"` (por defecto), `"number"`, `"email"`, `"money"`, `"phone"`, `"search"`.
+Tipo de entrada.
+
+1. `"text" | "number" | "email" | "money" | "phone" | "search"`
+2. **Por defecto: `"text"`**
 
 ## Personalización
 
 ### Tokens
 
-- Este componente define sus tokens de color, tamaño y espaciado por los valores definidos en el tema.
-- Los tokens definidos están especificados en el archivo [TOKENS.md](./TOKENS.md).
+Este componente contiene la definición de tokens globales para todos los tipos de input disponibles, incluyendo los componentes `Input`, `EmailField`, etc.
+
+- Los tokens están definidos por los valores del tema global.
+- Para más detalles, consulta el archivo de tokens compartido: [TOKENS.md](../TOKENS.md).

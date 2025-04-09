@@ -115,10 +115,13 @@ const InputUI = (props: IInput) => {
     tokens.message.appearance;
 
   const currentLength = value ? value.toString().length : 0;
+  const showLabel = label || (required && !disabled) || (!disabled && counter);
+  const showRequired = required && !disabled;
+  const showCounter = !disabled && counter;
 
   return (
     <StyledContainer $disabled={disabled} $fullwidth={fullwidth} $size={size}>
-      {(label || (required && !disabled) || (!disabled && counter)) && (
+      {showLabel && (
         <StyledContainerLabel
           $alignItems="center"
           $disabled={disabled}
@@ -138,19 +141,19 @@ const InputUI = (props: IInput) => {
             </Label>
           )}
 
-          {required && !disabled && (
+          {showRequired && (
             <Text
               appearance={requiredAppearance}
               margin="0px 0px 0px 4px"
               size="small"
-              textAlign={"center"}
+              textAlign="center"
               type="body"
             >
               (Requerido)
             </Text>
           )}
 
-          {!disabled && counter && (
+          {showCounter && (
             <Stack justifyContent="flex-end" alignItems="center" width="100%">
               <Counter maxLength={maxLength} currentLength={currentLength} />
             </Stack>
