@@ -102,7 +102,7 @@ const InputUI = (props: IInput) => {
     try {
       onKeyUp && onKeyUp(e);
     } catch (error) {
-      console.error(`Error executing focus callback. ${error}`);
+      console.error(`Error executing keyUp callback. ${error}`);
     }
   };
 
@@ -115,45 +115,51 @@ const InputUI = (props: IInput) => {
     tokens.message.appearance;
 
   const currentLength = value ? value.toString().length : 0;
+  const showLabel = label || (required && !disabled) || (!disabled && counter);
+  const showRequired = required && !disabled;
+  const showCounter = !disabled && counter;
 
   return (
     <StyledContainer $disabled={disabled} $fullwidth={fullwidth} $size={size}>
-      <StyledContainerLabel
-        $alignItems="center"
-        $disabled={disabled}
-        $size={size}
-        $wrap="wrap"
-      >
-        {label && (
-          <Label
-            focused={focusedState}
-            htmlFor={id}
-            invalid={status === "invalid"}
-            margin="0px 0px 0px 16px"
-            size={size === "compact" ? "medium" : "large"}
-            disabled={disabled}
-          >
-            {label}
-          </Label>
-        )}
+      {showLabel && (
+        <StyledContainerLabel
+          $alignItems="center"
+          $disabled={disabled}
+          $size={size}
+          $wrap="wrap"
+        >
+          {label && (
+            <Label
+              focused={focusedState}
+              htmlFor={id}
+              invalid={status === "invalid"}
+              margin="0px 0px 0px 16px"
+              size={size === "compact" ? "medium" : "large"}
+              disabled={disabled}
+            >
+              {label}
+            </Label>
+          )}
 
-        {required && !disabled && (
-          <Text
-            appearance={requiredAppearance}
-            margin="0px 0px 0px 4px"
-            size="small"
-            textAlign={"center"}
-            type="body"
-          >
-            (Requerido)
-          </Text>
-        )}
-        {!disabled && counter && (
-          <Stack justifyContent="flex-end" alignItems="center" width="100%">
-            <Counter maxLength={maxLength} currentLength={currentLength} />
-          </Stack>
-        )}
-      </StyledContainerLabel>
+          {showRequired && (
+            <Text
+              appearance={requiredAppearance}
+              margin="0px 0px 0px 4px"
+              size="small"
+              textAlign="center"
+              type="body"
+            >
+              (Requerido)
+            </Text>
+          )}
+
+          {showCounter && (
+            <Stack justifyContent="flex-end" alignItems="center" width="100%">
+              <Counter maxLength={maxLength} currentLength={currentLength} />
+            </Stack>
+          )}
+        </StyledContainerLabel>
+      )}
 
       <StyledInputContainer
         $disabled={disabled}
@@ -218,7 +224,7 @@ const InputUI = (props: IInput) => {
             <Text
               appearance={messageAppearance}
               size="small"
-              textAlign={"center"}
+              textAlign="center"
               type="body"
             >
               {message}
