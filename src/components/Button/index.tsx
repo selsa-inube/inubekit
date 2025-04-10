@@ -9,9 +9,13 @@ import {
   IButtonVariant,
 } from "./props";
 
-import { StyledButton, StyledLink } from "./styles";
-import { useState } from "react";
-import { useContext } from "react";
+import {
+  StyledButton,
+  StyledLink,
+  ButtonContent,
+  SpinnerWrapper,
+} from "./styles";
+import { useState, useContext } from "react";
 import { ThemeContext } from "styled-components";
 import { tokens } from "./tokens";
 
@@ -107,62 +111,69 @@ const ButtonStructure = (props: IButton) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {loading && !disabled ? (
-        <Spinner
-          appearance={
-            variant === "filled"
-              ? externalComponentAppearance(appearance)
-              : appearance
-          }
-          transparent={variant === "filled"}
-          size="small"
-        />
-      ) : (
-        <Stack alignItems="center" justifyContent="center" gap="8px">
-          {iconBefore && (
-            <Icon
-              icon={iconBefore}
-              size="18px"
+      <ButtonContent>
+        {!loading || (loading && disabled) ? (
+          <Stack alignItems="center" justifyContent="center" gap="8px">
+            {iconBefore && (
+              <Icon
+                icon={iconBefore}
+                size="18px"
+                appearance={
+                  variant === "filled"
+                    ? externalComponentAppearance(appearance)
+                    : appearance
+                }
+                disabled={disabled}
+                parentHover={helperParentHover}
+              />
+            )}
+            <Text
+              type="label"
+              size="large"
               appearance={
                 variant === "filled"
                   ? externalComponentAppearance(appearance)
                   : appearance
               }
               disabled={disabled}
+              ellipsis={true}
               parentHover={helperParentHover}
-            />
-          )}
-          <Text
-            type="label"
-            size="large"
-            appearance={
-              variant === "filled"
-                ? externalComponentAppearance(appearance)
-                : appearance
-            }
-            disabled={disabled}
-            ellipsis={true}
-            parentHover={helperParentHover}
-            textAlign="start"
-            weight="bold"
-          >
-            {children}
-          </Text>
-          {iconAfter && (
-            <Icon
-              icon={iconAfter}
-              size="18px"
-              appearance={
-                variant === "filled"
-                  ? externalComponentAppearance(appearance)
-                  : appearance
-              }
-              disabled={disabled}
-              parentHover={helperParentHover}
-            />
-          )}
-        </Stack>
-      )}
+              textAlign="start"
+              weight="bold"
+            >
+              {children}
+            </Text>
+            {iconAfter && (
+              <Icon
+                icon={iconAfter}
+                size="18px"
+                appearance={
+                  variant === "filled"
+                    ? externalComponentAppearance(appearance)
+                    : appearance
+                }
+                disabled={disabled}
+                parentHover={helperParentHover}
+              />
+            )}
+          </Stack>
+        ) : (
+          loading &&
+          !disabled && (
+            <SpinnerWrapper>
+              <Spinner
+                appearance={
+                  variant === "filled"
+                    ? externalComponentAppearance(appearance)
+                    : appearance
+                }
+                transparent={variant === "filled"}
+                size="small"
+              />
+            </SpinnerWrapper>
+          )
+        )}
+      </ButtonContent>
     </StyledButton>
   );
 };
