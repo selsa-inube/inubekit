@@ -21,7 +21,23 @@ import { Button } from "@inubekit/inubekit";
 
 ## Props
 
-Puedes consultar la lista de Props en [props.ts](./props.ts)
+| Prop          | Tipo                  | Descripción                                       |
+| ------------- | --------------------- | ------------------------------------------------- | -------------------------------------------------- | --------------------------------------- |
+| `children`    | `React.ReactNode`     | Contenido del botón.                              |
+| `appearance`  | `"primary"            | "secondary"`                                      | Define el estilo visual. Por defecto: `"primary"`. |
+| `loading`     | `boolean`             | Muestra un spinner. Por defecto: `false`.         |
+| `disabled`    | `boolean`             | Desactiva el botón. Por defecto: `false`.         |
+| `iconBefore`  | `React.ReactElement`  | Ícono antes del texto.                            |
+| `iconAfter`   | `React.ReactElement`  | Ícono después del texto.                          |
+| `type`        | `"button"             | "submit"                                          | "link"`                                            | Tipo de botón. Por defecto: `"button"`. |
+| `spacing`     | `"compact"            | "wide"`                                           | Espaciado interno. Por defecto: `"wide"`.          |
+| `variant`     | `"filled"             | "outlined"`                                       | Variante visual. Por defecto: `"filled"`.          |
+| `width`       | `string`              | Ancho personalizado (ej. `"100%"`).               |
+| `fullwidth`   | `boolean`             | Hace que el botón ocupe todo el ancho disponible. |
+| `onClick`     | `(e?: Event) => void` | Función llamada al hacer clic.                    |
+| `path`        | `string`              | Ruta para botones tipo `link`.                    |
+| `cursorHover` | `boolean`             | Cambia comportamiento del cursor.                 |
+| `parentHover` | `boolean`             | Permite que el padre controle el estado hover.    |
 
 ## Comportamiento
 
