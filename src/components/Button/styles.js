@@ -115,19 +115,11 @@ const StyledButton = styled.button`
   }
 `;
 
-const ButtonContentWrapper = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const ButtonContent = styled.div`
   min-height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  visibility: ${({ $loading }) => ($loading ? "hidden" : "visible")};
 `;
 
 const SpinnerWrapper = styled.div`
@@ -141,10 +133,4 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-export {
-  StyledButton,
-  StyledLink,
-  ButtonContentWrapper,
-  ButtonContent,
-  SpinnerWrapper,
-};
+export { StyledButton, StyledLink, ButtonContent, SpinnerWrapper };

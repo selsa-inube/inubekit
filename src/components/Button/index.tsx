@@ -12,7 +12,6 @@ import {
 import {
   StyledButton,
   StyledLink,
-  ButtonContentWrapper,
   ButtonContent,
   SpinnerWrapper,
 } from "./styles";
@@ -112,8 +111,8 @@ const ButtonStructure = (props: IButton) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <ButtonContentWrapper>
-        <ButtonContent $loading={loading}>
+      <ButtonContent>
+        {!loading || (loading && disabled) ? (
           <Stack alignItems="center" justifyContent="center" gap="8px">
             {iconBefore && (
               <Icon
@@ -158,21 +157,23 @@ const ButtonStructure = (props: IButton) => {
               />
             )}
           </Stack>
-        </ButtonContent>
-        {loading && !disabled && (
-          <SpinnerWrapper>
-            <Spinner
-              appearance={
-                variant === "filled"
-                  ? externalComponentAppearance(appearance)
-                  : appearance
-              }
-              transparent={variant === "filled"}
-              size="small"
-            />
-          </SpinnerWrapper>
+        ) : (
+          loading &&
+          !disabled && (
+            <SpinnerWrapper>
+              <Spinner
+                appearance={
+                  variant === "filled"
+                    ? externalComponentAppearance(appearance)
+                    : appearance
+                }
+                transparent={variant === "filled"}
+                size="small"
+              />
+            </SpinnerWrapper>
+          )
         )}
-      </ButtonContentWrapper>
+      </ButtonContent>
     </StyledButton>
   );
 };
