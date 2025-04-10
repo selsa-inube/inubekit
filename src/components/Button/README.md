@@ -21,23 +21,124 @@ import { Button } from "@inubekit/inubekit";
 
 ## Props
 
-| Prop          | Tipo                  | Descripción                                       |
-| ------------- | --------------------- | ------------------------------------------------- | -------------------------------------------------- | --------------------------------------- |
-| `children`    | `React.ReactNode`     | Contenido del botón.                              |
-| `appearance`  | `"primary"            | "secondary"`                                      | Define el estilo visual. Por defecto: `"primary"`. |
-| `loading`     | `boolean`             | Muestra un spinner. Por defecto: `false`.         |
-| `disabled`    | `boolean`             | Desactiva el botón. Por defecto: `false`.         |
-| `iconBefore`  | `React.ReactElement`  | Ícono antes del texto.                            |
-| `iconAfter`   | `React.ReactElement`  | Ícono después del texto.                          |
-| `type`        | `"button"             | "submit"                                          | "link"`                                            | Tipo de botón. Por defecto: `"button"`. |
-| `spacing`     | `"compact"            | "wide"`                                           | Espaciado interno. Por defecto: `"wide"`.          |
-| `variant`     | `"filled"             | "outlined"`                                       | Variante visual. Por defecto: `"filled"`.          |
-| `width`       | `string`              | Ancho personalizado (ej. `"100%"`).               |
-| `fullwidth`   | `boolean`             | Hace que el botón ocupe todo el ancho disponible. |
-| `onClick`     | `(e?: Event) => void` | Función llamada al hacer clic.                    |
-| `path`        | `string`              | Ruta para botones tipo `link`.                    |
-| `cursorHover` | `boolean`             | Cambia comportamiento del cursor.                 |
-| `parentHover` | `boolean`             | Permite que el padre controle el estado hover.    |
+### children
+
+Texto a mostrar en el botón.
+
+1. Tipo: `string`
+
+---
+
+### loading
+
+Muestra un spinner y oculta el contenido si es `true`.
+
+1. Tipo: `boolean`
+2. **Por defecto: `false`**
+
+---
+
+### appearance
+
+Estilo base del botón.
+
+1. Opciones: `"primary"`, `"success"`, `"warning"`, `"danger"`, `"help"`, `"dark"`, `"gray"`, `"light"`
+2. **Por defecto: `"primary"`**
+
+---
+
+### disabled
+
+Desactiva el botón.
+
+1. Tipo: `boolean`
+2. **Por defecto: `false`**
+
+---
+
+### iconBefore
+
+Ícono que se muestra antes del texto del botón.
+
+1. Tipo: `string`
+
+---
+
+### iconAfter
+
+Ícono que se muestra después del texto del botón.
+
+1. Tipo: `string`
+
+---
+
+### type
+
+Tipo de botón.
+
+1. Opciones: `"button"`, `"submit"`, `"reset"`, `"link"`
+2. **Por defecto: `"button"`**
+
+---
+
+### spacing
+
+Controla el espaciado interno del botón.
+
+1. Opciones: `"wide"` | `"compact"`
+2. **Por defecto: `"wide"`**
+
+---
+
+### variant
+
+Define la variante de estilo del botón.
+
+1. Opciones: `"filled"` | `"outlined"` | `"none"`
+2. **Por defecto: `"filled"`**
+
+---
+
+### fullwidth
+
+Atributo que define si el botón ocupa todo el ancho del contenedor.
+
+1. Tipo: `boolean`
+2. **Por defecto: `false`**
+
+---
+
+### onClick
+
+Función que se ejecuta cuando el usuario hace clic sobre el botón.
+
+1. Tipo: `function`
+
+---
+
+### path
+
+Ruta a la que se navega cuando `type` es `"link"`.
+
+1. Tipo: `string`
+
+---
+
+### cursorHover
+
+Aplica estilos si el cursor está sobre el botón.
+
+1. Tipo: `boolean`
+2. **Por defecto: `false`**
+
+---
+
+### parentHover
+
+Aplica estilos si el cursor está sobre el contenedor padre del botón.
+
+1. Tipo: `boolean`
+2. **Por defecto: `false`**
 
 ## Comportamiento
 
