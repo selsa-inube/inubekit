@@ -3,6 +3,7 @@ import {
   MdCheckCircleOutline,
   MdClear,
   MdErrorOutline,
+  MdInfoOutline,
   MdOutlineChat,
   MdOutlineWarningAmber,
 } from "react-icons/md";
@@ -32,7 +33,7 @@ const iconMap: Record<IFlagAppearance, JSX.Element> = {
   success: <MdCheckCircleOutline />,
   warning: <MdOutlineWarningAmber />,
   danger: <MdErrorOutline />,
-  help: <MdErrorOutline />,
+  help: <MdInfoOutline />,
 };
 
 const getIconForAppearance = (appearance: IFlagAppearance): JSX.Element => {

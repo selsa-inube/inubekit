@@ -15,6 +15,7 @@ Default.args = {
   label: "Tag",
   weight: "normal",
   removable: false,
+  withIcon: false,
 };
 
 export default story;
