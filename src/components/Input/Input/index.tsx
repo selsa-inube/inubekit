@@ -30,7 +30,7 @@ interface IInput {
   readOnly?: boolean;
   maxLength?: number;
   minLength?: number;
-  counter?: boolean;
+  currentLength?: number;
 }
 
 const inputComponents: Record<string, React.ComponentType<IInput>> = {

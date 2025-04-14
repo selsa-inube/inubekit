@@ -20,6 +20,7 @@ Default.args = {
   invalid: false,
   margin: "0px",
   padding: "0px",
+  ellipsis: true,
 };
 
 export { Default };
