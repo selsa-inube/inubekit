@@ -13,44 +13,6 @@ const StyledContainer = styled.div`
   }
 `;
 
-// const StyledInputContainer = styled.div`
-//   display: grid;
-//   grid-auto-flow: column;
-//   grid-template-columns: 1fr auto;
-//   align-items: center;
-//   box-sizing: border-box;
-//   border-radius: 8px;
-//   user-select: none;
-//   border-width: 1px;
-//   border-style: solid;
-//   padding-left: 16px;
-//   padding-right: 16px;
-//   border-color: ${({ theme, disabled, $invalid, $focused }) => {
-//     if (disabled) {
-//       return (
-//         (theme?.input?.border?.color?.disabled ||
-//           InputTokens.border.color.disabled) +
-//         "; pointer-events: none; opacity: 0.5;"
-//       );
-//     }
-//     if ($focused) {
-//       return (
-//         theme?.input?.border?.color?.focus || InputTokens.border.color.focus
-//       );
-//     }
-//     if ($invalid) {
-//       return (
-//         theme?.input?.border?.color?.invalid || InputTokens.border.color.invalid
-//       );
-//     }
-//     return (
-//       theme?.input?.border?.color?.regular || InputTokens.border.color.regular
-//     );
-//   }};
-
-//   opacity: ${({ disabled }) => (disabled ? "0.5" : "unset")};
-//   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-// `;
 const StyledInputContainer = styled.div`
   display: grid;
   align-items: center;
