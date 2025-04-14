@@ -17,6 +17,7 @@ type IInputStatus = (typeof status)[number];
 
 interface ICounter {
   maxLength?: number;
+  minLength?: number;
   currentLength: number;
 }
 

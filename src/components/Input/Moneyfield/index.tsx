@@ -45,7 +45,17 @@ const Moneyfield = (props: IInput) => {
     }
   };
 
-  return <InputUI {...rest} iconAfter={iconAfter} onChange={handleChange} />;
+  const rawValueLength = value.toString().replace(/[^0-9]/g, "").length;
+
+  return (
+    <InputUI
+      {...rest}
+      value={formatMoney(String(value))}
+      currentLength={rawValueLength}
+      iconAfter={iconAfter}
+      onChange={handleChange}
+    />
+  );
 };
 
 export { Moneyfield };

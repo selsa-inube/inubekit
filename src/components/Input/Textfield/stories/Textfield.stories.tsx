@@ -25,7 +25,6 @@ Default.args = {
   type: "text",
   size: "wide",
   status: "pending",
-  counter: true,
   maxLength: 20,
 };
 

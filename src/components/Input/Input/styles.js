@@ -10,8 +10,17 @@ const StyledContainer = styled.div`
 const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
+  justify-content: space-between;
+  gap: 4px;
+`;
+
+const StyledLabel = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: ${({ $fullwidth }) => ($fullwidth ? "auto" : "176px")};
 `;
 
 const StyledInputContainer = styled.div`
@@ -131,6 +140,7 @@ const StyledMessageContainer = styled.div`
 export {
   StyledContainer,
   StyledContainerLabel,
+  StyledLabel,
   StyledInputContainer,
   StyledInput,
   StyledMessageContainer,
