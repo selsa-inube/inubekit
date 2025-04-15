@@ -4,6 +4,7 @@ import { tokens } from "../tokens";
 const StyledFullscreenNav = styled.nav`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
@@ -24,21 +25,10 @@ const StyledFullscreenNav = styled.nav`
   }
 `;
 
-const StyledFooter = styled.footer`
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 24px;
-  gap: 24px;
-`;
-
 const StyledFooterLogoImage = styled.img`
-  width: 124px;
-  height: auto;
-  display: block;
-  padding: 24px 62px;
+  width: 50%;
+  max-width: 200px;
+  margin: 0 auto;
 `;
 
-export { StyledFullscreenNav, StyledFooterLogoImage, StyledFooter };
+export { StyledFullscreenNav, StyledFooterLogoImage };

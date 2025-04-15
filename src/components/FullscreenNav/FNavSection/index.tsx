@@ -36,7 +36,7 @@ function FullscreenNavSection(props: IFullscreenNavSection) {
 
   const handleSubtitleClick = (e: PointerEvent) => {
     e.preventDefault();
-    if (isCollapsible) onToggle();
+    if (isCollapsible) onToggle?.();
   };
 
   return (
@@ -76,7 +76,7 @@ function FullscreenNavSection(props: IFullscreenNavSection) {
                 size="20px"
                 onClick={(e) => {
                   e.stopPropagation();
-                  onToggle();
+                  onToggle?.();
                 }}
               />
             </Stack>
