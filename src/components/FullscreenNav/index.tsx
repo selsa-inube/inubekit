@@ -18,9 +18,9 @@ interface IFullscreenNavSection {
   links: INavLink[];
   displaySubtitles?: boolean;
   collapse?: boolean;
-  isOpen: boolean;
-  onClose: () => void;
-  onToggle: () => void;
+  isOpen?: boolean;
+  onClose?: () => void;
+  onToggle?: () => void;
 }
 
 interface IFullscreenNav {
