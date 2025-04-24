@@ -4,6 +4,36 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v2.0.1] - 2025-04-23 (Wed)
+
+### ✨ Added
+
+- _No se agregaron nuevas funcionalidades en esta versión._
+
+### 🔄 Changed
+
+- _No se realizaron cambios en funcionalidades existentes en esta versión._
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🐛 Fixed
+
+- **Button**: Se corrigió que el alto del botón no se mantuviera constante cuando se pasa la prop `loading` (spinner), evitando cambios de tamaño inesperados.
+
+- **Input**: Se solucionó el problema donde eliminar el atributo `label` generaba un espacio vacío que afectaba el diseño.
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v2.0.0] - 2025-04-01 (Tue)
 
 ### ✨ Added

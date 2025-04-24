@@ -1,34 +1,130 @@
-# IDS - Button
+# Button
 
-This project is a button repository that can be used to help people take action, such as sending an email, sharing a document, or liking a comment. Also, this the intention of button are triggers for events or actions. They’re commonly used as part of larger components or patterns such as forms or modal dialogs.
+Este componente representa un botón reutilizable que admite estilos personalizados, íconos y un spinner de carga. Se puede renderizar como un botón clásico o como un enlace.
 
-## Readme
+## Instalación
 
-This readme contains the details of usage of the starter. Once you create a new repo based in this template in github, please change the content of the README and make it relatable to the component you are creating.
+```bash
+npm install @inubekit/inubekit
+```
 
-## Instructions of usage
+## Dependencias
 
-### Package.json
+- **styled-components**: esta librería debe estar instalada en tu proyecto.
+- **react-router-dom**: se requiere si usas el tipo `link`.
 
-1. **name**: As you can see in the package.json file, the name of this package is "ids-starter". Please rename the name when you start your new project. Remember that all components are publish by the @inubekit organization in npm, so rename the package as @inubekit/{new-component-name}
-2. **description**: Complete the description about the component you are creating.
+## Importación
 
-### Environment variables
+```tsx
+import { Button } from "@inubekit/inubekit";
+```
 
-1. In order to control releases and package publishing, you will need to have a .env file with some environment variables.
-2. `GH_TOKEN`: Create this token in github.com, using your profile settings. This token requires the **repo** scope.
-3. `NPM_TOKEN`: Create this token in npmjs.com. You must ask the admin to add you as a organization admin prior to publish the package in npm.
+## Props
 
-### Pull Requests
+### children
 
-1. All PRs must have a semver label attached to it. This is the way the publishing and versioning process will use to know if a PR demands a major, minor or patch version to be created.
-2. To have these labels available, please run `npm run auto create-labels` to create them (you need to have already your `GH_TOKEN` in .env in order to make this command work).
+Texto a mostrar en el botón.
 
-### Publishing
+1. Tipo: `string`
 
-Follow these steps to publish and release a new version of your package. Also check that you're an admin in the repository (validate with your team leader).
+### loading
 
-1. `npm run changelog`: this command will create a changelog for you, including in the document the changes that the current release will publish in the new version of the package and what should be the version number of the release. The number is calculated using the labels of all the PRs that are included in this new version (see the Pull Requests details above).
-2. `npm version <new-version>`: this command makes multiple things. First, deletes the /dist folder in your project. Second, executes the build of the project and its files are stored in a new /dist folder. Third, creates a new version using the version number you pass in the command (use the version calculated in the changelog step). Fourth, executes a git push with the new version tag included. Fifth, creates a new release in Github. **This step requires that you have your `GH_TOKEN` working**.
-3. `npm login`: you must be logged in with npm to continue the process.
-4. `npm publish`: with the new build already in /dist, you can now execute this command and the new package version will be published in npm. **This command requires tat you have you `NPM_TOKEN` working.**
+Muestra un spinner y oculta el contenido si es `true`.
+
+1. Tipo: `boolean`
+2. **Por defecto: `false`**
+
+### appearance
+
+Estilo base del botón.
+
+1. Opciones: `"primary"`, `"success"`, `"warning"`, `"danger"`, `"help"`, `"dark"`, `"gray"`, `"light"`
+2. **Por defecto: `"primary"`**
+
+### disabled
+
+Desactiva el botón.
+
+1. Tipo: `boolean`
+2. **Por defecto: `false`**
+
+### iconBefore
+
+Ícono que se muestra antes del texto del botón.
+
+1. Tipo: `string`
+
+### iconAfter
+
+Ícono que se muestra después del texto del botón.
+
+1. Tipo: `string`
+
+### type
+
+Tipo de botón.
+
+1. Opciones: `"button"`, `"submit"`, `"reset"`, `"link"`
+2. **Por defecto: `"button"`**
+
+### spacing
+
+Controla el espaciado interno del botón.
+
+1. Opciones: `"wide"` | `"compact"`
+2. **Por defecto: `"wide"`**
+
+### variant
+
+Define la variante de estilo del botón.
+
+1. Opciones: `"filled"` | `"outlined"` | `"none"`
+2. **Por defecto: `"filled"`**
+
+### fullwidth
+
+Atributo que define si el botón ocupa todo el ancho del contenedor.
+
+1. Tipo: `boolean`
+2. **Por defecto: `false`**
+
+### onClick
+
+Función que se ejecuta cuando el usuario hace clic sobre el botón.
+
+1. Tipo: `function`
+
+### path
+
+Ruta a la que se navega cuando `type` es `"link"`.
+
+1. Tipo: `string`
+
+### cursorHover
+
+Aplica estilos si el cursor está sobre el botón.
+
+1. Tipo: `boolean`
+2. **Por defecto: `false`**
+
+### parentHover
+
+Aplica estilos si el cursor está sobre el contenedor padre del botón.
+
+1. Tipo: `boolean`
+2. **Por defecto: `false`**
+
+## Comportamiento
+
+- Si `loading` es `true`, se muestra un spinner y se oculta el contenido.
+- Si `type` es `"link"` y no se provee `path`, se lanza una advertencia.
+- La apariencia se adapta según el `variant` y `appearance` proporcionados.
+- El ícono y texto cambian de estilo si se activa el estado `hover` desde el padre.
+
+## Personalización
+
+Este componente usa tokens definidos por tema (`styled-components ThemeContext`). Puedes personalizar su apariencia globalmente a través del `ThemeProvider`.
+
+## Tokens
+
+Puedes consultar la lista de tokens en [TOKENS.md](./TOKENS.md)
