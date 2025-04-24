@@ -32,7 +32,7 @@ const Autocomplete = (props: IAutocomplete) => {
       const normalizedValue = newValue.trim().toLowerCase();
       const filtered = options.filter(
         (option) =>
-          option.value && option.value.toLowerCase().includes(normalizedValue),
+          option.label && option.label.toLowerCase().includes(normalizedValue),
       );
       setFilteredOptions(filtered);
       setShowOptions(filtered.length > 0);
