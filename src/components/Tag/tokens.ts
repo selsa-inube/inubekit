@@ -2,147 +2,91 @@ import { inube } from "../Foundations";
 
 const tokens = {
   primary: {
-    normal: {
-      background: {
-        color: inube.palette.blue.B50,
-      },
-      content: {
-        appearance: "primary",
-      },
+    background: {
+      color: inube.palette.blue.B50,
     },
-    strong: {
-      background: {
-        color: inube.palette.blue.B400,
-      },
-      content: {
-        appearance: "light",
-      },
+    border: {
+      color: inube.palette.blue.B400,
+    },
+    content: {
+      appearance: "primary",
     },
   },
   success: {
-    normal: {
-      background: {
-        color: inube.palette.green.G50,
-      },
-      content: {
-        appearance: "success",
-      },
+    background: {
+      color: inube.palette.green.G50,
     },
-    strong: {
-      background: {
-        color: inube.palette.green.G400,
-      },
-      content: {
-        appearance: "light",
-      },
+    border: {
+      color: inube.palette.green.G400,
+    },
+    content: {
+      appearance: "success",
     },
   },
   warning: {
-    normal: {
-      background: {
-        color: inube.palette.yellow.Y50,
-      },
-      content: {
-        appearance: "warning",
-      },
+    background: {
+      color: inube.palette.yellow.Y50,
     },
-    strong: {
-      background: {
-        color: inube.palette.yellow.Y400,
-      },
-      content: {
-        appearance: "dark",
-      },
+    border: {
+      color: inube.palette.yellow.Y500,
+    },
+    content: {
+      appearance: "warning",
     },
   },
   danger: {
-    normal: {
-      background: {
-        color: inube.palette.red.R50,
-      },
-      content: {
-        appearance: "danger",
-      },
+    background: {
+      color: inube.palette.red.R50,
     },
-    strong: {
-      background: {
-        color: inube.palette.red.R400,
-      },
-      content: {
-        appearance: "light",
-      },
+    border: {
+      color: inube.palette.red.R400,
+    },
+    content: {
+      appearance: "danger",
     },
   },
   help: {
-    normal: {
-      background: {
-        color: inube.palette.purple.P50,
-      },
-      content: {
-        appearance: "help",
-      },
+    background: {
+      color: inube.palette.purple.P50,
     },
-    strong: {
-      background: {
-        color: inube.palette.purple.P400,
-      },
-      content: {
-        appearance: "light",
-      },
+    border: {
+      color: inube.palette.purple.P400,
+    },
+    content: {
+      appearance: "help",
     },
   },
   dark: {
-    normal: {
-      background: {
-        color: inube.palette.neutral.N30,
-      },
-      content: {
-        appearance: "dark",
-      },
+    background: {
+      color: inube.palette.neutral.N30,
     },
-    strong: {
-      background: {
-        color: inube.palette.neutral.N900,
-      },
-      content: {
-        appearance: "light",
-      },
+    border: {
+      color: inube.palette.neutral.N900,
+    },
+    content: {
+      appearance: "dark",
     },
   },
   gray: {
-    normal: {
-      background: {
-        color: inube.palette.neutral.N10,
-      },
-      content: {
-        appearance: "gray",
-      },
+    background: {
+      color: inube.palette.neutral.N10,
     },
-    strong: {
-      background: {
-        color: inube.palette.neutral.N30,
-      },
-      content: {
-        appearance: "gray",
-      },
+    border: {
+      color: inube.palette.neutral.N200,
+    },
+    content: {
+      appearance: "gray",
     },
   },
   light: {
-    normal: {
-      background: {
-        color: inube.palette.neutral.N0,
-      },
-      content: {
-        appearance: "dark",
-      },
+    background: {
+      color: inube.palette.neutralAlpha.N0A,
     },
-    strong: {
-      background: {
-        color: inube.palette.neutral.N10,
-      },
-      content: {
-        appearance: "dark",
-      },
+    border: {
+      color: inube.palette.neutral.N10,
+    },
+    content: {
+      appearance: "light",
     },
   },
 };

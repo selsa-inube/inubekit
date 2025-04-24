@@ -1,10 +1,6 @@
-import { StyledTag } from "./styles";
-import { ITagAppearance, ITagWeight } from "./props";
-import { Text } from "../Text";
-import { ITextAppearance } from "../Text/props";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
-import { Icon } from "../Icon";
+
 import {
   MdCheckCircleOutline,
   MdClear,
@@ -13,33 +9,50 @@ import {
   MdOutlineChat,
   MdOutlineReportProblem,
 } from "react-icons/md";
+
+import { Icon } from "../Icon";
+import { Text } from "../Text";
+import { ITextAppearance } from "../Text/props";
 import { Stack } from "../Stack";
+
+import { StyledTag } from "./styles";
 import { tokens } from "./tokens";
+import { ITagAppearance } from "./props";
 
 interface ITag {
   appearance: ITagAppearance;
   id?: string;
-  weight?: ITagWeight;
   label: string;
   removable?: boolean;
-  withIcon?: boolean;
+  displayIcon?: boolean;
   onClose?: (e: React.MouseEvent<Element, MouseEvent>) => void;
 }
+
+const iconMap: Record<ITextAppearance, JSX.Element> = {
+  primary: <MdOutlineChat />,
+  success: <MdCheckCircleOutline />,
+  warning: <MdOutlineReportProblem />,
+  danger: <MdErrorOutline />,
+  help: <MdInfoOutline />,
+  gray: <MdOutlineChat />,
+  dark: <MdOutlineChat />,
+  light: <MdOutlineChat />,
+};
 
 const Tag = (props: ITag) => {
   const {
     appearance,
-    weight = "normal",
     label,
     removable = false,
-    withIcon = false,
+    displayIcon = false,
     onClose,
   } = props;
 
   const theme = useContext(ThemeContext) as { tag: typeof tokens };
-  const textAppearance = (appearance: ITextAppearance, weight: ITagWeight) => {
-    return (theme?.tag?.[appearance][weight]?.content?.appearance ||
-      tokens[appearance][weight].content.appearance) as ITextAppearance;
+
+  const textAppearance = (appearance: ITextAppearance) => {
+    return (theme?.tag?.[appearance]?.content?.appearance ||
+      tokens[appearance].content.appearance) as ITextAppearance;
   };
 
   const interceptonClose = (e: React.MouseEvent<Element, MouseEvent>) => {
@@ -55,56 +68,37 @@ const Tag = (props: ITag) => {
   };
 
   const getIcon = (appearance: ITextAppearance) => {
-    switch (appearance) {
-      case "primary":
-        return <MdOutlineChat />;
-      case "success":
-        return <MdCheckCircleOutline />;
-      case "warning":
-        return <MdOutlineReportProblem />;
-      case "danger":
-        return <MdErrorOutline />;
-      case "help":
-        return <MdInfoOutline />;
-      case "gray":
-        return <MdOutlineChat />;
-      case "dark":
-        return <MdOutlineChat />;
-      case "light":
-        return <MdOutlineChat />;
-      default:
-        return <MdOutlineChat />;
-    }
+    return iconMap[appearance] || <MdOutlineChat />;
   };
 
   return (
-    <StyledTag $appearance={appearance} $weight={weight} $removable={removable}>
-      <Stack alignItems="center" gap="4px">
+    <StyledTag $appearance={appearance} $theme={theme}>
+      <Stack alignItems="center" gap="6px">
         <Stack alignItems="center" gap="2px">
-          {withIcon && (
+          {displayIcon && (
             <Icon
-              onClick={interceptonClose}
-              appearance={textAppearance(appearance, weight)}
+              size="18px"
               icon={getIcon(appearance)}
-              size="12px"
+              onClick={interceptonClose}
+              appearance={textAppearance(appearance)}
             />
           )}
           <Text
             type="label"
-            appearance={textAppearance(appearance, weight)}
-            size="small"
-            textAlign="start"
             weight="bold"
+            size="medium"
+            textAlign="start"
+            appearance={textAppearance(appearance)}
           >
             {label}
           </Text>
         </Stack>
         {removable && (
           <Icon
-            onClick={interceptonClose}
-            appearance={textAppearance(appearance, weight)}
+            size="16px"
             icon={<MdClear />}
-            size="12px"
+            onClick={interceptonClose}
+            appearance={textAppearance(appearance)}
           />
         )}
       </Stack>

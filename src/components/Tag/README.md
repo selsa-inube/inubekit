@@ -27,7 +27,7 @@ import { Tag } from "@inubekit/inubekit";
 Controla el color de fondo de la etiqueta. Las opciones disponibles son estilos predefinidos.
 
 1. `"primary" | "success" | "warning" | "danger" | "help" | "dark" | "gray" | "light"`
-2. **Por defecto: "primary"**
+2. **Por defecto: "No definido"**
 
 ### id (opcional)
 
@@ -43,18 +43,11 @@ Determina si la etiqueta puede ser eliminada. Cuando es true, se muestra un icon
 
 1. **Por defecto: false**
 
-### withIcon (opcional)
+### displayIcon (opcional)
 
 Determina si la etiqueta debe estar acompañada de un icono.
 
 1. **Por defecto: false**
-
-### weight (opcional)
-
-Controla la intensidad del color del texto de la etiqueta.
-
-1. `"normal" | "strong"`
-2. **Por defecto: "normal"**
 
 ## Personalización
 
