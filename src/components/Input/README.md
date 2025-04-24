@@ -22,6 +22,13 @@ import { Input } from "@inubekit/inubekit";
 
 ## Props
 
+### type (opcional)
+
+Tipo de entrada.
+
+1. `"text" | "number" | "email" | "money" | "phone" | "search"`
+2. **Por defecto: `"text"`**
+
 ### id
 
 Identificador único del campo de entrada.
@@ -97,13 +104,6 @@ Controla el tamaño del campo de entrada.
 1. `"wide" | "compact"`
 2. **Por defecto: `"wide"`**
 
-### counter (opcional)
-
-Muestra un contador de caracteres.
-
-1. `true | false`
-2. **Por defecto: `false`**
-
 ### maxLength (opcional)
 
 Número máximo de caracteres permitidos.
@@ -112,12 +112,13 @@ _Tipo: `number`_
 
 _No tiene valor por defecto._
 
-### type (opcional)
+### minLength (opcional)
 
-Tipo de entrada.
+Número mínimo de caracteres permitidos.
 
-1. `"text" | "number" | "email" | "money" | "phone" | "search"`
-2. **Por defecto: `"text"`**
+_Tipo: `number`_
+
+_No tiene valor por defecto._
 
 ## Personalización
 
@@ -126,4 +127,4 @@ Tipo de entrada.
 Este componente contiene la definición de tokens globales para todos los tipos de input disponibles, incluyendo los componentes `Input`, `EmailField`, etc.
 
 - Los tokens están definidos por los valores del tema global.
-- Para más detalles, consulta el archivo de tokens compartido: [TOKENS.md](../TOKENS.md).
+- Para más detalles, consulta el archivo de tokens compartido: [TOKENS.md](./TOKENS.md).
