@@ -116,7 +116,7 @@ const FNavMenu = (props: IFullscreenNavMenu) => {
           </>
         )}
       </Stack>
-      <Stack width="100%" justifyContent="center">
+      <Stack width="100%" justifyContent="center" margin="24px auto">
         {footerLogo ? (
           <StyledFooterLogoImage src={footerLogo} alt="" />
         ) : (
