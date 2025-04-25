@@ -51,6 +51,12 @@ const props = {
     description: "Determines whether the tag should be accompanied by an icon.",
     type: { name: "boolean" },
   },
+  icon: {
+    description:
+      "Corresponds to the icon that you want to show in the component " +
+      "Requires displayIcon to be true to be visible.",
+    type: { name: "ReactElement" },
+  },
 };
 
 export { parameters, props };

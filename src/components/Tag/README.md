@@ -49,6 +49,10 @@ Determina si la etiqueta debe estar acompañada de un icono.
 
 1. **Por defecto: false**
 
+### icon (opcional)
+
+Corresponde al ícono que se desea mostrar en el componente.
+
 ## Personalización
 
 ### Tokens

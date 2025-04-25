@@ -25,6 +25,7 @@ interface ITag {
   label: string;
   removable?: boolean;
   displayIcon?: boolean;
+  icon?: JSX.Element;
   onClose?: (e: React.MouseEvent<Element, MouseEvent>) => void;
 }
 
@@ -44,7 +45,8 @@ const Tag = (props: ITag) => {
     appearance,
     label,
     removable = false,
-    displayIcon = false,
+    displayIcon = true,
+    icon,
     onClose,
   } = props;
 
@@ -78,7 +80,7 @@ const Tag = (props: ITag) => {
           {displayIcon && (
             <Icon
               size="18px"
-              icon={getIcon(appearance)}
+              icon={icon || getIcon(appearance)}
               onClick={interceptonClose}
               appearance={textAppearance(appearance)}
             />
