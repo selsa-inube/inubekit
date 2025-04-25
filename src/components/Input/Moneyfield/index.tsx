@@ -40,7 +40,11 @@ const Moneyfield = (props: IInput) => {
     if (onChange) {
       onChange({
         ...e,
-        target: { ...e.target, value: rawValue },
+        target: {
+          ...e.target,
+          value: rawValue,
+          name: e.target.name || e.target.id,
+        },
       });
     }
   };
