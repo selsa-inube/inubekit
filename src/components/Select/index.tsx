@@ -63,6 +63,13 @@ const Select = (props: ISelect) => {
 
   const selectRef = useRef<{ contains: (e: EventTarget) => EventTarget }>(null);
 
+  useEffect(() => {
+    if (picker) {
+      const items = value ? value.split(",") : [];
+      setCheckedItems(items);
+    }
+  }, [value, picker]);
+
   function handleClear() {
     onChange(name, "");
     setCheckedItems([]);
@@ -140,11 +147,13 @@ const Select = (props: ISelect) => {
 
   function handleCheckboxChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { value, checked } = event.target;
-    setCheckedItems((prevChecked) =>
-      checked
+    setCheckedItems((prevChecked) => {
+      const newChecked = checked
         ? [...prevChecked, value]
-        : prevChecked.filter((item) => item !== value),
-    );
+        : prevChecked.filter((item) => item !== value);
+      onChange(name, newChecked.join(","));
+      return newChecked;
+    });
   }
 
   useEffect(() => {

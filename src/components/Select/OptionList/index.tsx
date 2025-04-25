@@ -13,6 +13,12 @@ const OptionList = (props: IOptionList) => {
 
   const interceptOnClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     try {
+      const target = event.target as HTMLElement;
+
+      if (target.closest('input[type="checkbox"]')) {
+        return;
+      }
+
       const optionClicked = options?.find(
         (option) =>
           option.id === event.target.id ||

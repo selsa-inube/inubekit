@@ -13,7 +13,6 @@ interface ICheckpicker {
   onChange: (name: string, values: string) => void;
   options: IOption[];
   placeholder?: string;
-  readonly?: boolean;
   required?: boolean;
   size?: ICheckpickerSize;
   values: string;

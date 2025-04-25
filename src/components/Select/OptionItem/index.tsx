@@ -2,7 +2,7 @@ import { IOption } from "..";
 import { Text } from "../../Text";
 import { ITextAppearance } from "../../Text/props";
 import { StyledOptionItem } from "./styles";
-import { useContext, useState } from "react";
+import { MouseEvent, useContext, useState } from "react";
 import { ThemeContext } from "styled-components";
 import { Checkbox } from "../../Checkbox";
 import { tokens as InputTokens } from "../../Input/tokens";
@@ -39,8 +39,15 @@ const OptionItem = (props: IOptionItem) => {
   return (
     <StyledOptionItem
       id={id}
+      as={picker ? "label" : "div"}
+      htmlFor={picker ? `checkbox-${id}` : undefined}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={(e: MouseEvent<HTMLElement>) => {
+        if (picker) {
+          e.stopPropagation();
+        }
+      }}
     >
       {picker && (
         <Checkbox

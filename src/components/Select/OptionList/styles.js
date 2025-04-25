@@ -7,6 +7,7 @@ const StyledOptionList = styled.ul`
   width: -moz-available;
   width: -webkit-fill-available;
   padding: 4px 0px;
+  margin: 4px 0px;
   position: absolute;
   z-index: 1;
   border-radius: 4px;
