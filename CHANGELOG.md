@@ -4,6 +4,36 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v2.1.0] - 2025-04-28 (Mon)
+
+### ✨ Added
+
+- _No se agregaron nuevas funcionalidades en esta versión._
+
+### 🔄 Changed
+
+- **FullscreenNav**: Se formalizó el uso de logos en el footer y se ajustó la interface, haciendo opcionales algunos atributos que antes eran requeridos.
+
+- **Autocomplete**: Ahora el filtro se realiza por el `label` en vez de por el `value`.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🐛 Fixed
+
+- **Input (type="money")**: Se corrigió el evento `onChange` para que el `target` incluya el atributo `name` correctamente.
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v2.0.1] - 2025-04-23 (Wed)
 
 ### ✨ Added
