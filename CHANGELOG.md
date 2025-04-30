@@ -4,6 +4,34 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v2.1.1] - 2025-04-30 (Wed)
+
+### ✨ Added
+
+- _No se agregaron nuevas funcionalidades en esta versión._
+
+### 🔄 Changed
+
+- _No se realizaron cambios en funcionalidades existentes en esta versión._
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🐛 Fixed
+
+- **Input (type="money")**: Se corrigió que el valor inicial pasado por props no se formateara correctamente. Ahora el formato se aplica tanto al valor inicial como durante la entrada del usuario.
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v2.1.0] - 2025-04-28 (Mon)
 
 ### ✨ Added
