@@ -47,7 +47,7 @@ Determina si la etiqueta puede ser eliminada. Cuando es true, se muestra un icon
 
 Determina si la etiqueta debe estar acompañada de un icono.
 
-1. **Por defecto: false**
+1. **Por defecto: true**
 
 ### icon (opcional)
 
