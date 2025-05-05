@@ -9,10 +9,8 @@ const appearances = [
   "light",
 ] as const;
 
-const weights = ["normal", "strong"] as const;
-
 type ITagAppearance = (typeof appearances)[number];
-type ITagWeight = (typeof weights)[number];
+
 const parameters = {
   docs: {
     description: {
@@ -49,14 +47,17 @@ const props = {
       "Determines if the tag can be removed. When true, a close icon is displayed. Defaults to false.",
     type: { name: "boolean" },
   },
-  weight: {
-    control: "select",
-    options: weights,
+  displayIcon: {
+    description: "Determines whether the tag should be accompanied by an icon.",
+    type: { name: "boolean" },
+  },
+  icon: {
     description:
-      "Controls the color intensity of the label text. The available options are 'normal' and 'strong'. Defaults to 'normal'.",
-    type: { name: "enum", value: weights },
+      "Corresponds to the icon that you want to show in the component " +
+      "Requires displayIcon to be true to be visible.",
+    type: { name: "ReactElement" },
   },
 };
 
 export { parameters, props };
-export type { ITagAppearance, ITagWeight };
+export type { ITagAppearance };
