@@ -4,7 +4,7 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
-## [v3.0.0] - 2025-05-06 (Tue)
+## [v3.0.0] - 2025-05-07 (Wed)
 
 ### ✨ Added
 
