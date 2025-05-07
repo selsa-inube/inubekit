@@ -4,6 +4,85 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v3.0.0] - 2025-05-07 (Wed)
+
+### ✨ Added
+
+- **Documentación**: Se crearon los READMEs para los componentes **Checkpicker** y **Tag**.
+
+### 🔥 Breaking Change
+
+- **Refactorización de Tag**:
+
+  - **Atributos modificados**: La interfaz requiere nuevos parámetros.
+
+  - **Detalles técnicos de su nueva interface**:
+
+    ```jsx
+    interface ITag {
+      appearance: ITagAppearance;
+      id?: string;
+      label: string;
+      removable?: boolean;
+      displayIcon?: boolean;
+      icon?: JSX.Element;
+      onClose?: (e: React.MouseEvent<Element, MouseEvent>) => void;
+    }
+    ```
+
+    - **Cambios en props**
+
+    - _**Eliminados**_
+
+      - `weight`
+
+    - _**Nuevos**_
+      - `displayIcon`
+      - `icon`
+
+  - **Cambios en la definición de sus tokens**:
+
+  Se ha modificado la estructura de la definición de tokens para simplificar y unificar la configuración de estilos:
+
+  - _**Estructura anterior**_
+
+  - Cada token _(primary, success, warning, etc.)_ contenía dos variantes anidadas: `normal` y `strong`.
+  - Cada variante definía propiedades separadas para el `background.color` y el `content.appearance`.
+
+  - _**Estructura actual**_
+
+  Cada token ahora es un objeto único que contiene directamente las propiedades:
+
+  - `background.color:` define el color de fondo principal del token.
+  - `border.color:` define el color del borde asociado al token.
+  - `content.appearance:` define la apariencia del contenido (texto, iconos, etc.).
+
+  La estructura de los nuevos tokens se puede observar en el archivo [tokens.ts](./src/components/Tag/tokens.ts).
+
+  - **Impacto**
+
+    - **Componentes propios del proyecto:** Revisar todos los que usen ITag para adaptar la nueva interfaz.
+
+  - **Migración**: Se recomienda revisar el documento README del componente, el cual se encuentra actualizado, para asegurar implementaciones correctas. También recomendamos adaptar la definición de tokens a la estructura actual para evitar rupturas en sus diseños.
+
+### 🐛 Fixed
+
+- **Checkpicker**: Se corrigió un problema relacionado con la selección en el componente.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v2.1.1] - 2025-04-30 (Wed)
 
 ### ✨ Added
