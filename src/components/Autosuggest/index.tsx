@@ -68,6 +68,7 @@ const Autosuggest = (props: IAutosuggest) => {
       onFocus={onFocus}
       onBlur={onBlur}
       readonly={false}
+      showChevron={false}
       showOptions={showOptions}
       onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) =>
         handleFilter((e.target as HTMLInputElement).value)

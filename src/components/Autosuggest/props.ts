@@ -9,7 +9,7 @@ const parameters = {
 
 const props = {
   label: {
-    description: "Label for the autocomplete input.",
+    description: "Label for the autosuggest input.",
     control: "text",
   },
   name: {
@@ -56,7 +56,7 @@ const props = {
     defaultValue: false,
   },
   options: {
-    description: "Options for the autocomplete dropdown.",
+    description: "Options for the autosuggest dropdown.",
     control: "object",
   },
   onOptionSelect: {

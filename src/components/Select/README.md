@@ -125,6 +125,12 @@ Habilita modo de selección múltiple.
 
 1. **Por defecto: false**
 
+### showChevron (opcional)
+
+Controla la visibilidad del icono chevron.
+
+1. **Por defecto: true**
+
 ## Personalización
 
 ### Tokens

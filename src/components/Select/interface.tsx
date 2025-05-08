@@ -37,6 +37,7 @@ interface ISelectInterface extends ISelect {
   maxItems: number;
   onOptionClick: (value: string) => void;
   readOnly: boolean;
+  showChevron: boolean;
   checkedItems: string[];
   onCheckboxChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -108,6 +109,7 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
     value,
     onKeyUp,
     picker,
+    showChevron,
     checkedItems,
     onCheckboxChange,
   } = props;
@@ -194,14 +196,16 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
             />
           )}
 
-          <StyledChevron $displayList={displayList}>
-            <Icon
-              appearance="dark"
-              icon={<MdOutlineChevronRight />}
-              spacing="narrow"
-              disabled={disabled}
-            />
-          </StyledChevron>
+          {showChevron && (
+            <StyledChevron $displayList={displayList}>
+              <Icon
+                appearance="dark"
+                icon={<MdOutlineChevronRight />}
+                spacing="narrow"
+                disabled={disabled}
+              />
+            </StyledChevron>
+          )}
         </Stack>
       </StyledInputContainer>
 
