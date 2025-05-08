@@ -30,6 +30,7 @@ interface ISelect {
   value: string;
   showOptions?: boolean;
   picker?: boolean;
+  showChevron?: boolean;
 }
 
 const Select = (props: ISelect) => {
@@ -55,6 +56,7 @@ const Select = (props: ISelect) => {
     value,
     showOptions = false,
     picker = false,
+    showChevron = true,
   } = props;
 
   const [displayList, setDisplayList] = useState(false);
@@ -190,6 +192,7 @@ const Select = (props: ISelect) => {
       value={value}
       readOnly={readonly}
       picker={picker}
+      showChevron={showChevron}
       checkedItems={checkedItems}
       onCheckboxChange={handleCheckboxChange}
     />
