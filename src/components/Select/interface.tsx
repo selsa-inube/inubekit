@@ -36,7 +36,6 @@ interface ISelectInterface extends ISelect {
   handleClear: () => void;
   maxItems: number;
   onOptionClick: (value: string) => void;
-  readOnly: boolean;
   showChevron: boolean;
   checkedItems: string[];
   onCheckboxChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -103,7 +102,6 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
     onOptionClick,
     options,
     placeholder,
-    readOnly,
     required,
     size,
     value,
@@ -184,7 +182,6 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
           }
           onClick={onClick}
           onKeyUp={onKeyUp}
-          readOnly={readOnly}
         />
         <Stack direction="row" gap="8px" alignItems="center">
           {(value || (picker && checkedItems.length > 0)) && !disabled && (

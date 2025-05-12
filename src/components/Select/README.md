@@ -90,12 +90,6 @@ Lista de opciones disponibles para la selección.
 
 Texto de ayuda inicial cuando no hay valor seleccionado.
 
-### readonly (opcional)
-
-Atributo que habilita/deshabilita edición manual del campo.
-
-1. **Por defecto: true**
-
 ### required (opcional)
 
 Atributo que marca el campo como obligatorio.

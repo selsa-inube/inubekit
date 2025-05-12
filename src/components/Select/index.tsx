@@ -24,7 +24,6 @@ interface ISelect {
   onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   options: IOption[];
   placeholder?: string;
-  readonly?: boolean;
   required?: boolean;
   size?: ISelectSize;
   value: string;
@@ -50,7 +49,6 @@ const Select = (props: ISelect) => {
     onKeyUp,
     options,
     placeholder,
-    readonly = true,
     required = false,
     size = "wide",
     value,
@@ -80,9 +78,7 @@ const Select = (props: ISelect) => {
   function handleClick(event: React.ChangeEvent<HTMLInputElement>) {
     if (disabled) return;
 
-    if (readonly) {
-      setDisplayList(!displayList);
-    }
+    setDisplayList(!displayList);
 
     try {
       onClick && onClick(event);
@@ -91,20 +87,15 @@ const Select = (props: ISelect) => {
     }
   }
 
-  const handleDocumentClick = useCallback(
-    (event: MouseEvent) => {
-      if (
-        selectRef.current &&
-        event.target &&
-        !selectRef.current.contains(event.target)
-      ) {
-        if (readonly) {
-          setDisplayList(false);
-        }
-      }
-    },
-    [readonly],
-  );
+  const handleDocumentClick = useCallback((event: MouseEvent) => {
+    if (
+      selectRef.current &&
+      event.target &&
+      !selectRef.current.contains(event.target)
+    ) {
+      setDisplayList(false);
+    }
+  }, []);
 
   function handleFocusAndBlur(event: FocusEvent) {
     try {
@@ -123,9 +114,7 @@ const Select = (props: ISelect) => {
   }
 
   function handleOptionClick(value: string) {
-    if (readonly) {
-      setDisplayList(false);
-    }
+    setDisplayList(false);
     try {
       onChange && onChange(name, value);
     } catch (error) {
@@ -137,9 +126,7 @@ const Select = (props: ISelect) => {
     if (event.key === "Escape") {
       setDisplayList(false);
     }
-    if (readonly) {
-      setDisplayList(!displayList);
-    }
+    setDisplayList(!displayList);
     try {
       onKeyUp && onKeyUp(event);
     } catch (error) {
@@ -169,7 +156,7 @@ const Select = (props: ISelect) => {
     <SelectUI
       ref={selectRef}
       disabled={disabled}
-      displayList={readonly ? displayList : showOptions}
+      displayList={displayList ? displayList : showOptions}
       focused={focused}
       fullwidth={fullwidth}
       handleClear={handleClear}
@@ -190,7 +177,6 @@ const Select = (props: ISelect) => {
       required={required}
       size={size}
       value={value}
-      readOnly={readonly}
       picker={picker}
       showChevron={showChevron}
       checkedItems={checkedItems}

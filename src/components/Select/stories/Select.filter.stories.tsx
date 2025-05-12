@@ -35,7 +35,6 @@ SelectFilter.args = {
   required: false,
   size: "wide",
   fullwidth: false,
-  readonly: false,
 };
 
 export default story;
