@@ -30,6 +30,11 @@ const props = {
     control: { type: "text" },
     description: "shall constitute the content to be displayed",
   },
+  icon: {
+    control: { type: "IIcon" },
+    description:
+      "Corresponds to the icon that you want to show in the component",
+  },
 };
 
 export { props };

@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { tokens as TextTokens } from "../../Text/tokens";
 
 const StyledTab = styled.li`
+  display: flex;
+  gap: 4px;
+  align-items: center;
   width: fit-content;
   user-select: none;
   list-style-type: none;
