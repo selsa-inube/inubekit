@@ -78,13 +78,6 @@ const props = {
     description:
       "Text displayed inside the input field when no value is selected. The placeholder provides a hint or example of the expected input, helping guide the user in making a selection.",
   },
-  readOnly: {
-    description:
-      "Makes the input field read-only, meaning the user can view but cannot modify the text. However, the dropdown can still be interacted with to select an option. This is useful when you want to prevent manual typing while still allowing selections from the list.",
-    table: {
-      defaultValue: { summary: false },
-    },
-  },
   required: {
     description:
       "Marks the Select component as a required field in a form. If set to `true`, the form cannot be submitted without a valid selection in this field, and the user will be prompted to make a selection.",

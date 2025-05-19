@@ -67,7 +67,6 @@ const Autosuggest = (props: IAutosuggest) => {
       fullwidth={fullwidth}
       onFocus={onFocus}
       onBlur={onBlur}
-      readonly={false}
       showChevron={false}
       showOptions={showOptions}
       onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) =>

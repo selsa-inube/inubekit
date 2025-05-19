@@ -41,7 +41,6 @@ Default.args = {
   required: false,
   size: "wide",
   fullwidth: false,
-  readonly: true,
   showOptions: false,
   picker: false,
 };
