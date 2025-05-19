@@ -42,6 +42,7 @@ const Tabs = ({ tabs, onChange, scroll = false, selectedTab }: ITabs) => {
                 selected={tab.id === selectedTab}
                 id={tab.id}
                 label={tab.label}
+                icon={tab.icon}
               />
             ))}
           </Stack>
