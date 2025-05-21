@@ -6,47 +6,57 @@ import { tokens as InputTokens } from "../Input/tokens";
 const StyledContainer = styled.div`
   position: relative;
   cursor: ${({ disabled }) => disabled && "not-allowed"};
-  width: ${({ $fullwidth }) => ($fullwidth ? "100%" : "300px")};
+  width: ${({ $fullwidth }) => ($fullwidth ? "100%" : "fit-content")};
 
   & > label {
     cursor: ${({ disabled }) => disabled && "not-allowed"};
   }
 `;
 
+const StyledContainerLabel = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  gap: 4px;
+  pointer-events: ${({ $disabled }) => $disabled && "none"};
+`;
+
 const StyledInputContainer = styled.div`
   display: grid;
-  padding: ${({ $size }) => ($size === "wide" ? "12px 16px" : "8px 16px")};
-  grid-auto-flow: column;
-  grid-template-columns: 1fr auto;
+  height: ${({ $size }) => ($size === "compact" ? "40px" : "48px")};
+  padding: 0px 16px;
+  gap: 8px;
   align-items: center;
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  border-width: 1px;
-  border-style: solid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr auto;
 
-  border-color: ${({ theme, disabled, $invalid, $focused }) => {
-    if (disabled) {
+  border: 1px solid
+    ${({ theme, disabled, $invalid, $focused }) => {
+      if (disabled) {
+        return (
+          (theme?.input?.border?.color?.disabled ||
+            InputTokens.border.color.disabled) +
+          "; pointer-events: none; opacity: 0.5;"
+        );
+      }
+      if ($focused) {
+        return (
+          theme?.input?.border?.color?.focus || InputTokens.border.color.focus
+        );
+      }
+      if ($invalid) {
+        return (
+          theme?.input?.border?.color?.invalid ||
+          InputTokens.border.color.invalid
+        );
+      }
       return (
-        (theme?.input?.border?.color?.disabled ||
-          InputTokens.border.color.disabled) +
-        "; pointer-events: none; opacity: 0.5;"
+        theme?.input?.border?.color?.regular || InputTokens.border.color.regular
       );
-    }
-    if ($focused) {
-      return (
-        theme?.input?.border?.color?.focus || InputTokens.border.color.focus
-      );
-    }
-    if ($invalid) {
-      return (
-        theme?.input?.border?.color?.invalid || InputTokens.border.color.invalid
-      );
-    }
-    return (
-      theme?.input?.border?.color?.regular || InputTokens.border.color.regular
-    );
-  }};
+    }};
 
   opacity: ${({ disabled }) => (disabled ? "0.5" : "unset")};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
@@ -56,21 +66,21 @@ const StyledInput = styled.input`
   outline: none;
   padding: 0;
   margin: 0;
-  border-radius: 8px;
-  border-width: none;
-  border-style: none;
-  border-color: none;
+  height: 24px;
+  font-weight: 400;
+  border: none;
+  width: ${({ $fullwidth }) => $fullwidth && "100%"};
   font-family: ${({ theme }) =>
     theme?.typography?.body?.large?.font || inube.typography.body.large.font};
   font-size: ${({ theme }) =>
     theme?.typography?.body?.large?.font || inube.typography.body.large.size};
-  font-weight: 400;
   line-height: ${({ theme }) =>
     theme?.typography?.body?.large?.font ||
     inube.typography.body.large.lineHeight};
   letter-spacing: ${({ theme }) =>
     theme?.typography?.body?.large?.font ||
     inube.typography.body.large.tracking};
+  background-color: transparent;
   color: ${({ theme, disabled }) => {
     if (disabled) {
       return (
@@ -82,10 +92,6 @@ const StyledInput = styled.input`
       theme?.input?.content?.color?.regular || InputTokens.content.color.regular
     );
   }};
-  background-color: ${({ theme }) =>
-    theme?.input?.background?.color?.regular ||
-    InputTokens.background.color.regular};
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
 
   ::placeholder {
     color: ${({ theme }) =>
@@ -119,4 +125,10 @@ const StyledChevron = styled.div`
     $displayList ? "rotate(-90deg)" : "rotate(90deg)"};
 `;
 
-export { StyledContainer, StyledInputContainer, StyledInput, StyledChevron };
+export {
+  StyledContainer,
+  StyledContainerLabel,
+  StyledInputContainer,
+  StyledInput,
+  StyledChevron,
+};

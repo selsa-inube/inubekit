@@ -120,12 +120,11 @@ const InputUI = (props: IInput) => {
   const showCounter = !disabled && counter;
 
   return (
-    <StyledContainer $disabled={disabled} $fullwidth={fullwidth} $size={size}>
+    <StyledContainer $disabled={disabled} $fullwidth={fullwidth}>
       {showLabel && (
         <StyledContainerLabel
           $alignItems="center"
           $disabled={disabled}
-          $size={size}
           $wrap="wrap"
         >
           {label && (
@@ -142,13 +141,7 @@ const InputUI = (props: IInput) => {
           )}
 
           {showRequired && (
-            <Text
-              appearance={requiredAppearance}
-              margin="0px 0px 0px 4px"
-              size="small"
-              textAlign="center"
-              type="body"
-            >
+            <Text appearance={requiredAppearance} size="small" type="body">
               (Requerido)
             </Text>
           )}
@@ -168,6 +161,7 @@ const InputUI = (props: IInput) => {
         $iconBefore={iconBefore}
         $status={status}
         readOnly={readOnly}
+        $size={size}
       >
         {iconBefore && (
           <Icon
