@@ -69,7 +69,7 @@ const StyledInput = styled.input`
   height: 24px;
   font-weight: 400;
   border: none;
-  width: ${({ $fullwidth }) => $fullwidth && "100%"};
+  width: 100%;
   font-family: ${({ theme }) =>
     theme?.typography?.body?.large?.font || inube.typography.body.large.font};
   font-size: ${({ theme }) =>
