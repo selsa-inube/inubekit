@@ -21,6 +21,7 @@ import {
   StyledInput,
   StyledInputContainer,
   StyledChevron,
+  StyledContainerLabel,
 } from "./styles";
 
 import { ThemeContext } from "styled-components";
@@ -124,37 +125,33 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
         .join(", ")
     : getOptionLabel(options, value);
 
+  const showRequired = required && !disabled;
+
   return (
     <StyledContainer $fullwidth={fullwidth} disabled={disabled} ref={ref}>
       {label && (
-        <Stack
-          alignItems="center"
-          margin="0 0 4px 0"
-          padding="0 0 0 16px"
-          gap="4px"
+        <StyledContainerLabel
+          $alignItems="center"
+          $disabled={disabled}
+          $wrap="wrap"
         >
           <Label
             htmlFor={id!}
             focused={focused}
             invalid={invalid}
+            margin="0px 0px 0px 16px"
             size={getTypo(size!)}
-            margin="0px 0px 0px 2px"
             disabled={disabled}
           >
             {label}
           </Label>
 
-          {required && !disabled && (
-            <Text
-              type="body"
-              size="small"
-              appearance={requiredAppearance}
-              textAlign="start"
-            >
+          {showRequired && (
+            <Text appearance={requiredAppearance} size="small" type="body">
               (Requerido)
             </Text>
           )}
-        </Stack>
+        </StyledContainerLabel>
       )}
       <StyledInputContainer
         disabled={disabled}

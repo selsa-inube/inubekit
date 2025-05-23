@@ -4,24 +4,26 @@ import { inube } from "../../Foundations";
 
 const StyledContainer = styled.div`
   cursor: ${({ $disabled }) => $disabled && "not-allowed"};
-  width: ${({ $fullwidth }) => ($fullwidth ? "100%" : "280px")};
+  width: ${({ $fullwidth }) => ($fullwidth ? "100%" : "fit-content")};
 `;
 
 const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
+  gap: 4px;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
 `;
 
 const StyledInputContainer = styled.div`
   display: grid;
+  height: ${({ $size }) => ($size === "compact" ? "40px" : "48px")};
+  padding: 0px 16px;
+  gap: 8px;
   align-items: center;
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
-  padding-left: 16px;
-  padding-right: 16px;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
   opacity: ${({ $disabled }) => $disabled && "0.5"};
   background-color: ${({ $disabled, theme }) =>
@@ -68,26 +70,28 @@ const StyledInputContainer = styled.div`
 
 const StyledInput = styled.input`
   outline: none;
-  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+  height: 24px;
+  font-weight: 400;
+  border: none;
+  width: 100%;
   font-family: ${({ theme }) =>
     theme?.typography?.body?.large?.font || inube.typography.body.large.font};
-  font-size: ${inube.typography.body.large.size};
-  font-weight: 400;
-  line-height: ${inube.typography.body.large.lineHeight};
-  letter-spacing: ${inube.typography.body.large.tracking};
-  background-color: ${({ $disabled, theme }) =>
-    $disabled
-      ? theme?.input?.background?.color?.disabled
-      : tokens.background.color.default};
+  font-size: ${({ theme }) =>
+    theme?.typography?.body?.large?.font || inube.typography.body.large.size};
+  line-height: ${({ theme }) =>
+    theme?.typography?.body?.large?.font ||
+    inube.typography.body.large.lineHeight};
+  letter-spacing: ${({ theme }) =>
+    theme?.typography?.body?.large?.font ||
+    inube.typography.body.large.tracking};
+  background-color: transparent;
   color: ${({ $disabled, theme }) =>
     $disabled
       ? theme?.input?.content?.color?.disabled || tokens.content.color.disabled
       : theme?.input?.content?.color?.regular || tokens.content.color.regular};
 
-  width: ${({ $fullwidth }) => $fullwidth && "100%"};
-  height: ${({ $size }) => ($size === "compact" ? "40px" : "48px")};
-
-  border: none;
   &[type="number"] {
     appearance: textfield;
     -webkit-appearance: textfield;
