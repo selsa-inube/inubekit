@@ -32,6 +32,10 @@ const StyledInputContainer = styled.div`
   user-select: none;
   grid-auto-flow: column;
   grid-template-columns: 1fr auto;
+  background-color: ${({ $disabled, theme }) =>
+    $disabled
+      ? theme?.input?.background?.color?.disabled
+      : InputTokens.background.color.default};
 
   border: 1px solid
     ${({ theme, disabled, $invalid, $focused }) => {
@@ -81,17 +85,12 @@ const StyledInput = styled.input`
     theme?.typography?.body?.large?.font ||
     inube.typography.body.large.tracking};
   background-color: transparent;
-  color: ${({ theme, disabled }) => {
-    if (disabled) {
-      return (
-        theme?.input?.content?.color?.disabled ||
+  color: ${({ $disabled, theme }) =>
+    $disabled
+      ? theme?.input?.content?.color?.disabled ||
         InputTokens.content.color.disabled
-      );
-    }
-    return (
-      theme?.input?.content?.color?.regular || InputTokens.content.color.regular
-    );
-  }};
+      : theme?.input?.content?.color?.regular ||
+        InputTokens.content.color.regular};
 
   ::placeholder {
     color: ${({ theme }) =>
