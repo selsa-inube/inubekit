@@ -4,6 +4,81 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v4.0.0] - 2025-05-27 (Tue)
+
+### ✨ Added
+
+- **Documentación**: Se crearon los READMEs para los componentes **Autosuggest** y **Tabs**.
+
+- **Tabs**: Se agregó la posibilidad de incluir un icono en las pestañas (nueva propiedad en la interface `ITabs`).
+
+### 🔥 Breaking Change
+
+- **Refactorización de Select**:
+
+  - **Atributos modificados**: La interfaz actualizo sus parámetros.
+
+  - **Detalles técnicos de su nueva interface**:
+
+    ```jsx
+    interface ISelect {
+      disabled?: boolean;
+      fullwidth?: boolean;
+      id?: string;
+      invalid?: boolean;
+      label?: string;
+      maxItems?: number;
+      message?: string;
+      name: string;
+      onBlur?: (event: FocusEvent) => void;
+      onChange: (name: string, value: string) => void;
+      onClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+      onFocus?: (event: FocusEvent) => void;
+      onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+      options: IOption[];
+      placeholder?: string;
+      required?: boolean;
+      size?: ISelectSize;
+      value: string;
+      showOptions?: boolean;
+      picker?: boolean;
+      showChevron?: boolean;
+    }
+    ```
+
+    - **Cambios en props**
+
+    - _**Eliminados**_
+
+      - `readonly`
+
+    - _**Nuevos**_
+      - `showChevron` Propiedad para controlar la visualización del ícono chevron.
+
+  - **Impacto**
+
+    - **Componentes propios del proyecto:** Revisar todos los que usen ISelect para adaptar la nueva interfaz.
+
+  - **Migración**: El cambio importante se basa en la eliminación de la propiedad readonly, la cual no estaba generando ningún efecto en el componente. Para casos en los que se desee deshabilitar el componente, invitamos a hacer uso de la propiedad disable. Para mayor información, recomendamos revisar el documento README del componente.
+
+### 🐛 Fixed
+
+- **Estilos**: Ajustes visuales en los componentes `Select` e `Input`.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- **Select**: Se eliminó la propiedad `readonly` de su interface.
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v3.0.0] - 2025-05-07 (Wed)
 
 ### ✨ Added
