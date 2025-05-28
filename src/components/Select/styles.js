@@ -4,13 +4,8 @@ import { inube } from "../Foundations";
 import { tokens as InputTokens } from "../Input/tokens";
 
 const StyledContainer = styled.div`
-  position: relative;
-  cursor: ${({ disabled }) => disabled && "not-allowed"};
+  cursor: ${({ $disabled }) => $disabled && "not-allowed"};
   width: ${({ $fullwidth }) => ($fullwidth ? "100%" : "fit-content")};
-
-  & > label {
-    cursor: ${({ disabled }) => disabled && "not-allowed"};
-  }
 `;
 
 const StyledContainerLabel = styled.div`
@@ -30,40 +25,24 @@ const StyledInputContainer = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   user-select: none;
+  pointer-events: ${({ $disabled }) => $disabled && "none"};
   grid-auto-flow: column;
   grid-template-columns: 1fr auto;
   background-color: ${({ $disabled, theme }) =>
     $disabled
-      ? theme?.input?.background?.color?.disabled
-      : InputTokens.background.color.default};
+      ? theme?.input?.background?.color?.disabled ||
+        InputTokens.background.color.disabled
+      : theme?.input?.background?.color?.regular ||
+        InputTokens.background.color.regular};
 
   border: 1px solid
-    ${({ theme, disabled, $invalid, $focused }) => {
-      if (disabled) {
-        return (
-          (theme?.input?.border?.color?.disabled ||
-            InputTokens.border.color.disabled) +
-          "; pointer-events: none; opacity: 0.5;"
-        );
-      }
-      if ($focused) {
-        return (
-          theme?.input?.border?.color?.focus || InputTokens.border.color.focus
-        );
-      }
-      if ($invalid) {
-        return (
-          theme?.input?.border?.color?.invalid ||
-          InputTokens.border.color.invalid
-        );
-      }
-      return (
-        theme?.input?.border?.color?.regular || InputTokens.border.color.regular
-      );
+    ${({ $disabled, $status, $focused, theme }) => {
+      const colors = theme?.input?.border?.color || InputTokens.border.color;
+      if ($disabled) return colors.disabled;
+      if ($status === "invalid") return colors.invalid;
+      if ($focused) return colors.focus;
+      return colors.regular;
     }};
-
-  opacity: ${({ disabled }) => (disabled ? "0.5" : "unset")};
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
 `;
 
 const StyledInput = styled.input`
