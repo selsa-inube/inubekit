@@ -25,46 +25,25 @@ const StyledInputContainer = styled.div`
   border-radius: 8px;
   user-select: none;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
-  opacity: ${({ $disabled }) => $disabled && "0.5"};
-  background-color: ${({ $disabled, theme }) =>
-    $disabled
-      ? theme?.input?.background?.color?.disabled
-      : tokens.background.color.default};
   grid-template-columns: ${({ $iconBefore, $iconAfter }) => {
-    if ($iconBefore && $iconAfter) {
-      return "auto 1fr auto";
-    }
-
-    if ($iconBefore && !$iconAfter) {
-      return "auto 1fr";
-    }
-
-    if (!$iconBefore && $iconAfter) {
-      return "1fr auto";
-    }
-
+    if ($iconBefore && $iconAfter) return "auto 1fr auto";
+    if ($iconBefore) return "auto 1fr";
+    if ($iconAfter) return "1fr auto";
     return "1fr";
   }};
+  background-color: ${({ $disabled, theme }) =>
+    $disabled
+      ? theme?.input?.background?.color?.disabled ||
+        tokens.background.color.disabled
+      : theme?.input?.background?.color?.regular ||
+        tokens.background.color.regular};
   border: 1px solid
     ${({ $disabled, $status, $focused, theme }) => {
-      if ($disabled) {
-        return (
-          theme?.input?.border?.color?.disabled || tokens.border.color.disabled
-        );
-      }
-
-      if ($status === "invalid") {
-        return (
-          theme?.input?.border?.color?.invalid || tokens.border.color.invalid
-        );
-      }
-
-      if ($focused) {
-        return theme?.input?.border?.color?.focus || tokens.border.color.focus;
-      }
-      return (
-        theme?.input?.border?.color?.regular || tokens.border.color.regular
-      );
+      const colors = theme?.input?.border?.color || tokens.border.color;
+      if ($disabled) return colors.disabled;
+      if ($status === "invalid") return colors.invalid;
+      if ($focused) return colors.focus;
+      return colors.regular;
     }};
 `;
 

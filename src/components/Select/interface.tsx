@@ -128,7 +128,7 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
   const showRequired = required && !disabled;
 
   return (
-    <StyledContainer $fullwidth={fullwidth} disabled={disabled} ref={ref}>
+    <StyledContainer $fullwidth={fullwidth} $disabled={disabled} ref={ref}>
       {label && (
         <StyledContainerLabel
           $alignItems="center"
@@ -154,7 +154,7 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
         </StyledContainerLabel>
       )}
       <StyledInputContainer
-        disabled={disabled}
+        $disabled={disabled}
         $focused={focused}
         $invalid={invalid}
         onClick={onClick}
@@ -167,7 +167,7 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
           name={name}
           id={id}
           placeholder={placeholder}
-          disabled={disabled}
+          $disabled={disabled}
           required={required}
           $size={size}
           $fullwidth={fullwidth}
