@@ -7,7 +7,7 @@ import { Stack } from "../Stack";
 import { Text } from "../Text";
 import { ITextAppearance } from "../Text/props";
 
-import { ITextareaStatus } from "./props";
+import { ITextareaSize, ITextareaStatus } from "./props";
 import {
   StyledContainer,
   StyledTextarea,
@@ -32,6 +32,7 @@ interface ITextarea {
   disabled?: boolean;
   focused?: boolean;
   status?: ITextareaStatus;
+  size?: ITextareaSize;
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   maxLength?: number;
@@ -86,6 +87,7 @@ const Textarea = (props: ITextarea) => {
     minLength = 0,
     required,
     status = "pending",
+    size = "wide",
     message,
     fullwidth,
     onChange,
@@ -146,6 +148,7 @@ const Textarea = (props: ITextarea) => {
                   disabled={disabled}
                   focused={focused}
                   invalid={status === "invalid" ? true : false}
+                  size={size === "compact" ? "medium" : "large"}
                 >
                   {label}
                 </Label>

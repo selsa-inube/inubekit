@@ -69,6 +69,13 @@ Estado visual del componente. Considera lo siguiente:
 1. **Opciones disponibles:** `"invalid"`, `"pending"`
 2. **Por defecto:** `"pending"`
 
+### size (opcional)
+
+Controla el tamaño del campo de entrada.
+
+1. `"wide" | "compact"`
+2. **Por defecto: `"wide"`**
+
 ### message (opcional)
 
 Mensaje personalizado para mostrar feedback (errores, validaciones, etc).
