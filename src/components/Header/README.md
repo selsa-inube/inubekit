@@ -22,7 +22,7 @@ import { Header } from "@inubekit/inubekit";
 
 ## Props
 
-### logoURL
+### logoURL (opcional)
 
 Componente JSX que representa el logo de la aplicación. Puede ser una imagen, icono o texto estilizado.
 

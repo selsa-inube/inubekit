@@ -20,7 +20,7 @@ import { tokens } from "./tokens";
 import { Grid } from "../Grid";
 
 interface IHeader {
-  logoURL: JSX.Element;
+  logoURL?: JSX.Element;
   navigation?: {
     nav: IFullscreenNav;
     breakpoint?: string;
