@@ -184,7 +184,11 @@ function AssistedUI(props: IAssistedUI) {
             }
           />
         </Grid>
-        <ProgressBar currentStep={step.number} totalSteps={totalSteps} />
+        <ProgressBar
+          currentStep={step.number}
+          totalSteps={totalSteps}
+          isSmallSize
+        />
         <Text
           type="label"
           appearance={
