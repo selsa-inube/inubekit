@@ -3,7 +3,7 @@ import { tokens } from "./tokens";
 
 const StyledTag = styled.div`
   display: flex;
-  width: fit-content;
+  width: max-content;
   height: 20px;
   padding: 0px 8px;
   border-radius: 16px;
