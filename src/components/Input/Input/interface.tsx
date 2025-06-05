@@ -177,10 +177,10 @@ const InputUI = (props: IInput) => {
           $fullwidth={fullwidth}
           $iconAfter={iconAfter}
           $iconBefore={iconBefore}
+          $disabled={disabled}
           $required={required}
           $size={size}
           $status={status}
-          disabled={disabled}
           id={id}
           inputMode={inputMode}
           label={label}
