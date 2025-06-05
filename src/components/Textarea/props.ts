@@ -3,6 +3,9 @@ const status = ["invalid", "pending"] as const;
 type ITextareaAppearence = "danger" | "warning" | "gray";
 type ITextareaStatus = (typeof status)[number];
 
+const sizes = ["wide", "compact"] as const;
+type ITextareaSize = (typeof sizes)[number];
+
 const parameters = {
   docs: {
     description: {
@@ -58,6 +61,11 @@ const props = {
       defaultValue: { summary: "pending" },
     },
   },
+  size: {
+    options: sizes,
+    control: { type: "select" },
+    description: "defines the size of the component",
+  },
   message: {
     description:
       "display a message, provided by the developer implementing the component, which can be either an error notification or a validation prompt",
@@ -76,4 +84,4 @@ const props = {
 };
 
 export { parameters, props };
-export type { ITextareaAppearence, ITextareaStatus };
+export type { ITextareaAppearence, ITextareaStatus, ITextareaSize };
