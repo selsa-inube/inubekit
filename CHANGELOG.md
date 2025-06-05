@@ -4,6 +4,41 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v4.1.0] - 2025-06-05 (Thu)
+
+### ✨ Added
+
+- **Documentación**: Se creó el README para el componente **Date**.
+
+### 🔄 Changed
+
+- **Header**: La propiedad `logoURL` pasó a ser opcional en la interface.
+
+- **Textarea**: Ajuste en el label para que su comportamiento sea consistente con el componente Input según el tamaño seleccionado.
+
+- **Assisted**: Se ajustó el tamaño de la barra del componente.
+
+- **Estilos**:
+  - Ajustes en los componentes **Date**, **Input** y **Select** cuando están deshabilitados (`disabled=true`).
+
+### 🐛 Fixed
+
+- **Tag**: Se corrigió un problema que causaba fallos en pantallas responsivas.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v4.0.0] - 2025-05-27 (Tue)
 
 ### ✨ Added
