@@ -4,11 +4,10 @@ import { tokens as InputTokens } from "../../Input/tokens";
 const StyledOptionList = styled.ul`
   display: flex;
   flex-direction: column;
-  width: -moz-available;
-  width: -webkit-fill-available;
   padding: 4px 0px;
   margin: 4px 0px;
   position: absolute;
+  width: 100%;
   z-index: 1;
   border-radius: 4px;
   background: ${({ theme }) => {

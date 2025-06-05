@@ -2,7 +2,7 @@ const tokens = {
   content: {
     color: {
       regular: "dark",
-      disabled: "dark",
+      disabled: "gray",
       focus: "primary",
       invalid: "danger",
     },

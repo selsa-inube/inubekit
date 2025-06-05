@@ -6,6 +6,7 @@ import { tokens as InputTokens } from "../Input/tokens";
 const StyledContainer = styled.div`
   cursor: ${({ $disabled }) => $disabled && "not-allowed"};
   width: ${({ $fullwidth }) => ($fullwidth ? "100%" : "fit-content")};
+  position: relative;
 `;
 
 const StyledContainerLabel = styled.div`
@@ -53,6 +54,7 @@ const StyledInput = styled.input`
   font-weight: 400;
   border: none;
   width: 100%;
+  background-color: transparent;
   font-family: ${({ theme }) =>
     theme?.typography?.body?.large?.font || inube.typography.body.large.font};
   font-size: ${({ theme }) =>
@@ -63,7 +65,6 @@ const StyledInput = styled.input`
   letter-spacing: ${({ theme }) =>
     theme?.typography?.body?.large?.font ||
     inube.typography.body.large.tracking};
-  background-color: transparent;
   color: ${({ $disabled, theme }) =>
     $disabled
       ? theme?.input?.content?.color?.disabled ||

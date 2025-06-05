@@ -88,7 +88,7 @@ const Date = (props: IDate) => {
     InputTokens.message.appearance;
 
   return (
-    <StyledContainer $fullwidth={fullwidth} $disabled={disabled} $size={size}>
+    <StyledContainer $fullwidth={fullwidth} $disabled={disabled}>
       <StyledContainerLabel
         $alignItems="center"
         $wrap="wrap"
@@ -125,12 +125,13 @@ const Date = (props: IDate) => {
         $disabled={disabled}
         $focused={focused}
         $status={status}
+        $size={size}
       >
         <StyledInput
           label={label}
           name={name}
           id={id}
-          disabled={disabled}
+          $disabled={disabled}
           type="date"
           value={value}
           $required={required}
