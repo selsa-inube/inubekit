@@ -10,9 +10,16 @@ const StyledContainer = styled.div`
 const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
+  justify-content: ${({ $showCounter }) => $showCounter && "space-between"};
   margin-bottom: 4px;
   gap: 4px;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
+  width: 100%;
+
+  & label {
+    max-width: ${({ $fullwidth, $showRequired }) =>
+      $fullwidth ? "70%" : $showRequired ? "100px" : "150px"};
+  }
 `;
 
 const StyledInputContainer = styled.div`
