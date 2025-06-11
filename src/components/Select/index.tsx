@@ -65,7 +65,7 @@ const Select = (props: ISelect) => {
 
   useEffect(() => {
     if (picker) {
-      const items = value ? value.split(",") : [];
+      const items = value ? value.split(",").map((item) => item.trim()) : [];
       setCheckedItems(items);
     }
   }, [value, picker]);
