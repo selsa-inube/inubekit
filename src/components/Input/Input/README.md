@@ -97,13 +97,6 @@ Controla el tamaño del campo de entrada.
 1. `"wide" | "compact"`
 2. **Por defecto: `"wide"`**
 
-### counter (opcional)
-
-Muestra un contador de caracteres.
-
-1. `true | false`
-2. **Por defecto: `false`**
-
 ### maxLength (opcional)
 
 Número máximo de caracteres permitidos.

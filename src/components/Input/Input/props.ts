@@ -16,8 +16,9 @@ const status = ["invalid", "pending"] as const;
 type IInputStatus = (typeof status)[number];
 
 interface ICounter {
-  maxLength?: number;
   currentLength: number;
+  maxLength?: number;
+  minLength?: number;
 }
 
 const parameters = {
