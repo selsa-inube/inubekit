@@ -65,8 +65,7 @@ const StyledInput = styled.input`
     theme?.typography?.body?.large?.tracking ||
     inube.typography.body.large.tracking};
   font-weight: ${({ theme }) =>
-    theme?.typography?.body?.large?.weight ||
-    inube.typography.body.large.weight};
+    theme?.typography?.body?.large?.weight || "400"};
   color: ${({ $disabled, theme }) =>
     $disabled
       ? theme?.input?.content?.color?.disabled ||
