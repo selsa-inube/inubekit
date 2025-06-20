@@ -14,6 +14,7 @@ interface ILabel {
   margin?: string;
   padding?: string;
   size?: ILabelSize;
+  ellipsis?: boolean;
 }
 
 const Label = (props: ILabel) => {
@@ -26,6 +27,7 @@ const Label = (props: ILabel) => {
     margin = "0px",
     padding = "0px",
     size = "large",
+    ellipsis = false,
   } = props;
 
   const theme = useContext(ThemeContext) as { label: typeof tokens };
@@ -48,6 +50,7 @@ const Label = (props: ILabel) => {
         size={size}
         type="label"
         weight="bold"
+        ellipsis={ellipsis}
       >
         {children}
       </Text>

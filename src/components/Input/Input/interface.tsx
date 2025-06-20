@@ -19,21 +19,29 @@ import { IInput } from ".";
 import { ICounter } from "./props";
 
 const getCounterAppearance = (
-  maxLength: number | undefined,
   valueLength: number,
+  maxLength?: number,
+  minLength?: number,
 ) => {
-  if (!maxLength) return "gray";
-  const lengthThreshold = Math.floor(maxLength * 0.1);
-  if (maxLength - valueLength <= lengthThreshold && valueLength <= maxLength) {
-    return "warning";
-  } else if (valueLength > maxLength) {
-    return "danger";
+  if (valueLength === 0) return "gray";
+
+  if (minLength !== undefined && valueLength < minLength) return "danger";
+
+  if (maxLength !== undefined && valueLength > maxLength) return "danger";
+
+  if (minLength !== undefined && valueLength === minLength) return "warning";
+
+  if (maxLength !== undefined) {
+    const lengthThreshold = Math.floor(maxLength * 0.1);
+    if (maxLength - valueLength <= lengthThreshold) return "warning";
   }
+
   return "gray";
 };
 
-const Counter = ({ maxLength, currentLength }: ICounter) => {
-  const appearance = getCounterAppearance(maxLength, currentLength);
+const Counter = ({ maxLength, minLength, currentLength }: ICounter) => {
+  const appearance = getCounterAppearance(currentLength, maxLength, minLength);
+
   return (
     <Text type="body" size="small" appearance={appearance} textAlign="start">
       {maxLength ? `${currentLength}/${maxLength}` : `${currentLength}`}
@@ -65,7 +73,6 @@ const InputUI = (props: IInput) => {
     value,
     maxLength,
     minLength,
-    counter = false,
   } = props;
 
   const [focusedState, setFocused] = useState(false);
@@ -115,9 +122,13 @@ const InputUI = (props: IInput) => {
     tokens.message.appearance;
 
   const currentLength = value ? value.toString().length : 0;
-  const showLabel = label || (required && !disabled) || (!disabled && counter);
+  const showLabel =
+    label ||
+    (required && !disabled) ||
+    (!disabled && (maxLength !== undefined || minLength !== undefined));
   const showRequired = required && !disabled;
-  const showCounter = !disabled && counter;
+  const showCounter =
+    !disabled && (maxLength !== undefined || minLength !== undefined);
 
   return (
     <StyledContainer $disabled={disabled} $fullwidth={fullwidth}>
@@ -125,6 +136,9 @@ const InputUI = (props: IInput) => {
         <StyledContainerLabel
           $alignItems="center"
           $disabled={disabled}
+          $fullwidth={fullwidth}
+          $showRequired={showRequired}
+          $showCounter={showCounter}
           $wrap="wrap"
         >
           {label && (
@@ -135,11 +149,11 @@ const InputUI = (props: IInput) => {
               margin="0px 0px 0px 16px"
               size={size === "compact" ? "medium" : "large"}
               disabled={disabled}
+              ellipsis
             >
               {label}
             </Label>
           )}
-
           {showRequired && (
             <Text appearance={requiredAppearance} size="small" type="body">
               (Requerido)
@@ -148,7 +162,11 @@ const InputUI = (props: IInput) => {
 
           {showCounter && (
             <Stack justifyContent="flex-end" alignItems="center" width="100%">
-              <Counter maxLength={maxLength} currentLength={currentLength} />
+              <Counter
+                maxLength={maxLength}
+                minLength={minLength}
+                currentLength={currentLength}
+              />
             </Stack>
           )}
         </StyledContainerLabel>
