@@ -4,17 +4,13 @@ import { tokens } from "./tokens";
 const StyledFieldset = styled.fieldset`
   display: flex;
   border-radius: 8px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: ${({ theme }) =>
-    theme?.fieldset?.border?.color || tokens.border.color};
-  padding: ${({ $isMobile }) =>
-    $isMobile ? "8px 12px 16px" : "12px 20px 24px"};
+  margin: 0;
   height: ${({ $height }) => $height};
   width: ${({ $width }) => $width};
-  > *:not(:first-child) {
-    margin-top: -8px;
-  }
+  padding: ${({ $spacing }) =>
+    $spacing === "compact" ? "8px 12px 16px" : "14px 20px 24px"};
+  border: 1px solid
+    ${({ theme }) => theme?.fieldset?.border?.color || tokens.border.color};
 `;
 
 export { StyledFieldset };
