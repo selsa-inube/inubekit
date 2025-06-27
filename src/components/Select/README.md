@@ -125,6 +125,12 @@ Controla la visibilidad del icono chevron.
 
 1. **Por defecto: true**
 
+### clearable
+
+Controla si el usuario puede borrar el valor seleccionado en el componente. Cuando está en `true`, se muestra un botón para restablecer la selección; de lo contrario, aparece una opción en blanco entre las opciones.
+
+1. **Por defecto: true**
+
 ## Personalización
 
 ### Tokens
