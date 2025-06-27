@@ -95,6 +95,10 @@ const props = {
     description:
       "Represents the current value of the Select component. This value should be controlled by the parent component, ensuring that the selected option is correctly managed and updated in response to user interaction.",
   },
+  clearable: {
+    description:
+      "Indicates whether the Select component allows the user to clear the selected value. When set to `true`, a clear button will appear, enabling users to reset their selection easily.",
+  },
 };
 
 export { parameters, props, sizes };
