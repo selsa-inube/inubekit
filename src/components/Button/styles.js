@@ -4,15 +4,27 @@ import { tokens } from "./tokens";
 
 const StyledButton = styled.button`
   box-sizing: border-box;
-  padding: ${({ $spacing }) => ($spacing === "compact" ? "4px" : "8px")} 16px;
   transition: all 0.3s ease;
   min-width: 100px;
-  max-width: ${({ $fullwidth }) => ($fullwidth ? "none" : "300px")};
-  width: ${({ $fullwidth, $width }) => {
-    if ($fullwidth) return "100%";
-    if ($width) return $width;
-    return "fit-content";
-  }};
+  height: ${({ $spacing }) => ($spacing === "compact" ? "28px" : "36px")};
+  ${({ $fullwidth, $width }) => {
+    if ($fullwidth) {
+      return `
+        width: 100%;
+        max-width: none;
+      `;
+    }
+    if ($width) {
+      return `
+        width: ${$width};
+        max-width: 300px;
+      `;
+    }
+    return `
+      width: fit-content;
+      max-width: 300px;
+      `;
+  }}
   position: relative;
 
   background-color: ${({
