@@ -23,10 +23,10 @@ const Tab = (props: ITab) => {
 
   return (
     <StyledTab
-      disabled={disabled}
-      selected={selected}
+      $disabled={disabled}
+      $selected={selected}
       id={id}
-      appearance={selectedAppearance}
+      $appearance={selectedAppearance}
     >
       {icon && <Icon {...icon} size="16px" appearance={icon.appearance} />}
       <Text
