@@ -4,6 +4,36 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v4.1.1] - 2025-07-04 (Fri)
+
+### ✨ Added
+
+- _No se agregaron nuevas funcionalidades en esta versión._
+
+### 🔄 Changed
+
+- _No se realizaron cambios en funcionalidades existentes en esta versión._
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🐛 Fixed
+
+- **CheckPicker**: Se corrigió que cuando hay múltiples valores iniciales, solo se mostraba el primero. Ahora se muestran correctamente todos los valores iniciales.
+
+- **Autocomplete**: Se solucionó que el label no se actualizaba correctamente al cargar opciones de forma asincrónica.
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v4.1.0] - 2025-06-05 (Thu)
 
 ### ✨ Added
