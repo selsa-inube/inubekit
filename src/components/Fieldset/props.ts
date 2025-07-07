@@ -1,7 +1,5 @@
 const spacings = ["compact", "wide"] as const;
 type IFieldsetSpacing = (typeof spacings)[number];
-const types = ["body", "display", "headline", "label", "title"] as const;
-const sizes = ["large", "medium", "small"] as const;
 
 const parameters = {
   docs: {
@@ -24,20 +22,10 @@ const props = {
     description:
       "A string that represents the title or heading for the fieldset component.",
   },
-  size: {
-    control: "select",
-    options: sizes,
-    description: "Specifies the text size for the legend.",
-  },
   spacing: {
     control: "select",
     options: spacings,
     description: "Controls the spacing of the legend.",
-  },
-  type: {
-    control: "select",
-    options: types,
-    description: "Specifies the text type for the legend.",
   },
   width: {
     description: "Sets the width of the Stack component within the fieldset.",

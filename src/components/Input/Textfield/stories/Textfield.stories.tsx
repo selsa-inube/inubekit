@@ -25,8 +25,8 @@ Default.args = {
   type: "text",
   size: "wide",
   status: "pending",
-  counter: true,
   maxLength: 20,
+  minLength: 5,
 };
 
 export { Default };

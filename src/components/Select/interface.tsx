@@ -34,12 +34,13 @@ interface IMessage {
 interface ISelectInterface extends ISelect {
   displayList: boolean;
   focused?: boolean;
-  handleClear: () => void;
   maxItems: number;
-  onOptionClick: (value: string) => void;
   showChevron: boolean;
   editable?: boolean;
   checkedItems: string[];
+  clearable: boolean;
+  handleClear: () => void;
+  onOptionClick: (value: string) => void;
   onCheckboxChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -90,29 +91,30 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
     disabled,
     focused,
     fullwidth,
-    handleClear,
     id,
     invalid,
     label,
     maxItems,
     message,
     name,
-    onBlur,
-    onChange,
-    onClick,
-    onFocus,
-    onOptionClick,
     options,
     placeholder,
     required,
     size,
     value,
-    onKeyUp,
     picker,
     showChevron,
     checkedItems,
     editable = false,
+    clearable,
+    onKeyUp,
+    onBlur,
+    onChange,
+    onClick,
+    onFocus,
+    onOptionClick,
     onCheckboxChange,
+    handleClear,
   } = props;
 
   const theme = useContext(ThemeContext) as { input: typeof InputTokens };
@@ -125,7 +127,9 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
         .filter((option) => checkedItems.includes(option.id))
         .map((option) => option.label)
         .join(", ")
-    : getOptionLabel(options, value);
+    : value === ""
+      ? ""
+      : getOptionLabel(options, value);
 
   const showRequired = required && !disabled;
 
@@ -184,14 +188,16 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
           onKeyUp={onKeyUp}
         />
         <Stack direction="row" gap="8px" alignItems="center">
-          {(value || (picker && checkedItems.length > 0)) && !disabled && (
-            <Icon
-              appearance="gray"
-              icon={<MdOutlineCancel />}
-              size="16px"
-              onClick={handleClear}
-            />
-          )}
+          {clearable &&
+            (value || (picker && checkedItems.length > 0)) &&
+            !disabled && (
+              <Icon
+                appearance="gray"
+                icon={<MdOutlineCancel />}
+                size="16px"
+                onClick={handleClear}
+              />
+            )}
 
           {showChevron && (
             <StyledChevron $displayList={displayList}>

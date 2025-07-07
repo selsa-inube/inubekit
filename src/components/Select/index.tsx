@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { ISelectSize } from "./props";
 import { SelectUI } from "./interface";
 
@@ -31,6 +31,7 @@ interface ISelect {
   picker?: boolean;
   showChevron?: boolean;
   editable?: boolean;
+  clearable?: boolean;
 }
 
 const Select = (props: ISelect) => {
@@ -57,6 +58,7 @@ const Select = (props: ISelect) => {
     picker = false,
     showChevron = true,
     editable = false,
+    clearable = true,
   } = props;
 
   const [displayList, setDisplayList] = useState(false);
@@ -154,6 +156,12 @@ const Select = (props: ISelect) => {
     };
   }, [handleDocumentClick]);
 
+  const processedOptions = useMemo(() => {
+    if (clearable || picker) return options;
+
+    return [{ id: "empty-option", label: "", value: "" }, ...options];
+  }, [options, clearable, picker]);
+
   return (
     <SelectUI
       ref={selectRef}
@@ -161,20 +169,13 @@ const Select = (props: ISelect) => {
       displayList={displayList ? displayList : showOptions}
       focused={focused}
       fullwidth={fullwidth}
-      handleClear={handleClear}
       id={id}
       invalid={invalid}
       label={label}
       maxItems={maxItems}
       message={message}
       name={name}
-      onBlur={handleFocusAndBlur}
-      onChange={onChange}
-      onClick={handleClick}
-      onFocus={handleFocusAndBlur}
-      onOptionClick={handleOptionClick}
-      onKeyUp={handleKeyDown}
-      options={options}
+      options={processedOptions}
       placeholder={placeholder}
       required={required}
       size={size}
@@ -183,6 +184,14 @@ const Select = (props: ISelect) => {
       showChevron={showChevron}
       checkedItems={checkedItems}
       editable={editable}
+      clearable={clearable}
+      handleClear={handleClear}
+      onBlur={handleFocusAndBlur}
+      onChange={onChange}
+      onClick={handleClick}
+      onFocus={handleFocusAndBlur}
+      onOptionClick={handleOptionClick}
+      onKeyUp={handleKeyDown}
       onCheckboxChange={handleCheckboxChange}
     />
   );
