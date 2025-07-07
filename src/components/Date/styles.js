@@ -47,20 +47,21 @@ const StyledInput = styled.input`
   padding: 0;
   margin: 0;
   height: 24px;
-  font-weight: 400;
   border: none;
   width: 100%;
   background-color: transparent;
   font-family: ${({ theme }) =>
     theme?.typography?.body?.large?.font || inube.typography.body.large.font};
   font-size: ${({ theme }) =>
-    theme?.typography?.body?.large?.font || inube.typography.body.large.size};
+    theme?.typography?.body?.large?.size || inube.typography.body.large.size};
   line-height: ${({ theme }) =>
-    theme?.typography?.body?.large?.font ||
+    theme?.typography?.body?.large?.lineHeight ||
     inube.typography.body.large.lineHeight};
   letter-spacing: ${({ theme }) =>
-    theme?.typography?.body?.large?.font ||
+    theme?.typography?.body?.large?.tracking ||
     inube.typography.body.large.tracking};
+  font-weight: ${({ theme }) =>
+    theme?.typography?.body?.large?.weight || "400"};
   color: ${({ $disabled, theme }) =>
     $disabled
       ? theme?.input?.content?.color?.disabled ||

@@ -56,6 +56,13 @@ const props = {
   children: {
     description: "component text content",
   },
+  ellipsis: {
+    description:
+      "prop to prevent text overflow, showing as much as possible with '...'",
+    table: {
+      defaultValue: { summary: "false" },
+    },
+  },
 };
 
 export { props, parameters, sizes };
