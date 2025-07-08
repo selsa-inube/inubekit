@@ -22,6 +22,13 @@ import { Box } from "@inubekit/inubekit";
 
 ## Props
 
+### appearance (opcional)
+
+Color que se mostrara en el background del componente.
+
+1. Opciones:`"dark"`, `"gray"`, `"light"`
+2. **Por defecto: `"light"`**
+
 ### margin (opcional)
 
 Controla el margen alrededor del componente. Considera lo siguiente:

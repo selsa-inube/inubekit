@@ -16,6 +16,7 @@ Default.args = {
   margin: "0px",
   padding: "16px",
   borderRadius: "8px",
+  appearance: "light",
 };
 
 const Composition = (args: IBox) => (
