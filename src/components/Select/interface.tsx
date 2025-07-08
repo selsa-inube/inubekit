@@ -36,6 +36,7 @@ interface ISelectInterface extends ISelect {
   focused?: boolean;
   maxItems: number;
   showChevron: boolean;
+  editable?: boolean;
   checkedItems: string[];
   clearable: boolean;
   handleClear: () => void;
@@ -104,6 +105,7 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
     picker,
     showChevron,
     checkedItems,
+    editable = false,
     clearable,
     onKeyUp,
     onBlur,
@@ -176,6 +178,7 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
           $size={size}
           $fullwidth={fullwidth}
           $focused={focused}
+          readOnly={!editable}
           onFocus={onFocus}
           onBlur={onBlur}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

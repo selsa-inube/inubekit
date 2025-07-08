@@ -30,6 +30,7 @@ interface ISelect {
   showOptions?: boolean;
   picker?: boolean;
   showChevron?: boolean;
+  editable?: boolean;
   clearable?: boolean;
 }
 
@@ -56,6 +57,7 @@ const Select = (props: ISelect) => {
     showOptions = false,
     picker = false,
     showChevron = true,
+    editable = false,
     clearable = true,
   } = props;
 
@@ -181,6 +183,7 @@ const Select = (props: ISelect) => {
       picker={picker}
       showChevron={showChevron}
       checkedItems={checkedItems}
+      editable={editable}
       clearable={clearable}
       handleClear={handleClear}
       onBlur={handleFocusAndBlur}

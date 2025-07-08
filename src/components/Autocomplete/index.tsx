@@ -71,6 +71,7 @@ const Autocomplete = (props: IAutocomplete) => {
       onFocus={onFocus}
       onBlur={onBlur}
       showChevron={false}
+      editable={true}
       showOptions={showOptions}
       onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) =>
         handleFilter((e.target as HTMLInputElement).value)
