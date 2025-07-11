@@ -55,12 +55,14 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 
   - **Impacto**
 
-    - Los componentes que usen la prop `counter` deben eliminarla.
+    - El contador de caracteres ahora se muestra automáticamente según las propiedades minLength y/o maxLength.
+
+    - Para activar el contador, basta con definir minLength y/o maxLength; no es necesario usar una prop específica.
+
+    - Los usos anteriores de la prop `counter` deben eliminarse y ajustarse al nuevo comportamiento basado en `minLength` y `maxLength`.
 
   - **Migración**
     - Elimina la prop `counter` de todas las instancias de `IInput`. Si necesitas funcionalidad de contador, revisa la documentación para alternativas.
-
----
 
 - **Refactorización de Fieldset**:
 
@@ -88,8 +90,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 
   - **Migración**
     - Elimina las props `type` y `size` de todas las instancias de `IFieldset`. Consulta la nueva documentación para ajustar estilos o comportamiento según sea necesario.
-
----
 
 - **Refactorización de Select**:
 
@@ -139,8 +139,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 
   - **Migración**
     - Revisa el uso de Select en tu proyecto y ajusta según las nuevas props y el comportamiento actualizado. Consulta la documentación para ejemplos de uso de `clearable` y `editable`.
-
----
 
 ### 🐛 Fixed
 
