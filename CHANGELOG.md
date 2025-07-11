@@ -4,6 +4,164 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v5.0.0] - 2025-07-11 (Fri)
+
+### ✨ Added
+
+- **Label**: Se agregó la propiedad `ellipsis` a la interface `ILabel` para permitir truncado con puntos suspensivos.
+
+- **Select**: Se agregaron las propiedades `editable` y `clearable` a la interface `ISelect`.
+
+- **Documentación**: Se creó el README para el componente **Fieldset**.
+
+### 🔥 Breaking Change
+
+- **Refactorización de Input**:
+
+  - **Atributos modificados**: Se eliminó la propiedad `counter` de la interface.
+
+  - **Detalles técnicos de su nueva interface**:
+
+    ```jsx
+    interface IInput {
+      disabled?: boolean;
+      focused?: boolean;
+      fullwidth?: boolean;
+      iconAfter?: React.ReactNode;
+      iconBefore?: React.ReactNode;
+      id: string;
+      inputMode?: string;
+      label?: string;
+      message?: string;
+      name?: string;
+      onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+      onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+      onFocus?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+      onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+      placeholder?: string;
+      required?: boolean;
+      size?: IInputSize;
+      status?: IInputStatus;
+      type?: IInputInputType;
+      value?: string | number;
+      readOnly?: boolean;
+      maxLength?: number;
+      minLength?: number;
+    }
+    ```
+
+    - **Props eliminadas**
+      - `counter`
+
+  - **Impacto**
+
+    - El contador de caracteres ahora se muestra automáticamente según las propiedades minLength y/o maxLength.
+
+    - Para activar el contador, basta con definir minLength y/o maxLength; no es necesario usar una prop específica.
+
+    - Los usos anteriores de la prop `counter` deben eliminarse y ajustarse al nuevo comportamiento basado en `minLength` y `maxLength`.
+
+  - **Migración**
+    - Elimina la prop `counter` de todas las instancias de `IInput`. Si necesitas funcionalidad de contador, revisa la documentación para alternativas.
+
+- **Refactorización de Fieldset**:
+
+  - **Atributos modificados**: Se eliminaron las propiedades `type` y `size`.
+
+  - **Detalles técnicos de su nueva interface**:
+
+    ```jsx
+    interface IFieldset {
+      legend: string;
+      children: React.ReactNode;
+      spacing?: IFieldsetSpacing;
+      width?: string;
+      height?: string;
+    }
+    ```
+
+    - **Props eliminadas**
+      - `type`
+      - `size`
+
+  - **Impacto**
+
+    - Los componentes que usen las props `type` o `size` deben eliminarlas.
+
+  - **Migración**
+    - Elimina las props `type` y `size` de todas las instancias de `IFieldset`. Consulta la nueva documentación para ajustar estilos o comportamiento según sea necesario.
+
+- **Refactorización de Select**:
+
+  - **Atributos modificados**: Se agregaron las propiedades `editable` y `clearable`.
+
+  - **Detalles técnicos de su nueva interface**:
+
+    ```jsx
+    interface ISelect {
+      disabled?: boolean;
+      fullwidth?: boolean;
+      id?: string;
+      invalid?: boolean;
+      label?: string;
+      maxItems?: number;
+      message?: string;
+      name: string;
+      onBlur?: (event: FocusEvent) => void;
+      onChange: (name: string, value: string) => void;
+      onClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+      onFocus?: (event: FocusEvent) => void;
+      onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+      options: IOption[];
+      placeholder?: string;
+      required?: boolean;
+      size?: ISelectSize;
+      value: string;
+      showOptions?: boolean;
+      picker?: boolean;
+      showChevron?: boolean;
+      editable?: boolean;
+      clearable?: boolean;
+    }
+    ```
+
+    - **Props nuevas**
+
+      - `editable`
+      - `clearable`
+
+    - **Cambio de comportamiento**
+      - El componente ahora solo permite selección de opciones, no edición manual.
+
+  - **Impacto**
+
+    - Si tu implementación dependía de la edición manual en Select, deberás revisar la lógica.
+
+  - **Migración**
+    - Revisa el uso de Select en tu proyecto y ajusta según las nuevas props y el comportamiento actualizado. Consulta la documentación para ejemplos de uso de `clearable` y `editable`.
+
+### 🐛 Fixed
+
+- **Button**: Ajuste de altura.
+
+- **Tab**: Ajuste de warning.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- **Input**: Se eliminó la propiedad `counter` de la interface `IInput`.
+
+- **Fieldset**: Se eliminaron las propiedades `type` y `size` de la interface `IFieldset`.
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v4.1.1] - 2025-07-04 (Fri)
 
 ### ✨ Added
