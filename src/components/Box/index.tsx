@@ -1,6 +1,7 @@
 import { StyledBox } from "./styles";
 
 interface IBox {
+  appearance?: string;
   children?: React.ReactNode;
   padding?: string;
   margin?: string;
@@ -11,6 +12,7 @@ interface IBox {
 
 function Box(props: IBox) {
   const {
+    appearance = "light",
     children,
     padding = "16px",
     margin,
@@ -20,6 +22,7 @@ function Box(props: IBox) {
   } = props;
   return (
     <StyledBox
+      $appearance={appearance}
       $padding={padding}
       $margin={margin}
       $borderRadius={borderRadius}

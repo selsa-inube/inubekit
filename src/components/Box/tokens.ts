@@ -1,8 +1,29 @@
 import { palette } from "../Foundations/palette";
 
 const box = {
-  border: {
-    color: palette.neutral.N40,
+  dark: {
+    border: {
+      color: palette.neutral.N40,
+    },
+    background: {
+      color: palette.neutral.N900,
+    },
+  },
+  gray: {
+    border: {
+      color: palette.neutral.N40,
+    },
+    background: {
+      color: palette.neutral.N20,
+    },
+  },
+  light: {
+    border: {
+      color: palette.neutral.N40,
+    },
+    background: {
+      color: palette.neutral.N0,
+    },
   },
 };
 
