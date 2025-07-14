@@ -1,25 +1,25 @@
 import { JSX } from "react/jsx-runtime";
-import { PhonefieldController } from "./Phonefield.Controller";
+import { TelfieldController } from "./Telfield.Controller";
 import { parameters, props } from "../../Input/props";
 import { IInput } from "../../Input";
 
 const story = {
-  title: "Inputs/Input/Phone",
-  component: PhonefieldController,
+  title: "Inputs/Input/Tel",
+  component: TelfieldController,
   argTypes: props,
   parameters,
 };
 
 const Default = (args: JSX.IntrinsicAttributes & IInput) => (
-  <PhonefieldController {...args} />
+  <TelfieldController {...args} />
 );
 
 Default.args = {
   disabled: false,
   fullwidth: false,
-  id: "Phone",
-  label: "Phone",
-  placeholder: "Enter your phone number",
+  id: "tel",
+  label: "tel",
+  placeholder: "Enter your tel number",
   required: true,
   type: "tel",
   size: "wide",

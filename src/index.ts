@@ -102,8 +102,8 @@ export { Input } from "./components/Input/Input";
 export type { IInput } from "./components/Input/Input";
 export { Moneyfield } from "./components/Input/Moneyfield";
 export { Numberfield } from "./components/Input/Numberfield";
-export { Phonefield } from "./components/Input/Phonefield";
 export { Searchfield } from "./components/Input/Searchfield";
+export { Telfield } from "./components/Input/Telfield";
 export { Textfield } from "./components/Input/Textfield";
 
 export { Assisted } from "./components/Assisted";

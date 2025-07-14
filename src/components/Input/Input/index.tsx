@@ -1,8 +1,8 @@
 import { Emailfield } from "../Emailfield";
 import { Moneyfield } from "../Moneyfield";
 import { Numberfield } from "../Numberfield";
-import { Phonefield } from "../Phonefield";
 import { Searchfield } from "../Searchfield";
+import { Telfield } from "../Telfield";
 import { Textfield } from "../Textfield";
 import { IInputInputType, IInputSize, IInputStatus } from "./props";
 
@@ -36,7 +36,7 @@ const inputComponents: Record<string, React.ComponentType<IInput>> = {
   email: Emailfield,
   money: Moneyfield,
   number: Numberfield,
-  phone: Phonefield,
+  Telfield: Telfield,
   search: Searchfield,
   text: Textfield,
 };
