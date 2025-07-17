@@ -1,0 +1,30 @@
+import { JSX } from "react/jsx-runtime";
+import { PhonefieldController } from "./Phonefield.Controller";
+import { parameters, props } from "../../Input/props";
+import { IInput } from "../../Input";
+
+const story = {
+  title: "Inputs/Input/Phone",
+  component: PhonefieldController,
+  argTypes: props,
+  parameters,
+};
+
+const Default = (args: JSX.IntrinsicAttributes & IInput) => (
+  <PhonefieldController {...args} />
+);
+
+Default.args = {
+  disabled: false,
+  fullwidth: false,
+  id: "phone",
+  label: "phone",
+  placeholder: "Enter your phone number",
+  required: true,
+  type: "phone",
+  size: "wide",
+  status: "pending",
+};
+
+export { Default };
+export default story;
