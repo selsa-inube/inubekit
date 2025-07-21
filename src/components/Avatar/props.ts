@@ -13,4 +13,5 @@ export const props = {
       defaultValue: { summary: "MdPersonOutline" },
     },
   },
+  unreadNotifications: "a number representing unread notifications",
 };

@@ -1,4 +1,4 @@
-import { Avatar } from "./index";
+import { Avatar, IAvatar } from "./index";
 
 import { props, parameters } from "./props";
 
@@ -9,6 +9,10 @@ const story = {
   argTypes: props,
 };
 
-export const Default = () => <Avatar />;
+export const Default = (args: IAvatar) => <Avatar {...args} />;
+
+Default.args = {
+  unreadNotifications: 1,
+};
 
 export default story;
