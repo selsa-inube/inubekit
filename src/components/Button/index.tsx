@@ -179,13 +179,13 @@ const ButtonStructure = (props: IButton) => {
 };
 
 const Button = (props: IButton) => {
-  const { type = "button", path } = props;
+  const { type = "button", path, disabled = false } = props;
 
   if (type === "link" && !path) {
     console.warn("You must provide a path to use a link button");
   }
 
-  if (type === "link") {
+  if (type === "link" && !disabled) {
     return (
       <StyledLink to={path}>
         <ButtonStructure {...props} />
