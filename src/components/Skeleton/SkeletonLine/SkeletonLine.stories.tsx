@@ -10,6 +10,7 @@ const story = {
 const Default = (args: ISkeletonLine) => <SkeletonLine {...args} />;
 Default.args = {
   width: "100%",
+  height: "24px",
   animated: false,
 };
 
