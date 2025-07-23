@@ -23,7 +23,7 @@ function Fieldset(props: IFieldset) {
   return (
     <StyledFieldset $spacing={spacing} $width={width} $height={height}>
       <legend>
-        <Stack>
+        <Stack padding="0px 4px">
           <Text
             type={spacing === "compact" ? "label" : "title"}
             size={spacing === "compact" ? "medium" : "small"}
