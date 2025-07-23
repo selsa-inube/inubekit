@@ -13,7 +13,7 @@ const StyledBadgeNotifications = styled.div`
   justify-content: center;
   left: 20.5px;
   top: -4px;
-  z-index: 2;
+  z-index: 1;
 `;
 
 export { StyledBadgeNotifications };
