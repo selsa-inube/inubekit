@@ -12,9 +12,8 @@ const BadgeNotifications = (props: IBadgeNotifications) => {
       <Text
         appearance="light"
         type="label"
-        as="span"
         size="small"
-        weight="bold"
+        weight="normal"
         children={`${unreadNotifications}`}
         textAlign="center"
       />
