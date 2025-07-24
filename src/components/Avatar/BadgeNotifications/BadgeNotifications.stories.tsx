@@ -2,7 +2,7 @@ import { BadgeNotifications, IBadgeNotifications } from "./index";
 import { props } from "./props";
 
 const story = {
-  title: "feedback/BadgeNotifications",
+  title: "data/Avatar/BadgeNotifications",
   components: [BadgeNotifications],
   argTypes: props,
 };

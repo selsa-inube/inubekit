@@ -1,6 +1,6 @@
 import { Icon } from "../Icon";
 import { MdPersonOutline } from "react-icons/md";
-import { BadgeNotifications } from "../BadgeNotifications";
+import { BadgeNotifications } from "./BadgeNotifications";
 import { AvatarWrapper } from "./styles";
 
 interface IAvatar {

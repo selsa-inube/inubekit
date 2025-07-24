@@ -1,4 +1,4 @@
-import { palette } from "../Foundations/palette";
+import { palette } from "../../Foundations/palette";
 
 const badgeNotifications = {
   background: {

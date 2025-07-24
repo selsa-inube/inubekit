@@ -1,5 +1,5 @@
 import { StyledBadgeNotifications } from "./styles";
-import { Text } from "../Text";
+import { Text } from "../../Text";
 
 interface IBadgeNotifications {
   unreadNotifications: number;
