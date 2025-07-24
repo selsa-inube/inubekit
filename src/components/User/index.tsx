@@ -63,7 +63,7 @@ const User = (props: IUser) => {
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside); // Clean up the listener
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
 

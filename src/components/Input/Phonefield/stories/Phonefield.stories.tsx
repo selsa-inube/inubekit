@@ -18,13 +18,20 @@ Default.args = {
   disabled: false,
   fullwidth: false,
   id: "phone",
-  label: "phone",
-  placeholder: "Enter your phone number",
+  label: "Phone",
+  placeholder: "Enter phone number",
   required: true,
   type: "phone",
   size: "wide",
   status: "pending",
 };
 
-export { Default };
+const WithValue = (args: IInput) => <PhonefieldController {...args} />;
+WithValue.args = {
+  ...Default.args,
+  initialDialValue: "+33",
+  value: "1234567",
+};
+
+export { Default, WithValue };
 export default story;

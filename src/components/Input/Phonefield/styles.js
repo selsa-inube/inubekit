@@ -1,69 +1,131 @@
 import styled from "styled-components";
+import { tokens } from "../tokens";
+import { inube } from "../../Foundations";
 
-export const SelectorWrapper = styled.div`
+const StyledContainer = styled.div`
+  cursor: ${({ $disabled }) => $disabled && "not-allowed"};
+  width: ${({ $fullwidth }) => ($fullwidth ? "100%" : "fit-content")};
   position: relative;
-  min-width: 140px;
-  user-select: none;
 `;
 
-export const SelectedButton = styled.div`
+const StyledContainerLabel = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 7px 15px;
-  border: 2px solid #247aff;
-  border-right: none;
-  border-radius: 8px 0 0 8px;
-  background: #fff;
-  font-size: 17px;
-  cursor: pointer;
-`;
+  justify-content: ${({ $showCounter }) => $showCounter && "space-between"};
+  margin-bottom: 4px;
+  gap: 4px;
+  pointer-events: ${({ $disabled }) => $disabled && "none"};
+  width: 100%;
 
-export const DialStyled = styled.span`
-  font-weight: 600;
-  color: #445;
-`;
-
-export const Chevron = styled.span`
-  font-size: 13px;
-  margin-left: 2px;
-  color: #445;
-`;
-
-export const SelectDropdown = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-top: 7px;
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  box-shadow: 0 6px 32px #0002;
-  max-height: 270px;
-  overflow-y: auto;
-  z-index: 9;
-  padding: 8px 0;
-`;
-
-export const DropdownOption = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 9px 18px 9px 17px;
-  cursor: pointer;
-  transition: background 0.12s;
-  &:hover {
-    background: #f1f3f9;
+  & label {
+    max-width: ${({ $fullwidth, $showRequired }) =>
+      $fullwidth ? "70%" : $showRequired ? "100px" : "150px"};
   }
 `;
 
-export const OptionLabel = styled.span`
-  color: #222;
-  flex: 1;
-  font-size: 16px;
+const StyledInputContainer = styled.div`
+  display: grid;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  user-select: none;
+  padding-right: 16px;
+  pointer-events: ${({ $disabled }) => $disabled && "none"};
+  grid-template-columns: ${({ $iconBefore, $iconAfter }) => {
+    if ($iconBefore && $iconAfter) return "auto auto 1fr auto";
+    if ($iconBefore) return "auto auto 1fr";
+    if ($iconAfter) return "auto 1fr auto";
+    return "auto 1fr";
+  }};
+  background-color: ${({ $disabled, theme }) =>
+    $disabled
+      ? theme?.input?.background?.color?.disabled ||
+        tokens.background.color.disabled
+      : theme?.input?.background?.color?.regular ||
+        tokens.background.color.regular};
+  border: 1px solid
+    ${({ $disabled, $status, $focused, theme }) => {
+      const colors = theme?.input?.border?.color || tokens.border.color;
+      if ($disabled) return colors.disabled;
+      if ($status === "invalid") return colors.invalid;
+      if ($focused) return colors.focus;
+      return colors.regular;
+    }};
+
+  & img {
+    filter: ${({ $disabled }) => ($disabled ? "grayscale(1)" : "none")};
+  }
 `;
 
-export const OptionDial = styled.span`
-  color: #888;
-  font-size: 15px;
+const StyledInput = styled.input`
+  outline: none;
+  padding: 0;
+  margin: 0;
+  height: 24px;
+  border: none;
+  width: 100%;
+  background-color: transparent;
+  font-family: ${({ theme }) =>
+    theme?.typography?.body?.large?.font || inube.typography.body.large.font};
+  font-size: ${({ theme }) =>
+    theme?.typography?.body?.large?.size || inube.typography.body.large.size};
+  line-height: ${({ theme }) =>
+    theme?.typography?.body?.large?.lineHeight ||
+    inube.typography.body.large.lineHeight};
+  letter-spacing: ${({ theme }) =>
+    theme?.typography?.body?.large?.tracking ||
+    inube.typography.body.large.tracking};
+  font-weight: ${({ theme }) =>
+    theme?.typography?.body?.large?.weight || "400"};
+  color: ${({ $disabled, theme }) =>
+    $disabled
+      ? theme?.input?.content?.color?.disabled || tokens.content.color.disabled
+      : theme?.input?.content?.color?.regular || tokens.content.color.regular};
+
+  &[type="number"] {
+    appearance: textfield;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+  }
+  ::placeholder {
+    color: ${({ theme }) =>
+      theme?.input?.placeholder?.color?.regular ||
+      tokens.placeholder.color.regular};
+  }
+
+  &:focus {
+    outline: none;
+    border-width: 2px;
+  }
+
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  &::-moz-search-cancel-button {
+    display: none;
+  }
+
+  &:-webkit-autofill {
+    -webkit-background-clip: text;
+  }
+
+  &::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
+
+const StyledMessageContainer = styled.div`
+  margin-top: 4px;
+  pointer-events: none;
+`;
+
+export {
+  StyledContainer,
+  StyledContainerLabel,
+  StyledInput,
+  StyledInputContainer,
+  StyledMessageContainer,
+};

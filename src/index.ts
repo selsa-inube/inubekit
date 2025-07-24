@@ -99,13 +99,14 @@ export type {
 
 export { Emailfield } from "./components/Input/Emailfield";
 export { Input } from "./components/Input/Input";
-export type { IInput } from "./components/Input/Input";
 export { Moneyfield } from "./components/Input/Moneyfield";
 export { Numberfield } from "./components/Input/Numberfield";
 export { Searchfield } from "./components/Input/Searchfield";
 export { Telfield } from "./components/Input/Telfield";
 export { Phonefield } from "./components/Input/Phonefield";
 export { Textfield } from "./components/Input/Textfield";
+export type { IInput } from "./components/Input/Input";
+export type { IPhonefield } from "./components/Input/Phonefield";
 
 export { Assisted } from "./components/Assisted";
 export type { IAssisted } from "./components/Assisted";

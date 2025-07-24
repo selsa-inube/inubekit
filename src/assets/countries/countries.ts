@@ -422,7 +422,7 @@ export const countries = {
   GGY: {
     name: "Guernsey",
     dial: "+44",
-    flag: "",
+    flag: "/src/assets/countries/flags/guernsey.png",
   },
   GIN: {
     name: "Guinea",
@@ -502,12 +502,12 @@ export const countries = {
   CXR: {
     name: "Isla de Navidad",
     dial: "+61",
-    flag: "",
+    flag: "/src/assets/countries/flags/christmas-island.png",
   },
   NFK: {
     name: "Isla Norfolk",
     dial: "+672",
-    flag: "",
+    flag: "/src/assets/countries/flags/norfolk-island.png",
   },
   ISL: {
     name: "Islandia",
@@ -522,12 +522,12 @@ export const countries = {
   CCK: {
     name: "Islas Cocos (Keeling)",
     dial: "+61",
-    flag: "",
+    flag: "/src/assets/countries/flags/cocos-island.png",
   },
   COK: {
     name: "Islas Cook",
     dial: "+682",
-    flag: "",
+    flag: "/src/assets/countries/flags/cook-islands.png",
   },
   FRO: {
     name: "Islas Feroe",
@@ -552,27 +552,27 @@ export const countries = {
   MNP: {
     name: "Islas Marianas del Norte",
     dial: "+1-670",
-    flag: "",
+    flag: "/src/assets/countries/flags/northern-marianas-islands.png",
   },
   MHL: {
     name: "Islas Marshall",
     dial: "+692",
-    flag: "",
+    flag: "/src/assets/countries/flags/marshall-island.png",
   },
   PCN: {
     name: "Islas Pitcairn",
     dial: "+64",
-    flag: "",
+    flag: "/src/assets/countries/flags/pitcairn-islands.png",
   },
   SLB: {
     name: "Islas Salomón",
     dial: "+677",
-    flag: "",
+    flag: "/src/assets/countries/flags/solomon-islands.png",
   },
   TCA: {
     name: "Islas Turcas y Caicos",
     dial: "+1-649",
-    flag: "",
+    flag: "/src/assets/countries/flags/turks-and-caicos.png",
   },
   UMI: {
     name: "Islas Ultramarinas Menores de Estados Unidos",
@@ -582,12 +582,12 @@ export const countries = {
   VGB: {
     name: "Islas Vírgenes Británicas",
     dial: "+1-284",
-    flag: "",
+    flag: "/src/assets/countries/flags/british-virgin-islands.png",
   },
   VIR: {
     name: "Islas Vírgenes de los Estados Unidos",
     dial: "+1-340",
-    flag: "",
+    flag: "/src/assets/countries/flags/virgin-islands.png",
   },
   ISR: {
     name: "Israel",
@@ -637,7 +637,7 @@ export const countries = {
   KIR: {
     name: "Kiribati",
     dial: "+686",
-    flag: "",
+    flag: "/src/assets/countries/flags/kiribati.png",
   },
   KWT: {
     name: "Kuwait",
@@ -652,7 +652,7 @@ export const countries = {
   LSO: {
     name: "Lesoto",
     dial: "+266",
-    flag: "",
+    flag: "/src/assets/countries/flags/lesotho.png",
   },
   LVA: {
     name: "Letonia",
@@ -732,7 +732,7 @@ export const countries = {
   MTQ: {
     name: "Martinica",
     dial: "+596",
-    flag: "",
+    flag: "/src/assets/countries/flags/martinique.png",
   },
   MUS: {
     name: "Mauricio",
@@ -757,7 +757,7 @@ export const countries = {
   FSM: {
     name: "Micronesia",
     dial: "+691",
-    flag: "",
+    flag: "/src/assets/countries/flags/micronesia.png",
   },
   MDA: {
     name: "Moldavia",
@@ -782,7 +782,7 @@ export const countries = {
   MSR: {
     name: "Montserrat",
     dial: "+1-664",
-    flag: "",
+    flag: "/src/assets/countries/flags/montserrat.png",
   },
   MOZ: {
     name: "Mozambique",
@@ -822,12 +822,12 @@ export const countries = {
   NGA: {
     name: "Nigeria",
     dial: "+234",
-    flag: "",
+    flag: "/src/assets/countries/flags/nigeria.png",
   },
   NIU: {
     name: "Niue",
     dial: "+683",
-    flag: "",
+    flag: "/src/assets/countries/flags/niue.png",
   },
   NOR: {
     name: "Noruega",
@@ -877,7 +877,7 @@ export const countries = {
   PNG: {
     name: "Papúa Nueva Guinea",
     dial: "+675",
-    flag: "",
+    flag: "/src/assets/countries/flags/papua-new-guinea.png",
   },
   PRY: {
     name: "Paraguay",
@@ -892,7 +892,7 @@ export const countries = {
   PYF: {
     name: "Polinesia Francesa",
     dial: "+689",
-    flag: "",
+    flag: "/src/assets/countries/flags/french-polynesia.png",
   },
   POL: {
     name: "Polonia",
@@ -927,7 +927,7 @@ export const countries = {
   MKD: {
     name: "República de Macedonia",
     dial: "+389",
-    flag: "/src/assets/countries/flags/macedonia.png",
+    flag: "/src/assets/countries/flags/republic-of-macedonia.png",
   },
   COG: {
     name: "República del Congo",
@@ -987,7 +987,7 @@ export const countries = {
   SMR: {
     name: "San Marino",
     dial: "+378",
-    flag: "",
+    flag: "/src/assets/countries/flags/san-marino.png",
   },
   MAF: {
     name: "San Martín",
@@ -1002,7 +1002,7 @@ export const countries = {
   VCT: {
     name: "San Vicente y las Granadinas",
     dial: "+1-784",
-    flag: "",
+    flag: "/src/assets/countries/flags/st-vincent-and-the-grenadines.png",
   },
   SHN: {
     name: "Santa Elena",
@@ -1017,7 +1017,7 @@ export const countries = {
   STP: {
     name: "Santo Tomé y Príncipe",
     dial: "+239",
-    flag: "/src/assets/countries/flags/sao-tome-and-principe.png",
+    flag: "/src/assets/countries/flags/sao-tome-and-prince.png",
   },
   SEN: {
     name: "Senegal",
@@ -1047,7 +1047,7 @@ export const countries = {
   SXM: {
     name: "Sint Maarten",
     dial: "+1-721",
-    flag: "",
+    flag: "/src/assets/countries/flags/sint-maarten.png",
   },
   SYR: {
     name: "Siria",
@@ -1122,7 +1122,7 @@ export const countries = {
   IOT: {
     name: "Territorio Británico del Océano Índico",
     dial: "+246",
-    flag: "",
+    flag: "/src/assets/countries/flags/british-indian-ocean-territory.png",
   },
   ATF: {
     name: "Territorios Australes Franceses",
@@ -1132,7 +1132,7 @@ export const countries = {
   TLS: {
     name: "Timor Oriental",
     dial: "+670",
-    flag: "",
+    flag: "/src/assets/countries/flags/east-timor.png",
   },
   TGO: {
     name: "Togo",
@@ -1142,7 +1142,7 @@ export const countries = {
   TKL: {
     name: "Tokelau",
     dial: "+690",
-    flag: "",
+    flag: "/src/assets/countries/flags/tokelau.png",
   },
   TON: {
     name: "Tonga",
@@ -1172,7 +1172,7 @@ export const countries = {
   TUV: {
     name: "Tuvalu",
     dial: "+688",
-    flag: "",
+    flag: "/src/assets/countries/flags/tuvalu.png",
   },
   UKR: {
     name: "Ucrania",
@@ -1217,7 +1217,7 @@ export const countries = {
   WLF: {
     name: "Wallis y Futuna",
     dial: "+681",
-    flag: "",
+    flag: "/src/assets/countries/flags/wallis-and-futuna.png",
   },
   YEM: {
     name: "Yemen",
