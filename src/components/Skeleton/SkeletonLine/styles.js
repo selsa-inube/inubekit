@@ -14,7 +14,7 @@ const StyledSkeletonLine = styled.div`
   position: relative;
   border-radius: 6px;
   overflow: hidden;
-  height: 16px;
+  height: ${({ $height }) => $height};
   width: ${({ $width }) => $width};
   background: ${({ theme }) => {
     return theme?.skeleton?.background?.color || tokens.background.color;

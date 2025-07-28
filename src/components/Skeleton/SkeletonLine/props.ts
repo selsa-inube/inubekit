@@ -14,6 +14,12 @@ const props = {
       defaultValue: { summary: "100px" },
     },
   },
+  height: {
+    description: "indicates the height that the component should take",
+    table: {
+      defaultValue: { summary: "16px" },
+    },
+  },
   animated: {
     description: "enable loading effect animation",
     table: {
