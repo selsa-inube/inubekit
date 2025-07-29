@@ -56,6 +56,7 @@ const Header = (props: IHeader) => {
         templateColumns={user ? "auto 1fr auto" : "auto 1fr"}
         alignContent="stretch"
         gap={linksBreakpoint ? "40px" : "16px"}
+        height="52px"
       >
         <Stack gap="8px" alignItems="center" margin="0 0 0 16px">
           <StyledFullscreenNav $display={navigationBreakpoint}>
@@ -74,7 +75,12 @@ const Header = (props: IHeader) => {
           </StyledFullscreenNav>
           {logoURL}
         </Stack>
-        <Stack alignItems="center" justifyContent="flex-end" gap="16px">
+        <Stack
+          alignItems="center"
+          justifyContent="flex-end"
+          gap="1rem"
+          padding="0 1rem"
+        >
           {links &&
             links.items.length > 0 &&
             linksBreakpoint &&
