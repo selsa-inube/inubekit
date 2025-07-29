@@ -10,7 +10,7 @@ const StyledBox = styled.div`
   border-radius: ${({ $borderRadius }) => $borderRadius};
   margin: ${({ $margin }) => $margin};
   padding: ${({ $padding }) => $padding};
-  width: ${($width) => $width};
+  width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
   box-sizing: border-box;
 `;
