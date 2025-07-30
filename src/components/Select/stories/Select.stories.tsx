@@ -44,6 +44,7 @@ Default.args = {
   showOptions: false,
   picker: false,
   clearable: true,
+  message: "El campo no puede estar vacio",
 };
 
 const WithManyOptions = (args: ISelect) => <SelectController {...args} />;

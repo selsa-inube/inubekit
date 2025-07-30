@@ -40,6 +40,8 @@ Default.args = {
   required: false,
   size: "wide",
   fullwidth: false,
+  invalid: false,
+  message: "El campo no puede estar vacio",
 };
 
 export default story;

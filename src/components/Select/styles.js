@@ -37,10 +37,10 @@ const StyledInputContainer = styled.div`
         InputTokens.background.color.regular};
 
   border: 1px solid
-    ${({ $disabled, $status, $focused, theme }) => {
+    ${({ $disabled, $invalid, $focused, theme }) => {
       const colors = theme?.input?.border?.color || InputTokens.border.color;
       if ($disabled) return colors.disabled;
-      if ($status === "invalid") return colors.invalid;
+      if ($invalid) return colors.invalid;
       if ($focused) return colors.focus;
       return colors.regular;
     }};
