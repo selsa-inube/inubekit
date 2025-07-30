@@ -5,6 +5,7 @@ const StyledIcon = styled.figure`
   display: inline-block;
   padding: 0px;
   margin: 0px;
+  position: relative;
 
   & > svg {
     display: block;
