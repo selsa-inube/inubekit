@@ -35,7 +35,7 @@ interface IHeader {
     breakpoint?: string;
   };
   menu: IUser["menu"];
-  unreadNotifications?: number;
+  unreadNotificationsAmount?: number;
 }
 
 const Header = (props: IHeader) => {
@@ -45,7 +45,7 @@ const Header = (props: IHeader) => {
     user,
     links,
     menu = [],
-    unreadNotifications,
+    unreadNotificationsAmount,
   } = props;
   const theme = useContext(ThemeContext) as { header: typeof tokens };
   const linkAppearance =
@@ -108,7 +108,7 @@ const Header = (props: IHeader) => {
               padding="8px 16px"
               menu={menu}
               menuTopPosition="calc(100% + 8px)"
-              unreadNotifications={unreadNotifications}
+              unreadNotificationsAmount={unreadNotificationsAmount}
             />
           </StyledUser>
         )}

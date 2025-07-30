@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { badgeNotifications } from "./tokens";
+import { notificationsBadge } from "./tokens";
 
-const StyledBadgeNotifications = styled.div`
+const StyledNotificationsBadge = styled.div`
   position: absolute;
   display: flex;
   background-color: ${({ theme }) =>
-    theme?.badgeNotifications?.background?.color ||
-    badgeNotifications.background.color};
+    theme?.notificationsBadge?.background?.color ||
+    notificationsBadge.background.color};
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -16,4 +16,4 @@ const StyledBadgeNotifications = styled.div`
   z-index: 1;
 `;
 
-export { StyledBadgeNotifications };
+export { StyledNotificationsBadge };

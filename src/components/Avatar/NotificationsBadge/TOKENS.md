@@ -6,4 +6,4 @@
 
 | token                                     | value | reference |
 | ----------------------------------------- | ----- | --------- |
-| inube.badgeNotifications.background.color |       |           |
+| inube.notificationsBadge.background.color |       |           |

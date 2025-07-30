@@ -1,16 +1,16 @@
 import { Icon } from "../Icon";
 import { MdPersonOutline } from "react-icons/md";
-import { BadgeNotifications } from "./BadgeNotifications";
+import { NotificationsBadge } from "./NotificationsBadge";
 import { AvatarWrapper } from "./styles";
 
 interface IAvatar {
   onClick?: () => void;
-  unreadNotifications?: number;
+  unreadNotificationsAmount?: number;
 }
 
 const Avatar = (props: IAvatar) => {
-  const { onClick, unreadNotifications = 0 } = props;
-  const showUnreadNotifications = unreadNotifications > 0;
+  const { onClick, unreadNotificationsAmount = 0 } = props;
+  const showUnreadNotifications = unreadNotificationsAmount > 0;
 
   return (
     <AvatarWrapper>
@@ -25,7 +25,9 @@ const Avatar = (props: IAvatar) => {
         onClick={onClick}
       />
       {showUnreadNotifications && (
-        <BadgeNotifications unreadNotifications={unreadNotifications} />
+        <NotificationsBadge
+          unreadNotificationsAmount={unreadNotificationsAmount}
+        />
       )}
     </AvatarWrapper>
   );

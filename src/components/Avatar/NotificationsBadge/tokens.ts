@@ -1,9 +1,9 @@
 import { palette } from "../../Foundations/palette";
 
-const badgeNotifications = {
+const notificationsBadge = {
   background: {
     color: palette.red.R400,
   },
 };
 
-export { badgeNotifications };
+export { notificationsBadge };

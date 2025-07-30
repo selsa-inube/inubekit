@@ -171,7 +171,7 @@ Default.args = {
       divider: true,
     },
   ],
-  unreadNotifications: 5,
+  unreadNotificationsAmount: 5,
 };
 
 export default story;

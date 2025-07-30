@@ -51,7 +51,8 @@ const props = {
       defaultValue: { summary: true },
     },
   },
-  unreadNotifications: "a number representing unread notifications",
+  unreadNotificationsAmount:
+    "number of unread notifications related to the user",
 };
 
 export { props, parameters };

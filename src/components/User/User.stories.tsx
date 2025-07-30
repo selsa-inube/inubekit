@@ -59,7 +59,7 @@ Default.args = {
   padding: "8px 16px",
   menuTopPosition: "100%",
   menuRightPosition: "16px",
-  unreadNotifications: 3,
+  unreadNotificationsAmount: 3,
 };
 
 export default story;

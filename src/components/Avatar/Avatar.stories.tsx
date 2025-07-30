@@ -12,7 +12,7 @@ const story = {
 export const Default = (args: IAvatar) => <Avatar {...args} />;
 
 Default.args = {
-  unreadNotifications: 1,
+  unreadNotificationsAmount: 1,
 };
 
 export default story;
