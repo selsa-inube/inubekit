@@ -10,7 +10,7 @@ interface IAvatar {
 
 const Avatar = (props: IAvatar) => {
   const { onClick, unreadNotificationsAmount = 0 } = props;
-  const showUnreadNotifications = unreadNotificationsAmount > 0;
+  const showUnreadNotificationsBadge = unreadNotificationsAmount > 0;
 
   return (
     <AvatarWrapper>
@@ -24,7 +24,7 @@ const Avatar = (props: IAvatar) => {
         spacing="compact"
         onClick={onClick}
       />
-      {showUnreadNotifications && (
+      {showUnreadNotificationsBadge && (
         <NotificationsBadge
           unreadNotificationsAmount={unreadNotificationsAmount}
         />
