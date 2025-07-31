@@ -17,8 +17,6 @@ const Default = (args: JSX.IntrinsicAttributes & IProgressBar) => (
 Default.args = {
   height: "4px",
   appearance: "primary",
-  duration: 3000,
-  paused: false,
   onComplete: action("onAnimationEnd"),
 };
 
