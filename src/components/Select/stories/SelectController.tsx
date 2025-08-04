@@ -9,6 +9,8 @@ const SelectController = (props: ISelect) => {
     setForm({ ...form, [name]: newValue });
   };
 
+  const isInvalid = form[name] === "";
+
   return (
     <Select
       {...props}
@@ -16,6 +18,7 @@ const SelectController = (props: ISelect) => {
       value={form[name]}
       options={options}
       onChange={onChange}
+      invalid={isInvalid}
     />
   );
 };
