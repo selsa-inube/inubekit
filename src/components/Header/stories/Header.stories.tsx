@@ -11,6 +11,7 @@ import {
   MdSettings,
   MdPrivacyTip,
   MdLogout,
+  MdOutlineMarkunreadMailbox,
 } from "react-icons/md";
 
 import { props, parameters } from "../props";
@@ -147,6 +148,12 @@ Default.args = {
           path: "/privacy",
           iconBefore: <MdPrivacyTip />,
         },
+        {
+          id: "link3",
+          title: "Novelties (5)",
+          path: "/novelties",
+          iconBefore: <MdOutlineMarkunreadMailbox />,
+        },
       ],
       divider: true,
     },
@@ -164,6 +171,7 @@ Default.args = {
       divider: true,
     },
   ],
+  unreadNotificationsAmount: 5,
 };
 
 export default story;

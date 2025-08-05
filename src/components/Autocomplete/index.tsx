@@ -19,6 +19,8 @@ const Autocomplete = (props: IAutocomplete) => {
     required,
     size,
     fullwidth,
+    invalid,
+    message,
     onChange,
     onFocus,
     onBlur,
@@ -68,6 +70,8 @@ const Autocomplete = (props: IAutocomplete) => {
       required={required}
       size={size}
       fullwidth={fullwidth}
+      invalid={invalid}
+      message={message}
       onFocus={onFocus}
       onBlur={onBlur}
       showChevron={false}
