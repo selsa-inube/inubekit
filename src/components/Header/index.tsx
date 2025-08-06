@@ -14,6 +14,7 @@ import {
   StyledFullscreenNav,
   StyledLink,
   StyledUser,
+  StyledLogo,
 } from "./styles";
 
 import { tokens } from "./tokens";
@@ -81,13 +82,13 @@ const Header = (props: IHeader) => {
               />
             )}
           </StyledFullscreenNav>
-          {logoURL}
+          <StyledLogo>{logoURL}</StyledLogo>
         </Stack>
         <Stack
           alignItems="center"
           justifyContent="flex-end"
-          gap="1rem"
-          padding="0 1rem"
+          gap="16px"
+          padding="0 16px"
         >
           {links &&
             links.items.length > 0 &&
