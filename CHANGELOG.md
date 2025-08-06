@@ -4,6 +4,38 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v5.1.0] - 2025-07-29 (Tue)
+
+### ✨ Added
+
+- **SkeletonLine**: Se agregó la propiedad `height` para permitir configurar la altura del componente.
+
+- **Documentación**: Se creó el README para el componente **Skeleton**, incluyendo SkeletonLine y SkeletonIcon.
+
+### 🔄 Changed
+
+- _No se realizaron cambios en funcionalidades existentes en esta versión._
+
+### 🐛 Fixed
+
+- **Box**: Se corrigió el error donde la propiedad `width` recibía un valor inválido por typo, evitando que se aplicara correctamente.
+
+- **Button**: Se corrigió la redirección en botones tipo `"link"` cuando están deshabilitados (`disabled=true`), evitando navegaciones indeseadas.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v5.0.0] - 2025-07-11 (Fri)
 
 ### ✨ Added

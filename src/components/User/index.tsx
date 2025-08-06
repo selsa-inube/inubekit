@@ -21,6 +21,7 @@ interface IUser {
   menu: IMenuSection[];
   menuTopPosition?: string;
   menuRightPosition?: string;
+  unreadNotificationsAmount?: number;
 }
 
 const User = (props: IUser) => {
@@ -33,6 +34,7 @@ const User = (props: IUser) => {
     menu,
     menuTopPosition = "100%",
     menuRightPosition = "16px",
+    unreadNotificationsAmount = 0,
   } = props;
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -106,7 +108,7 @@ const User = (props: IUser) => {
             )}
           </Stack>
         )}
-        <Avatar />
+        <Avatar unreadNotificationsAmount={unreadNotificationsAmount} />
       </Stack>
 
       {isOpen && (

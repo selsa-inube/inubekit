@@ -68,6 +68,8 @@ const props = {
       type: { summary: "IMenuSection" },
     },
   },
+  unreadNotificationsAmount:
+    "number of unread notifications related to the user",
 };
 
 export { props, parameters };

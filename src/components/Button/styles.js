@@ -6,6 +6,7 @@ const StyledButton = styled.button`
   box-sizing: border-box;
   transition: all 0.3s ease;
   min-width: 100px;
+  padding: 0px 16px;
   height: ${({ $spacing }) => ($spacing === "compact" ? "28px" : "36px")};
   ${({ $fullwidth, $width }) => {
     if ($fullwidth) {

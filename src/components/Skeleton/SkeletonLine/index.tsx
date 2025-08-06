@@ -2,13 +2,16 @@ import { StyledSkeletonLine } from "./styles";
 
 interface ISkeletonLine {
   width?: string;
+  height?: string;
   animated?: boolean;
 }
 
 const SkeletonLine = (props: ISkeletonLine) => {
-  const { width = "100%", animated = false } = props;
+  const { width = "100%", height = "16px", animated = false } = props;
 
-  return <StyledSkeletonLine $width={width} $animated={animated} />;
+  return (
+    <StyledSkeletonLine $width={width} $height={height} $animated={animated} />
+  );
 };
 
 export { SkeletonLine };
