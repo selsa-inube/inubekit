@@ -7,7 +7,6 @@ const StyledHeader = styled.header`
   box-sizing: border-box;
   border-bottom: 1px solid
     ${({ theme }) => theme?.palette?.neutral?.N40 || inube.palette.neutral.N40};
-  // height: 54px;
   background-color: ${({ theme }) =>
     theme?.header?.background?.color || tokens.background.color};
   box-shadow:

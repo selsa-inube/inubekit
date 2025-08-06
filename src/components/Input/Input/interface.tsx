@@ -17,27 +17,7 @@ import {
 } from "./styles";
 import { IInput } from ".";
 import { ICounter } from "./props";
-
-const getCounterAppearance = (
-  valueLength: number,
-  maxLength?: number,
-  minLength?: number,
-) => {
-  if (valueLength === 0) return "gray";
-
-  if (minLength !== undefined && valueLength < minLength) return "danger";
-
-  if (maxLength !== undefined && valueLength > maxLength) return "danger";
-
-  if (minLength !== undefined && valueLength === minLength) return "warning";
-
-  if (maxLength !== undefined) {
-    const lengthThreshold = Math.floor(maxLength * 0.1);
-    if (maxLength - valueLength <= lengthThreshold) return "warning";
-  }
-
-  return "gray";
-};
+import { getCounterAppearance } from "./utils";
 
 const Counter = ({ maxLength, minLength, currentLength }: ICounter) => {
   const appearance = getCounterAppearance(currentLength, maxLength, minLength);
