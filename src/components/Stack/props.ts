@@ -78,7 +78,7 @@ const wrapControls = [
 
 type IStackWrapControl = (typeof wrapControls)[number];
 
-const structureProperties = ["div", "ul", "ol"] as const;
+const structureProperties = ["div", "ul", "ol", "span"] as const;
 
 type IStackStructure = (typeof structureProperties)[number];
 
