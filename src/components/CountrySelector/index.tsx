@@ -1,22 +1,13 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { MdOutlineChevronRight } from "react-icons/md";
-import { countries, CountryCode } from "../../../../assets/countries/countries";
-import { Icon } from "../../../Icon";
-import { Text } from "../../../Text";
-import { IInputStatus } from "../../Input/props";
-import { StyledSelect, StyledItem, StyledContainer } from "./styles";
-import { StyledChevron } from "../../../Select/styles";
-import { StyledOptionList } from "../../../Select/OptionList/styles";
-
-interface CountryFlagsProps {
-  code: CountryCode;
-}
-
-const CountryFlags = (props: CountryFlagsProps) => {
-  const { code } = props;
-  const country = countries[code];
-  return <img src={country.flag} alt={country.name} />;
-};
+import { countries, CountryCode } from "../../assets/countries/countries";
+import { Icon } from "../Icon";
+import { IInputStatus } from "../Input/Input/props";
+import { StyledOptionList } from "../Select/OptionList/styles";
+import { StyledChevron } from "../Select/styles";
+import { Text } from "../Text";
+import { StyledContainer, StyledItem, StyledSelect } from "./styles";
+import { CountryFlags } from "../CountryFlags";
 
 interface CountrySelectorProps {
   onSelect: (code: CountryCode) => void;
@@ -69,10 +60,13 @@ function CountrySelector(props: CountrySelectorProps) {
     };
   }, [isOpen]);
 
-  const handleClick = (code: CountryCode) => {
-    onSelect(code);
-    setIsOpen(false);
-  };
+  const handleClick = useCallback(
+    (code: CountryCode) => {
+      onSelect(code);
+      setIsOpen(false);
+    },
+    [onSelect],
+  );
 
   const toggleDropdown = () => {
     if (!disabled) setIsOpen((prev) => !prev);

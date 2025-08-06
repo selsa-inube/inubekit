@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { inube } from "../../../Foundations";
-import { tokens as InputTokens } from "../../tokens";
+import { inube } from "../Foundations";
+import { tokens as InputTokens } from "../Input/tokens";
 
 const StyledContainer = styled.div`
   cursor: ${({ $disabled }) => $disabled && "not-allowed"};
@@ -47,4 +47,4 @@ const StyledItem = styled.li`
   }
 `;
 
-export { StyledContainer, StyledSelect, StyledItem };
+export { StyledContainer, StyledItem, StyledSelect };

@@ -11,7 +11,6 @@ import { IInput } from "../Input";
 import { ICounter } from "../Input/props";
 import { getCounterAppearance, getCountryCodeByDial } from "../Input/utils";
 import { tokens } from "../tokens";
-import { CountrySelector } from "./CountrySelector";
 import {
   StyledContainer,
   StyledContainerLabel,
@@ -19,6 +18,7 @@ import {
   StyledInputContainer,
   StyledMessageContainer,
 } from "./styles";
+import { CountrySelector } from "../../CountrySelector";
 
 const Counter = ({ maxLength, minLength, currentLength }: ICounter) => {
   const appearance = getCounterAppearance(currentLength, maxLength, minLength);
@@ -63,12 +63,18 @@ function Phonefield(props: IPhonefield) {
     onDialValueChange,
   } = props;
 
-  const countryCodeFromDial = initialDialValue
-    ? getCountryCodeByDial(initialDialValue)
-    : undefined;
+  const getInitialCountryCode = (
+    initialCountryCode?: CountryCode,
+    initialDialValue?: string,
+  ): CountryCode => {
+    if (initialCountryCode) return initialCountryCode;
+    if (initialDialValue)
+      return getCountryCodeByDial(initialDialValue) || "COL";
+    return "COL";
+  };
 
   const [countryCode, setCountryCode] = useState<CountryCode>(
-    initialCountryCode || countryCodeFromDial || "COL",
+    getInitialCountryCode(initialCountryCode, initialDialValue),
   );
   const [dialValue, setDialValue] = useState<string>("");
   const [focused, setFocused] = useState(false);
