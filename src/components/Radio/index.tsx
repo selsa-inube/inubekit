@@ -43,7 +43,7 @@ const Radio = (props: IRadio) => {
       </StyledLabel>
       {label && (
         <Label htmlFor={id} disabled={disabled}>
-          <Stack direction="row" alignItems="center" gap="4px">
+          <Stack as="span" direction="row" alignItems="center" gap="4px">
             {label}
             {required && (
               <Text type="label" appearance="danger" size="small">
