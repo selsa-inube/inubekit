@@ -7,7 +7,6 @@ const StyledHeader = styled.header`
   box-sizing: border-box;
   border-bottom: 1px solid
     ${({ theme }) => theme?.palette?.neutral?.N40 || inube.palette.neutral.N40};
-  // height: 54px;
   background-color: ${({ theme }) =>
     theme?.header?.background?.color || tokens.background.color};
   box-shadow:
@@ -38,4 +37,23 @@ const StyledUser = styled.div`
     ${({ theme }) => theme?.palette?.neutral?.N40 || inube.palette.neutral.N40};
 `;
 
-export { StyledHeader, StyledFullscreenNav, StyledLink, StyledUser };
+const StyledLogo = styled.div`
+  max-height: 36px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+
+  & > img {
+    max-height: 36px;
+    width: auto;
+    object-fit: contain;
+  }
+`;
+
+export {
+  StyledHeader,
+  StyledFullscreenNav,
+  StyledLink,
+  StyledUser,
+  StyledLogo,
+};
