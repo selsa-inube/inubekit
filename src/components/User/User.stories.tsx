@@ -1,5 +1,5 @@
 import { MdManageAccounts, MdLogout } from "react-icons/md";
-import { StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react-vite";
 import { BrowserRouter } from "react-router-dom";
 import { IUser, User } from ".";
 import { IMenuSection, props } from "./props";

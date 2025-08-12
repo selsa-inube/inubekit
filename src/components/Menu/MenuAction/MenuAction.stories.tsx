@@ -1,13 +1,13 @@
-import { StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react-vite";
 import { MdAndroid } from "react-icons/md";
 import { BrowserRouter } from "react-router-dom";
 
 import { props } from "./props";
 import { IMenuAction, MenuAction } from ".";
 
-const story = {
+const meta = {
   title: "navigation/Menu/MenuAction",
-  components: [MenuAction],
+  component: MenuAction,
   tags: ["autodocs"],
   argTypes: {
     ...props,
@@ -20,6 +20,7 @@ const story = {
     ),
   ],
 };
+export default meta;
 
 export const Default: StoryFn<IMenuAction> = (args) => <MenuAction {...args} />;
 Default.args = {
@@ -51,5 +52,3 @@ Disabled.args = {
   disabled: true,
   action: () => console.log("Disabled action clicked!"),
 };
-
-export default story;

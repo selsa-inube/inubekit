@@ -1,4 +1,4 @@
-import { StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react-vite";
 import { MdAndroid } from "react-icons/md";
 import { BrowserRouter } from "react-router-dom";
 import { MenuSection } from ".";

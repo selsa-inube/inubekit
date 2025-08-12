@@ -1,4 +1,4 @@
-import { StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react-vite";
 import { BrowserRouter } from "react-router-dom";
 import { Menu } from "..";
 import { MenuUser } from "../MenuUser";
@@ -26,7 +26,7 @@ const story = {
   ],
 };
 
-export const sectionsWithTitles: StoryFn = () => (
+export const SectionsWithTitles: StoryFn = () => (
   <Menu>
     <MenuUser userName="Name" businessUnit="Business Unit" avatar />
     <MenuSection title="ADMINISTRATE" divider={true}>
