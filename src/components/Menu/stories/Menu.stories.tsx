@@ -5,13 +5,14 @@ import { MenuUser } from "../MenuUser";
 import { MenuSection } from "../MenuSection";
 import { MdLogout } from "react-icons/md";
 import { MenuAction } from "../MenuAction";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Menu",
   components: [Menu],
   tags: ["autodocs"],
   decorators: [
-    (Story: StoryFn) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

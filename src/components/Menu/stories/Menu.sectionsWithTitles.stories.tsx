@@ -12,13 +12,14 @@ import {
 } from "react-icons/md";
 import { MenuAction } from "../MenuAction";
 import { MenuLink } from "../MenuLink";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Menu",
   components: [Menu],
   tags: ["autodocs"],
   decorators: [
-    (Story: StoryFn) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

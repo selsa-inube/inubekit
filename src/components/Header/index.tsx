@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { JSX, useContext } from "react";
 
 import { ThemeContext } from "styled-components";
 import { IUser, User } from "../User";

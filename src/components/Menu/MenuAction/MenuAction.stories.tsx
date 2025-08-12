@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import { props } from "./props";
 import { IMenuAction, MenuAction } from ".";
+import { ElementType } from "react";
 
 const meta = {
   title: "navigation/Menu/MenuAction",
@@ -13,7 +14,7 @@ const meta = {
     ...props,
   },
   decorators: [
-    (Story: StoryFn) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

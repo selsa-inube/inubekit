@@ -18,6 +18,7 @@ import { props, parameters } from "../props";
 import { Header, IHeader } from "..";
 
 import { Logo } from "./logo";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Header",
@@ -28,7 +29,7 @@ const story = {
   },
   argTypes: props,
   decorators: [
-    (Story: React.ElementType) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

@@ -3,6 +3,7 @@ import { StoryFn } from "@storybook/react-vite";
 import { BrowserRouter } from "react-router-dom";
 import { IUser, User } from ".";
 import { IMenuSection, props } from "./props";
+import { ElementType } from "react";
 
 const story = {
   title: "data/User",
@@ -12,7 +13,7 @@ const story = {
   },
   argTypes: props,
   decorators: [
-    (Story: StoryFn) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <div style={{ display: "grid", gridTemplateColumns: "1fr auto" }}>
           <div></div>

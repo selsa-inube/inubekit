@@ -3,13 +3,14 @@ import { BrowserRouter } from "react-router-dom";
 import { IBreadcrumbsRoute } from "../props";
 import { props } from "../props";
 import { BreadcrumbMenuLink } from ".";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Breadcrumbs/BreadcrumbMenuLink",
   components: [BreadcrumbMenuLink],
   argTypes: props,
   decorators: [
-    (Story: React.ElementType) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>
