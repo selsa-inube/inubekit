@@ -1,5 +1,5 @@
 import { CountdownBar, ICountdownBar } from ".";
-import { action } from "@storybook/addon-actions";
+import { action } from "storybook/actions";
 import { props, parameters } from "./props";
 
 const story = {

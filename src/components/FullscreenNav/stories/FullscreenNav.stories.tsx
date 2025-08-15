@@ -2,13 +2,14 @@ import { BrowserRouter } from "react-router-dom";
 import { FullscreenNav, IFullscreenNav } from "..";
 import { props } from "../props";
 import { defaultFullscreenNavProps } from "./fullscreenNavProps";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/FullscreenNav",
   components: [FullscreenNav],
   argTypes: props,
   decorators: [
-    (Story: React.ElementType) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

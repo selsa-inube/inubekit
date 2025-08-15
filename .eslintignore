@@ -1,0 +1,15 @@
+# Ignorar dependencias
+node_modules
+
+# Carpeta de compilación de Vite
+dist
+
+# Carpeta de compilación de Storybook
+storybook-static
+
+# Archivos de configuración de compilación
+vite.config.ts
+.storybook
+
+# Tipos generados automáticamente
+*.d.ts

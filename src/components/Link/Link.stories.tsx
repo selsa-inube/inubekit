@@ -1,12 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
 import { Link, ILink } from ".";
 import { parameters, props } from "./props";
+import { ElementType } from "react";
 
 const story = {
   argTypes: props,
   component: Link,
   decorators: [
-    (Story: React.ElementType) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

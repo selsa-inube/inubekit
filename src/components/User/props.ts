@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 const sizes = ["small", "large"] as const;
 type IUserSize = (typeof sizes)[number];
 

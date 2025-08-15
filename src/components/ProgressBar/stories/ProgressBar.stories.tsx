@@ -2,7 +2,7 @@ import { JSX } from "react/jsx-runtime";
 import { IProgressBar } from "..";
 import { parameters, props } from "../props";
 import { ProgressBarController } from "./ProgressBar.controller";
-import { action } from "@storybook/addon-actions";
+import { action } from "storybook/actions";
 
 const story = {
   title: "feedback/ProgressBar",

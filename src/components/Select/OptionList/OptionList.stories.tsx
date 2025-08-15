@@ -1,7 +1,7 @@
 import { props, parameters } from "./props";
 import { OptionList, IOptionList } from "./index";
 import { OptionItem } from "../OptionItem";
-import { action } from "@storybook/addon-actions";
+import { action } from "storybook/actions";
 
 const story = {
   title: "Inputs/Select/OptionList",
