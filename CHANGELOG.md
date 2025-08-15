@@ -4,6 +4,48 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v5.2.0] - 2025-08-15 (Fri)
+
+### ✨ Added
+
+- **Avatar**: Se extendió el componente con la propiedad opcional `unreadNotifications`, utilizada en **User** y **Header** para mostrar visualmente el número de notificaciones no leídas.
+
+- **Documentación:** Se creó el README para los componentes y subcomponentes:
+
+  - **CountdownBar**, **Blanket**, **Toggle**, **Yearpicker**, **Link**, **Monthpicker**, **ProgressBar**, **Radio**, **Spinner**, **User**, **Grid** y **Hooks**.
+
+  - **Menu** (_MenuUser_, _MenuSection_, _MenuLink_, _MenuItem_, _MenuHeading_, _MenuAction_).
+
+  - **Table** (_Caption_, _Col_, _Colgroup_, _Pagination_, _Tbody_, _Td_, _Tfoot_, _Thead_, _Tr_).
+
+  - **Breadcrumbs** (_BreadcrumbMenuLink_, _BreadcrumbMenu_, _BreadcrumbLink_, _BreadcrumbEllipsis_).
+
+### 🔄 Changed
+
+- _No se realizaron cambios en funcionalidades existentes en esta versión._
+
+### 🐛 Fixed
+
+- **Select:** Se ajustó el comportamiento de la propiedad `invalid` para mostrar correctamente mensajes de error.
+
+- **Radio:** Se corrigió el error mostrado en consola al implementar el componente.
+
+- **Header:** Se ajustó la gestión cuando no se recibe la propiedad `user` y se definió una altura fija.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v5.1.0] - 2025-07-29 (Tue)
 
 ### ✨ Added
