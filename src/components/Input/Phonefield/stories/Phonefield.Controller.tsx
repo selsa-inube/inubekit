@@ -22,7 +22,7 @@ const PhonefieldController = (props: IInput) => {
 
   const message =
     form.status === "invalid"
-      ? "Please enter a valid phone number. E.g., +1234567890 or 1234567890."
+      ? "Please enter a valid phone number. E.g., 1234567890."
       : "";
 
   return (
