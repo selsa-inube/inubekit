@@ -15,10 +15,10 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
   - `@types/react` y `@types/react-dom` actualizados de versiones `^18.x` a `19.1.1`.
 
   - Actualizaciones notables en Storybook:
-    - Pasó de la versión `^8.0.x` a la versión `^9.1.2` (addons y core).
+    - Pasó de la versión `^8.0.x` a la versión `^9.1.3` (addons y core).
 
   - Otros paquetes relacionados actualizados:
-    - `eslint-plugin-storybook` de `8.0.2` a `9.1.2`.
+    - `eslint-plugin-storybook` de `8.0.2` a `9.1.3`.
     - `@typescript-eslint` plugins y parser actualizados a `^6.14.0`.
     - `vite` mantiene `^5.0.8` pero se actualizan dependencias relacionadas.
 
