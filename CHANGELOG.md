@@ -4,6 +4,46 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v6.0.0] - 2025-08-26 (Tue)
+
+### 🔥 Breaking Change
+
+- **Actualización de dependencias principales**:  
+  Se actualizaron las versiones de varias dependencias clave en `peerDependencies` y `devDependencies`, que pueden afectar la compatibilidad del proyecto:
+  - `react` y `react-dom` actualizados de la versión `^18.2.0` a la versión fija `19.1.1`.
+
+  - `@types/react` y `@types/react-dom` actualizados de versiones `^18.x` a `19.1.1`.
+
+  - Actualizaciones notables en Storybook:
+    - Pasó de la versión `^8.0.x` a la versión `^9.1.3` (addons y core).
+
+  - Otros paquetes relacionados actualizados:
+    - `eslint-plugin-storybook` de `8.0.2` a `9.1.3`.
+    - `@typescript-eslint` plugins y parser actualizados a `^6.14.0`.
+    - `vite` mantiene `^5.0.8` pero se actualizan dependencias relacionadas.
+
+- **Impacto:**  
+  La actualización de React y React DOM a React 19 puede implicar ruptura de compatibilidad con proyectos que usen React 18 o versiones menores.  
+  También, la actualización a Storybook 9 requiere revisar configuraciones y addons usados.
+
+### 🔄 Changed
+
+- Ajuste del archivo `package.json` para reflejar estas nuevas versiones y asegurar la correcta resolución de dependencias.
+
+### ⚠️ Recomendaciones y migración
+
+- **React 19:**
+  - Estar atentos a las futuras guías oficiales de React sobre migración a esta nueva versión [versionamiento React](https://legacy.reactjs.org/versions/).
+  - Revisa componentes que usen APIs que puedan cambiar o depreciarse.
+
+- **Storybook 9:**
+  - Consulta la [guía de version Storybook 9](https://storybook.js.org/blog/storybook-9/) para ajustes en configuración, addons y estructura.
+  - Revisa addons personalizados o configuraciones específicas para compatibilidad.
+
+- Realiza pruebas completas en tus proyectos para asegurar estabilidad y correcto funcionamiento con las nuevas versiones.
+
+---
+
 ## [v5.2.0] - 2025-08-15 (Fri)
 
 ### ✨ Added
@@ -11,7 +51,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 - **Avatar**: Se extendió el componente con la propiedad opcional `unreadNotifications`, utilizada en **User** y **Header** para mostrar visualmente el número de notificaciones no leídas.
 
 - **Documentación:** Se creó el README para los componentes y subcomponentes:
-
   - **CountdownBar**, **Blanket**, **Toggle**, **Yearpicker**, **Link**, **Monthpicker**, **ProgressBar**, **Radio**, **Spinner**, **User**, **Grid** y **Hooks**.
 
   - **Menu** (_MenuUser_, _MenuSection_, _MenuLink_, _MenuItem_, _MenuHeading_, _MenuAction_).
@@ -91,7 +130,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 ### 🔥 Breaking Change
 
 - **Refactorización de Input**:
-
   - **Atributos modificados**: Se eliminó la propiedad `counter` de la interface.
 
   - **Detalles técnicos de su nueva interface**:
@@ -128,7 +166,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
       - `counter`
 
   - **Impacto**
-
     - El contador de caracteres ahora se muestra automáticamente según las propiedades minLength y/o maxLength.
 
     - Para activar el contador, basta con definir minLength y/o maxLength; no es necesario usar una prop específica.
@@ -139,7 +176,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
     - Elimina la prop `counter` de todas las instancias de `IInput`. Si necesitas funcionalidad de contador, revisa la documentación para alternativas.
 
 - **Refactorización de Fieldset**:
-
   - **Atributos modificados**: Se eliminaron las propiedades `type` y `size`.
 
   - **Detalles técnicos de su nueva interface**:
@@ -159,14 +195,12 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
       - `size`
 
   - **Impacto**
-
     - Los componentes que usen las props `type` o `size` deben eliminarlas.
 
   - **Migración**
     - Elimina las props `type` y `size` de todas las instancias de `IFieldset`. Consulta la nueva documentación para ajustar estilos o comportamiento según sea necesario.
 
 - **Refactorización de Select**:
-
   - **Atributos modificados**: Se agregaron las propiedades `editable` y `clearable`.
 
   - **Detalles técnicos de su nueva interface**:
@@ -200,7 +234,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
     ```
 
     - **Props nuevas**
-
       - `editable`
       - `clearable`
 
@@ -208,7 +241,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
       - El componente ahora solo permite selección de opciones, no edición manual.
 
   - **Impacto**
-
     - Si tu implementación dependía de la edición manual en Select, deberás revisar la lógica.
 
   - **Migración**
@@ -312,7 +344,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 ### 🔥 Breaking Change
 
 - **Refactorización de Select**:
-
   - **Atributos modificados**: La interfaz actualizo sus parámetros.
 
   - **Detalles técnicos de su nueva interface**:
@@ -346,14 +377,12 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
     - **Cambios en props**
 
     - _**Eliminados**_
-
       - `readonly`
 
     - _**Nuevos**_
       - `showChevron` Propiedad para controlar la visualización del ícono chevron.
 
   - **Impacto**
-
     - **Componentes propios del proyecto:** Revisar todos los que usen ISelect para adaptar la nueva interfaz.
 
   - **Migración**: El cambio importante se basa en la eliminación de la propiedad readonly, la cual no estaba generando ningún efecto en el componente. Para casos en los que se desee deshabilitar el componente, invitamos a hacer uso de la propiedad disable. Para mayor información, recomendamos revisar el documento README del componente.
@@ -385,7 +414,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 ### 🔥 Breaking Change
 
 - **Refactorización de Tag**:
-
   - **Atributos modificados**: La interfaz requiere nuevos parámetros.
 
   - **Detalles técnicos de su nueva interface**:
@@ -405,7 +433,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
     - **Cambios en props**
 
     - _**Eliminados**_
-
       - `weight`
 
     - _**Nuevos**_
@@ -415,7 +442,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
   - **Cambios en la definición de sus tokens**:
 
   Se ha modificado la estructura de la definición de tokens para simplificar y unificar la configuración de estilos:
-
   - _**Estructura anterior**_
 
   - Cada token _(primary, success, warning, etc.)_ contenía dos variantes anidadas: `normal` y `strong`.
@@ -424,15 +450,12 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
   - _**Estructura actual**_
 
   Cada token ahora es un objeto único que contiene directamente las propiedades:
-
   - `background.color:` define el color de fondo principal del token.
   - `border.color:` define el color del borde asociado al token.
   - `content.appearance:` define la apariencia del contenido (texto, iconos, etc.).
 
   La estructura de los nuevos tokens se puede observar en el archivo [tokens.ts](./src/components/Tag/tokens.ts).
-
   - **Impacto**
-
     - **Componentes propios del proyecto:** Revisar todos los que usen ITag para adaptar la nueva interfaz.
 
   - **Migración**: Se recomienda revisar el documento README del componente, el cual se encuentra actualizado, para asegurar implementaciones correctas. También recomendamos adaptar la definición de tokens a la estructura actual para evitar rupturas en sus diseños.
@@ -550,14 +573,12 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 - **Extensión del componente Stack**: Ahora puede renderizarse como `<ul>` u `<ol>`.
 
 - **Documentación README**:
-
   - Se añadieron READMEs para los componentes **Autocomplete**, **Select** y **Header**.
   - Se actualizó el README del componente **FullscreenNav** para reflejar los cambios estructurales.
 
 ### 🔥 Breaking Change
 
 - **Refactorización de fullscreenNav**:
-
   - **Atributos modificados**: La interfaz `IFNav` ahora es `IFullscreenNav` y requiere nuevos parámetros.
 
   - **Detalles técnicos de su nueva interface**:
@@ -576,14 +597,11 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
     ```
 
     - **Cambios en props**
-
       - _**Renombrados**_
-
         - `portalId` → `reactPortalId`
         - `navigation` → `sections (estructura diferente)`
 
       - _**Eliminados**_
-
         - `logoutPath`
         - `logoutTitle`
 
@@ -593,7 +611,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
         - `displaySubtitles`
 
   - **Impacto**
-
     - **Componentes de inubekit afectados:** Header (requiere actualización de implementación).
 
     - **Componentes propios del proyecto:** Revisar todos los que usen FullscreenNav para adaptar la nueva interfaz.
