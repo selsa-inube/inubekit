@@ -78,6 +78,7 @@ function Phonefield(props: IPhonefield) {
   );
   const [dialValue, setDialValue] = useState<string>("");
   const [focused, setFocused] = useState(false);
+  const [flagsLoading, setFlagsLoading] = useState(true);
 
   useEffect(() => {
     if (countryCode && countries[countryCode]) {
@@ -89,6 +90,30 @@ function Phonefield(props: IPhonefield) {
       if (onDialValueChange) onDialValueChange("");
     }
   }, [countryCode, onDialValueChange]);
+
+  useEffect(() => {
+    const urls = Object.values(countries)
+      .map((country) => country.flag)
+      .filter((url) => url !== "");
+
+    if (urls.length === 0) {
+      setFlagsLoading(false);
+      return;
+    }
+
+    let loadedCount = 0;
+
+    urls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === urls.length) {
+          setFlagsLoading(false);
+        }
+      };
+    });
+  }, []);
 
   const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFocused(false);
@@ -199,7 +224,7 @@ function Phonefield(props: IPhonefield) {
         <CountrySelector
           selected={countryCode}
           onSelect={setCountryCode}
-          disabled={disabled}
+          disabled={disabled || flagsLoading}
           dialValue={dialValue}
         />
         {iconBefore && (
