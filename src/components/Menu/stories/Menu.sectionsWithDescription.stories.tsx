@@ -1,4 +1,4 @@
-import { StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react-vite";
 import { BrowserRouter } from "react-router-dom";
 import { Menu } from "..";
 import { MenuUser } from "../MenuUser";
@@ -12,13 +12,14 @@ import {
 } from "react-icons/md";
 import { MenuAction } from "../MenuAction";
 import { MenuLink } from "../MenuLink";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Menu",
   components: [Menu],
   tags: ["autodocs"],
   decorators: [
-    (Story: StoryFn) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>
@@ -26,7 +27,7 @@ const story = {
   ],
 };
 
-export const sectionsWithDescription: StoryFn = () => (
+export const SectionsWithDescription: StoryFn = () => (
   <Menu>
     <MenuUser userName="Leonardo Garzon" businessUnit="Fondecom" avatar />
     <MenuSection title="ACTIONS" divider={true}>

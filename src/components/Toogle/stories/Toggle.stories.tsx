@@ -2,7 +2,7 @@ import { Toggle, IToggle } from "..";
 import { ToggleController } from "./ToggleController";
 import { props, parameters } from "../props";
 
-import { action } from "@storybook/addon-actions";
+import { action } from "storybook/actions";
 
 const story = {
   title: "inputs/Toggle",

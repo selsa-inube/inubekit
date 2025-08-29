@@ -5,7 +5,8 @@ import { Text } from "../../Text";
 import { Toggle } from "../../Toogle";
 import { Icon } from "../../Icon";
 
-interface ITd extends React.TdHTMLAttributes<HTMLTableCellElement> {
+interface ITd
+  extends Omit<React.TdHTMLAttributes<HTMLTableCellElement>, "onToggle"> {
   appearance?: ITdAppearance;
   align?: ITdAlignContent;
   checked?: boolean;

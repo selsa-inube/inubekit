@@ -2,13 +2,14 @@ import { BrowserRouter } from "react-router-dom";
 
 import { props } from "./props";
 import { Breadcrumbs, IBreadcrumbs } from ".";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Breadcrumbs",
   components: [Breadcrumbs],
   argTypes: props,
   decorators: [
-    (Story: React.ElementType) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

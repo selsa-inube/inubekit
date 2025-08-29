@@ -4,6 +4,7 @@ import { MdHouse } from "react-icons/md";
 import { NavLinkController } from "./NavLink.Controller";
 import { props, parameters } from "../props";
 import { NavLink, INavLink } from "..";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/NavLink",
@@ -11,7 +12,7 @@ const story = {
   parameters,
   argTypes: props,
   decorators: [
-    (Story: React.ElementType) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

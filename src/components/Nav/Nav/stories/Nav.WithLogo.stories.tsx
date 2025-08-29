@@ -13,6 +13,7 @@ import {
 import { Nav, INav } from "..";
 
 import { props, parameters } from "../props";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Nav",
@@ -20,7 +21,7 @@ const story = {
   parameters,
   argTypes: props,
   decorators: [
-    (Story: React.ElementType) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <div
           style={{

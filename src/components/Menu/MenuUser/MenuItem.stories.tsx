@@ -1,7 +1,8 @@
-import { StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react-vite";
 import { BrowserRouter } from "react-router-dom";
 import { MenuUser, IMenuUser } from ".";
 import { props } from "./props";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Menu/MenuUser",
@@ -11,7 +12,7 @@ const story = {
     ...props,
   },
   decorators: [
-    (Story: StoryFn) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

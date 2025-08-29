@@ -1,6 +1,6 @@
 import { Text, IText } from ".";
 import { parameters, props } from "./props";
-import { action } from "@storybook/addon-actions";
+import { action } from "storybook/actions";
 
 const story = {
   title: "data/Text",

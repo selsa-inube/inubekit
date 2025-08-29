@@ -1,16 +1,17 @@
-import { StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react-vite";
 import { BrowserRouter } from "react-router-dom";
 import { Menu } from "..";
 import { MenuUser } from "../MenuUser";
 import { MenuSection } from "../MenuSection";
 import { MenuAction } from "../MenuAction";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Menu",
   components: [Menu],
   tags: ["autodocs"],
   decorators: [
-    (Story: StoryFn) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>
@@ -18,7 +19,7 @@ const story = {
   ],
 };
 
-export const withoutIcons: StoryFn = () => (
+export const WithoutIcons: StoryFn = () => (
   <Menu>
     <MenuUser userName="Name" businessUnit="Business Unit" avatar />
     <MenuSection divider={true}>

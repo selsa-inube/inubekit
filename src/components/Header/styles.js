@@ -37,4 +37,23 @@ const StyledUser = styled.div`
     ${({ theme }) => theme?.palette?.neutral?.N40 || inube.palette.neutral.N40};
 `;
 
-export { StyledHeader, StyledFullscreenNav, StyledLink, StyledUser };
+const StyledLogo = styled.div`
+  max-height: 36px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+
+  & > img {
+    max-height: 36px;
+    width: auto;
+    object-fit: contain;
+  }
+`;
+
+export {
+  StyledHeader,
+  StyledFullscreenNav,
+  StyledLink,
+  StyledUser,
+  StyledLogo,
+};

@@ -1,14 +1,15 @@
-import { StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react-vite";
 import { MdAndroid } from "react-icons/md";
 import { BrowserRouter } from "react-router-dom";
 import { IMenuLink, MenuLink } from "../MenuLink";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Menu/MenuLink",
-  components: [MenuLink],
+  component: MenuLink,
   tags: ["autodocs"],
   decorators: [
-    (Story: StoryFn) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>
