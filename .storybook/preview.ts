@@ -1,4 +1,5 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/react-vite";
+import Inubekit from "./theme";
 
 const preview: Preview = {
   parameters: {
@@ -9,7 +10,12 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      theme: Inubekit,
+      //controls: { exclude: ['icon', 'iconBefore', ''] }
+    },
   },
+  tags: ["autodocs"],
 };
 
 export default preview;

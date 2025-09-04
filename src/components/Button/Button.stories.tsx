@@ -2,13 +2,14 @@ import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 import { props } from "./props";
 import { Button, IButton } from ".";
+import { ElementType } from "react";
 
 const story = {
   title: "inputs/Button",
   components: Button,
   argTypes: props,
   decorators: [
-    (Story: React.ElementType) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

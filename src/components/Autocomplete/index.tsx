@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { Select, IOption, ISelect } from "../Select";
+import { useEffect, useState } from "react";
+import { IOption, ISelect, Select } from "../Select";
 
 interface IAutocomplete extends Omit<ISelect, "onChange" | "value"> {
   value: string;
-  onChange: (name: string, value: string) => void;
   options: IOption[];
+  onChange: (name: string, value: string) => void;
 }
 
 const Autocomplete = (props: IAutocomplete) => {
@@ -15,17 +15,23 @@ const Autocomplete = (props: IAutocomplete) => {
     placeholder,
     disabled = false,
     value,
-    onChange,
     options = [],
     required,
     size,
     fullwidth,
+    invalid,
+    message,
+    onChange,
     onFocus,
     onBlur,
   } = props;
 
   const [filteredOptions, setFilteredOptions] = useState(options);
   const [showOptions, setShowOptions] = useState(false);
+
+  useEffect(() => {
+    setFilteredOptions(options);
+  }, [options]);
 
   const handleFilter = (newValue: string) => {
     if (newValue) {
@@ -64,9 +70,12 @@ const Autocomplete = (props: IAutocomplete) => {
       required={required}
       size={size}
       fullwidth={fullwidth}
+      invalid={invalid}
+      message={message}
       onFocus={onFocus}
       onBlur={onBlur}
       showChevron={false}
+      editable={true}
       showOptions={showOptions}
       onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) =>
         handleFilter((e.target as HTMLInputElement).value)

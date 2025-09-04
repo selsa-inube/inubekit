@@ -15,10 +15,15 @@ interface ITabs {
 }
 
 const Tabs = ({ tabs, onChange, scroll = false, selectedTab }: ITabs) => {
-  const tabsContainerRef = useRef<HTMLDivElement | null>(null);
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
 
   const helperHandleChevron = (direction: "left" | "right") => {
-    handleChevronClick(direction, tabsContainerRef);
+    if (tabsContainerRef.current) {
+      handleChevronClick(
+        direction,
+        tabsContainerRef as React.RefObject<HTMLDivElement>,
+      );
+    }
   };
 
   return (

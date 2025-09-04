@@ -11,12 +11,14 @@ import {
   MdSettings,
   MdPrivacyTip,
   MdLogout,
+  MdOutlineMarkunreadMailbox,
 } from "react-icons/md";
 
 import { props, parameters } from "../props";
 import { Header, IHeader } from "..";
 
 import { Logo } from "./logo";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Header",
@@ -27,7 +29,7 @@ const story = {
   },
   argTypes: props,
   decorators: [
-    (Story: React.ElementType) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>
@@ -147,6 +149,12 @@ Default.args = {
           path: "/privacy",
           iconBefore: <MdPrivacyTip />,
         },
+        {
+          id: "link3",
+          title: "Novelties (5)",
+          path: "/novelties",
+          iconBefore: <MdOutlineMarkunreadMailbox />,
+        },
       ],
       divider: true,
     },
@@ -164,6 +172,7 @@ Default.args = {
       divider: true,
     },
   ],
+  unreadNotificationsAmount: 5,
 };
 
 export default story;

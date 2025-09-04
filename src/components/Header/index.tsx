@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { JSX, useContext } from "react";
 
 import { ThemeContext } from "styled-components";
 import { IUser, User } from "../User";
@@ -14,6 +14,7 @@ import {
   StyledFullscreenNav,
   StyledLink,
   StyledUser,
+  StyledLogo,
 } from "./styles";
 
 import { tokens } from "./tokens";
@@ -35,10 +36,18 @@ interface IHeader {
     breakpoint?: string;
   };
   menu: IUser["menu"];
+  unreadNotificationsAmount?: number;
 }
 
 const Header = (props: IHeader) => {
-  const { navigation, logoURL, user, links, menu = [] } = props;
+  const {
+    navigation,
+    logoURL,
+    user,
+    links,
+    menu = [],
+    unreadNotificationsAmount,
+  } = props;
   const theme = useContext(ThemeContext) as { header: typeof tokens };
   const linkAppearance =
     (theme?.header?.content?.appearance as ITextAppearance) ||
@@ -56,6 +65,7 @@ const Header = (props: IHeader) => {
         templateColumns={user ? "auto 1fr auto" : "auto 1fr"}
         alignContent="stretch"
         gap={linksBreakpoint ? "40px" : "16px"}
+        height="52px"
       >
         <Stack gap="8px" alignItems="center" margin="0 0 0 16px">
           <StyledFullscreenNav $display={navigationBreakpoint}>
@@ -72,9 +82,14 @@ const Header = (props: IHeader) => {
               />
             )}
           </StyledFullscreenNav>
-          {logoURL}
+          <StyledLogo>{logoURL}</StyledLogo>
         </Stack>
-        <Stack alignItems="center" justifyContent="flex-end" gap="16px">
+        <Stack
+          alignItems="center"
+          justifyContent="flex-end"
+          gap="16px"
+          padding="0 16px"
+        >
           {links &&
             links.items.length > 0 &&
             linksBreakpoint &&
@@ -100,6 +115,7 @@ const Header = (props: IHeader) => {
               padding="8px 16px"
               menu={menu}
               menuTopPosition="calc(100% + 8px)"
+              unreadNotificationsAmount={unreadNotificationsAmount}
             />
           </StyledUser>
         )}

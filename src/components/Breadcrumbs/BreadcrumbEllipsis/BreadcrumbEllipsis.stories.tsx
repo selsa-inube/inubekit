@@ -2,13 +2,14 @@ import { BrowserRouter } from "react-router-dom";
 
 import { props } from "./props";
 import { BreadcrumbEllipsis, IBreadcrumbEllipsis } from "./index";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Breadcrumbs/BreadcrumbEllipsis",
   components: [BreadcrumbEllipsis],
   argTypes: props,
   decorators: [
-    (Story: React.ElementType) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

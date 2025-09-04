@@ -1,5 +1,5 @@
 import { MdAdb } from "react-icons/md";
-import { action } from "@storybook/addon-actions";
+import { action } from "storybook/actions";
 
 import { Icon, IIcon } from ".";
 

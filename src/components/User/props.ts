@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 const sizes = ["small", "large"] as const;
 type IUserSize = (typeof sizes)[number];
 
@@ -68,6 +70,8 @@ const props = {
       type: { summary: "IMenuSection" },
     },
   },
+  unreadNotificationsAmount:
+    "number of unread notifications related to the user",
 };
 
 export { props, parameters };

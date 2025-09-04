@@ -1,3 +1,4 @@
+import { JSX } from "react";
 import { IOption } from "..";
 import { StyledOptionList } from "./styles";
 

@@ -1,6 +1,6 @@
-import { StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react-vite";
 import { BrowserRouter } from "react-router-dom";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, ElementType } from "react";
 import { Menu } from "..";
 import { MenuUser } from "../MenuUser";
 import { MenuSection } from "../MenuSection";
@@ -21,7 +21,7 @@ const story = {
   components: [Menu],
   tags: ["autodocs"],
   decorators: [
-    (Story: StoryFn) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>

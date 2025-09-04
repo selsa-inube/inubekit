@@ -1,8 +1,9 @@
-import { StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react-vite";
 import { MdAndroid } from "react-icons/md";
 import { BrowserRouter } from "react-router-dom";
 import { MenuSection } from ".";
 import { MenuAction } from "../MenuAction";
+import { ElementType } from "react";
 
 const story = {
   title: "navigation/Menu/MenuSection",
@@ -21,7 +22,7 @@ const story = {
     },
   },
   decorators: [
-    (Story: StoryFn) => (
+    (Story: ElementType) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>
