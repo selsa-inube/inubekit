@@ -4,17 +4,19 @@ import { IProgressCardStep } from "./props";
 import { IText, Text } from "../Text";
 import { ThemeContext } from "styled-components";
 import { useContext, useEffect } from "react";
-import { ProgressBar } from "./ProgressBar";
 import { tokens } from "./tokens";
 import { StepIndicator } from "./StepIndicator";
+import { ProgressBar } from "../ProgressBar";
+import { IProgressBarAppearance } from "../ProgressBar/props";
 
 interface IProgressCard {
   step: IProgressCardStep;
   totalSteps: number;
   showStepIndicator?: boolean;
   showCurrentStepNumber?: boolean;
-  percentage?: number;
+  progress?: number;
   onComplete?: () => void;
+  appearance?: IProgressBarAppearance;
 }
 
 function ProgressCard(props: IProgressCard) {
@@ -23,15 +25,16 @@ function ProgressCard(props: IProgressCard) {
     totalSteps,
     showStepIndicator = true,
     showCurrentStepNumber = true,
-    percentage,
+    progress,
     onComplete,
+    appearance,
   } = props;
   const theme = useContext(ThemeContext) as { progressCard: typeof tokens };
 
   const isLastStep = step.number === totalSteps;
 
-  const computedPercentage =
-    percentage ?? Math.round((step.number / totalSteps) * 100);
+  const computedProgress =
+    progress ?? Math.round((step.number / totalSteps) * 100);
 
   useEffect(() => {
     if (isLastStep && onComplete) onComplete();
@@ -59,8 +62,19 @@ function ProgressCard(props: IProgressCard) {
           </Text>
         </Stack>
         <Stack direction="column" gap="2px">
-          <Stack alignItems="center" gap="8px">
-            <ProgressBar percentage={computedPercentage} />
+          <Stack alignItems="center" gap="8px" justifyContent="space-between">
+            <ProgressBar
+              progress={computedProgress}
+              appearance={
+                appearance ||
+                (theme
+                  ? theme.progressCard.progressBar.appearance
+                  : tokens.progressBar.appearance)
+              }
+              onComplete={() => {
+                if (isLastStep && onComplete) onComplete();
+              }}
+            />
             {showCurrentStepNumber && (
               <Text
                 type="label"
@@ -88,7 +102,7 @@ function ProgressCard(props: IProgressCard) {
                 : (tokens.percentStep.appearance as IText["appearance"])
             }
           >
-            {computedPercentage}%
+            {computedProgress}%
           </Text>
         </Stack>
       </Stack>

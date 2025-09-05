@@ -57,7 +57,7 @@ const ProgressCardController = ({
       <ProgressCard
         step={step!}
         totalSteps={total}
-        percentage={Math.round(percentage)}
+        progress={Math.round(percentage)}
         onComplete={onComplete}
       />
     </div>
