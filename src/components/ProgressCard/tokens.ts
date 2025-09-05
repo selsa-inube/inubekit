@@ -1,6 +1,14 @@
 import { inube } from "../Foundations";
+import { IProgressBarAppearance } from "../ProgressBar/props";
 
-const tokens = {
+const tokens: {
+  step: { color: string };
+  border: { color: string };
+  title: { appearance: IProgressBarAppearance };
+  countStep: { appearance: IProgressBarAppearance };
+  percentStep: { appearance: IProgressBarAppearance };
+  progressBar: { appearance: IProgressBarAppearance };
+} = {
   step: {
     color: inube.palette.green.G400,
   },
@@ -17,7 +25,7 @@ const tokens = {
     appearance: "gray",
   },
   progressBar: {
-    color: inube.palette.green.G400,
+    appearance: "success",
   },
 };
 
