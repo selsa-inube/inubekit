@@ -62,14 +62,16 @@ const props: ArgTypes<IButton> = {
     },
   },
   iconBefore: {
-    control: { type: "object" },
+    control: { type: "text" },
     description: "places an icon within the button, before the button's text",
     table: {
       type: { summary: "ReactElement" },
+      defaultValue: { summary: "</>" },
     },
+    type: "symbol",
   },
   iconAfter: {
-    control: { type: "object" },
+    control: { type: "text" },
     type: "symbol",
     description: "places an icon within the button, after the button's text",
     table: {
