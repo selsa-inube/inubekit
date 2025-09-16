@@ -115,9 +115,7 @@ const props: ArgTypes<IButton> = {
     },
   },
   onClick: {
-    control: false,
     type: "function",
-
     description: "function to control button click",
     table: {
       type: { summary: "(e?: Event) => void" },
