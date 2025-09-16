@@ -163,7 +163,7 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
         $disabled={disabled}
         $focused={focused}
         $invalid={invalid}
-        onClick={onClick}
+        onClick={!editable ? onClick : undefined}
         $value={value}
         $size={size}
       >
@@ -184,7 +184,7 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             onChange(name, e.target.value)
           }
-          onClick={onClick}
+          onClick={editable ? onClick : undefined}
           onKeyUp={onKeyUp}
         />
         <Stack direction="row" gap="8px" alignItems="center">
@@ -196,6 +196,7 @@ const SelectUI = forwardRef((props: ISelectInterface, ref) => {
                 icon={<MdOutlineCancel />}
                 size="16px"
                 onClick={handleClear}
+                cursor="pointer"
               />
             )}
 

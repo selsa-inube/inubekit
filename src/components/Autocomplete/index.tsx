@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IOption, ISelect, Select } from "../Select";
 
 interface IAutocomplete extends Omit<ISelect, "onChange" | "value"> {
@@ -29,20 +29,28 @@ const Autocomplete = (props: IAutocomplete) => {
   const [filteredOptions, setFilteredOptions] = useState(options);
   const [showOptions, setShowOptions] = useState(false);
 
+  const latestValueRef = useRef<string>(value);
   useEffect(() => {
-    setFilteredOptions(options);
-  }, [options]);
+    latestValueRef.current = value;
+  }, [value]);
+
+  useEffect(() => {
+    const selectedOption = options.find((option) => option.value === value);
+    if (selectedOption) {
+      setFilteredOptions(options);
+    }
+  }, [value, options]);
 
   const handleFilter = (newValue: string) => {
-    if (newValue) {
+    try {
       const normalizedValue = newValue.trim().toLowerCase();
-      const filtered = options.filter(
-        (option) =>
-          option.label && option.label.toLowerCase().includes(normalizedValue),
+      const filtered = options.filter((option) =>
+        option.label.toLowerCase().includes(normalizedValue),
       );
-      setFilteredOptions(filtered);
+      setFilteredOptions(filtered.length > 0 ? filtered : options);
       setShowOptions(filtered.length > 0);
-    } else {
+    } catch (error) {
+      console.error(`Error when filtering options. ${error}`);
       setFilteredOptions(options);
       setShowOptions(false);
     }
@@ -52,8 +60,52 @@ const Autocomplete = (props: IAutocomplete) => {
     setShowOptions(false);
     try {
       onChange && onChange(name, value);
+      if (value === "") {
+        setShowOptions(false);
+        setFilteredOptions(options);
+      }
     } catch (error) {
       console.error(`Error when changing value using callback. ${error}`);
+    }
+  };
+
+  const handleBlur = (event: FocusEvent) => {
+    try {
+      const normalizedValue = (value || "").trim().toLowerCase();
+
+      const exactMatch = options.find(
+        (option) => option.value.toLowerCase() === normalizedValue,
+      );
+
+      if (exactMatch) {
+        onChange && onChange(name, exactMatch.value);
+      }
+
+      onBlur && onBlur(event);
+
+      setTimeout(() => {
+        const currentNormalized = (latestValueRef.current || "")
+          .trim()
+          .toLowerCase();
+
+        const currentExact = options.find(
+          (option) => option.value.toLowerCase() === currentNormalized,
+        );
+
+        if (currentExact) {
+          setFilteredOptions(options);
+          setShowOptions(false);
+          return;
+        }
+
+        onChange && onChange(name, "");
+        setFilteredOptions(options);
+        setShowOptions(false);
+      }, 150);
+    } catch (error) {
+      console.error(`Error when handling blur event. ${error}`);
+      setShowOptions(false);
+      setFilteredOptions(options);
     }
   };
 
@@ -73,7 +125,7 @@ const Autocomplete = (props: IAutocomplete) => {
       invalid={invalid}
       message={message}
       onFocus={onFocus}
-      onBlur={onBlur}
+      onBlur={handleBlur}
       showChevron={false}
       editable={true}
       showOptions={showOptions}
