@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { props } from "./props";
 import { Button, IButton } from ".";
 import { ElementType } from "react";
