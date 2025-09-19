@@ -242,3 +242,6 @@ export type { IBox } from "./components/Box";
 
 export { Message } from "./components/Message";
 export type { IMessage } from "./components/Message";
+
+export { ProgressCard } from "./components/ProgressCard";
+export type { IProgressCard } from "./components/ProgressCard";
