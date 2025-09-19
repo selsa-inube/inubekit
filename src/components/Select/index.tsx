@@ -77,6 +77,7 @@ const Select = (props: ISelect) => {
   function handleClear() {
     onChange(name, "");
     setCheckedItems([]);
+    setDisplayList(false);
   }
 
   function handleClick(event: React.ChangeEvent<HTMLInputElement>) {

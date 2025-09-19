@@ -17,6 +17,7 @@ interface IIcon {
   shape?: IIconShape;
   size?: string;
   onClick?: (e: React.MouseEvent) => void;
+  cursor?: string;
 }
 
 const Icon = (props: IIcon) => {
@@ -31,6 +32,7 @@ const Icon = (props: IIcon) => {
     shape,
     size = "24px",
     onClick,
+    cursor,
   } = props;
 
   const interceptOnClick = (e: React.MouseEvent) => {
@@ -51,6 +53,7 @@ const Icon = (props: IIcon) => {
       $variant={variant}
       $shape={shape}
       $size={size}
+      $cursor={cursor}
       onClick={disabled ? undefined : interceptOnClick}
     >
       {icon}

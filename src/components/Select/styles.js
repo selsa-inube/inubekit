@@ -25,10 +25,10 @@ const StyledInputContainer = styled.div`
   align-items: center;
   box-sizing: border-box;
   border-radius: 8px;
-  user-select: none;
   pointer-events: ${({ $disabled }) => $disabled && "none"};
   grid-auto-flow: column;
   grid-template-columns: 1fr auto;
+  cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "pointer")};
   background-color: ${({ $disabled, theme }) =>
     $disabled
       ? theme?.input?.background?.color?.disabled ||
@@ -54,6 +54,8 @@ const StyledInput = styled.input`
   border: none;
   width: 100%;
   background-color: transparent;
+  cursor: ${({ readOnly, $disabled }) =>
+    $disabled ? "not-allowed" : readOnly ? "pointer" : "text"};
   font-family: ${({ theme }) =>
     theme?.typography?.body?.large?.font || inube.typography.body.large.font};
   font-size: ${({ theme }) =>
