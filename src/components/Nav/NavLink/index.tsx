@@ -16,7 +16,7 @@ interface INavLink {
   disabled?: boolean;
   selected?: boolean;
   icon?: React.ReactNode;
-  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void; // Changed to handle mouse event
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const renderLinkContent = ({

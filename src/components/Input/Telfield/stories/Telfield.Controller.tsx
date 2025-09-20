@@ -1,32 +1,32 @@
 import { useState } from "react";
 import { IInput } from "../../Input";
-import { Phonefield } from "..";
+import { Telfield } from "..";
 
-const PhonefieldController = (props: IInput) => {
+const TelfieldController = (props: IInput) => {
   const { value = "", status = "pending", ...rest } = props;
   const [form, setForm] = useState({ value, status });
 
-  const validatePhoneNumber = (phone: string) => {
+  const validatePhoneNumber = (tel: string) => {
     const phoneRegex = /^(\+\d{1,3})?\d{7,14}$/;
-    return phoneRegex.test(phone);
+    return phoneRegex.test(tel);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const phone = e.target.value;
-    const isValid = validatePhoneNumber(phone);
+    const tel = e.target.value;
+    const isValid = validatePhoneNumber(tel);
     setForm({
-      value: phone,
-      status: isValid || phone === "" ? "pending" : "invalid",
+      value: tel,
+      status: isValid || tel === "" ? "pending" : "invalid",
     });
   };
 
   const message =
     form.status === "invalid"
-      ? "Please enter a valid phone number. E.g., 1234567890."
+      ? "Please enter a valid tel number. E.g., +1234567890 or 1234567890."
       : "";
 
   return (
-    <Phonefield
+    <Telfield
       {...rest}
       value={form.value}
       status={form.status}
@@ -36,4 +36,4 @@ const PhonefieldController = (props: IInput) => {
   );
 };
 
-export { PhonefieldController };
+export { TelfieldController };
