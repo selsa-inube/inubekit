@@ -3,7 +3,7 @@ import { Stack } from "../Stack";
 import { IProgressCardStep } from "./props";
 import { IText, Text } from "../Text";
 import { ThemeContext } from "styled-components";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { tokens } from "./tokens";
 import { StepIndicator } from "./StepIndicator";
 import { ProgressBar } from "../ProgressBar";
@@ -11,11 +11,11 @@ import { IProgressBarAppearance } from "../ProgressBar/props";
 
 interface IProgressCard {
   step: IProgressCardStep;
-  totalSteps: number;
-  showStepIndicator?: boolean;
-  showCurrentStepNumber?: boolean;
+  totalSteps?: number;
+  displayStep?: boolean;
+  countSteps?: boolean;
+  animated?: boolean;
   progress?: number;
-  onComplete?: () => void;
   appearance?: IProgressBarAppearance;
 }
 
@@ -23,28 +23,24 @@ function ProgressCard(props: IProgressCard) {
   const {
     step,
     totalSteps,
-    showStepIndicator = true,
-    showCurrentStepNumber = true,
+    displayStep = true,
+    countSteps = true,
+    animated = true,
     progress,
-    onComplete,
     appearance,
   } = props;
   const theme = useContext(ThemeContext) as { progressCard: typeof tokens };
 
-  const isLastStep = step.number === totalSteps;
+  const isLastStep = totalSteps ? step.number === totalSteps : false;
 
   const computedProgress =
-    progress ?? Math.round((step.number / totalSteps) * 100);
-
-  useEffect(() => {
-    if (isLastStep && onComplete) onComplete();
-  }, [isLastStep, onComplete]);
+    progress ?? (totalSteps ? Math.round((step.number / totalSteps) * 100) : 0);
 
   return (
     <Box padding="12px">
       <Stack direction="column" gap="8px">
         <Stack gap="8px" alignItems="center">
-          {showStepIndicator && (
+          {displayStep && (
             <StepIndicator stepNumber={step.number} isLastStep={isLastStep} />
           )}
           <Text
@@ -65,17 +61,15 @@ function ProgressCard(props: IProgressCard) {
           <Stack alignItems="center" gap="8px" justifyContent="space-between">
             <ProgressBar
               progress={computedProgress}
+              animated={animated}
               appearance={
                 appearance ||
                 (theme
                   ? theme.progressCard.progressBar.appearance
                   : tokens.progressBar.appearance)
               }
-              onComplete={() => {
-                if (isLastStep && onComplete) onComplete();
-              }}
             />
-            {showCurrentStepNumber && (
+            {countSteps && totalSteps && (
               <Text
                 type="label"
                 size="small"

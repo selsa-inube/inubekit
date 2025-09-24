@@ -7,6 +7,7 @@ interface IProgressCardController {
   totalSteps?: number;
   onComplete?: () => void;
   durationMs?: number;
+  animated?: boolean;
 }
 
 const ProgressCardController = ({
@@ -14,6 +15,7 @@ const ProgressCardController = ({
   totalSteps,
   onComplete,
   durationMs = 25000,
+  animated = true,
 }: IProgressCardController) => {
   const stepsList = Object.values(steps);
   const total = totalSteps ?? stepsList.length;
@@ -48,7 +50,16 @@ const ProgressCardController = ({
     }, intervalTime);
 
     return () => clearInterval(interval);
-  }, [durationMs, onComplete, total, currentStepNumber]);
+  }, [durationMs, total, currentStepNumber, onComplete]);
+
+  useEffect(() => {
+    if (percentage >= 100 && onComplete) {
+      const timeout = setTimeout(() => {
+        onComplete();
+      }, 1500);
+      return () => clearTimeout(timeout);
+    }
+  }, [percentage, onComplete]);
 
   const step = stepsList.find((s) => s.number === currentStepNumber);
 
@@ -58,7 +69,7 @@ const ProgressCardController = ({
         step={step!}
         totalSteps={total}
         progress={Math.round(percentage)}
-        onComplete={onComplete}
+        animated={animated}
       />
     </div>
   );

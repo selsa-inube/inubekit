@@ -11,7 +11,7 @@ interface DefaultStoryArgs {
   progress: number;
   appearance?: string;
   totalSteps?: number;
-  onComplete?: () => void;
+  animated?: boolean;
 }
 
 interface RuntimeStoryArgs extends IProgressCardController {
@@ -49,7 +49,7 @@ const Default = (args: DefaultStoryArgs) => {
     progress = 0,
     steps = stepsMock,
     totalSteps = Object.values(stepsMock).length,
-    onComplete,
+    animated = false,
   } = args;
   const step = Object.values(steps)[stepNumber - 1] || Object.values(steps);
   return (
@@ -58,7 +58,7 @@ const Default = (args: DefaultStoryArgs) => {
       totalSteps={totalSteps}
       progress={progress}
       appearance={"success"}
-      onComplete={onComplete}
+      animated={animated}
     />
   );
 };
@@ -69,7 +69,6 @@ Default.args = {
   progress: 20,
   appearance: "primary",
   totalSteps: Object.values(stepsMock).length,
-  onComplete: () => console.log("Completado"),
 };
 
 const Runtime = (args: RuntimeStoryArgs) => (
@@ -80,9 +79,9 @@ Runtime.args = {
   steps: stepsMock,
   durationMs: 5000,
   appearance: "success",
+  animated: false,
   totalSteps: Object.values(stepsMock).length,
   run: true,
-  onComplete: () => console.log("Completado"),
 };
 
 Runtime.argTypes = {

@@ -26,25 +26,28 @@ import { ProgressCard } from "@inubekit/inubekit";
 
 Número total de pasos en el recorrido.
 
-### showStepIndicator (opcional)
+### displayStep (opcional)
 
 Define si se muestra el indicador visual del paso actual.
 
 1. **Por defecto:** true.
 
-### showCurrentStepNumber (opcional)
+### countSteps (opcional)
 
 Define si se muestra el número del paso actual junto con el total.
 
 1. **Por defecto:** true.
 
-### percentage (opcional)
+### progress (opcional)
 
 Porcentaje de progreso mostrado en la barra. Si no se provee, se calcula automáticamente con base en el paso actual y el total de pasos.
 
-### onComplete (opcional)
+### animated (opcional)
 
-Función que se ejecuta cuando se alcanza el último paso.
+Si es verdadero, agrega una animación brillante para indicar actividad cuando el progreso está atascado.
+
+1. Tipo: `boolean`.
+2. **Por defecto:** true.
 
 ## Personalización
 
