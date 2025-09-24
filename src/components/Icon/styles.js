@@ -17,6 +17,7 @@ const StyledIcon = styled.figure`
       if ($spacing === "compact") return "4px";
       return "0px";
     }};
+    cursor: ${({ $cursor }) => $cursor};
 
     color: ${({ theme, $variant, $appearance, $parentHover, disabled }) => {
       if (disabled)

@@ -106,6 +106,11 @@ const props = {
     control: { type: "text" },
     description: "size of the icon in pixels",
   },
+
+  cursor: {
+    control: { type: "text" },
+    description: "cursor style when hovering over the icon",
+  },
 };
 
 export { parameters, props, shapes, spacings, variants };

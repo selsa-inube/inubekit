@@ -4,6 +4,32 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v6.1.0] - 2025-09-19 (Fri)
+
+### ✨ Added
+
+- _No se agregaron nuevas funcionalidades en esta versión._
+
+### 🔄 Changed
+
+- Se actualizó la dependencia `react-router-dom` de la versión `^6.22.3` a `^7.9.1`. Esta actualización incluye mejoras y nuevas funcionalidades en la gestión de rutas, manteniendo compatibilidad con las versiones anteriores.
+
+- Aunque es una versión principal para `react-router-dom`, el proyecto mantiene compatibilidad con la API pública para minimizar impactos.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v6.0.0] - 2025-08-26 (Tue)
 
 ### 🔥 Breaking Change
