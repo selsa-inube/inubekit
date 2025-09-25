@@ -109,7 +109,7 @@ _No tiene valor por defecto._
 
 Tipo de entrada.
 
-1. `"text" | "number" | "email" | "money" | "phone" | "search"`
+1. `"text" | "number" | "email" | "money" | "phone" | "tel" | "search"`
 2. **Por defecto: `"text"`**
 
 ## Personalización
