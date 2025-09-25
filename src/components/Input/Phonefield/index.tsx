@@ -29,7 +29,9 @@ const Counter = ({ maxLength, minLength, currentLength }: ICounter) => {
   );
 };
 
-interface IPhonefield extends IInput {
+let globalFlagsLoaded = false;
+
+interface IPhonefield extends Omit<IInput, "type"> {
   onDialValueChange?: (dial: string) => void;
   initialCountryCode?: CountryCode;
   initialDialValue?: string;
@@ -78,7 +80,37 @@ function Phonefield(props: IPhonefield) {
   );
   const [dialValue, setDialValue] = useState<string>("");
   const [focused, setFocused] = useState(false);
-  const [flagsLoading, setFlagsLoading] = useState(true);
+
+  useEffect(() => {
+    const initialFlag = countries[countryCode]?.flag;
+    if (initialFlag) {
+      const img = new Image();
+      img.src = initialFlag;
+    }
+  }, [countryCode]);
+
+  const preloadAllFlags = () => {
+    if (globalFlagsLoaded) return;
+
+    globalFlagsLoaded = true;
+
+    const flagUrls = Object.values(countries)
+      .map((country) => country.flag)
+      .filter((url) => url !== "");
+
+    if (flagUrls.length === 0) return;
+
+    const imagePromises = flagUrls.map((url) => {
+      return new Promise<void>((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve();
+        img.onerror = () => resolve();
+        img.src = url;
+      });
+    });
+
+    Promise.all(imagePromises);
+  };
 
   useEffect(() => {
     if (countryCode && countries[countryCode]) {
@@ -90,30 +122,6 @@ function Phonefield(props: IPhonefield) {
       if (onDialValueChange) onDialValueChange("");
     }
   }, [countryCode, onDialValueChange]);
-
-  useEffect(() => {
-    const urls = Object.values(countries)
-      .map((country) => country.flag)
-      .filter((url) => url !== "");
-
-    if (urls.length === 0) {
-      setFlagsLoading(false);
-      return;
-    }
-
-    let loadedCount = 0;
-
-    urls.forEach((url) => {
-      const img = new Image();
-      img.src = url;
-      img.onload = img.onerror = () => {
-        loadedCount++;
-        if (loadedCount === urls.length) {
-          setFlagsLoading(false);
-        }
-      };
-    });
-  }, []);
 
   const interceptBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFocused(false);
@@ -220,12 +228,15 @@ function Phonefield(props: IPhonefield) {
         $status={status}
         readOnly={readOnly}
         $size={size}
+        onMouseEnter={preloadAllFlags}
+        onFocus={preloadAllFlags}
       >
         <CountrySelector
           selected={countryCode}
           onSelect={setCountryCode}
-          disabled={disabled || flagsLoading}
+          disabled={disabled}
           dialValue={dialValue}
+          aria-label="Select country code"
         />
         {iconBefore && (
           <Icon
@@ -277,6 +288,7 @@ function Phonefield(props: IPhonefield) {
               appearance={messageAppearance}
               icon={<MdOutlineWarning />}
               size="14px"
+              aria-hidden="true"
             />
             <Text
               appearance={messageAppearance}
