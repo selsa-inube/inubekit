@@ -24,6 +24,7 @@ Default.args = {
   type: "phone",
   size: "wide",
   status: "pending",
+  hideDialCode: false,
 };
 
 const WithValue = (args: IInput) => <PhonefieldController {...args} />;
