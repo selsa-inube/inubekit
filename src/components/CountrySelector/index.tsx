@@ -17,6 +17,7 @@ interface CountrySelectorProps {
   focused?: boolean;
   status?: IInputStatus;
   dialValue?: string;
+  hideDialCode?: boolean;
 }
 
 function CountrySelector(props: CountrySelectorProps) {
@@ -28,6 +29,7 @@ function CountrySelector(props: CountrySelectorProps) {
     status,
     focused,
     dialValue,
+    hideDialCode = false,
   } = props;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -81,9 +83,11 @@ function CountrySelector(props: CountrySelectorProps) {
         $focused={focused}
       >
         <CountryFlags code={selected} />
-        <Text size="medium" appearance="gray">
-          ({dialValue || countries[selected].dial})
-        </Text>
+        {!hideDialCode && (
+          <Text size="medium" appearance="gray">
+            ({dialValue || countries[selected].dial})
+          </Text>
+        )}
         <StyledChevron $displayList={isOpen} $disabled={disabled}>
           <Icon
             appearance="dark"

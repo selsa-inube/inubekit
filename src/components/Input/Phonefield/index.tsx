@@ -35,6 +35,7 @@ interface IPhonefield extends Omit<IInput, "type"> {
   onDialValueChange?: (dial: string) => void;
   initialCountryCode?: CountryCode;
   initialDialValue?: string;
+  hideDialCode?: boolean;
 }
 
 function Phonefield(props: IPhonefield) {
@@ -58,6 +59,7 @@ function Phonefield(props: IPhonefield) {
     name,
     initialCountryCode,
     initialDialValue,
+    hideDialCode,
     onBlur,
     onChange,
     onFocus,
@@ -236,6 +238,7 @@ function Phonefield(props: IPhonefield) {
           onSelect={setCountryCode}
           disabled={disabled}
           dialValue={dialValue}
+          hideDialCode={hideDialCode}
           aria-label="Select country code"
         />
         {iconBefore && (
