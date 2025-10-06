@@ -31,7 +31,7 @@ const Counter = ({ maxLength, minLength, currentLength }: ICounter) => {
 
 let globalFlagsLoaded = false;
 
-interface IPhonefield extends Omit<IInput, "type"> {
+interface IPhonefield extends IInput {
   onDialValueChange?: (dial: string) => void;
   initialCountryCode?: CountryCode;
   initialDialValue?: string;
@@ -54,6 +54,7 @@ function Phonefield(props: IPhonefield) {
     iconBefore,
     readOnly,
     inputMode,
+    type,
     placeholder,
     message,
     name,
@@ -268,6 +269,7 @@ function Phonefield(props: IPhonefield) {
           onFocus={interceptFocus}
           onKeyUp={interceptKeyUp}
           placeholder={placeholder}
+          type={type}
           value={value}
           readOnly={readOnly}
           maxLength={maxLength}
