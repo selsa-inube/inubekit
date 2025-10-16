@@ -26,8 +26,8 @@ const StyledProgressBar = styled.div`
     css`
       position: relative;
       overflow: hidden;
-      background: ${theme?.progressbar?.[$appearance]?.animation.color ||
-      tokens[$appearance].animation.color};
+      background: ${theme?.progressbar?.[$appearance]?.background.color ||
+      tokens[$appearance].background.color};
 
       &::after {
         content: "";

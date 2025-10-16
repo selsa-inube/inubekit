@@ -17,14 +17,22 @@ const Default = (args: JSX.IntrinsicAttributes & IInput) => (
 Default.args = {
   disabled: false,
   fullwidth: false,
-  id: "Phone",
+  id: "phone",
   label: "Phone",
-  placeholder: "Enter your phone number",
+  placeholder: "Enter phone number",
   required: true,
-  type: "tel",
+  type: "phone",
   size: "wide",
   status: "pending",
+  hideDialCode: false,
 };
 
-export { Default };
+const WithValue = (args: IInput) => <PhonefieldController {...args} />;
+WithValue.args = {
+  ...Default.args,
+  initialDialValue: "+33",
+  value: "1234567",
+};
+
+export { Default, WithValue };
 export default story;

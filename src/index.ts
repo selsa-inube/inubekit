@@ -99,12 +99,14 @@ export type {
 
 export { Emailfield } from "./components/Input/Emailfield";
 export { Input } from "./components/Input/Input";
-export type { IInput } from "./components/Input/Input";
 export { Moneyfield } from "./components/Input/Moneyfield";
 export { Numberfield } from "./components/Input/Numberfield";
-export { Phonefield } from "./components/Input/Phonefield";
 export { Searchfield } from "./components/Input/Searchfield";
+export { Telfield } from "./components/Input/Telfield";
+export { Phonefield } from "./components/Input/Phonefield";
 export { Textfield } from "./components/Input/Textfield";
+export type { IInput } from "./components/Input/Input";
+export type { IPhonefield } from "./components/Input/Phonefield";
 
 export { Assisted } from "./components/Assisted";
 export type { IAssisted } from "./components/Assisted";
@@ -242,3 +244,6 @@ export type { IBox } from "./components/Box";
 
 export { Message } from "./components/Message";
 export type { IMessage } from "./components/Message";
+
+export { ProgressCard } from "./components/ProgressCard";
+export type { IProgressCard } from "./components/ProgressCard";

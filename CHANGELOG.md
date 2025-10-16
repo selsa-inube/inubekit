@@ -4,6 +4,64 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v6.2.0] - 2025-09-29 (Mon)
+
+### ✨ Added
+
+- **Input**: Se agregó el tipo `phone`, el cual incorpora un selector de país para identificar la región telefónica y facilitar la correcta introducción del número.
+
+- **ProgressCard**: Se creó el nuevo componente `ProgressCard` para visualización de avances.
+
+### 🐛 Fixed
+
+- **Autocomplete**: El campo ahora resetea el valor ingresado al perder el foco si no corresponde a ninguna opción válida, obligando a que el usuario escoja una opción de la lista.
+
+- **ProgressBar**: Se corrigió el color del indicador cuando está en estado de carga (`loading`).
+
+### 🔄 Changed
+
+- _No se realizaron cambios en funcionalidades existentes en esta versión._
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
+## [v6.1.0] - 2025-09-19 (Fri)
+
+### ✨ Added
+
+- _No se agregaron nuevas funcionalidades en esta versión._
+
+### 🔄 Changed
+
+- Se actualizó la dependencia `react-router-dom` de la versión `^6.22.3` a `^7.9.1`. Esta actualización incluye mejoras y nuevas funcionalidades en la gestión de rutas, manteniendo compatibilidad con las versiones anteriores.
+
+- Aunque es una versión principal para `react-router-dom`, el proyecto mantiene compatibilidad con la API pública para minimizar impactos.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v6.0.0] - 2025-08-26 (Tue)
 
 ### 🔥 Breaking Change
