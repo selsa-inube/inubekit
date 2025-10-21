@@ -7,188 +7,52 @@ export interface SchemaDefinition {
   description?: string;
 }
 
+const colorPropertiesSchema: Record<string, SchemaDefinition> = {
+  regular: {
+    type: "string",
+    required: true,
+    description: "Color por defecto",
+  },
+  disabled: {
+    type: "string",
+    required: true,
+    description: "Color cuando está deshabilitado",
+  },
+  hover: {
+    type: "string",
+    required: true,
+    description: "Color al pasar el mouse",
+  },
+};
+
+const createVariantSchema = (description?: string): SchemaDefinition => ({
+  type: "object",
+  required: true,
+  description,
+  properties: {
+    content: {
+      type: "object",
+      required: true,
+      properties: {
+        color: {
+          type: "object",
+          required: true,
+          properties: colorPropertiesSchema,
+        },
+      },
+    },
+  },
+});
+
 export const textTokenSchema: Record<string, SchemaDefinition> = {
-  primary: {
-    type: "object",
-    required: true,
-    description: "Tokens para la variante primaria",
-    properties: {
-      content: {
-        type: "object",
-        required: true,
-        properties: {
-          color: {
-            type: "object",
-            required: true,
-            properties: {
-              regular: {
-                type: "string",
-                required: true,
-                description: "Color por defecto",
-              },
-              disabled: {
-                type: "string",
-                required: true,
-                description: "Color cuando está deshabilitado",
-              },
-              hover: {
-                type: "string",
-                required: true,
-                description: "Color al pasar el mouse",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-  success: {
-    type: "object",
-    required: true,
-    properties: {
-      content: {
-        type: "object",
-        required: true,
-        properties: {
-          color: {
-            type: "object",
-            required: true,
-            properties: {
-              regular: { type: "string", required: true },
-              disabled: { type: "string", required: true },
-              hover: { type: "string", required: true },
-            },
-          },
-        },
-      },
-    },
-  },
-  warning: {
-    type: "object",
-    required: true,
-    properties: {
-      content: {
-        type: "object",
-        required: true,
-        properties: {
-          color: {
-            type: "object",
-            required: true,
-            properties: {
-              regular: { type: "string", required: true },
-              disabled: { type: "string", required: true },
-              hover: { type: "string", required: true },
-            },
-          },
-        },
-      },
-    },
-  },
-  danger: {
-    type: "object",
-    required: true,
-    properties: {
-      content: {
-        type: "object",
-        required: true,
-        properties: {
-          color: {
-            type: "object",
-            required: true,
-            properties: {
-              regular: { type: "string", required: true },
-              disabled: { type: "string", required: true },
-              hover: { type: "string", required: true },
-            },
-          },
-        },
-      },
-    },
-  },
-  help: {
-    type: "object",
-    required: true,
-    properties: {
-      content: {
-        type: "object",
-        required: true,
-        properties: {
-          color: {
-            type: "object",
-            required: true,
-            properties: {
-              regular: { type: "string", required: true },
-              disabled: { type: "string", required: true },
-              hover: { type: "string", required: true },
-            },
-          },
-        },
-      },
-    },
-  },
-  dark: {
-    type: "object",
-    required: true,
-    properties: {
-      content: {
-        type: "object",
-        required: true,
-        properties: {
-          color: {
-            type: "object",
-            required: true,
-            properties: {
-              regular: { type: "string", required: true },
-              disabled: { type: "string", required: true },
-              hover: { type: "string", required: true },
-            },
-          },
-        },
-      },
-    },
-  },
-  gray: {
-    type: "object",
-    required: true,
-    properties: {
-      content: {
-        type: "object",
-        required: true,
-        properties: {
-          color: {
-            type: "object",
-            required: true,
-            properties: {
-              regular: { type: "string", required: true },
-              disabled: { type: "string", required: true },
-              hover: { type: "string", required: true },
-            },
-          },
-        },
-      },
-    },
-  },
-  light: {
-    type: "object",
-    required: true,
-    properties: {
-      content: {
-        type: "object",
-        required: true,
-        properties: {
-          color: {
-            type: "object",
-            required: true,
-            properties: {
-              regular: { type: "string", required: true },
-              disabled: { type: "string", required: true },
-              hover: { type: "string", required: true },
-            },
-          },
-        },
-      },
-    },
-  },
+  primary: createVariantSchema("Tokens para la variante primaria"),
+  success: createVariantSchema("Tokens para la variante success"),
+  warning: createVariantSchema("Tokens para la variante warning"),
+  danger: createVariantSchema("Tokens para la variante danger"),
+  help: createVariantSchema("Tokens para la variante help"),
+  dark: createVariantSchema("Tokens para la variante dark"),
+  gray: createVariantSchema("Tokens para la variante gray"),
+  light: createVariantSchema("Tokens para la variante light"),
 };
 
 export default textTokenSchema;
