@@ -1,30 +1,30 @@
-import { JSX } from "react/jsx-runtime";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { PasswordfieldController } from "./Passwordfield.Controller";
 import { parameters, props } from "../../Input/props";
 import { IInput } from "../../Input";
 
-const story = {
+const meta = {
   title: "Inputs/Input/Password",
   component: PasswordfieldController,
-  argTypes: props,
   parameters,
+  argTypes: props,
+} satisfies Meta<IInput>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    id: "Password",
+    label: "Contraseña",
+    placeholder: "Escribe tu contraseña",
+    size: "wide",
+    status: "pending",
+    message: "La contraseña no es correcta",
+    disabled: false,
+    fullwidth: false,
+    required: true,
+  },
 };
 
-const Default = (args: JSX.IntrinsicAttributes & IInput) => (
-  <PasswordfieldController {...args} />
-);
-
-Default.args = {
-  id: "Password",
-  label: "Contraseña",
-  placeholder: "Escribe tu contraseña",
-  size: "wide",
-  status: "pending",
-  message: "La contraseña no es correcta",
-  disabled: false,
-  fullwidth: false,
-  required: true,
-};
-
+export default meta;
 export { Default };
-export default story;
