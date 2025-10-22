@@ -47,8 +47,8 @@ const Autocomplete = (props: IAutocomplete) => {
       const filtered = options.filter((option) =>
         option.label.toLowerCase().includes(normalizedValue),
       );
-      setFilteredOptions(filtered.length > 0 ? filtered : options);
-      setShowOptions(filtered.length > 0);
+      setFilteredOptions(filtered);
+      setShowOptions(newValue.trim().length > 0 && filtered.length > 0);
     } catch (error) {
       console.error(`Error when filtering options. ${error}`);
       setFilteredOptions(options);
@@ -57,13 +57,10 @@ const Autocomplete = (props: IAutocomplete) => {
   };
 
   const interceptChange = (name: string, value: string) => {
-    setShowOptions(false);
     try {
       onChange && onChange(name, value);
-      if (value === "") {
-        setShowOptions(false);
-        setFilteredOptions(options);
-      }
+      setShowOptions(false);
+      setFilteredOptions(options);
     } catch (error) {
       console.error(`Error when changing value using callback. ${error}`);
     }
@@ -71,37 +68,27 @@ const Autocomplete = (props: IAutocomplete) => {
 
   const handleBlur = (event: FocusEvent) => {
     try {
-      const normalizedValue = (value || "").trim().toLowerCase();
-
-      const exactMatch = options.find(
-        (option) => option.value.toLowerCase() === normalizedValue,
-      );
-
-      if (exactMatch) {
-        onChange && onChange(name, exactMatch.value);
-      }
-
       onBlur && onBlur(event);
 
       setTimeout(() => {
-        const currentNormalized = (latestValueRef.current || "")
-          .trim()
-          .toLowerCase();
+        const currentValue = latestValueRef.current || "";
+        const normalizedValue = currentValue.trim().toLowerCase();
 
-        const currentExact = options.find(
-          (option) => option.value.toLowerCase() === currentNormalized,
+        const exactMatch = options.find(
+          (option) =>
+            option.label.toLowerCase() === normalizedValue ||
+            option.value.toLowerCase() === normalizedValue,
         );
 
-        if (currentExact) {
-          setFilteredOptions(options);
-          setShowOptions(false);
-          return;
+        if (exactMatch && currentValue !== exactMatch.value) {
+          onChange && onChange(name, exactMatch.value);
+        } else if (!exactMatch && currentValue !== "") {
+          onChange && onChange(name, "");
         }
 
-        onChange && onChange(name, "");
         setFilteredOptions(options);
         setShowOptions(false);
-      }, 150);
+      }, 200);
     } catch (error) {
       console.error(`Error when handling blur event. ${error}`);
       setShowOptions(false);
