@@ -13,20 +13,21 @@ interface IBreadcrumbsRoutes {
   routes: IBreadcrumbsRoute[];
 }
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
     },
   },
+};
+
+const props = {
   crumbs: {
     description:
       "An array of objects that contain the path, label, id, and isActive properties.",
   },
 };
 
-export { props, sizes };
+export { parameters, props, sizes };
 export type { IBreadcrumbsRoutes, IBreadcrumbsRoute, IBreadcrumbsSize };

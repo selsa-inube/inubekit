@@ -1,29 +1,30 @@
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
     },
   },
+};
+
+const props = {
   id: {
-    control: { type: "text" },
+    control: "text" as const,
     description: "shall be the id for the text",
   },
   label: {
-    control: { type: "text" },
+    control: "text" as const,
     description: "shall constitute the content to be displayed",
   },
   size: {
     options: ["large", "medium", "small"],
-    control: { type: "select" },
+    control: "select" as const,
     description: "indicates the font size used in the component",
   },
   path: {
-    control: { type: "text" },
+    control: "text" as const,
     description: "is the path where the BreadcrumbLink is going to navigate",
   },
 };
 
-export { props };
+export { parameters, props };
