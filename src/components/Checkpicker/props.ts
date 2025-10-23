@@ -15,14 +15,14 @@ const props = {
     description:
       "Determines whether the Checkpicker component is disabled. When set to `true`, the dropdown cannot be opened, and the user will not be able to interact with the checkboxes. The field will also be visually styled as disabled.",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   fullwidth: {
     description:
       "Specifies whether the Checkpicker component should expand to fill the full width of its parent container. When set to `true`, the dropdown will stretch to fit the width of the container.",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   id: {
@@ -33,7 +33,7 @@ const props = {
     description:
       "Indicates whether the current value of the Checkpicker component is invalid. When set to `true`, the component will visually indicate an error state, often paired with a `message` to describe the error.",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   label: {
@@ -44,7 +44,7 @@ const props = {
     description:
       "Defines the maximum number of items that will be visible in the dropdown list at one time. If the number of options exceeds this value, a scrollbar will appear to allow the user to scroll through additional options.",
     table: {
-      defaultValue: { summary: 5 },
+      defaultValue: { summary: "5" },
     },
   },
   name: {
@@ -52,18 +52,26 @@ const props = {
       "Specifies the name attribute of the input element within the Checkpicker component. This name is used to identify the form data after submission and is often required for backend processing.",
   },
   onBlur: {
+    control: { disable: true },
     description:
       "A callback function that is triggered when the Checkpicker component loses focus. This event handler allows you to define custom behavior, such as validation or styling, when the user clicks away from the input field.",
   },
   onChange: {
+    control: { disable: true },
     description:
       "A callback function that handles changes to the selected values in the dropdown. This function is essential for managing the selected options in a controlled component, where the parent component maintains the state.",
   },
+  message: {
+    description:
+      "An optional message that can be displayed alongside the Checkpicker component, typically used for validation messages or additional instructions.",
+  },
   onClick: {
+    control: { disable: true },
     description:
       "An optional callback function that defines custom behavior when the Checkpicker component is clicked. This function can be used to handle various user interactions, such as opening the dropdown, logging interactions, or triggering other UI changes.",
   },
   onFocus: {
+    control: { disable: true },
     description:
       "A callback function that is triggered when the Checkpicker component gains focus. This allows you to perform actions such as highlighting the field or displaying additional information when the user interacts with the input.",
   },
@@ -79,13 +87,13 @@ const props = {
     description:
       "Marks the Checkpicker component as a required field in a form. If set to `true`, the form cannot be submitted without a valid selection in this field, and the user will be prompted to make a selection.",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   size: {
     description:
       "Determines the size of the Checkpicker component. The `wide` size offers a more expansive input field, while `compact` provides a smaller, more concise field. Choose based on the amount of space available and the desired UI design.",
-    control: { type: "select" },
+    control: { type: "select" as const },
     options: ["wide", "compact"],
   },
   values: {

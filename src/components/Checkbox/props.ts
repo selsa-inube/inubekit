@@ -1,6 +1,6 @@
 const parameters = {
   docs: {
-    descriptions: {
+    description: {
       component:
         "A Checkbox allows the user to select multiple options from a list.",
     },
@@ -23,6 +23,10 @@ const props = {
   checked: {
     description:
       "(boolean): (Optional) Indicates whether the Checkbox is currently selected.",
+  },
+  indeterminate: {
+    description:
+      "(boolean): (Optional) Indicates whether the Checkbox is in an indeterminate state (partially selected).",
   },
   label: {
     description:
