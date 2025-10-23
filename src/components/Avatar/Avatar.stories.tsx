@@ -1,18 +1,22 @@
-import { Avatar, IAvatar } from "./index";
-
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Avatar } from "./index";
 import { props, parameters } from "./props";
 
-const story = {
+const meta = {
   title: "data/Avatar",
-  components: [Avatar],
+  component: Avatar,
   parameters,
   argTypes: props,
+} satisfies Meta<typeof Avatar>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    unreadNotificationsAmount: 1,
+    onClick: () => alert("Avatar clicked"),
+  },
 };
 
-export const Default = (args: IAvatar) => <Avatar {...args} />;
-
-Default.args = {
-  unreadNotificationsAmount: 1,
-};
-
-export default story;
+export default meta;
+export { Default };

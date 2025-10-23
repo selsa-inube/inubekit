@@ -1,18 +1,20 @@
-import { NotificationsBadge, INotificationsBadge } from "./index";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { NotificationsBadge } from "./index";
 import { props } from "./props";
 
-const story = {
+const meta = {
   title: "data/Avatar/notificationsBadge",
-  components: [NotificationsBadge],
+  component: NotificationsBadge,
   argTypes: props,
+} satisfies Meta<typeof NotificationsBadge>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    unreadNotificationsAmount: 3,
+  },
 };
 
-export const Default = (args: INotificationsBadge) => (
-  <NotificationsBadge {...args} />
-);
-
-Default.args = {
-  unreadNotificationsAmount: 3,
-};
-
-export default story;
+export default meta;
+export { Default };

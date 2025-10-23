@@ -1,16 +1,15 @@
-import { IAutosuggest } from "..";
-
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { props, parameters } from "../props";
 import { AutosuggestController } from "./Autosuggest.Controller";
 
-const story = {
+const meta = {
   title: "Inputs/Autosuggest",
-  component: [AutosuggestController],
+  component: AutosuggestController,
   parameters,
-  argTypes: {
-    ...props,
-  },
-};
+  argTypes: props,
+} satisfies Meta<typeof AutosuggestController>;
+
+type Story = StoryObj<typeof meta>;
 
 const optionsMock = [
   { id: "us", label: "United States", value: "united-states" },
@@ -25,20 +24,21 @@ const optionsMock = [
   { id: "br", label: "Brazil", value: "brazil" },
 ];
 
-const Default = (args: IAutosuggest) => <AutosuggestController {...args} />;
-
-Default.args = {
-  label: "Country",
-  name: "autocomplete",
-  id: "autocomplete",
-  placeholder: "Please type something...",
-  value: "",
-  disabled: false,
-  options: optionsMock,
-  required: false,
-  size: "wide",
-  fullwidth: false,
+const Default: Story = {
+  args: {
+    label: "Country",
+    name: "autocomplete",
+    id: "autocomplete",
+    placeholder: "Please type something...",
+    value: "",
+    disabled: false,
+    options: optionsMock,
+    required: false,
+    size: "wide",
+    fullwidth: false,
+    onChange: () => {},
+  },
 };
 
-export default story;
+export default meta;
 export { Default };
