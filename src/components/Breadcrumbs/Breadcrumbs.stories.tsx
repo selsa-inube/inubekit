@@ -19,10 +19,9 @@ const meta = {
   ],
 } satisfies Meta<typeof Breadcrumbs>;
 
-export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+const Default: Story = {
   args: {
     crumbs: [
       {
@@ -64,3 +63,6 @@ export const Default: Story = {
     ],
   },
 };
+
+export default meta;
+export { Default };

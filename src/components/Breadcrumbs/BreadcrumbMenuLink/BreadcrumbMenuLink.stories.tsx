@@ -19,10 +19,9 @@ const meta = {
   ],
 } satisfies Meta<typeof BreadcrumbMenuLink>;
 
-export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+const Default: Story = {
   args: {
     label: "Privileges",
     path: "/privileges",
@@ -30,3 +29,6 @@ export const Default: Story = {
     size: "large",
   },
 };
+
+export default meta;
+export { Default };
