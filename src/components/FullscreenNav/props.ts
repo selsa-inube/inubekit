@@ -1,12 +1,13 @@
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "A versatile side navigation component, which allows you to nest links, from a full screen perspective",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "A versatile side navigation component, which allows you to nest links, from a full screen perspective",
     },
   },
+};
+
+const props = {
   reactPortalId: {
     description: "id of the portal element",
   },
@@ -34,4 +35,4 @@ const props = {
   },
 };
 
-export { props };
+export { parameters, props };

@@ -1,7 +1,7 @@
 interface IHeaderLink {
   label: string;
   path: string;
-  icon: React.JSX.Element;
+  icon?: React.JSX.Element;
 }
 
 const parameters = {
@@ -19,40 +19,25 @@ const props = {
       "The primary object that will organize and store the requisite paths for the correct operation of the Nav component is forthcoming and is required",
   },
   logoURL: {
+    control: { type: "text" as const },
     description:
       "prop accepts a component to be used as the logo in the header. This component can be an image, an icon, stylized text or any other visual element that represents the brand identity.",
   },
-  userName: {
-    description: "shall be the displayed username",
-    table: {
-      defaultValue: { summary: "MdPersonOutline" },
-    },
-  },
-  client: {
-    description: "shall be the displayed business Unit",
-    table: {
-      defaultValue: { summary: "MdPersonOutline" },
-    },
-  },
-  portalId: {
-    description: "id of the portal element",
-  },
-  showLinks: {
+  user: {
     description:
-      "Boolean flag to control the visibility of the links in the header",
-    table: {
-      defaultValue: { summary: false },
-    },
+      "Object containing user information including username, client, and breakpoint for responsive behavior",
   },
-  showUser: {
+  links: {
     description:
-      "Boolean flag to control the visibility of the user component in the header",
-    table: {
-      defaultValue: { summary: true },
-    },
+      "Object containing an array of link items and a breakpoint for responsive visibility",
   },
-  unreadNotificationsAmount:
-    "number of unread notifications related to the user",
+  menu: {
+    description:
+      "Array of menu sections with links and actions that appear in the user dropdown",
+  },
+  unreadNotificationsAmount: {
+    description: "number of unread notifications related to the user",
+  },
 };
 
 export { props, parameters };
