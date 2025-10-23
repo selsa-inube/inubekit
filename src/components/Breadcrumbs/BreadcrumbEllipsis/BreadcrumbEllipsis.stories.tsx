@@ -1,12 +1,13 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { BrowserRouter } from "react-router-dom";
-
-import { props } from "./props";
-import { BreadcrumbEllipsis, IBreadcrumbEllipsis } from "./index";
 import { ElementType } from "react";
+import { parameters, props } from "./props";
+import { BreadcrumbEllipsis } from "./index";
 
-const story = {
+const meta = {
   title: "navigation/Breadcrumbs/BreadcrumbEllipsis",
-  components: [BreadcrumbEllipsis],
+  component: BreadcrumbEllipsis,
+  parameters,
   argTypes: props,
   decorators: [
     (Story: ElementType) => (
@@ -15,25 +16,28 @@ const story = {
       </BrowserRouter>
     ),
   ],
+} satisfies Meta<typeof BreadcrumbEllipsis>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    routes: [
+      {
+        label: "Privileges",
+        path: "/privileges",
+        id: "privileges",
+      },
+      { label: "Users", path: "/users", id: "users" },
+      {
+        label: "User edition",
+        path: "users/edition",
+        id: "usersEdition",
+      },
+    ],
+    size: "large",
+  },
 };
 
-const Default = (args: IBreadcrumbEllipsis) => <BreadcrumbEllipsis {...args} />;
-Default.args = {
-  routes: [
-    {
-      label: "Privileges",
-      path: "/privileges",
-      id: "privileges",
-    },
-    { label: "Users", path: "/users", id: "users" },
-    {
-      label: "User edition",
-      path: "users/edition",
-      id: "usersEdition",
-    },
-  ],
-  size: "large",
-};
-
+export default meta;
 export { Default };
-export default story;

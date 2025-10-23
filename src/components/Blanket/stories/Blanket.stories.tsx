@@ -1,11 +1,11 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
-
-import { Blanket, IBlanket } from "..";
+import { Blanket } from "..";
 import { StyledBackdropBlanket, StyledButton } from "./styles";
 
-const story = {
+const meta = {
   title: "utils/Blanket",
-  components: Blanket,
+  component: Blanket,
   parameters: {
     docs: {
       description: {
@@ -20,26 +20,30 @@ const story = {
         "property used to determine if the component is capable of hosting nodes **ReactElement**",
     },
   },
+} satisfies Meta<typeof Blanket>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  render: (args) => {
+    const [showBlanket, setShowBlanket] = useState(false);
+
+    const handleShowBlanket = () => {
+      setShowBlanket(true);
+    };
+
+    return (
+      <>
+        <StyledButton onClick={handleShowBlanket}>Show Blanket</StyledButton>
+        {showBlanket && (
+          <Blanket {...args}>
+            <StyledBackdropBlanket onClick={() => setShowBlanket(false)} />
+          </Blanket>
+        )}
+      </>
+    );
+  },
 };
 
-const Default = (args: IBlanket) => {
-  const [showBlanket, setShowBlanket] = useState(false);
-
-  const handleShowBlanket = () => {
-    setShowBlanket(true);
-  };
-
-  return (
-    <>
-      <StyledButton onClick={handleShowBlanket}>Show Blanket</StyledButton>
-      {showBlanket && (
-        <Blanket {...args}>
-          <StyledBackdropBlanket onClick={() => setShowBlanket(false)} />
-        </Blanket>
-      )}
-    </>
-  );
-};
-
-export default story;
+export default meta;
 export { Default };
