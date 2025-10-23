@@ -20,36 +20,26 @@ const parameters = {
 };
 
 const props = {
-  icon: {
-    control: { type: "element" },
-    description: "The icon to be displayed in the Flag.",
+  id: {
+    description: "Unique identifier for the Flag component.",
   },
   title: {
-    control: { type: "text" },
     description: "The title text of the Flag.",
   },
   description: {
-    control: { type: "text", maxLength: 240 },
     description:
       "The description text of the flag. If the description is too long, it will be truncated to the MAX_DESCRIPTION_LENGTH.",
   },
   appearance: {
     options: appearances,
-    control: { type: "select" },
     description: "The appearance style of the Flag and related components.",
   },
   duration: {
-    control: { type: "number" },
     description:
       "The duration for which the countdown bar runs. If provided, a countdown bar will appear.",
     table: {
       type: { summary: "number (milliseconds)" },
     },
-  },
-  closeFlag: {
-    control: { type: "action" },
-    description:
-      "Callback function that is called when the Flag needs to be closed, either by user action or after the countdown.",
   },
 };
 

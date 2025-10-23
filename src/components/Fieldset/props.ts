@@ -23,7 +23,6 @@ const props = {
       "A string that represents the title or heading for the fieldset component.",
   },
   spacing: {
-    control: "select",
     options: spacings,
     description: "Controls the spacing of the legend.",
   },

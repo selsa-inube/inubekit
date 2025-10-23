@@ -1,32 +1,27 @@
-import { Stack } from "../../Stack";
-import { Fieldset, IFieldset } from "..";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Fieldset } from "..";
 import { props, parameters } from "../props";
 import { StyledChildren } from "./styles";
 
-const story = {
-  component: Fieldset,
+const meta = {
   title: "inputs/Fieldset",
+  component: Fieldset,
   tags: ["autodocs"],
   parameters,
-  argTypes: {
-    ...props,
+  argTypes: props,
+} satisfies Meta<typeof Fieldset>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    legend: "User Information",
+    spacing: "wide",
+    width: "100%",
+    height: "100%",
+    children: <StyledChildren />,
   },
 };
 
-const Default = (args: IFieldset) => (
-  <Stack>
-    <Fieldset {...args}>
-      <StyledChildren />
-    </Fieldset>
-  </Stack>
-);
-
-Default.args = {
-  legend: "User Information",
-  spacing: "wide",
-  width: "100%",
-  height: "100%",
-};
-
+export default meta;
 export { Default };
-export default story;

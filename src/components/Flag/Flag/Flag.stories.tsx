@@ -1,33 +1,34 @@
-import { action } from "storybook/actions";
-
-import { Flag, IFlag } from ".";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ElementType } from "react";
+import { Flag } from ".";
 import { FlagProvider } from "../FlagsProvider";
 import { parameters, props } from "./props";
 
-const story = {
+const meta = {
   title: "feedback/Flag",
-  components: [Flag],
+  component: Flag,
   parameters,
-  argTypes: {
-    ...props,
+  argTypes: props,
+  decorators: [
+    (Story: ElementType) => (
+      <FlagProvider>
+        <Story />
+      </FlagProvider>
+    ),
+  ],
+} satisfies Meta<typeof Flag>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    id: "flag-1",
+    title: "Title",
+    description: "Description",
+    appearance: "primary",
+    duration: 10000,
   },
 };
 
-const Default = (args: IFlag) => (
-  <FlagProvider>
-    <Flag {...args} />{" "}
-  </FlagProvider>
-);
-const closeFlag = () => {
-  action("Flag closed")();
-};
-Default.args = {
-  title: "Title",
-  description: "Description",
-  appearance: "primary",
-  duration: 10000,
-  closeFlag: closeFlag,
-};
-
+export default meta;
 export { Default };
-export default story;
