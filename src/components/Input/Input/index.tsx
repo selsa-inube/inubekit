@@ -5,6 +5,7 @@ import { Searchfield } from "../Searchfield";
 import { Telfield } from "../Telfield";
 import { Phonefield } from "../Phonefield";
 import { Textfield } from "../Textfield";
+import { Passwordfield } from "../Passwordfield";
 import { IInputInputType, IInputSize, IInputStatus } from "./props";
 
 interface IInput {
@@ -37,9 +38,10 @@ const inputComponents: Record<string, React.ComponentType<IInput>> = {
   email: Emailfield,
   money: Moneyfield,
   number: Numberfield,
-  tel: Telfield,
+  password: Passwordfield,
   phone: Phonefield,
   search: Searchfield,
+  tel: Telfield,
   text: Textfield,
 };
 

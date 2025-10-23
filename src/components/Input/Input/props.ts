@@ -48,19 +48,16 @@ const props = {
     description:
       "sets the field as to appear disabled, users will not be able to interact with the text field",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   type: {
     options: inputTypes,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description: "class name to apply to the input element",
     table: {
       defaultValue: { summary: "text" },
     },
-  },
-  value: {
-    description: "component initial value",
   },
   onChange: {
     description:
@@ -77,30 +74,29 @@ const props = {
   required: {
     description: "defines if the field is required or not",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   status: {
     options: status,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description: "status of the component",
     table: {
       defaultValue: { summary: "pending" },
     },
   },
-  message: {
-    description:
-      "display a message, provided by the developer implementing the component, which can be either an error notification or a validation prompt",
-  },
   size: {
     options: sizes,
-    control: { type: "select" },
-    description: "defines the size of the component",
+    control: { type: "select" as const },
+    description: "defines the size of the input field",
+    table: {
+      defaultValue: { summary: "wide" },
+    },
   },
   fullwidth: {
     description: "option to fit field width to its parent width",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
 };
