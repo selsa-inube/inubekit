@@ -59,6 +59,18 @@ const props = {
       defaultValue: { summary: "text" },
     },
   },
+  onChange: {
+    description:
+      "allows you to control what to do when the user changes the value of the component",
+  },
+  iconBefore: {
+    description:
+      "allows to enter an icon to the left of the area where the user enters values",
+  },
+  iconAfter: {
+    description:
+      "allows to enter an icon to the right of the area where the user enters values",
+  },
   required: {
     description: "defines if the field is required or not",
     table: {
