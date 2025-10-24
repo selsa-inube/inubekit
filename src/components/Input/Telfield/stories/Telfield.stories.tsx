@@ -1,30 +1,30 @@
-import { JSX } from "react/jsx-runtime";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { TelfieldController } from "./Telfield.Controller";
 import { parameters, props } from "../../Input/props";
 import { IInput } from "../../Input";
 
-const story = {
+const meta = {
   title: "Inputs/Input/Tel",
   component: TelfieldController,
-  argTypes: props,
   parameters,
+  argTypes: props,
+} satisfies Meta<IInput>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    disabled: false,
+    fullwidth: false,
+    id: "tel",
+    label: "tel",
+    placeholder: "Enter your tel number",
+    required: true,
+    type: "tel",
+    size: "wide",
+    status: "pending",
+  },
 };
 
-const Default = (args: JSX.IntrinsicAttributes & IInput) => (
-  <TelfieldController {...args} />
-);
-
-Default.args = {
-  disabled: false,
-  fullwidth: false,
-  id: "tel",
-  label: "tel",
-  placeholder: "Enter your tel number",
-  required: true,
-  type: "tel",
-  size: "wide",
-  status: "pending",
-};
-
+export default meta;
 export { Default };
-export default story;
