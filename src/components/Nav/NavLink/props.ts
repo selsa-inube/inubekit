@@ -11,14 +11,14 @@ const props = {
     description:
       "shall be determine if the tab is disabled (by Default is false) and is not required.",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   selected: {
     description:
       "It is designed to ascertain whether the tab has been clicked or not (by Default is false) and is not required.",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   path: {
@@ -33,6 +33,7 @@ const props = {
       "(function): shall be determine the behavior of the click event and is not required.",
   },
   icon: {
+    control: { disable: true },
     description:
       "shall constitute the icon to be displayed within the MenuLink-component and is required",
   },

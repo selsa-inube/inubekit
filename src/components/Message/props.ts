@@ -26,14 +26,11 @@ const parameters = {
 const props = {
   title: {
     description: "The title to be displayed",
-    table: {
-      defaultValue: { summary: false },
-    },
   },
   appearance: {
     description: "The appearance of the message",
     options: appearances,
-    control: { type: "select" },
+    control: { type: "select" as const },
     table: {
       defaultValue: { summary: "success" },
     },
@@ -41,32 +38,35 @@ const props = {
   fullwidth: {
     description: "The fullwidth of the message",
     table: {
-      defaultValue: { summary: "large" },
+      defaultValue: { summary: "false" },
     },
   },
   width: {
     description: "The width of the message",
+  },
+  size: {
+    description: "The size of the message",
+    options: sizes,
+    control: { type: "select" as const },
     table: {
       defaultValue: { summary: "large" },
     },
   },
   description: {
     description: "The description to be displayed",
-    table: {
-      defaultValue: { summary: false },
-    },
   },
   primaryActionText: {
     description: "The text for the primary action",
-    table: {
-      defaultValue: { summary: false },
-    },
   },
   secondaryActionText: {
     description: "The text for the secondary action",
-    table: {
-      defaultValue: { summary: false },
-    },
+  },
+  primaryAction: {
+    description: "The function to be called when the primary action is clicked",
+  },
+  secondaryAction: {
+    description:
+      "The function to be called when the secondary action is clicked",
   },
 };
 

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { IMonthpicker, Monthpicker } from "..";
 
-interface IMonthpickerController extends IMonthpicker {
+interface IMonthpickerController extends Omit<IMonthpicker, "onChange"> {
   value?: string;
+  onChange?: (name: string, value: string) => void;
 }
 
 const MonthpickerController = (props: IMonthpickerController) => {

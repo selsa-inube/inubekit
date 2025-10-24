@@ -32,10 +32,12 @@ const props = {
       "The primary object that will organize and store the requisite paths for the correct operation of the Nav component is forthcoming and is required",
   },
   logoutPath: {
+    control: { type: "text" as const },
     description:
       "is the path where the user is going to navigate when he wants to logout and is required",
   },
   logoutTitle: {
+    control: { type: "text" as const },
     description:
       "is the title for the path where the user is going to navigate when he wants to logout and is required",
   },

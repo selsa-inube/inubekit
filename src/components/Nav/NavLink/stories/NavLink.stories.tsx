@@ -1,14 +1,14 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { BrowserRouter } from "react-router-dom";
 import { MdHouse } from "react-icons/md";
-
+import { ElementType } from "react";
 import { NavLinkController } from "./NavLink.Controller";
 import { props, parameters } from "../props";
-import { NavLink, INavLink } from "..";
-import { ElementType } from "react";
+import { NavLink } from "..";
 
-const story = {
+const meta = {
   title: "navigation/NavLink",
-  components: NavLink,
+  component: NavLink,
   parameters,
   argTypes: props,
   decorators: [
@@ -18,17 +18,20 @@ const story = {
       </BrowserRouter>
     ),
   ],
+} satisfies Meta<typeof NavLink>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  render: (args) => <NavLinkController {...args} />,
+  args: {
+    id: "privileges",
+    label: "Privileges",
+    path: "/privileges",
+    disabled: false,
+    icon: <MdHouse />,
+  },
 };
 
-const Default = (args: INavLink) => <NavLinkController {...args} />;
-
-Default.args = {
-  id: "privileges",
-  label: "Privileges",
-  path: "/privileges",
-  disabled: false,
-  icon: <MdHouse />,
-};
-
+export default meta;
 export { Default };
-export default story;
