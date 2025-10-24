@@ -1,5 +1,6 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { props, parameters } from "./props";
-import { ITag, Tag } from ".";
+import { Tag } from ".";
 import {
   MdOutlineSportsBaseball,
   MdOutlineSportsBasketball,
@@ -10,24 +11,27 @@ import {
   MdOutlineSportsHockey,
   MdOutlineSportsMma,
 } from "react-icons/md";
+import { ITagAppearance } from "./props";
 
-const story = {
+const meta = {
   title: "data/Tag",
   component: Tag,
   parameters,
   argTypes: props,
+} satisfies Meta<typeof Tag>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    appearance: "primary",
+    label: "Tag",
+    removable: false,
+    displayIcon: true,
+  },
 };
 
-const Default = (args: ITag) => <Tag {...args} />;
-
-Default.args = {
-  appearance: "primary",
-  label: "Tag",
-  removable: false,
-  displayIcon: true,
-};
-
-const appearanceToIcon = {
+const appearanceToIcon: Record<ITagAppearance, React.ComponentType> = {
   primary: MdOutlineSportsBaseball,
   success: MdOutlineSportsBasketball,
   danger: MdOutlineSportsCricket,
@@ -38,16 +42,17 @@ const appearanceToIcon = {
   light: MdOutlineSportsMma,
 };
 
-const DefinedIcon = (args: ITag) => {
-  const IconComponent = appearanceToIcon[args.appearance];
-  return <Tag {...args} icon={<IconComponent />} />;
+const DefinedIcon: Story = {
+  args: {
+    appearance: "primary",
+    label: "Tag",
+    removable: true,
+  },
+  render: (args) => {
+    const IconComponent = appearanceToIcon[args.appearance];
+    return <Tag {...args} icon={<IconComponent />} />;
+  },
 };
 
-DefinedIcon.args = {
-  appearance: "primary",
-  label: "Tag",
-  removable: true,
-};
-
-export default story;
+export default meta;
 export { Default, DefinedIcon };

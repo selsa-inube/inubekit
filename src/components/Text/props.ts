@@ -45,7 +45,7 @@ const parameters = {
 const props = {
   appearance: {
     options: appearances,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "This prop is used to select one of the color system tokens of the role Text as defined in the Foundations.",
     table: {
@@ -54,7 +54,7 @@ const props = {
   },
   as: {
     options: htmlElements,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "This prop allows us to control the tag that we will inject in the DOM.",
     table: {
@@ -113,13 +113,13 @@ const props = {
   },
   size: {
     options: sizes,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "This prop is used to select one of the typography roles defined in the Foundations.",
   },
   textAlign: {
     options: alignments,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description: "This prop controls the text-align style property.",
     table: {
       defaultValue: { summary: "start" },
@@ -127,7 +127,7 @@ const props = {
   },
   type: {
     options: types,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "This prop is used to select one of the typography roles defined in the Foundations.",
     table: {
@@ -136,7 +136,7 @@ const props = {
   },
   weight: {
     options: weights,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "This prop is used to select one of the typography roles defined in the Foundations.",
     table: {

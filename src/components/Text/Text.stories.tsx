@@ -1,34 +1,33 @@
-import { Text, IText } from ".";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Text } from ".";
 import { parameters, props } from "./props";
-import { action } from "storybook/actions";
 
-const story = {
+const meta = {
   title: "data/Text",
-  components: [Text],
+  component: Text,
   parameters,
   argTypes: props,
+} satisfies Meta<typeof Text>;
+
+export default meta;
+
+const Default: Story = {
+  args: {
+    appearance: "dark",
+    as: "h1",
+    children: "Title with the Text component",
+    cursorHover: true,
+    disabled: false,
+    ellipsis: false,
+    margin: "20px 22px 23px 24px",
+    padding: "5px",
+    parentHover: false,
+    size: "large",
+    textAlign: "start",
+    type: "body",
+    weight: "normal",
+  },
 };
 
-const Default = (args: IText) => {
-  return <Text {...args}>{args.children}</Text>;
-};
-
-Default.args = {
-  appearance: "dark",
-  as: "h1",
-  children: "Title with the Text component",
-  cursorHover: true,
-  disabled: false,
-  ellipsis: false,
-  margin: "20px 22px 23px 24px",
-  padding: "5px",
-  parentHover: false,
-  onClick: action("onClick"),
-  size: "large",
-  textAlign: "start",
-  type: "body",
-  weight: "normal",
-};
-
+type Story = StoryObj<typeof meta>;
 export { Default };
-export default story;

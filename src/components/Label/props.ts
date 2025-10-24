@@ -14,24 +14,24 @@ const props = {
   disabled: {
     description: "indicates wheter the text is in its disabled state",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   focused: {
     description: "indicates wheter the text is in its focused state",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   htmlFor: {
     options: ["id"],
-    control: { type: "select" },
+    control: { type: "select" as const },
     description: "Useful to match this label with the id of a specific entry",
   },
   invalid: {
     description: "Indicates the possible states in witch the label could be",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   margin: {
@@ -50,7 +50,7 @@ const props = {
   },
   size: {
     options: sizes,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description: "indicates the font size used in the component",
   },
   children: {

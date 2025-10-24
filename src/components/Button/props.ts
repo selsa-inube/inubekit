@@ -1,3 +1,6 @@
+import type { ArgTypes } from "@storybook/react-vite";
+import type { IButton } from ".";
+
 const appearances = [
   "primary",
   "success",
@@ -23,25 +26,21 @@ const variants = ["filled", "outlined", "none"] as const;
 
 type IButtonVariant = (typeof variants)[number];
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Button help people take action, such as sending an email, sharing a document, or liking a comment.",
-      },
-    },
-  },
+const props: ArgTypes<IButton> = {
   children: {
     control: { type: "text" },
     description: "the text to be displayed",
+    table: {
+      type: { summary: "ReactNode" },
+    },
   },
   loading: {
     options: [false, true],
     control: { type: "boolean" },
     description: "conditionally show a spinner over the top of a button",
     table: {
-      defaultValue: { summary: false },
+      type: { summary: "boolean" },
+      defaultValue: { summary: "false" },
     },
   },
   appearance: {
@@ -49,6 +48,7 @@ const props = {
     control: { type: "select" },
     description: "the base styling to apply to the button",
     table: {
+      type: { summary: "IButtonAppearance" },
       defaultValue: { summary: "primary" },
     },
   },
@@ -57,24 +57,33 @@ const props = {
     control: { type: "boolean" },
     description: "set if the button is disabled",
     table: {
-      defaultValue: { summary: false },
+      type: { summary: "boolean" },
+      defaultValue: { summary: "false" },
     },
   },
   iconBefore: {
-    options: "",
-    control: { type: "string" },
+    control: { type: "text" },
     description: "places an icon within the button, before the button's text",
+    table: {
+      type: { summary: "ReactElement" },
+      defaultValue: { summary: "</>" },
+    },
+    type: "symbol",
   },
   iconAfter: {
-    options: "",
-    control: { type: "string" },
+    control: { type: "text" },
+    type: "symbol",
     description: "places an icon within the button, after the button's text",
+    table: {
+      type: { summary: "ReactElement" },
+    },
   },
   type: {
     options: types,
     control: { type: "select" },
     description: "pass type down to a button",
     table: {
+      type: { summary: "IButtonType" },
       defaultValue: { summary: "button" },
     },
   },
@@ -83,6 +92,7 @@ const props = {
     control: { type: "select" },
     description: "pass type down to a button",
     table: {
+      type: { summary: "IButtonSpacing" },
       defaultValue: { summary: "wide" },
     },
   },
@@ -91,6 +101,7 @@ const props = {
     control: { type: "select" },
     description: "pass type down to a button",
     table: {
+      type: { summary: "IButtonVariant" },
       defaultValue: { summary: "filled" },
     },
   },
@@ -99,24 +110,39 @@ const props = {
     control: { type: "boolean" },
     description: "option to fit button width to its parent width",
     table: {
-      defaultValue: { summary: false },
+      type: { summary: "boolean" },
+      defaultValue: { summary: "false" },
     },
   },
   onClick: {
-    options: ["logState"],
-    control: { type: "func" },
+    type: "function",
     description: "function to control button click",
+    table: {
+      type: { summary: "(e?: Event) => void" },
+    },
   },
   path: {
+    control: { type: "text" },
     description:
       "Is the path where the button is going to navigate when is used as button for navigation",
+    table: {
+      type: { summary: "string" },
+    },
+  },
+  width: {
+    control: { type: "text" },
+    description: "custom width of the button",
+    table: {
+      type: { summary: "string" },
+    },
   },
   cursorHover: {
     options: [false, true],
     control: { type: "boolean" },
     description: "whether the button changes upon cursor hover",
     table: {
-      defaultValue: { summary: false },
+      type: { summary: "boolean" },
+      defaultValue: { summary: "false" },
     },
   },
   parentHover: {
@@ -124,7 +150,8 @@ const props = {
     control: { type: "boolean" },
     description: "whether the button changes upon its parent hover",
     table: {
-      defaultValue: { summary: false },
+      type: { summary: "boolean" },
+      defaultValue: { summary: "false" },
     },
   },
 };

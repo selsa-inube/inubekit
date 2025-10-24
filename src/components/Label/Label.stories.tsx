@@ -1,26 +1,28 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { props, parameters } from "./props";
-import { Label, ILabel } from ".";
+import { Label } from ".";
 
-const story = {
+const meta = {
   title: "inputs/Label",
-  components: [Label],
+  component: Label,
   parameters,
   argTypes: props,
+} satisfies Meta<typeof Label>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    htmlFor: "id",
+    children: "Label Text",
+    disabled: false,
+    size: "large",
+    focused: false,
+    invalid: false,
+    margin: "0px",
+    padding: "0px",
+  },
 };
 
-const Default = (args: ILabel) => {
-  return <Label {...args}>{args.children}</Label>;
-};
-Default.args = {
-  htmlFor: "id",
-  children: "Label Text",
-  disabled: false,
-  size: "large",
-  focused: false,
-  invalid: false,
-  margin: "0px",
-  padding: "0px",
-};
-
+export default meta;
 export { Default };
-export default story;
