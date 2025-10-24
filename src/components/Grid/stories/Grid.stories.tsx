@@ -1,37 +1,42 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { StyledSquare } from "./stories.styles";
-import { props } from "../props";
-import { Grid, IGrid } from "..";
+import { parameters, props } from "../props";
+import { Grid } from "..";
 
-const story = {
+const meta = {
   title: "layout/Grid",
-  components: [Grid],
+  component: Grid,
+  parameters,
   argTypes: props,
+} satisfies Meta<typeof Grid>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    templateColumns: "repeat(3, 1fr)",
+    gap: "28px",
+    templateRows: "auto",
+    justifyItems: "start",
+    alignItems: "start",
+    justifyContent: "flex-start",
+    alignContent: "flex-start",
+    autoColumns: "auto",
+    autoRows: "auto",
+    autoFlow: "row",
+    margin: "0px",
+    padding: "0px",
+    height: "auto",
+    width: "auto",
+    children: (
+      <>
+        <StyledSquare>Item 1</StyledSquare>
+        <StyledSquare>Item 2</StyledSquare>
+        <StyledSquare>Item 3</StyledSquare>
+      </>
+    ),
+  },
 };
 
-const Default = (args: IGrid) => (
-  <Grid {...args}>
-    <StyledSquare>Item 1</StyledSquare>
-    <StyledSquare>Item 2</StyledSquare>
-    <StyledSquare>Item 3</StyledSquare>
-  </Grid>
-);
-
-Default.args = {
-  templateColumns: "repeat(3, 1fr)",
-  gap: "28px",
-  templateRows: "auto",
-  justifyItems: "start",
-  alignItems: "start",
-  justifyContent: "flex-start",
-  alignContent: "flex-start",
-  autoColumns: "auto",
-  autoRows: "auto",
-  autoFlow: "row",
-  margin: "0px",
-  padding: "0px",
-  height: "auto",
-  width: "auto",
-};
-
+export default meta;
 export { Default };
-export default story;
