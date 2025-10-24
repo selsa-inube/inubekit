@@ -17,10 +17,11 @@ const parameters = {
 
 const props = {
   children: {
-    control: { type: "text" },
+    control: { type: "text" as const },
     description: "The text to be displayed",
   },
   hover: {
+    control: { type: "boolean" as const },
     description: "Indicates when the mouse passes over the text",
   },
   path: {
@@ -33,7 +34,7 @@ const props = {
   },
   size: {
     options: sizes,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "This prop is used to select one of the typography roles defined in the Foundations.",
   },
@@ -42,7 +43,7 @@ const props = {
   },
   type: {
     options: types,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "This prop is used to select one of the typography roles defined in the Foundations.",
     table: {

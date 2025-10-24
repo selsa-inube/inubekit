@@ -1,30 +1,30 @@
-import { JSX } from "react/jsx-runtime";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { SearchfieldController } from "./Searchfield.Controller";
 import { parameters, props } from "../../Input/props";
 import { IInput } from "../../Input";
 
-const story = {
+const meta = {
   title: "Inputs/Input/Search",
   component: SearchfieldController,
-  argTypes: props,
   parameters,
+  argTypes: props,
+} satisfies Meta<IInput>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    disabled: false,
+    fullwidth: false,
+    id: "Search",
+    label: "Search",
+    placeholder: "Type something...",
+    required: true,
+    type: "search",
+    size: "wide",
+    status: "pending",
+  },
 };
 
-const Default = (args: JSX.IntrinsicAttributes & IInput) => (
-  <SearchfieldController {...args} />
-);
-
-Default.args = {
-  disabled: false,
-  fullwidth: false,
-  id: "Search",
-  label: "Search",
-  placeholder: "Type something...",
-  required: true,
-  type: "search",
-  size: "wide",
-  status: "pending",
-};
-
+export default meta;
 export { Default };
-export default story;
