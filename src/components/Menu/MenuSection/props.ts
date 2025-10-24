@@ -1,11 +1,41 @@
 const props = {
-  sections: {
+  key: {
+    control: { type: "text" as const },
+    description: "Unique key for the menu section",
+  },
+  title: {
+    control: { type: "text" as const },
     description:
-      "This is an array of objects. Each object represents a section in the menu. It contains a 'title' and an array of 'links'. Each 'link' is an object that represents a menu item. It contains properties like 'title', 'description', 'iconBefore', 'iconAfter', 'isDisabled', and 'path'.",
+      "Optional title for the menu section, displayed as a heading above the section content",
+  },
+  children: {
+    control: { disable: true },
+    description:
+      "The menu items (MenuAction or MenuLink components) to display within the section",
   },
   divider: {
+    control: { type: "boolean" as const },
     description:
-      "This is a boolean prop that determines whether a divider line should be displayed between the sections. The default value is 'false'.",
+      "When true, displays a divider line above the section. Default is false",
+    table: {
+      defaultValue: { summary: "false" },
+    },
+  },
+  spacing: {
+    options: ["wide", "compact"],
+    control: { type: "select" as const },
+    description: "Defines the spacing size of the menu section",
+  },
+  disable: {
+    control: { type: "boolean" as const },
+    description: "Disables all menu items within the section",
+    table: {
+      defaultValue: { summary: "false" },
+    },
+  },
+  iconBefore: {
+    control: { disable: true },
+    description: "Icon to display before the title",
   },
 };
 

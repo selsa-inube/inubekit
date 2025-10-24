@@ -1,13 +1,15 @@
-import { StoryFn } from "@storybook/react-vite";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { ElementType } from "react";
 import { MdAndroid } from "react-icons/md";
 import { BrowserRouter } from "react-router-dom";
 import { IMenuLink, MenuLink } from "../MenuLink";
-import { ElementType } from "react";
+import { props } from "./props";
 
-const story = {
+const meta = {
   title: "navigation/Menu/MenuLink",
   component: MenuLink,
   tags: ["autodocs"],
+  argTypes: props,
   decorators: [
     (Story: ElementType) => (
       <BrowserRouter>
@@ -15,33 +17,42 @@ const story = {
       </BrowserRouter>
     ),
   ],
+} satisfies Meta<IMenuLink>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    title: "Title",
+    description: "Description",
+    iconBefore: <MdAndroid />,
+    spacing: "wide",
+    disabled: false,
+    path: "/default-path",
+  },
 };
 
-export const Default: StoryFn<IMenuLink> = (args) => <MenuLink {...args} />;
-Default.args = {
-  title: "Title",
-  description: "Description",
-  iconBefore: <MdAndroid />,
-  spacing: "wide",
-  disabled: false,
-  path: "/default-path",
+const IconAfter: Story = {
+  args: {
+    title: "Title",
+    description: "Description",
+    iconAfter: <MdAndroid />,
+    spacing: "wide",
+    disabled: false,
+    path: "/icon-after-path",
+  },
 };
 
-export const IconAfter: StoryFn<IMenuLink> = (args) => <MenuLink {...args} />;
-IconAfter.args = {
-  title: "Title",
-  description: "Description",
-  iconAfter: <MdAndroid />,
-  spacing: "wide",
-  disabled: false,
-  path: "/icon-after-path",
+const Disabled: Story = {
+  args: {
+    title: "Title",
+    description: "Description",
+    iconBefore: <MdAndroid />,
+    spacing: "wide",
+    disabled: true,
+    path: "/disabled-path",
+  },
 };
 
-export const Disabled: StoryFn<IMenuLink> = (args) => <MenuLink {...args} />;
-Disabled.args = {
-  ...Default.args,
-  disabled: true,
-  path: "/disabled-path",
-};
-
-export default story;
+export default meta;
+export { Default, IconAfter, Disabled };

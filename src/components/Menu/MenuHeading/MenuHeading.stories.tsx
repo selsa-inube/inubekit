@@ -1,17 +1,14 @@
-import { StoryFn } from "@storybook/react-vite";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { ElementType } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { IMenuHeading, MenuHeading } from ".";
 import { props } from "./props";
-import { JSX } from "react/jsx-runtime";
-import { ElementType } from "react";
 
-const story = {
+const meta = {
   title: "navigation/Menu/MenuHeading",
-  components: [MenuHeading],
+  component: MenuHeading,
   tags: ["autodocs"],
-  argTypes: {
-    ...props,
-  },
+  argTypes: props,
   decorators: [
     (Story: ElementType) => (
       <BrowserRouter>
@@ -19,13 +16,15 @@ const story = {
       </BrowserRouter>
     ),
   ],
+} satisfies Meta<IMenuHeading>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    title: "Title",
+  },
 };
 
-export const Default: StoryFn<IMenuHeading> = (
-  args: JSX.IntrinsicAttributes & IMenuHeading,
-) => <MenuHeading {...args} />;
-Default.args = {
-  title: "Title",
-};
-
-export default story;
+export default meta;
+export { Default };
