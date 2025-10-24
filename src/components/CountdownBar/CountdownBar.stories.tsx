@@ -1,25 +1,24 @@
-import { CountdownBar, ICountdownBar } from ".";
-import { action } from "storybook/actions";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { CountdownBar } from ".";
 import { props, parameters } from "./props";
 
-const story = {
+const meta = {
   title: "feedback/CountdownBar",
-  components: [CountdownBar],
+  component: CountdownBar,
   parameters,
-  argTypes: {
-    ...props,
-    onCountdown: { action: "onAnimationEnd" },
+  argTypes: props,
+} satisfies Meta<typeof CountdownBar>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    height: "4px",
+    appearance: "primary",
+    duration: 3000,
+    paused: false,
   },
 };
 
-const Default = (args: ICountdownBar) => <CountdownBar {...args} />;
-Default.args = {
-  height: "4px",
-  appearance: "primary",
-  duration: 3000,
-  paused: false,
-  onCountdown: action("onAnimationEnd"),
-};
-
+export default meta;
 export { Default };
-export default story;

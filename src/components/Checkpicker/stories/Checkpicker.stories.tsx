@@ -1,16 +1,6 @@
-import { ICheckpicker } from "..";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { parameters, props } from "../props";
 import { CheckpickerController } from "./Checkpicker.controller";
-
-const story = {
-  title: "Inputs/Checkpicker",
-  component: [CheckpickerController],
-  parameters,
-  argTypes: {
-    ...props,
-    onChange: { action: "Checkpicker" },
-  },
-};
 
 const options = Array.from({ length: 20 }, (_, i) => ({
   id: `option-${i + 1}`,
@@ -18,19 +8,30 @@ const options = Array.from({ length: 20 }, (_, i) => ({
   value: `option-${i + 1}`,
 }));
 
-const Default = (args: ICheckpicker) => <CheckpickerController {...args} />;
+const meta = {
+  title: "Inputs/Checkpicker",
+  component: CheckpickerController,
+  parameters,
+  argTypes: props,
+} satisfies Meta<typeof CheckpickerController>;
 
-Default.args = {
-  label: "Country",
-  name: "country",
-  id: "countryId",
-  placeholder: "Select your country",
-  disabled: false,
-  options: options,
-  required: false,
-  size: "wide",
-  fullwidth: false,
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    label: "Country",
+    name: "country",
+    id: "countryId",
+    placeholder: "Select your country",
+    disabled: false,
+    options: options,
+    required: false,
+    size: "wide",
+    fullwidth: false,
+    values: "",
+    onChange: () => {},
+  },
 };
 
-export default story;
+export default meta;
 export { Default };

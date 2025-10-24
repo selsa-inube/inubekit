@@ -28,11 +28,11 @@ const props = {
     description:
       "sets the field as to appear disabled, users will not be able to interact with the text field",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   value: {
-    control: { type: "date" },
+    control: { type: "text" as const },
     description: "component initial value",
   },
   onChange: {
@@ -42,12 +42,11 @@ const props = {
   required: {
     description: "defines if the field is required or not",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   status: {
     options: status,
-    control: { type: "select" },
     description: "status of the component",
     table: {
       defaultValue: { summary: "pending" },
@@ -59,14 +58,21 @@ const props = {
   },
   size: {
     options: sizes,
-    control: { type: "select" },
     description: "defines the size of the component",
   },
   fullwidth: {
     description: "option to fit field width to its parent width",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
+  },
+  onFocus: {
+    description:
+      "callback function that is executed when the field gains focus",
+  },
+  onBlur: {
+    description:
+      "callback function that is executed when the field loses focus",
   },
 };
 
