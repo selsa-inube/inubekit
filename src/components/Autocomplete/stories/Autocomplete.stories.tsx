@@ -1,16 +1,15 @@
-import { IAutocomplete } from "..";
-
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { props, parameters } from "../props";
 import { AutocompleteController } from "./Autocomplete.controller";
 
-const story = {
+const meta = {
   title: "Inputs/Autocomplete",
-  component: [AutocompleteController],
+  component: AutocompleteController,
   parameters,
-  argTypes: {
-    ...props,
-  },
-};
+  argTypes: props,
+} satisfies Meta<typeof AutocompleteController>;
+
+type Story = StoryObj<typeof meta>;
 
 const optionsMock = [
   { id: "op1", label: "Argentina", value: "option-1" },
@@ -27,22 +26,23 @@ const optionsMock = [
   { id: "op12", label: "Venezuela", value: "option-12" },
 ];
 
-const Default = (args: IAutocomplete) => <AutocompleteController {...args} />;
-
-Default.args = {
-  label: "Country",
-  name: "autocomplete",
-  id: "autocomplete",
-  placeholder: "Please type something...",
-  value: "",
-  disabled: false,
-  options: optionsMock,
-  required: false,
-  size: "wide",
-  fullwidth: false,
-  invalid: false,
-  message: "El campo no puede estar vacio",
+const Default: Story = {
+  args: {
+    label: "Country",
+    name: "autocomplete",
+    id: "autocomplete",
+    placeholder: "Please type something...",
+    value: "",
+    disabled: false,
+    options: optionsMock,
+    required: false,
+    size: "wide",
+    fullwidth: false,
+    invalid: false,
+    message: "El campo no puede estar vacio",
+    onChange: () => {},
+  },
 };
 
-export default story;
+export default meta;
 export { Default };

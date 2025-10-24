@@ -7,12 +7,11 @@ export const parameters = {
 };
 
 export const props = {
-  icon: {
-    description: "Icon that will be displayed inside of avatar-component",
-    table: {
-      defaultValue: { summary: "MdPersonOutline" },
-    },
+  onClick: {
+    description:
+      "Callback function that is triggered when the avatar is clicked",
   },
-  unreadNotificationsAmount:
-    "number of unread notifications related to the user",
+  unreadNotificationsAmount: {
+    description: "Number of unread notifications related to the user",
+  },
 };

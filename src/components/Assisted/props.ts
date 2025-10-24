@@ -25,10 +25,12 @@ const parameters = {
 
 const props = {
   step: {
+    control: { type: "number" as const },
     description:
       "(Object): The current step being displayed. The object should match one of the steps in the array passed to `steps`.",
   },
   totalSteps: {
+    control: { type: "number" as const },
     description: "(number): The total number of steps in the journey.",
   },
   onBackClick: {
@@ -44,14 +46,17 @@ const props = {
       "(Function): A function that will be called when the user clicks the submit button (on the last step).",
   },
   disableBack: {
+    control: { type: "boolean" as const },
     description:
       "(boolean): If `true`, the back button will be disabled. Default is `false`.",
   },
   disableNext: {
+    control: { type: "boolean" as const },
     description:
       "(boolean): If `true`, the next button will be disabled. Default is `false`.",
   },
   disableSubmit: {
+    control: { type: "boolean" as const },
     description:
       "(boolean): If `true`, the submit button will be disabled. Default is `false`.",
   },
@@ -65,7 +70,7 @@ const props = {
   },
   size: {
     options: sizes,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description: "The size of the Assisted component.",
     table: {
       defaultValue: { summary: "large" },
