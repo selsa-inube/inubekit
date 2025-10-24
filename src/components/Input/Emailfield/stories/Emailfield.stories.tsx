@@ -1,31 +1,29 @@
-import { JSX } from "react/jsx-runtime";
-
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { EmailfieldController } from "./Emailfield.Controller";
 import { parameters, props } from "../../Input/props";
-import { IInput } from "../../Input";
 
-const story = {
+const meta = {
   title: "Inputs/Input/Email",
   component: EmailfieldController,
-  argTypes: props,
   parameters,
+  argTypes: props,
+} satisfies Meta<typeof EmailfieldController>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    disabled: false,
+    fullwidth: false,
+    id: "email",
+    label: "Email Address",
+    placeholder: "Enter your email address",
+    required: true,
+    type: "email",
+    size: "wide",
+    status: "pending",
+  },
 };
 
-const Default = (args: JSX.IntrinsicAttributes & IInput) => (
-  <EmailfieldController {...args} />
-);
-
-Default.args = {
-  disabled: false,
-  fullwidth: false,
-  id: "email",
-  label: "Email Address",
-  placeholder: "Enter your email address",
-  required: true,
-  type: "email",
-  size: "wide",
-  status: "pending",
-};
-
+export default meta;
 export { Default };
-export default story;

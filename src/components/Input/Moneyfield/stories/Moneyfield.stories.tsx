@@ -1,30 +1,30 @@
-import { JSX } from "react/jsx-runtime";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { parameters, props } from "../../Input/props";
 import { MoneyfieldController } from "./Moneyfield.Controller";
-import { IInput } from "../../Input";
-const story = {
+
+const meta = {
   title: "Inputs/Input/Money",
   component: MoneyfieldController,
-  argTypes: props,
   parameters,
+  argTypes: props,
+} satisfies Meta<typeof MoneyfieldController>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    disabled: false,
+    fullwidth: false,
+    id: "amount",
+    label: "Amount",
+    placeholder: "Enter amount",
+    required: true,
+    type: "money",
+    size: "wide",
+    status: "pending",
+    value: "",
+  },
 };
 
-const Default = (args: JSX.IntrinsicAttributes & IInput) => (
-  <MoneyfieldController {...args} />
-);
-
-Default.args = {
-  disabled: false,
-  fullwidth: false,
-  id: "amount",
-  label: "Amount",
-  placeholder: "Enter amount",
-  required: true,
-  type: "money",
-  size: "wide",
-  status: "pending",
-  value: "",
-};
-
+export default meta;
 export { Default };
-export default story;

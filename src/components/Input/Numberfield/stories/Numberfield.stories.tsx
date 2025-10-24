@@ -1,30 +1,29 @@
-import { JSX } from "react/jsx-runtime";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { NumberfieldController } from "./Numberfield.Controller";
 import { parameters, props } from "../../Input/props";
-import { IInput } from "../../Input";
 
-const story = {
+const meta = {
   title: "Inputs/Input/Number",
   component: NumberfieldController,
-  argTypes: props,
   parameters,
+  argTypes: props,
+} satisfies Meta<typeof NumberfieldController>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    disabled: false,
+    fullwidth: false,
+    id: "quantity",
+    label: "Quantity",
+    placeholder: "Enter a number",
+    required: true,
+    type: "number",
+    size: "wide",
+    status: "pending",
+  },
 };
 
-const Default = (args: JSX.IntrinsicAttributes & IInput) => (
-  <NumberfieldController {...args} />
-);
-
-Default.args = {
-  disabled: false,
-  fullwidth: false,
-  id: "quantity",
-  label: "Quantity",
-  placeholder: "Enter a number",
-  required: true,
-  type: "number",
-  size: "wide",
-  status: "pending",
-};
-
+export default meta;
 export { Default };
-export default story;

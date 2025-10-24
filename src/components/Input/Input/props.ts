@@ -53,7 +53,6 @@ const props = {
   },
   type: {
     options: inputTypes,
-    control: { type: "select" as const },
     description: "class name to apply to the input element",
     table: {
       defaultValue: { summary: "text" },
@@ -64,10 +63,12 @@ const props = {
       "allows you to control what to do when the user changes the value of the component",
   },
   iconBefore: {
+    control: { disable: true },
     description:
       "allows to enter an icon to the left of the area where the user enters values",
   },
   iconAfter: {
+    control: { disable: true },
     description:
       "allows to enter an icon to the right of the area where the user enters values",
   },
@@ -79,7 +80,6 @@ const props = {
   },
   status: {
     options: status,
-    control: { type: "select" as const },
     description: "status of the component",
     table: {
       defaultValue: { summary: "pending" },
@@ -87,7 +87,6 @@ const props = {
   },
   size: {
     options: sizes,
-    control: { type: "select" as const },
     description: "defines the size of the input field",
     table: {
       defaultValue: { summary: "wide" },
@@ -98,6 +97,13 @@ const props = {
     table: {
       defaultValue: { summary: "false" },
     },
+  },
+  value: {
+    description: "current value of the input field",
+  },
+  message: {
+    description:
+      "message to display below the input field (e.g., error message)",
   },
 };
 

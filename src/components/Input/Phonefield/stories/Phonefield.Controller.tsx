@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { IInput } from "../../Input";
-import { Phonefield } from "..";
+import { Phonefield, IPhonefield } from "..";
 
-const PhonefieldController = (props: IInput) => {
+const PhonefieldController = (props: IPhonefield) => {
   const { value = "", status = "pending", ...rest } = props;
   const [form, setForm] = useState({ value, status });
 
