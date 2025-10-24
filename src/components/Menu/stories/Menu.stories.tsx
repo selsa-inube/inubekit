@@ -1,16 +1,18 @@
-import { StoryFn } from "@storybook/react-vite";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { ElementType } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Menu } from "..";
+import { MdLogout } from "react-icons/md";
+import { Menu, IMenu } from "..";
 import { MenuUser } from "../MenuUser";
 import { MenuSection } from "../MenuSection";
-import { MdLogout } from "react-icons/md";
 import { MenuAction } from "../MenuAction";
-import { ElementType } from "react";
+import { props } from "../props";
 
-const story = {
+const meta = {
   title: "navigation/Menu",
-  components: [Menu],
+  component: Menu,
   tags: ["autodocs"],
+  argTypes: props,
   decorators: [
     (Story: ElementType) => (
       <BrowserRouter>
@@ -18,19 +20,26 @@ const story = {
       </BrowserRouter>
     ),
   ],
+} satisfies Meta<IMenu>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    children: (
+      <>
+        <MenuUser userName="Name" businessUnit="Business Unit" avatar />
+        <MenuSection divider={true}>
+          <MenuAction
+            title="Logout"
+            iconBefore={<MdLogout />}
+            action={() => console.log("logout")}
+          />
+        </MenuSection>
+      </>
+    ),
+  },
 };
 
-export const Default: StoryFn = () => (
-  <Menu>
-    <MenuUser userName="Name" businessUnit="Business Unit" avatar />
-    <MenuSection divider={true}>
-      <MenuAction
-        title="Logout"
-        iconBefore={<MdLogout />}
-        action={() => console.log("logout")}
-      />
-    </MenuSection>
-  </Menu>
-);
-
-export default story;
+export default meta;
+export { Default };

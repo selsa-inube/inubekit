@@ -1,16 +1,14 @@
-import { StoryFn } from "@storybook/react-vite";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { ElementType } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { MenuUser, IMenuUser } from ".";
 import { props } from "./props";
-import { ElementType } from "react";
 
-const story = {
+const meta = {
   title: "navigation/Menu/MenuUser",
-  components: [MenuUser],
+  component: MenuUser,
   tags: ["autodocs"],
-  argTypes: {
-    ...props,
-  },
+  argTypes: props,
   decorators: [
     (Story: ElementType) => (
       <BrowserRouter>
@@ -18,15 +16,19 @@ const story = {
       </BrowserRouter>
     ),
   ],
+} satisfies Meta<IMenuUser>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    userName: "Name",
+    businessUnit: "Business Unit",
+    avatar: true,
+    padding: "12px 16px",
+    gap: "12px",
+  },
 };
 
-export const Default: StoryFn<IMenuUser> = (args) => <MenuUser {...args} />;
-Default.args = {
-  userName: "Name",
-  businessUnit: "Business Unit",
-  avatar: true,
-  padding: "12px 16px",
-  gap: "12px",
-};
-
-export default story;
+export default meta;
+export { Default };
