@@ -1,26 +1,16 @@
-import { StoryFn } from "@storybook/react-vite";
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { ElementType } from "react";
 import { MdAndroid } from "react-icons/md";
 import { BrowserRouter } from "react-router-dom";
-import { MenuSection } from ".";
+import { MenuSection, IMenuSection } from ".";
 import { MenuAction } from "../MenuAction";
-import { ElementType } from "react";
+import { props } from "./props";
 
-const story = {
+const meta = {
   title: "navigation/Menu/MenuSection",
-  components: [MenuSection],
+  component: MenuSection,
   tags: ["autodocs"],
-  argTypes: {
-    spacing: {
-      control: "radio",
-      options: ["wide", "compact"],
-    },
-    divider: {
-      control: "boolean",
-    },
-    title: {
-      control: "text",
-    },
-  },
+  argTypes: props,
   decorators: [
     (Story: ElementType) => (
       <BrowserRouter>
@@ -28,29 +18,32 @@ const story = {
       </BrowserRouter>
     ),
   ],
+} satisfies Meta<IMenuSection>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    title: "Heading 1",
+    divider: true,
+    children: (
+      <>
+        <MenuAction
+          title="Configuration"
+          description="Adjust the details of your project"
+          iconAfter={<MdAndroid />}
+          action={() => console.log("config")}
+        />
+        <MenuAction
+          title="Account"
+          description="See your personal settings"
+          iconAfter={<MdAndroid />}
+          action={() => console.log("account")}
+        />
+      </>
+    ),
+  },
 };
 
-export const Default: StoryFn = (args) => (
-  <MenuSection {...args}>
-    <MenuAction
-      title="Configuration"
-      description="Adjust the details of your project"
-      iconAfter={<MdAndroid />}
-      action={() => console.log("config")}
-    />
-    <MenuAction
-      title="Account"
-      description="See your personal settings"
-      iconAfter={<MdAndroid />}
-      action={() => console.log("account")}
-    />
-  </MenuSection>
-);
-
-Default.args = {
-  title: "Heading 1",
-  spacing: "wide",
-  divider: true,
-};
-
-export default story;
+export default meta;
+export { Default };
