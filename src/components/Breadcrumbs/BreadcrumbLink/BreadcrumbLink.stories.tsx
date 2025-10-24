@@ -1,12 +1,13 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { BrowserRouter } from "react-router-dom";
-import { action } from "storybook/actions";
-import { props } from "./props";
-import { BreadcrumbLink, IBreadcrumbLink } from ".";
 import { ElementType } from "react";
+import { parameters, props } from "./props";
+import { BreadcrumbLink } from ".";
 
-const story = {
+const meta = {
   title: "navigation/Breadcrumbs/BreadcrumbLink",
-  components: [BreadcrumbLink],
+  component: BreadcrumbLink,
+  parameters,
   argTypes: props,
   decorators: [
     (Story: ElementType) => (
@@ -15,16 +16,18 @@ const story = {
       </BrowserRouter>
     ),
   ],
+} satisfies Meta<typeof BreadcrumbLink>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    label: "Privileges",
+    path: "/privileges",
+    id: "privileges",
+    size: "large",
+  },
 };
 
-const Default = (args: IBreadcrumbLink) => <BreadcrumbLink {...args} />;
-Default.args = {
-  label: "Privileges",
-  path: "/privileges",
-  id: "privileges",
-  size: "large",
-  onClick: action("onClick"),
-};
-
+export default meta;
 export { Default };
-export default story;

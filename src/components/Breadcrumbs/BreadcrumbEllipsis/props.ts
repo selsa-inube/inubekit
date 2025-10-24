@@ -1,26 +1,26 @@
 const sizes = ["large", "small"] as const;
 type IBreadcrumbEllipsisSize = (typeof sizes)[number];
 
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
     },
   },
+};
+
+const props = {
   handleClick: {
-    options: ["logState"],
-    control: { type: "func" },
+    control: { disable: true },
     description: "shall be determine the behavior of the click event",
   },
   size: {
     options: sizes,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description: "indicates the font size used in the component",
     table: {
-      defaultValue: { summary: "labelLarge" },
+      defaultValue: { summary: "large" },
     },
   },
   routes: {
@@ -34,5 +34,5 @@ const props = {
   },
 };
 
-export { props, sizes };
+export { parameters, props, sizes };
 export type { IBreadcrumbEllipsisSize };
