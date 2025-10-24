@@ -1,12 +1,13 @@
-const props = {
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
-      },
+const parameters = {
+  docs: {
+    description: {
+      component:
+        "Breadcrumbs are a navigation system used to show a user's location in a site or app.",
     },
   },
+};
+
+const props = {
   routes: {
     description:
       "The breadcrumb-component will utilize this routes for display, and consequently, it can be employed to locate the source of breadcrumbLinks present within this component.",
@@ -21,4 +22,4 @@ const props = {
   },
 };
 
-export { props };
+export { parameters, props };
