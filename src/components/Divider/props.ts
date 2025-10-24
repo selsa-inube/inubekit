@@ -1,6 +1,6 @@
 const parameters = {
   docs: {
-    descriptions: {
+    description: {
       component:
         "Element that helps separate pieces of content into groups, sections, options, or parts, providing a clear and defined visual distinction.",
     },
