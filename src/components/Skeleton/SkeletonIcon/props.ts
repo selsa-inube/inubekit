@@ -9,7 +9,7 @@ const parameters = {
 
 const props = {
   size: {
-    control: { type: "text" },
+    control: { type: "text" as const },
     description: "sets the size of the skeleton icon component",
     table: {
       defaultValue: { summary: "24px" },
@@ -17,11 +17,11 @@ const props = {
   },
   animated: {
     options: [false, true],
-    control: { type: "boolean" },
+    control: { type: "boolean" as const },
     description:
       "toggles whether or not the skeleton component's animation is active",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
 };

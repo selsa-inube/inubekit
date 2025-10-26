@@ -9,21 +9,24 @@ const parameters = {
 
 const props = {
   width: {
+    control: { type: "text" as const },
     description: "indicates the width that the component should take",
     table: {
       defaultValue: { summary: "100px" },
     },
   },
   height: {
+    control: { type: "text" as const },
     description: "indicates the height that the component should take",
     table: {
       defaultValue: { summary: "16px" },
     },
   },
   animated: {
+    control: { type: "boolean" as const },
     description: "enable loading effect animation",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
 };

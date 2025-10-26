@@ -1,18 +1,22 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { props, parameters } from "./props";
-import { SkeletonIcon, ISkeletonIcon } from ".";
+import { SkeletonIcon } from ".";
 
-const story = {
+const meta = {
   title: "feedback/SkeletonIcon",
-  components: SkeletonIcon,
+  component: SkeletonIcon,
   parameters,
   argTypes: props,
+} satisfies Meta<typeof SkeletonIcon>;
+
+type Story = StoryObj<typeof SkeletonIcon>;
+
+const Default: Story = {
+  args: {
+    size: "24px",
+    animated: false,
+  },
 };
 
-const Default = (args: ISkeletonIcon) => <SkeletonIcon {...args} />;
-Default.args = {
-  size: "24px",
-  animated: false,
-};
-
+export default meta;
 export { Default };
-export default story;

@@ -25,7 +25,7 @@ const parameters = {
 const props = {
   size: {
     options: sizes,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "different sizes that the component can have, according to the need",
     table: {
@@ -34,7 +34,7 @@ const props = {
   },
   appearance: {
     options: appearances,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description: "colors used to identify the state of the component",
     table: {
       defaultValue: { summary: "primary" },
@@ -42,11 +42,11 @@ const props = {
   },
   transparent: {
     options: [true, false],
-    control: { type: "boolean" },
+    control: { type: "boolean" as const },
     description:
       "indicates when the background of the spinner should have color",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
 };
