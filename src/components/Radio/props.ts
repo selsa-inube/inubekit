@@ -29,6 +29,7 @@ const props = {
       "(string) (Optional): The name attribute groups Radios together. Radios with the same name form a group where only one option can be selected.",
   },
   onChange: {
+    control: { disable: true },
     description:
       "(Function): A callback function that is triggered whenever the Radio's state changes (e.g., when a user selects or deselects the Radio). The function receives the change event as an argument.",
   },
