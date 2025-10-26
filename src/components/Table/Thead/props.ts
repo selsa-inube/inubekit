@@ -9,6 +9,7 @@ const parameters = {
 
 const props = {
   children: {
+    control: { disable: true },
     description: "Content to be rendered inside the **Thead** component.",
   },
 };

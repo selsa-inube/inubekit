@@ -29,14 +29,14 @@ const props = {
   align: {
     options: alignContent,
     control: {
-      type: "select",
+      type: "select" as const,
     },
     description: "Aligns the content of the **Table Td Component**.",
   },
   appearance: {
     options: appearances,
     control: {
-      type: "select",
+      type: "select" as const,
     },
     description: "Changes the appearance of the **Table Td Component**.",
   },
@@ -54,7 +54,7 @@ const props = {
   type: {
     options: types,
     control: {
-      type: "select",
+      type: "select" as const,
     },
     description: "Changes the type of the **Table Td Component**.",
   },

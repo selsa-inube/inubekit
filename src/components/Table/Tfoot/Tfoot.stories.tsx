@@ -1,28 +1,35 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Stack } from "../../Stack";
-import { ITfoot, Tfoot } from ".";
+import { Tfoot } from ".";
 import { Pagination } from "../Pagination";
 
-const story = {
+const meta = {
   title: "data/Table/Tfoot",
   component: Tfoot,
+  argTypes: {
+    children: { control: false },
+  },
+} satisfies Meta<typeof Tfoot>;
+
+type Story = StoryObj<typeof Tfoot>;
+
+const Default: Story = {
+  args: {
+    children: (
+      <Stack justifyContent="flex-end" width="500px">
+        <Pagination
+          firstEntryInPage={0}
+          lastEntryInPage={0}
+          totalRecords={0}
+          handleStartPage={() => {}}
+          handlePrevPage={() => {}}
+          handleNextPage={() => {}}
+          handleEndPage={() => {}}
+        />
+      </Stack>
+    ),
+  },
 };
 
-const Default = (args: ITfoot) => <Tfoot {...args} />;
-Default.args = {
-  children: (
-    <Stack justifyContent="flex-end" width="500px">
-      <Pagination
-        firstEntryInPage={0}
-        lastEntryInPage={0}
-        totalRecords={0}
-        handleStartPage={() => {}}
-        handlePrevPage={() => {}}
-        handleNextPage={() => {}}
-        handleEndPage={() => {}}
-      />
-    </Stack>
-  ),
-};
-
-export default story;
+export default meta;
 export { Default };

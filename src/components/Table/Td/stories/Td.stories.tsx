@@ -1,18 +1,23 @@
-import { ITd, Td } from "..";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Td } from "..";
 import { parameters, props } from "../props";
 import { TdController } from "./TdController";
 
-const story = {
+const meta = {
   title: "data/Table/Td",
   component: Td,
   parameters,
   argTypes: props,
+} satisfies Meta<typeof Td>;
+
+type Story = StoryObj<typeof Td>;
+
+const Default: Story = {
+  args: {
+    children: "content",
+  },
+  render: (args) => <TdController {...args} />,
 };
 
-const Default = (args: ITd) => <TdController {...args} />;
-Default.args = {
-  children: "content",
-};
-
-export default story;
+export default meta;
 export { Default };
