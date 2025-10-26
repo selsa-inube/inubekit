@@ -1,14 +1,15 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { MdManageAccounts, MdLogout } from "react-icons/md";
-import { StoryFn } from "@storybook/react-vite";
 import { BrowserRouter } from "react-router-dom";
-import { IUser, User } from ".";
-import { IMenuSection, props } from "./props";
+import { User } from ".";
+import { IMenuSection, props, parameters } from "./props";
 import { ElementType } from "react";
 
-const story = {
+const meta = {
   title: "data/User",
-  components: [User],
+  component: User,
   parameters: {
+    ...parameters,
     layout: "fullscreen",
   },
   argTypes: props,
@@ -22,7 +23,9 @@ const story = {
       </BrowserRouter>
     ),
   ],
-};
+} satisfies Meta<typeof User>;
+
+type Story = StoryObj<typeof User>;
 
 const sections: IMenuSection[] = [
   {
@@ -51,17 +54,19 @@ const sections: IMenuSection[] = [
   },
 ];
 
-const Default: StoryFn<IUser> = (args: IUser) => <User {...args} />;
-Default.args = {
-  username: "Leonardo Garzón",
-  client: "Sistemas Enlínea S.A",
-  size: "large",
-  menu: sections,
-  padding: "8px 16px",
-  menuTopPosition: "100%",
-  menuRightPosition: "16px",
-  unreadNotificationsAmount: 3,
+const Default: Story = {
+  args: {
+    username: "Leonardo Garzón",
+    client: "Sistemas Enlínea S.A",
+    size: "large",
+    menu: sections,
+    padding: "8px 16px",
+    menuTopPosition: "100%",
+    menuRightPosition: "16px",
+    unreadNotificationsAmount: 3,
+    margin: "0px",
+  },
 };
 
-export default story;
+export default meta;
 export { Default };

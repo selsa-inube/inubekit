@@ -13,20 +13,21 @@ const parameters = {
 const props = {
   checked: {
     options: [true, false],
-    control: { type: "boolean" },
+    control: { type: "boolean" as const },
     description:
       "Defines whether the toggle is in the checked (enabled) or unchecked (disabled) state.",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   children: {
+    control: { type: "text" as const },
     description:
       "Text or elements to be displayed alongside the toggle switch.",
   },
   disabled: {
     options: [true, false],
-    control: { type: "boolean" },
+    control: { type: "boolean" as const },
     description:
       "Disables the toggle switch when set to true, preventing user interaction.",
     table: {
@@ -34,13 +35,12 @@ const props = {
     },
   },
   id: {
-    options: ["id"],
-    control: { type: "select" },
+    control: { type: "text" as const },
     description:
       "The unique identifier for the toggle switch. It allows the toggle to be connected to a label.",
   },
   margin: {
-    type: { name: "string", required: false },
+    control: { type: "text" as const },
     description:
       "Sets the outer margin of the toggle in px or global spacing values. Accepts spacing tokens.",
     table: {
@@ -48,19 +48,17 @@ const props = {
     },
   },
   name: {
-    options: ["name"],
-    control: { type: "select" },
+    control: { type: "text" as const },
     description:
       "The name of the toggle, used when submitting the value as part of a form.",
   },
   onChange: {
-    options: ["logState"],
-    control: { type: "func" },
+    control: { disable: true },
     description:
       "Function that is triggered whenever the toggle's state is modified.",
   },
   padding: {
-    type: { name: "string", required: false },
+    control: { type: "text" as const },
     description:
       "Sets the inner padding of the toggle in px or global spacing values. Accepts spacing tokens.",
     table: {
@@ -69,7 +67,7 @@ const props = {
   },
   size: {
     options: sizes,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "Defines the size of the toggle switch. Options are 'small' or 'large'.",
     table: {
@@ -77,8 +75,7 @@ const props = {
     },
   },
   value: {
-    options: ["switchTest1", "switchTest2", "switchTest3", "switchTest4"],
-    control: { type: "select" },
+    control: { type: "text" as const },
     description:
       "The value to be submitted in a form when the toggle is checked.",
   },

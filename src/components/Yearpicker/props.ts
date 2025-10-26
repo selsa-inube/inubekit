@@ -15,32 +15,41 @@ const parameters = {
 
 const props = {
   onChange: {
-    action: "Yearpicker",
+    control: { disable: true },
     description: "Function to handle the change in year selection.",
   },
   start: {
-    control: { type: "number" },
+    control: { type: "number" as const },
     description: "The starting year to display.",
-    defaultValue: 2000,
+    table: {
+      defaultValue: { summary: "2000" },
+    },
   },
   end: {
-    control: { type: "number" },
+    control: { type: "number" as const },
     description: "The ending year to display.",
-    defaultValue: new Date().getFullYear(),
+    table: {
+      defaultValue: { summary: "current year" },
+    },
   },
   order: {
-    control: { type: "select" },
-    options: ["asc", "desc"],
+    control: { type: "select" as const },
+    options: order,
     description: "Order of the years displayed (ascending or descending).",
-    defaultValue: "desc",
+    table: {
+      defaultValue: { summary: "desc" },
+    },
   },
   placeholder: {
+    control: { type: "text" as const },
     description: "text to display in the text field whenever it is empty",
   },
   value: {
-    control: { type: "text" },
+    control: { type: "text" as const },
     description: "The currently selected year value.",
-    defaultValue: "",
+    table: {
+      defaultValue: { summary: "" },
+    },
   },
 };
 
