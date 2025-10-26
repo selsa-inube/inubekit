@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Radio } from "..";
 import { RadioController } from "./Radio.Controller";
 import { parameters, props } from "../props";
@@ -10,11 +10,9 @@ const meta = {
   argTypes: props,
 } satisfies Meta<typeof Radio>;
 
-export default meta;
-
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+const Default: Story = {
   render: (args) => <RadioController {...args} />,
   args: {
     id: "radio1",
@@ -27,3 +25,6 @@ export const Default: Story = {
       console.log(`Radio value: ${e.target.value}`),
   },
 };
+
+export default meta;
+export { Default };
