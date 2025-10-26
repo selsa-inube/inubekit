@@ -2,23 +2,42 @@ const parameters = {
   docs: {
     description: {
       component:
-        "The Select component enables users to choose one or multiple options from a dropdown list. It provides a user-friendly interface for selecting predefined values, making it ideal for forms and other data entry scenarios.",
+        "The OptionItem component represents a single option within a Select dropdown. It can display as a simple text item or include a checkbox for multi-select scenarios.",
     },
   },
 };
 
 const props = {
   id: {
+    control: { type: "text" as const },
     description:
-      "A unique identifier for the Select component. This ID is crucial for accessibility, as it connects the label element to the input element via the `htmlFor` attribute on the label. It ensures that screen readers and other assistive technologies can correctly identify and associate the label with the input field.",
+      "A unique identifier for the option item. This ID is used to identify the selected option.",
   },
   label: {
+    control: { type: "text" as const },
     description:
-      "The label text that describes the purpose of the Select component. It provides context to the user about what options they are selecting from and is typically displayed above or beside the dropdown. This label is essential for accessibility and clarity in user interfaces.",
+      "The label text that is displayed for the option. This provides a human-readable description of the option.",
   },
-  onClick: {
+  picker: {
+    control: { type: "boolean" as const },
     description:
-      "An optional callback function that defines custom behavior when the Select component is clicked. This function can be used to handle various user interactions, such as opening the dropdown, logging interactions, or triggering other UI changes. While it is not required, providing this function allows for greater control over the component's behavior.",
+      "Determines whether the option displays a checkbox for multi-select functionality. When true, a checkbox is shown alongside the label.",
+    table: {
+      defaultValue: { summary: "false" },
+    },
+  },
+  checked: {
+    control: { type: "boolean" as const },
+    description:
+      "Controls whether the checkbox (if picker is true) is checked. Only applicable when picker is enabled.",
+    table: {
+      defaultValue: { summary: "false" },
+    },
+  },
+  onCheckboxChange: {
+    control: { disable: true },
+    description:
+      "An optional callback function that is triggered when the checkbox state changes. Only applicable when picker is enabled.",
   },
 };
 
