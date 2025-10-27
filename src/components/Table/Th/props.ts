@@ -13,7 +13,7 @@ const parameters = {
 const props = {
   action: {
     control: {
-      type: "boolean",
+      type: "boolean" as const,
     },
     description:
       "Use this prop to add an action to the **Table Th Component**.",
@@ -21,7 +21,7 @@ const props = {
   align: {
     options: alignContent,
     control: {
-      type: "select",
+      type: "select" as const,
     },
     description: "Aligns the content of the **Table Th Component**.",
   },
