@@ -22,15 +22,15 @@ const parameters = {
 
 const props = {
   animated: {
-    control: { type: "boolean" },
+    control: { type: "boolean" as const },
     description:
       "If true, adds a shimmer animation to indicate activity when progress is stuck.",
     table: {
-      defaultValue: { summary: false },
+      defaultValue: { summary: "false" },
     },
   },
   appearance: {
-    control: { type: "select" },
+    control: { type: "select" as const },
     description: "Determines the color scheme of the progress bar.",
     options: appearances,
     table: {
@@ -38,7 +38,7 @@ const props = {
     },
   },
   height: {
-    control: { type: "text" },
+    control: { type: "text" as const },
     description:
       "Sets the height of the progress bar, allowing customization of its thickness.",
     table: {
@@ -46,14 +46,15 @@ const props = {
     },
   },
   progress: {
-    control: { type: "number" },
+    control: { type: "number" as const },
     description: "Represents the progress percentage (0 to 100).",
     table: {
-      defaultValue: { summary: 0 },
+      defaultValue: { summary: "0" },
     },
   },
   onComplete: {
-    control: { type: "function" },
+    action: "onComplete",
+    control: { disable: true },
     description:
       "Callback function that is triggered when progress reaches 100%.",
   },
