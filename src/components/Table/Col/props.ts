@@ -9,7 +9,7 @@ const parameters = {
 const props = {
   span: {
     control: {
-      type: "number",
+      type: "number" as const,
     },
     description: "Defines the number of columns a `<col>` element should span.",
   },

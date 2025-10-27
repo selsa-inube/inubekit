@@ -84,15 +84,13 @@ type IStackStructure = (typeof structureProperties)[number];
 
 const props = {
   children: {
-    options: "",
-    control: { type: "string" },
     description:
       "This prop enables the component to receive React nodes which in turn are the ones that the Stack will organize in a layout.",
   },
 
   as: {
     options: structureProperties,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description: "Define the main container HTML tag",
     table: {
       defaultValue: { summary: "div" },
@@ -101,7 +99,7 @@ const props = {
 
   wrap: {
     options: wrapControls,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "Indicates whether the container should use more than one row/column to organize its children.",
     table: {
@@ -111,7 +109,7 @@ const props = {
 
   direction: {
     options: directionAlignments,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "Defines if the elements will be organized in a row or column manner.",
     table: {
@@ -121,7 +119,7 @@ const props = {
 
   justifyContent: {
     options: justifyContentProperties,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "Defines the horizontal alignment of elements when the direction is row or the vertical alignment of elements when direction is column.",
     table: {
@@ -131,7 +129,7 @@ const props = {
 
   alignItems: {
     options: alignItemsProperties,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "Defines the horizontal alignment of elements when the direction is column or the vertical alignment of elements when direction is row.",
     table: {
@@ -141,7 +139,7 @@ const props = {
 
   alignContent: {
     options: alignContentProperties,
-    control: { type: "select" },
+    control: { type: "select" as const },
     description:
       "This property aligns a flex container’s lines within it when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis.",
     table: {
@@ -150,7 +148,7 @@ const props = {
   },
 
   gap: {
-    type: { name: "string", required: false },
+    control: { type: "text" as const },
     description:
       "Defines a space between elements in the same row or between two rows (if wrap is activate). in order to define one value for row-gaps and another to receive column-gaps, we can get through this prop a string with two different measures (e.g. “16px 8px”, which means a row-gap of 16px and a column-gap of 8px).",
     table: {
@@ -159,7 +157,7 @@ const props = {
   },
 
   height: {
-    type: { name: "string", required: false },
+    control: { type: "text" as const },
     description:
       "Sets the margin in px or global values for all four sides of the component.",
     table: {
@@ -168,7 +166,7 @@ const props = {
   },
 
   width: {
-    type: { name: "string", required: false },
+    control: { type: "text" as const },
     description:
       "Sets the margin in px or global values for all four sides of the component.",
     table: {
@@ -177,7 +175,7 @@ const props = {
   },
 
   margin: {
-    type: { name: "string", required: false },
+    control: { type: "text" as const },
     description:
       "Sets the margin in px or global values for all four sides of the component.",
     table: {
@@ -186,7 +184,7 @@ const props = {
   },
 
   padding: {
-    type: { name: "string", required: false },
+    control: { type: "text" as const },
     description:
       "Sets the padding in px p global values for all four sides of the component.",
     table: {
