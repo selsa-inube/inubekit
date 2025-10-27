@@ -1,11 +1,11 @@
 const props = {
   id: {
-    control: { type: "text" },
+    control: { type: "text" as const },
     description: "shall be the id for the text",
   },
   disabled: {
     options: [true, false],
-    control: { type: "boolean" },
+    control: { type: "boolean" as const },
     description:
       "if the switch is disabled or not. This prevents any interaction.",
     table: {
@@ -14,24 +14,19 @@ const props = {
   },
   selected: {
     options: [true, false],
-    control: { type: "boolean" },
+    control: { type: "boolean" as const },
     description:
       "is designed to ascertain whether the tab has been clicked or not.",
     table: {
       defaultValue: { summary: "false" },
     },
   },
-  onClick: {
-    options: ["logState"],
-    control: { type: "func" },
-    description: "shall be determine the behavior of the click event",
-  },
   label: {
-    control: { type: "text" },
+    control: { type: "text" as const },
     description: "shall constitute the content to be displayed",
   },
   icon: {
-    control: { type: "IIcon" },
+    control: { type: "object" as const },
     description:
       "Corresponds to the icon that you want to show in the component",
   },

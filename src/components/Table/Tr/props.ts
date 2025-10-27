@@ -14,24 +14,25 @@ const props = {
   border: {
     options: borders,
     control: {
-      type: "select",
+      type: "select" as const,
     },
     description: "Sets the border of the **Table Tr Component**.",
   },
   borderDashed: {
     control: {
-      type: "boolean",
+      type: "boolean" as const,
     },
     description: "If true, sets the border style to dashed.",
   },
   zebra: {
     control: {
-      type: "boolean",
+      type: "boolean" as const,
     },
     description:
       "If true, applies zebra striping to the **Table Tr Component**.",
   },
   children: {
+    control: { disable: true },
     description: "Content to be rendered inside the **Table Tr Component**.",
   },
 };
