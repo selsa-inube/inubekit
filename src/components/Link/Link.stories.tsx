@@ -1,11 +1,14 @@
+import { Meta, StoryObj } from "@storybook/react-vite";
+import { ElementType } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Link, ILink } from ".";
 import { parameters, props } from "./props";
-import { ElementType } from "react";
 
-const story = {
-  argTypes: props,
+const meta = {
+  title: "navigation/Link",
   component: Link,
+  parameters,
+  argTypes: props,
   decorators: [
     (Story: ElementType) => (
       <BrowserRouter>
@@ -13,22 +16,20 @@ const story = {
       </BrowserRouter>
     ),
   ],
-  parameters,
-  title: "navigation/Link",
+} satisfies Meta<ILink>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    children: "Link",
+    path: "/",
+    rel: "noopener noreferrer",
+    size: "large",
+    target: "_self",
+    type: "body",
+  },
 };
 
-const Default = (args: ILink) => {
-  return <Link {...args}>{args.children}</Link>;
-};
-
-Default.args = {
-  children: "Link",
-  path: "/",
-  rel: "noopener noreferrer",
-  size: "large",
-  target: "_self",
-  type: "body",
-};
-
+export default meta;
 export { Default };
-export default story;

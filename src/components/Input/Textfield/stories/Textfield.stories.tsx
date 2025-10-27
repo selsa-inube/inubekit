@@ -1,33 +1,33 @@
-import { JSX } from "react/jsx-runtime";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { TextfieldController } from "./Textfield.Controller";
 import { parameters, props } from "../../Input/props";
 import { IInput } from "../../Input";
 
-const story = {
+const meta = {
   title: "Inputs/Input/Text",
   component: TextfieldController,
-  argTypes: props,
   parameters,
+  argTypes: props,
+} satisfies Meta<IInput>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  args: {
+    disabled: false,
+    fullwidth: false,
+    name: "Username",
+    id: "Username",
+    placeholder: "Write your full name",
+    label: "Username",
+    required: true,
+    type: "text",
+    size: "wide",
+    status: "pending",
+    maxLength: 20,
+    minLength: 5,
+  },
 };
 
-const Default = (args: JSX.IntrinsicAttributes & IInput) => (
-  <TextfieldController {...args} />
-);
-
-Default.args = {
-  disabled: false,
-  fullwidth: false,
-  name: "Username",
-  id: "Username",
-  placeholder: "Write your full name",
-  label: "Username",
-  required: true,
-  type: "text",
-  size: "wide",
-  status: "pending",
-  maxLength: 20,
-  minLength: 5,
-};
-
+export default meta;
 export { Default };
-export default story;
