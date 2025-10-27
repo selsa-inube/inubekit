@@ -1,41 +1,45 @@
-import { Select, ISelect } from "..";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Select } from "..";
 import { InForm } from "./Select.form.Controller";
-
 import { props, parameters } from "../props";
 
-const story = {
+const meta = {
   title: "Inputs/Select",
-  component: [Select],
+  component: Select,
   parameters,
   argTypes: {
     ...props,
-    onchange: { action: "Select" },
+    onChange: { action: "Select" },
   },
+} satisfies Meta<typeof Select>;
+
+type Story = StoryObj<typeof Select>;
+
+const SelectInForm: Story = {
+  args: {
+    label: "Country",
+    name: "country",
+    id: "country",
+    placeholder: "Select your country",
+    value: "",
+    required: true,
+    disabled: false,
+    invalid: false,
+    options: [
+      { id: "col", label: "Colombia", value: "colombia" },
+      {
+        id: "usa",
+        label: "United States of America",
+        value: "united-states-of-america",
+      },
+      { id: "per", label: "Peru", value: "peru" },
+    ],
+    size: "compact",
+    fullwidth: false,
+    onChange: () => {},
+  },
+  render: (args) => <InForm {...args} />,
 };
 
-const SelectInForm = (args: ISelect) => <InForm {...args} />;
-
-SelectInForm.args = {
-  label: "Country",
-  name: "country",
-  id: "country",
-  placeholder: "Select your country",
-  value: "",
-  required: true,
-  disabled: false,
-  invalid: false,
-  options: [
-    { id: "col", label: "Colombia", value: "colombia" },
-    {
-      id: "usa",
-      label: "United States of America",
-      value: "united-states-of-america",
-    },
-    { id: "per", label: "Peru", value: "peru" },
-  ],
-  size: "compact",
-  fullwidth: false,
-};
-
-export default story;
+export default meta;
 export { SelectInForm };

@@ -1,16 +1,18 @@
-import { ISelect } from "..";
-import { props, parameters } from "../props";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Select } from "..";
+import { props } from "../props";
 import { SelectControllerFilter } from "./SelectControllerFilter";
 
-const story = {
+const meta = {
   title: "Inputs/Select",
-  component: [SelectControllerFilter],
-  parameters,
+  component: Select,
   argTypes: {
     ...props,
-    onchange: { action: "Select" },
+    onChange: { action: "Select" },
   },
-};
+} satisfies Meta<typeof Select>;
+
+type Story = StoryObj<typeof Select>;
 
 const options = [
   { id: "col", label: "Colombia", value: "colombia" },
@@ -22,20 +24,22 @@ const options = [
   { id: "per", label: "Peru", value: "peru" },
 ];
 
-const SelectFilter = (args: ISelect) => <SelectControllerFilter {...args} />;
-
-SelectFilter.args = {
-  label: "Country",
-  name: "country",
-  id: "id",
-  placeholder: "Select your country",
-  value: "",
-  disabled: false,
-  options: options,
-  required: false,
-  size: "wide",
-  fullwidth: false,
+const SelectFilter: Story = {
+  args: {
+    label: "Country",
+    name: "country",
+    id: "id",
+    placeholder: "Select your country",
+    value: "",
+    disabled: false,
+    options: options,
+    required: false,
+    size: "wide",
+    fullwidth: false,
+    onChange: () => {},
+  },
+  render: (args) => <SelectControllerFilter {...args} />,
 };
 
-export default story;
+export default meta;
 export { SelectFilter };

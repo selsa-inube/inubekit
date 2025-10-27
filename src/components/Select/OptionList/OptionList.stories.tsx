@@ -1,14 +1,7 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { props, parameters } from "./props";
-import { OptionList, IOptionList } from "./index";
+import { OptionList } from "./index";
 import { OptionItem } from "../OptionItem";
-import { action } from "storybook/actions";
-
-const story = {
-  title: "Inputs/Select/OptionList",
-  component: [OptionList],
-  parameters,
-  argTypes: props,
-};
 
 const options = [
   { id: "1", label: "Item 1", value: "item-1" },
@@ -16,20 +9,35 @@ const options = [
   { id: "3", label: "Item 3", value: "item-3" },
 ];
 
-const Default = (args: IOptionList) => (
-  <div style={{ position: "relative" }}>
-    <OptionList {...args} onOptionClick={action("onClick")}>
-      {options.map((optionItem) => (
-        <OptionItem
-          key={optionItem.id}
-          id={optionItem.id}
-          label={optionItem.label}
-        />
-      ))}
-    </OptionList>
-  </div>
-);
+const meta = {
+  title: "Inputs/Select/OptionList",
+  component: OptionList,
+  parameters,
+  argTypes: props,
+} satisfies Meta<typeof OptionList>;
 
-export default story;
+type Story = StoryObj<typeof meta>;
 
+const Default: Story = {
+  render: (args) => (
+    <div style={{ position: "relative" }}>
+      <OptionList {...args}>
+        {options.map((optionItem) => (
+          <OptionItem
+            key={optionItem.id}
+            id={optionItem.id}
+            label={optionItem.label}
+          />
+        ))}
+      </OptionList>
+    </div>
+  ),
+  args: {
+    children: [],
+    options: options,
+    onOptionClick: (value: string) => console.log("Option clicked:", value),
+  },
+};
+
+export default meta;
 export { Default };
