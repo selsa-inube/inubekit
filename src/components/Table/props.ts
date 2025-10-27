@@ -19,23 +19,23 @@ const parameters = {
 const props = {
   tableLayout: {
     description: "Specifies the layout algorithm to be used for the table.",
-    control: { type: "select", options: tableLayouts },
+    control: { type: "select" as const, options: tableLayouts },
   },
   borderCollapse: {
     description: "Controls the table's border collapse behavior.",
-    control: { type: "select", options: borderCollapses },
+    control: { type: "select" as const, options: borderCollapses },
   },
   borderWidth: {
     description: "Defines the width of the table border.",
-    control: { type: "text" },
+    control: { type: "text" as const },
   },
   borderStyle: {
     description: "Defines the style of the table border.",
-    control: { type: "select", options: borderStyles },
+    control: { type: "select" as const, options: borderStyles },
   },
   children: {
     description: "The content to display inside the table.",
-    control: { type: "object" },
+    control: { type: "object" as const },
   },
 };
 
