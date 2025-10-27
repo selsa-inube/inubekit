@@ -1,7 +1,8 @@
-import { Spinner, ISpinner } from ".";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Spinner } from ".";
 import { props, parameters } from "./props";
 
-const story = {
+const meta = {
   title: "feedback/Spinner",
   component: Spinner,
   parameters,
@@ -11,9 +12,9 @@ const story = {
     transparent: false,
   },
   argTypes: props,
-};
+} satisfies Meta<typeof Spinner>;
 
-const Default = (args: ISpinner) => <Spinner {...args} />;
+type Story = StoryObj<typeof Spinner>;
 
-export { Default };
-export default story;
+export default meta;
+export const Default: Story = {};
