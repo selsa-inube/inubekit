@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { BrowserRouter, useLocation } from "react-router-dom";
 import {
   MdKey,
@@ -9,15 +10,13 @@ import {
   MdAccountBalanceWallet,
   MdLogout,
 } from "react-icons/md";
-
-import { Nav, INav } from "..";
-
-import { props, parameters } from "../props";
 import { ElementType } from "react";
+import { Nav } from "..";
+import { props, parameters } from "../props";
 
-const story = {
+const meta = {
   title: "navigation/Nav",
-  components: Nav,
+  component: Nav,
   parameters,
   argTypes: props,
   decorators: [
@@ -36,117 +35,120 @@ const story = {
       </BrowserRouter>
     ),
   ],
-};
+} satisfies Meta<typeof Nav>;
 
-const WithFooterProps = (args: INav) => {
-  const location = useLocation();
+type Story = StoryObj<typeof meta>;
 
-  const updatedNavigation = {
-    ...args.navigation,
-    sections: Object.fromEntries(
-      Object.entries(args.navigation.sections).map(([key, section]) => [
-        key,
-        {
-          ...section,
-          links: Object.fromEntries(
-            Object.entries(section.links).map(([linkKey, link]) => [
-              linkKey,
-              {
-                ...link,
-                isActive: location.pathname === link.path,
-              },
-            ]),
-          ),
-        },
-      ]),
-    ),
-  };
+const WithFooterProps: Story = {
+  render: (args) => {
+    const location = useLocation();
 
-  return <Nav {...{ ...args, navigation: updatedNavigation }} />;
-};
+    const updatedNavigation = {
+      ...args.navigation,
+      sections: Object.fromEntries(
+        Object.entries(args.navigation.sections).map(([key, section]) => [
+          key,
+          {
+            ...section,
+            links: Object.fromEntries(
+              Object.entries(section.links).map(([linkKey, link]) => [
+                linkKey,
+                {
+                  ...link,
+                  isActive: location.pathname === link.path,
+                },
+              ]),
+            ),
+          },
+        ]),
+      ),
+    };
 
-WithFooterProps.args = {
-  navigation: {
-    title: "MENU",
-    sections: {
-      administrate: {
-        name: "ADMINISTRATE",
-        links: {
-          text: {
-            id: "text",
-            label: "Text",
-            icon: <MdKey />,
-            path: "/components/text",
-          },
-          textfield: {
-            id: "textfield",
-            label: "Textfield",
-            icon: <MdMeetingRoom />,
-            path: "/components/textfield",
-          },
-          textarea: {
-            id: "textarea",
-            label: "Textarea",
-            icon: <MdPhone />,
-            path: "/components/textarea",
-          },
-          crm: {
-            id: "crm",
-            label: "CRM",
-            icon: <MdStarBorder />,
-            path: "/crm",
-          },
-        },
-      },
-      request: {
-        name: "REQUEST",
-        links: {
-          documents: {
-            id: "documents",
-            label: "Documents",
-            icon: <MdBadge />,
-            path: "/documents",
-          },
-          marketing: {
-            id: "marketing",
-            label: "Marketing",
-            icon: <MdStarBorder />,
-            path: "/marketing",
-          },
-          savings: {
-            id: "savings",
-            label: "Savings",
-            icon: <MdAccountBalanceWallet />,
-            path: "/savings",
-          },
-          credit: {
-            id: "credit",
-            label: "Credit",
-            icon: <MdAccountBalance />,
-            path: "/credit",
-          },
-        },
-      },
-    },
+    return <Nav {...{ ...args, navigation: updatedNavigation }} />;
   },
-  actions: [
-    {
-      id: "action1",
-      label: "Action 1",
-      icon: <MdLogout />,
-      action: () => console.log("Action 1 triggered"),
+  args: {
+    navigation: {
+      title: "MENU",
+      sections: {
+        administrate: {
+          name: "ADMINISTRATE",
+          links: {
+            text: {
+              id: "text",
+              label: "Text",
+              icon: <MdKey />,
+              path: "/components/text",
+            },
+            textfield: {
+              id: "textfield",
+              label: "Textfield",
+              icon: <MdMeetingRoom />,
+              path: "/components/textfield",
+            },
+            textarea: {
+              id: "textarea",
+              label: "Textarea",
+              icon: <MdPhone />,
+              path: "/components/textarea",
+            },
+            crm: {
+              id: "crm",
+              label: "CRM",
+              icon: <MdStarBorder />,
+              path: "/crm",
+            },
+          },
+        },
+        request: {
+          name: "REQUEST",
+          links: {
+            documents: {
+              id: "documents",
+              label: "Documents",
+              icon: <MdBadge />,
+              path: "/documents",
+            },
+            marketing: {
+              id: "marketing",
+              label: "Marketing",
+              icon: <MdStarBorder />,
+              path: "/marketing",
+            },
+            savings: {
+              id: "savings",
+              label: "Savings",
+              icon: <MdAccountBalanceWallet />,
+              path: "/savings",
+            },
+            credit: {
+              id: "credit",
+              label: "Credit",
+              icon: <MdAccountBalance />,
+              path: "/credit",
+            },
+          },
+        },
+      },
     },
-    {
-      id: "action2",
-      label: "Action 2",
-      icon: <MdLogout />,
-      action: () => console.log("Action 2 triggered"),
-    },
-  ],
-  collapse: true,
-  footerLogo:
-    "https://res.cloudinary.com/wfercanas/image/upload/v1729119253/linpar/selsa_jybzim.png",
+    actions: [
+      {
+        id: "action1",
+        label: "Action 1",
+        icon: <MdLogout />,
+        action: () => console.log("Action 1 triggered"),
+      },
+      {
+        id: "action2",
+        label: "Action 2",
+        icon: <MdLogout />,
+        action: () => console.log("Action 2 triggered"),
+      },
+    ],
+    collapse: true,
+    footerLogo:
+      "https://res.cloudinary.com/wfercanas/image/upload/v1729119253/linpar/selsa_jybzim.png",
+  },
 };
 
+export default meta;
 export { WithFooterProps };
-export default story;
