@@ -4,6 +4,34 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v6.3.0] - 2025-11-04 (Tue)
+
+### ✨ Added
+
+- **Input**: Se extendió el componente para soportar el tipo `password`, permitiendo gestionar campos de contraseña de forma nativa.
+
+### 🐛 Fixed
+
+- **Autocomplete**: Se ajustó el manejo de estado para que actúe correctamente en distintas situaciones.
+
+### 🔄 Changed
+
+- **Documentación**: Se ajustó la documentación de los componentes siguiendo la estructura recomendada por Storybook `(StoryObj y Meta)`.
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v6.2.0] - 2025-09-29 (Mon)
 
 ### ✨ Added
