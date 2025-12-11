@@ -31,6 +31,7 @@ interface INav {
   collapse?: boolean;
   footerLabel?: string;
   footerLogo?: string;
+  footerLogoWidth?: string;
 }
 
 interface INavLink {
@@ -187,7 +188,9 @@ const Nav = (props: INav) => {
     collapse = false,
     footerLabel = `inube - ${year}`,
     footerLogo,
+    footerLogoWidth,
   } = props;
+
   const theme = useContext(ThemeContext) as { nav: typeof tokens };
   const navSubtitleAppearance =
     (theme?.nav?.subtitle?.appearance?.regular as ITextAppearance) ||
@@ -195,6 +198,7 @@ const Nav = (props: INav) => {
   const navCopyrightAppearance =
     (theme?.nav?.copyright?.appearance as ITextAppearance) ||
     tokens.copyright.appearance;
+
   return (
     <StyledNav>
       <Stack direction="column" justifyContent="space-between" height="inherit">
@@ -230,10 +234,15 @@ const Nav = (props: INav) => {
             </>
           )}
         </Stack>
+
         <StyledFooter>
           <Stack justifyContent="center" alignItems="center">
             {footerLogo ? (
-              <StyledFooterLogoImage src={footerLogo} alt="" />
+              <StyledFooterLogoImage
+                src={footerLogo}
+                alt=""
+                $size={footerLogoWidth}
+              />
             ) : (
               <Text
                 type="label"

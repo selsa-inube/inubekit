@@ -45,6 +45,11 @@ const props = {
     description:
       "indicates if the component should be collapsible or not (by default is false)",
   },
+  footerLogoWidth: {
+    control: { type: "text" as const },
+    description:
+      "Defines the width of the footer logo (e.g., '80px', '120px'). This field is optional.",
+  },
 };
 
 export { parameters, props };
