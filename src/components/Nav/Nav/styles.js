@@ -57,11 +57,12 @@ const StyledRotatingIcon = styled(MdKeyboardArrowDown)`
 `;
 
 const StyledFooterLogoImage = styled.img`
-  width: 100%;
-  box-sizing: border-box;
+  width: ${({ $size }) => $size || "100%"};
   height: auto;
+  box-sizing: border-box;
   display: block;
   padding: 32px 48px;
+  object-fit: contain;
 `;
 
 export {
