@@ -4,6 +4,34 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v6.4.0] - 2025-12-12 (Fri)
+
+### ✨ Added
+
+- **Nav**: Se agregó la propiedad `footerLogoWidth` para configurar el ancho del logo en el footer, evitando deformaciones en imágenes de diferentes proporciones.
+
+### 🔄 Changed
+
+- **Dependencias**: Actualizadas `react`, `react-dom`, `@types/react` y `@types/react-dom` de `19.1.1` a `19.2.1`.
+
+### 🐛 Fixed
+
+- _No se reportaron correcciones de errores en esta versión._
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v6.3.0] - 2025-11-04 (Tue)
 
 ### ✨ Added
