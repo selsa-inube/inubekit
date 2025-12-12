@@ -4,6 +4,35 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v6.4.0] - 2025-12-12 (Fri)
+
+### ✨ Added
+
+- **Nav**: Se agregó la propiedad `footerLogoWidth` para configurar el ancho del logo en el footer, evitando deformaciones en imágenes de diferentes proporciones.
+
+### 🔄 Changed
+
+- **Dependencias**: Actualizadas `react`, `react-dom`, `@types/react` y `@types/react-dom` de `19.1.1` a `19.2.1`.
+
+### 🐛 Fixed
+
+- _No se reportaron correcciones de errores en esta versión._
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- **React Server Components RCE Vulnerability**: Se actualizó a React `19.2.1` para corregir una vulnerabilidad crítica de ejecución remota de código no autenticada (RCE) en `react-server-dom-webpack`, `react-server-dom-parcel` y `react-server-dom-turbopack` (versiones afectadas: 19.0, 19.1.0, 19.1.1, 19.2.0).  
+  **[Más información](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)**
+
+---
+
 ## [v6.3.0] - 2025-11-04 (Tue)
 
 ### ✨ Added
