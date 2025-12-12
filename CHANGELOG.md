@@ -28,7 +28,8 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 
 ### 🔒 Security
 
-- _No se han abordado vulnerabilidades en esta versión._
+- **React Server Components RCE Vulnerability**: Se actualizó a React `19.2.1` para corregir una vulnerabilidad crítica de ejecución remota de código no autenticada (RCE) en `react-server-dom-webpack`, `react-server-dom-parcel` y `react-server-dom-turbopack` (versiones afectadas: 19.0, 19.1.0, 19.1.1, 19.2.0).  
+  **[Más información](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)**
 
 ---
 
