@@ -145,6 +145,7 @@ const Default: Story = {
       },
     ],
     collapse: true,
+    spacing: "wide",
   },
 };
 

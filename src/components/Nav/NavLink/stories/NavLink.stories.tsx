@@ -27,6 +27,7 @@ const Default: Story = {
   args: {
     id: "privileges",
     label: "Privileges",
+    spacing: "wide",
     path: "/privileges",
     disabled: false,
     icon: <MdHouse />,

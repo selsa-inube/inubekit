@@ -41,6 +41,15 @@ const props = {
     description:
       "shall constitute the content to be displayed within the MenuLink-component and is required",
   },
+  spacing: {
+    description:
+      "The Spacing property allows you to determine the padding that the component will have.",
+    control: { type: "select" as const },
+    options: ["wide", "compact"],
+    table: {
+      defaultValue: { summary: "wide" },
+    },
+  },
 };
 
 export { parameters, props };

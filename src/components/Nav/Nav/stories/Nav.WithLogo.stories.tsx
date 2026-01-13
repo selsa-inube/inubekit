@@ -148,6 +148,7 @@ const WithFooterProps: Story = {
     footerLogo:
       "https://res.cloudinary.com/wfercanas/image/upload/v1729119253/linpar/selsa_jybzim.png",
     footerLogoWidth: "",
+    spacing: "wide",
   },
 };
 

@@ -20,6 +20,8 @@ const StyledNavList = styled.li`
     }
     return `5px solid transparent`;
   }};
+  padding: ${({ $spacing }) => ($spacing === "compact" ? "4px" : "6px")};
+  gap: ${({ $spacing }) => ($spacing === "compact" ? "2px" : "0")};
   background-color: ${({ $selected, $disabled, theme }) => {
     if ($disabled) {
       return (

@@ -11,7 +11,7 @@ import {
   StyledRotatingIcon,
   StyledFooterLogoImage,
 } from "./styles";
-import { NavLink } from "../NavLink";
+import { NavLink, INavLinkSpacing } from "../NavLink";
 import { ILink, INavNavigation } from "./props";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "styled-components";
@@ -32,10 +32,12 @@ interface INav {
   footerLabel?: string;
   footerLogo?: string;
   footerLogoWidth?: string;
+  spacing?: INavLinkSpacing;
 }
 
 interface INavLink {
   section: ILink[];
+  spacing?: INavLinkSpacing;
 }
 
 const year = new Date().getFullYear();
@@ -46,7 +48,7 @@ const defaultAnimationValues = {
 };
 
 const Links = (props: INavLink) => {
-  const { section } = props;
+  const { section, spacing = "wide" } = props;
 
   const LinkElements = section.map((sectionObject) => (
     <NavLink
@@ -56,6 +58,7 @@ const Links = (props: INavLink) => {
       icon={sectionObject.icon}
       path={sectionObject.path}
       selected={sectionObject.isActive}
+      spacing={spacing}
     />
   ));
   return <>{LinkElements}</>;
@@ -64,9 +67,11 @@ const Links = (props: INavLink) => {
 const MultiSections = ({
   navigation,
   collapse,
+  spacing,
 }: {
   navigation: INavNavigation;
   collapse: boolean;
+  spacing?: INavLinkSpacing;
 }) => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const theme = useContext(ThemeContext) as { nav: typeof tokens };
@@ -158,6 +163,7 @@ const MultiSections = ({
                     section={Object.values(
                       navigation.sections[sectionKey].links,
                     )}
+                    spacing={spacing}
                   />
                 </Stack>
               )}
@@ -169,13 +175,16 @@ const MultiSections = ({
   );
 };
 
-const OneSection = ({ navigation }: INav) => {
+const OneSection = ({ navigation, spacing }: INav) => {
   const section = Object.keys(navigation.sections).join();
 
   return (
     <Stack direction="column">
       <Stack direction="column" justifyContent="center">
-        <Links section={Object.values(navigation.sections[section].links)} />
+        <Links
+          section={Object.values(navigation.sections[section].links)}
+          spacing={spacing}
+        />
       </Stack>
     </Stack>
   );
@@ -189,6 +198,7 @@ const Nav = (props: INav) => {
     footerLabel = `inube - ${year}`,
     footerLogo,
     footerLogoWidth,
+    spacing = "wide",
   } = props;
 
   const theme = useContext(ThemeContext) as { nav: typeof tokens };
@@ -215,9 +225,13 @@ const Nav = (props: INav) => {
             {navigation.title}
           </Text>
           {Object.keys(navigation.sections).length > 1 ? (
-            <MultiSections navigation={navigation} collapse={collapse} />
+            <MultiSections
+              navigation={navigation}
+              collapse={collapse}
+              spacing={spacing}
+            />
           ) : (
-            <OneSection navigation={navigation} />
+            <OneSection navigation={navigation} spacing={spacing} />
           )}
           {actions && actions.length > 0 && (
             <>
@@ -229,6 +243,7 @@ const Nav = (props: INav) => {
                   label={label}
                   icon={icon}
                   onClick={action}
+                  spacing={spacing}
                 />
               ))}
             </>
