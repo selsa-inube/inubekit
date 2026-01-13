@@ -50,6 +50,15 @@ const props = {
     description:
       "Defines the width of the footer logo (e.g., '80px', '120px'). This field is optional.",
   },
+  spacing: {
+    description:
+      "The Spacing property allows you to determine the padding that the component will have.",
+    control: { type: "select" as const },
+    options: ["wide", "compact"],
+    table: {
+      defaultValue: { summary: "wide" },
+    },
+  },
 };
 
 export { parameters, props };

@@ -9,9 +9,12 @@ import { useContext } from "react";
 import { ThemeContext } from "styled-components";
 import { tokens } from "../Nav/tokens";
 
+type INavLinkSpacing = "wide" | "compact";
+
 interface INavLink {
   id: string;
   label: string;
+  spacing?: INavLinkSpacing;
   path?: string;
   disabled?: boolean;
   selected?: boolean;
@@ -22,6 +25,7 @@ interface INavLink {
 const renderLinkContent = ({
   icon,
   label,
+  spacing,
   selected,
   disabled,
   selectedNavLinkAppearance,
@@ -29,6 +33,7 @@ const renderLinkContent = ({
 }: {
   icon?: React.ReactNode;
   label: string;
+  spacing?: INavLinkSpacing;
   selected: boolean;
   disabled: boolean;
   selectedNavLinkAppearance: IIconAppearance;
@@ -36,8 +41,8 @@ const renderLinkContent = ({
 }) => (
   <Grid
     templateColumns={icon ? "auto 1fr auto" : "1fr auto"}
-    gap="24px"
-    padding="0 16px"
+    gap="16px"
+    padding={spacing === "compact" ? "4px 8px 4px 16px" : "8px 16px"}
     alignItems="center"
   >
     {icon && (
@@ -47,14 +52,14 @@ const renderLinkContent = ({
           selected ? selectedNavLinkAppearance : regularNavLinkAppearance
         }
         disabled={disabled}
-        size="24px"
+        size={spacing === "compact" ? "20px" : "24px"}
       />
     )}
     <Text
       appearance={
         selected ? selectedNavLinkAppearance : regularNavLinkAppearance
       }
-      type="label"
+      type="body"
       disabled={disabled}
       textAlign="start"
       weight="bold"
@@ -67,7 +72,7 @@ const renderLinkContent = ({
         appearance={
           selected ? selectedNavLinkAppearance : regularNavLinkAppearance
         }
-        size="24px"
+        size={spacing === "compact" ? "20px" : "24px"}
       />
     )}
   </Grid>
@@ -77,6 +82,7 @@ const NavLink = (props: INavLink) => {
   const {
     id,
     label,
+    spacing = "wide",
     path,
     disabled = false,
     selected = false,
@@ -109,6 +115,7 @@ const NavLink = (props: INavLink) => {
       id={id}
       $disabled={disabled}
       $appearance={selected ? selectedNavLinkAppearance : undefined}
+      $spacing={spacing}
       $selected={selected}
       onClick={handleClick}
     >
@@ -117,6 +124,7 @@ const NavLink = (props: INavLink) => {
           {renderLinkContent({
             icon,
             label,
+            spacing,
             selected,
             disabled,
             selectedNavLinkAppearance,
@@ -128,6 +136,7 @@ const NavLink = (props: INavLink) => {
           {renderLinkContent({
             icon,
             label,
+            spacing,
             selected,
             disabled,
             selectedNavLinkAppearance,
@@ -140,4 +149,4 @@ const NavLink = (props: INavLink) => {
 };
 
 export { NavLink };
-export type { INavLink };
+export type { INavLink, INavLinkSpacing };
