@@ -4,6 +4,35 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v6.5.0] - 2026-01-13 (Tue)
+
+### ✨ Added
+
+- **NavLink**: Nueva propiedad `spacing` con valores `"wide"` y `"compact"` para controlar la apariencia y espaciado del enlace.
+- **Nav**: Extensión del componente para soportar la prop `spacing`, permitiendo modificar la apariencia general de los links en la navegación.
+
+### 🐛 Fixed
+
+- _No se reportaron correcciones de errores en esta versión._
+
+### 🔄 Changed
+
+- _No se realizaron cambios en funcionalidades existentes en esta versión._
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v6.4.0] - 2025-12-12 (Fri)
 
 ### ✨ Added
