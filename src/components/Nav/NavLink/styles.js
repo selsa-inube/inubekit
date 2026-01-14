@@ -38,13 +38,19 @@ const StyledNavList = styled.li`
     }
   }};
 
+  & p {
+    font-weight: ${({ $selected }) => ($selected ? "bold" : "normal")};
+  }
+
   ${({ $disabled, theme }) =>
     !$disabled &&
     `
       &:hover {
-        background-color: ${
-          theme?.nav?.link?.background?.hover || tokens.link.background.hover
-        };     
+        background-color: ${theme?.nav?.link?.background?.hover || tokens.link.background.hover};
+
+        & p {
+          font-weight: bold;
+        }
       }
   `};
 `;
