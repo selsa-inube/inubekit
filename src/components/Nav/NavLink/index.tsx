@@ -62,7 +62,7 @@ const renderLinkContent = ({
       type="body"
       disabled={disabled}
       textAlign="start"
-      weight="bold"
+      size="medium"
     >
       {label}
     </Text>
