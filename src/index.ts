@@ -20,6 +20,11 @@ export type {
   ITextSize,
   ITextType,
 } from "./components/Text/props";
+export { textTokenSchema } from "./components/Text/tokens/schema";
+export type {
+  SchemaDefinition,
+  SchemaType,
+} from "./components/Text/tokens/schema";
 
 export { Avatar } from "./components/Avatar";
 export type { IAvatar } from "./components/Avatar";
