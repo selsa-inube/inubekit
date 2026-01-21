@@ -3,7 +3,8 @@ import { tokens } from "./tokens";
 import { inube } from "../Foundations";
 
 const StyledText = styled.p`
-  font-family: ${({ theme, $type, $size }) =>
+  font-family:
+    ${({ theme, $type, $size }) =>
       theme?.typography?.[$type]?.[$size]?.font || "Roboto"},
     sans-serif;
   line-height: ${({ $type, $size }) =>
@@ -11,7 +12,7 @@ const StyledText = styled.p`
   font-size: ${({ $type, $size }) => inube.typography[$type][$size].size};
   letter-spacing: ${({ $type, $size }) =>
     inube.typography[$type][$size].tracking};
-  font-weight: ${({ $weight }) => ($weight === "bold" ? 500 : 400)};
+  font-weight: ${({ $weight }) => ($weight === "bold" ? 700 : 400)};
   margin: ${({ $margin }) => $margin};
   padding: ${({ $padding }) => $padding};
   text-align: ${({ $textAlign }) => $textAlign};
