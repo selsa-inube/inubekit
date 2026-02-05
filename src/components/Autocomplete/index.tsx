@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { IOption, ISelect, Select } from "../Select";
 
 interface IAutocomplete extends Omit<ISelect, "onChange" | "value"> {
@@ -6,6 +6,26 @@ interface IAutocomplete extends Omit<ISelect, "onChange" | "value"> {
   options: IOption[];
   onChange: (name: string, value: string) => void;
 }
+
+const filterOptionsByText = (options: IOption[], text: string): IOption[] => {
+  const normalized = text.trim().toLowerCase();
+  if (!normalized) return options;
+  return options.filter((option) =>
+    option.label.toLowerCase().includes(normalized),
+  );
+};
+
+const findExactMatch = (
+  options: IOption[],
+  text: string,
+): IOption | undefined => {
+  const normalized = text.trim().toLowerCase();
+  return options.find(
+    (option) =>
+      option.label.toLowerCase() === normalized ||
+      option.value.toLowerCase() === normalized,
+  );
+};
 
 const Autocomplete = (props: IAutocomplete) => {
   const {
@@ -26,74 +46,53 @@ const Autocomplete = (props: IAutocomplete) => {
     onBlur,
   } = props;
 
-  const [filteredOptions, setFilteredOptions] = useState(options);
+  const [filterText, setFilterText] = useState("");
   const [showOptions, setShowOptions] = useState(false);
 
-  const latestValueRef = useRef<string>(value);
+  const latestValueRef = useRef(value);
+  const optionsRef = useRef(options);
+
   useEffect(() => {
     latestValueRef.current = value;
   }, [value]);
 
   useEffect(() => {
-    const selectedOption = options.find((option) => option.value === value);
-    if (selectedOption) {
-      setFilteredOptions(options);
-    }
-  }, [value, options]);
+    optionsRef.current = options;
+  }, [options]);
+
+  const filteredOptions = useMemo(
+    () => filterOptionsByText(options, filterText),
+    [options, filterText],
+  );
 
   const handleFilter = (newValue: string) => {
-    try {
-      const normalizedValue = newValue.trim().toLowerCase();
-      const filtered = options.filter((option) =>
-        option.label.toLowerCase().includes(normalizedValue),
-      );
-      setFilteredOptions(filtered);
-      setShowOptions(newValue.trim().length > 0 && filtered.length > 0);
-    } catch (error) {
-      console.error(`Error when filtering options. ${error}`);
-      setFilteredOptions(options);
-      setShowOptions(false);
-    }
+    setFilterText(newValue);
+    const filtered = filterOptionsByText(optionsRef.current, newValue);
+    setShowOptions(newValue.trim().length > 0 && filtered.length > 0);
   };
 
   const interceptChange = (name: string, value: string) => {
-    try {
-      onChange && onChange(name, value);
-      setShowOptions(false);
-      setFilteredOptions(options);
-    } catch (error) {
-      console.error(`Error when changing value using callback. ${error}`);
-    }
+    setFilterText("");
+    onChange?.(name, value);
+    setShowOptions(false);
   };
 
   const handleBlur = (event: FocusEvent) => {
-    try {
-      onBlur && onBlur(event);
+    onBlur?.(event);
 
-      setTimeout(() => {
-        const currentValue = latestValueRef.current || "";
-        const normalizedValue = currentValue.trim().toLowerCase();
+    setTimeout(() => {
+      const currentValue = latestValueRef.current || "";
+      const exactMatch = findExactMatch(optionsRef.current, currentValue);
 
-        const exactMatch = options.find(
-          (option) =>
-            option.label.toLowerCase() === normalizedValue ||
-            option.value.toLowerCase() === normalizedValue,
-        );
+      if (exactMatch && currentValue !== exactMatch.value) {
+        onChange?.(name, exactMatch.value);
+      } else if (!exactMatch && currentValue !== "") {
+        onChange?.(name, "");
+      }
 
-        if (exactMatch && currentValue !== exactMatch.value) {
-          onChange && onChange(name, exactMatch.value);
-        } else if (!exactMatch && currentValue !== "") {
-          onChange && onChange(name, "");
-        }
-
-        setFilteredOptions(options);
-        setShowOptions(false);
-      }, 200);
-    } catch (error) {
-      console.error(`Error when handling blur event. ${error}`);
+      setFilterText("");
       setShowOptions(false);
-      setFilteredOptions(options);
-    }
+    }, 200);
   };
 
   return (
