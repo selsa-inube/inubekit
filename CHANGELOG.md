@@ -37,8 +37,6 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 
 - _No se agregaron nuevas funcionalidades en esta versión._
 
----
-
 ### 🐛 Fixed
 
 - **NavLink**: Se corrigió el tamaño del texto y el peso de fuente (`type` y `weight`) para los estados `select` y `hover`.
