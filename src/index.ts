@@ -108,6 +108,9 @@ export { Textfield } from "./components/Input/Textfield";
 export type { IInput } from "./components/Input/Input";
 export type { IPhonefield } from "./components/Input/Phonefield";
 
+export { DynamicKey } from "./components/DynamicKey";
+export type { IDynamicKey } from "./components/DynamicKey/props";
+
 export { Assisted } from "./components/Assisted";
 export type { IAssisted } from "./components/Assisted";
 export type {
