@@ -4,6 +4,35 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v6.6.0] - 2026-02-06 (Fri)
+
+### ✨ Added
+
+- **DynamicKey**: Se creó el componente `DynamicKey` para facilitar la captura de claves dinámicas en flujos de autenticación u otros escenarios que requieran ingreso de códigos por casillas.
+
+### 🐛 Fixed
+
+- **Autocomplete**: Se optimizó y corrigió el manejo de estado interno para reducir renders innecesarios y evitar bugs, manteniendo el mismo comportamiento visual esperado.
+- **Text**: Se corrigió el `weight` para el estilo **bold**, que ahora usa `700` para alinearse con los mockups (antes estaba configurado en `500`).
+
+### 🔄 Changed
+
+- _No se realizaron cambios incompatibles en funcionalidades existentes en esta versión._
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordado vulnerabilidades en esta versión._
+
+---
+
 ## [v6.5.1] - 2026-01-14 (Wed)
 
 ### ✨ Added
@@ -37,6 +66,7 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 ### ✨ Added
 
 - **NavLink**: Nueva propiedad `spacing` con valores `"wide"` y `"compact"` para controlar la apariencia y espaciado del enlace.
+
 - **Nav**: Extensión del componente para soportar la prop `spacing`, permitiendo modificar la apariencia general de los links en la navegación.
 
 ### 🐛 Fixed
