@@ -31,6 +31,8 @@ Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y
 
 - _No se han abordado vulnerabilidades en esta versión._
 
+---
+
 ## [v6.5.1] - 2026-01-14 (Wed)
 
 ### ✨ Added
