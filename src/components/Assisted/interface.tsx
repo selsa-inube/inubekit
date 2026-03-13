@@ -139,7 +139,9 @@ function AssistedUI(props: IAssistedUI) {
         <Grid
           gap="8px"
           alignItems="center"
-          templateColumns="auto auto 1fr auto"
+          templateColumns={
+            showCurrentStepNumber ? "auto auto 1fr auto" : "auto 1fr auto"
+          }
         >
           <Icon
             icon={<MdArrowBack />}
