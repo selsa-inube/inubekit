@@ -21,6 +21,8 @@ const Default: Story = {
     invalid: false,
     margin: "0px",
     padding: "0px",
+    required: true,
+    showRequiredText: false,
   },
 };
 

@@ -105,6 +105,13 @@ const props = {
     description:
       "message to display below the input field (e.g., error message)",
   },
+  ellipsis: {
+    description:
+      "controls whether the label text should be truncated with ellipsis when it exceeds available space",
+    table: {
+      defaultValue: { summary: "false" },
+    },
+  },
 };
 
 export { parameters, props };

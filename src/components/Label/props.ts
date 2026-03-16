@@ -5,7 +5,7 @@ const parameters = {
   docs: {
     description: {
       component:
-        "Represent a label for an elemenent in a user interface. This can be associated with a control either by using the for attribute",
+        "Represents a label for an element in a user interface.. This can be associated with a control either by using the for attribute",
     },
   },
 };
@@ -59,6 +59,19 @@ const props = {
   ellipsis: {
     description:
       "prop to prevent text overflow, showing as much as possible with '...'",
+    table: {
+      defaultValue: { summary: "false" },
+    },
+  },
+  required: {
+    description: "Indicates that the associated field is required",
+    table: {
+      defaultValue: { summary: "false" },
+    },
+  },
+  showRequiredText: {
+    description:
+      "Controls how the required indicator is displayed. Shows '(Requerido)' instead of '*' when enabled",
     table: {
       defaultValue: { summary: "false" },
     },

@@ -4,6 +4,7 @@ import { ITextAppearance } from "../Text/props";
 import { tokens } from "./tokens";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
+import { StyledLabel } from "./styles";
 
 interface ILabel {
   children?: React.ReactNode;
@@ -15,6 +16,8 @@ interface ILabel {
   padding?: string;
   size?: ILabelSize;
   ellipsis?: boolean;
+  required?: boolean;
+  showRequiredText?: boolean;
 }
 
 const Label = (props: ILabel) => {
@@ -28,6 +31,8 @@ const Label = (props: ILabel) => {
     padding = "0px",
     size = "large",
     ellipsis = false,
+    required = false,
+    showRequiredText = false,
   } = props;
 
   const theme = useContext(ThemeContext) as { label: typeof tokens };
@@ -41,10 +46,20 @@ const Label = (props: ILabel) => {
     return color.regular as unknown as ITextAppearance;
   };
 
+  const appearance = getAppearance();
+
   return (
-    <label htmlFor={htmlFor}>
+    <StyledLabel
+      htmlFor={htmlFor}
+      $disabled={disabled}
+      $focused={focused}
+      $invalid={invalid}
+      $ellipsis={ellipsis}
+      $margin={margin}
+      $padding={padding}
+    >
       <Text
-        appearance={getAppearance()}
+        appearance={appearance}
         margin={margin}
         padding={padding}
         size={size}
@@ -53,8 +68,34 @@ const Label = (props: ILabel) => {
         ellipsis={ellipsis}
       >
         {children}
+
+        {!ellipsis &&
+          required &&
+          !disabled &&
+          (showRequiredText ? (
+            <Text appearance="danger" as="span" size="small" type="body">
+              {" (Requerido)"}
+            </Text>
+          ) : (
+            <Text appearance="danger" as="span" type="label">
+              {" *"}
+            </Text>
+          ))}
       </Text>
-    </label>
+
+      {ellipsis &&
+        required &&
+        !disabled &&
+        (showRequiredText ? (
+          <Text appearance="danger" as="span" size="small" type="body">
+            (Requerido)
+          </Text>
+        ) : (
+          <Text appearance="danger" as="span" type="label">
+            *
+          </Text>
+        ))}
+    </StyledLabel>
   );
 };
 
