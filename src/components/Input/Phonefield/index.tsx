@@ -19,6 +19,7 @@ import {
   StyledMessageContainer,
 } from "./styles";
 import { CountrySelector } from "../../CountrySelector";
+import { useMediaQuery } from "../../Hooks/useMediaQuery";
 
 const Counter = ({ maxLength, minLength, currentLength }: ICounter) => {
   const appearance = getCounterAppearance(currentLength, maxLength, minLength);
@@ -166,18 +167,16 @@ function Phonefield(props: IPhonefield) {
   const currentLength = inputValue.length;
 
   const theme = useContext(ThemeContext) as { input: typeof tokens };
-  const requiredAppearance =
-    (theme?.input?.required?.appearance as ITextAppearance) ||
-    tokens.required.appearance;
   const messageAppearance =
     (theme?.input?.message?.appearance as ITextAppearance) ||
     tokens.message.appearance;
+
+  const isSmallScreen = useMediaQuery("(max-width: 700px)");
 
   const showLabel =
     label ||
     (required && !disabled) ||
     (!disabled && (maxLength !== undefined || minLength !== undefined));
-  const showRequired = required && !disabled;
   const showCounter =
     !disabled && (maxLength !== undefined || minLength !== undefined);
 
@@ -188,7 +187,6 @@ function Phonefield(props: IPhonefield) {
           $alignItems="center"
           $disabled={disabled}
           $fullwidth={fullwidth}
-          $showRequired={showRequired}
           $showCounter={showCounter}
           $wrap="wrap"
         >
@@ -201,14 +199,11 @@ function Phonefield(props: IPhonefield) {
               size={size === "compact" ? "medium" : "large"}
               disabled={disabled}
               ellipsis
+              required={required}
+              showRequiredText={!isSmallScreen}
             >
               {label}
             </Label>
-          )}
-          {showRequired && (
-            <Text appearance={requiredAppearance} size="small" type="body">
-              (Requerido)
-            </Text>
           )}
 
           {showCounter && (
@@ -262,7 +257,6 @@ function Phonefield(props: IPhonefield) {
           $status={status}
           id={id}
           inputMode={inputMode}
-          label={label}
           name={name}
           onBlur={interceptBlur}
           onChange={interceptChange}
