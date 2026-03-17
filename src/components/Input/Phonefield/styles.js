@@ -9,18 +9,15 @@ const StyledContainer = styled.div`
 `;
 
 const StyledContainerLabel = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: ${({ $showCounter }) => $showCounter && "space-between"};
-  margin-bottom: 4px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  justify-items: start;
   gap: 4px;
-  pointer-events: ${({ $disabled }) => $disabled && "none"};
+  margin-bottom: 4px;
   width: 100%;
 
-  & label {
-    max-width: ${({ $fullwidth, $showRequired }) =>
-      $fullwidth ? "70%" : $showRequired ? "100px" : "150px"};
-  }
+  pointer-events: ${({ $disabled }) => $disabled && "none"};
 `;
 
 const StyledInputContainer = styled.div`
