@@ -70,6 +70,24 @@ Controla el tamaño de la fuente del label.
 
 Evita que el texto se desborde, mostrando puntos suspensivos (...) cuando el contenido es demasiado largo.
 
+Cuando ellipsis está activo, el indicador de campo requerido se renderiza fuera del texto truncado para evitar que quede oculto.
+
+1. `true | false`
+2. **Por defecto: `false`**
+
+### required (opcional)
+
+Indica que el campo asociado es obligatorio.
+
+Cuando está activo, el label mostrará un indicador visual de campo requerido.
+
+1. `true | false`
+2. **Por defecto: `false`**
+
+### showRequiredText (opcional)
+
+Controla cómo se muestra el indicador de campo requerido. Si es false, se mostrará un asterisco (\*). Si es true, se mostrará el texto "(Requerido)".
+
 1. `true | false`
 2. **Por defecto: `false`**
 

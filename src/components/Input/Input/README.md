@@ -78,10 +78,12 @@ Indica si el campo es de solo lectura.
 
 ### required (opcional)
 
-Indica si el campo es obligatorio.
+Indica si el campo es obligatorio. Cuando está activo, el label mostrará un indicador visual de requerido.
 
 1. `true | false`
 2. **Por defecto: `false`**
+
+**Comportamiento responsive:** En pantallas mayores a 700px se mostrará el texto "(Requerido)" y en pantallas de 700px o menores se mostrará únicamente \*.
 
 ### fullwidth (opcional)
 
@@ -111,6 +113,13 @@ Tipo de entrada.
 
 1. `"text" | "number" | "email" | "money" | "phone" | "tel" | "search" | "password"`
 2. **Por defecto: `"text"`**
+
+### ellipsis (opcional)
+
+Controla si el texto del label se trunca cuando es demasiado largo. Si true, el texto se mostrará con puntos suspensivos (...) cuando exceda el espacio disponible. Si false, el label puede ocupar múltiples líneas.
+
+1. `true | false`
+2. **Por defecto: `false`**
 
 ## Personalización
 

@@ -32,6 +32,7 @@ interface IInput {
   readOnly?: boolean;
   maxLength?: number;
   minLength?: number;
+  ellipsis?: boolean;
 }
 
 const inputComponents: Record<string, React.ComponentType<IInput>> = {

@@ -2,6 +2,7 @@ import { Icon } from "../../Icon";
 import { Label } from "../../Label";
 import { tokens } from "../tokens";
 import { Text } from "../../Text";
+import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import { ITextAppearance } from "../../Text/props";
 import { Stack } from "../../Stack";
 import { MdOutlineWarning } from "react-icons/md";
@@ -53,6 +54,7 @@ const InputUI = (props: IInput) => {
     value,
     maxLength,
     minLength,
+    ellipsis = false,
   } = props;
 
   const [focusedState, setFocused] = useState(false);
@@ -94,9 +96,6 @@ const InputUI = (props: IInput) => {
   };
 
   const theme = useContext(ThemeContext) as { input: typeof tokens };
-  const requiredAppearance =
-    (theme?.input?.required?.appearance as ITextAppearance) ||
-    tokens.required.appearance;
   const messageAppearance =
     (theme?.input?.message?.appearance as ITextAppearance) ||
     tokens.message.appearance;
@@ -106,9 +105,10 @@ const InputUI = (props: IInput) => {
     label ||
     (required && !disabled) ||
     (!disabled && (maxLength !== undefined || minLength !== undefined));
-  const showRequired = required && !disabled;
   const showCounter =
     !disabled && (maxLength !== undefined || minLength !== undefined);
+
+  const isSmallScreen = useMediaQuery("(max-width: 700px)");
 
   return (
     <StyledContainer $disabled={disabled} $fullwidth={fullwidth}>
@@ -117,7 +117,6 @@ const InputUI = (props: IInput) => {
           $alignItems="center"
           $disabled={disabled}
           $fullwidth={fullwidth}
-          $showRequired={showRequired}
           $showCounter={showCounter}
           $wrap="wrap"
         >
@@ -129,15 +128,12 @@ const InputUI = (props: IInput) => {
               margin="0px 0px 0px 16px"
               size={size === "compact" ? "medium" : "large"}
               disabled={disabled}
-              ellipsis
+              ellipsis={ellipsis}
+              required={required}
+              showRequiredText={!isSmallScreen}
             >
               {label}
             </Label>
-          )}
-          {showRequired && (
-            <Text appearance={requiredAppearance} size="small" type="body">
-              (Requerido)
-            </Text>
           )}
 
           {showCounter && (
