@@ -57,6 +57,13 @@ Controla el tamaño de los campos de entrada.
 3. `"wide"`: 48x48px por campo
 4. **Por defecto: `"wide"`**
 
+### disabled (opcional)
+
+Indica si el componente está deshabilitado.
+
+1. `true | false`
+2. **Por defecto: `false`**
+
 ### onChange (opcional)
 
 Función que se ejecuta cuando cambia el valor de cualquier campo.
