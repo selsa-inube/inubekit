@@ -40,6 +40,8 @@ const DynamicKey = (props: IDynamicKey) => {
   const isNumericType = type === "numeric";
   const isAlphanumericType = type === "alphanumeric";
 
+  const inputMode = isNumericType ? "numeric" : "text";
+
   const focusInput = useCallback(
     (index: number) => {
       if (disabled) return;
@@ -130,6 +132,7 @@ const DynamicKey = (props: IDynamicKey) => {
             }}
             id={`${componentId}-input-${index}`}
             type="text"
+            inputMode={inputMode}
             value={display}
             disabled={disabled}
             $disabled={disabled}
