@@ -1,4 +1,11 @@
-import { useState, useRef, useCallback, useId, KeyboardEvent } from "react";
+import {
+  useState,
+  useRef,
+  useCallback,
+  useId,
+  KeyboardEvent,
+  useEffect,
+} from "react";
 import { IDynamicKey } from "./props";
 import { StyledContainer, StyledInput } from "./styles";
 
@@ -17,6 +24,7 @@ const DynamicKey = (props: IDynamicKey) => {
     masked = false,
     type = "numeric",
     size = "wide",
+    disabled = false,
     onChange,
     onComplete,
   } = props;
@@ -32,9 +40,13 @@ const DynamicKey = (props: IDynamicKey) => {
   const isNumericType = type === "numeric";
   const isAlphanumericType = type === "alphanumeric";
 
-  const focusInput = useCallback((index: number) => {
-    inputRefs.current[index]?.focus();
-  }, []);
+  const focusInput = useCallback(
+    (index: number) => {
+      if (disabled) return;
+      inputRefs.current[index]?.focus();
+    },
+    [disabled],
+  );
 
   const updateValues = useCallback(
     (newValues: string[]) => {
@@ -61,6 +73,7 @@ const DynamicKey = (props: IDynamicKey) => {
 
   const handleChange = useCallback(
     (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
+      if (disabled) return;
       const raw = e.target.value;
       const transformed = validateAndTransform(raw);
       if (transformed === null) return;
@@ -73,11 +86,12 @@ const DynamicKey = (props: IDynamicKey) => {
         focusInput(index + 1);
       }
     },
-    [values, length, focusInput, updateValues, validateAndTransform],
+    [disabled, values, length, focusInput, updateValues, validateAndTransform],
   );
 
   const handleKeyDown = useCallback(
     (index: number, e: KeyboardEvent<HTMLInputElement>) => {
+      if (disabled) return;
       if (e.key !== BACKSPACE_KEY) return;
 
       e.preventDefault();
@@ -95,11 +109,17 @@ const DynamicKey = (props: IDynamicKey) => {
         focusInput(index - 1);
       }
     },
-    [values, focusInput, updateValues],
+    [disabled, values, focusInput, updateValues],
   );
 
+  useEffect(() => {
+    if (disabled) {
+      setFocusedIndex(null);
+    }
+  }, [disabled]);
+
   return (
-    <StyledContainer>
+    <StyledContainer $disabled={disabled}>
       {Array.from({ length }, (_, index) => {
         const display = masked && values[index] ? "*" : values[index];
         return (
@@ -111,6 +131,8 @@ const DynamicKey = (props: IDynamicKey) => {
             id={`${componentId}-input-${index}`}
             type="text"
             value={display}
+            disabled={disabled}
+            $disabled={disabled}
             $focused={focusedIndex === index}
             $size={size}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

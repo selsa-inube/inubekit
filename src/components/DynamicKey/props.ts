@@ -35,6 +35,14 @@ const props = {
       defaultValue: { summary: "wide" },
     },
   },
+  disabled: {
+    control: { type: "boolean" as const },
+    description:
+      "Disables all input fields, preventing user interaction and applying a disabled visual state.",
+    table: {
+      defaultValue: { summary: "false" },
+    },
+  },
   onChange: {
     description: "Callback function triggered when the value changes.",
   },
@@ -55,6 +63,7 @@ interface IDynamicKey {
   masked?: boolean;
   type?: IDynamicKeyType;
   size?: IDynamicKeySize;
+  disabled?: boolean;
   onChange?: (value: string) => void;
   onComplete?: (value: string) => void;
 }
