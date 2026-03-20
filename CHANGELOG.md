@@ -4,6 +4,40 @@ Todos los cambios notables en este proyecto se documentarán en este archivo.
 
 Este proyecto sigue el formato [Keep a Changelog](https://keepachangelog.com/) y utiliza versionado [SemVer](https://semver.org/lang/es/).
 
+## [v6.7.0] - 2026-03-20 (Fri)
+
+### ✨ Added
+
+- **Input**: Nueva propiedad `ellipsis` para hacer opcional el truncado del label, permitiendo labels largos sin corte.
+- **DynamicKey**: Soporte para la propiedad `disabled`.
+- **DynamicKey**: Soporte interno para `inputMode` deducido automáticamente según `type`:
+  - `type="numeric"` → `inputMode="numeric"`
+  - `type="alphanumeric"` → `inputMode="text"`
+
+### 🐛 Fixed
+
+- **Input**: Se refactorizó el manejo de ellipsis y layout del label.
+- **Input**: En pantallas ≤700px, `(Requerido)` se reemplaza por asterisco `*`.
+- **Assisted**: Se corrigió la alineación de la flecha `Siguiente` en móvil, posicionándola correctamente al final del contenedor.
+
+### 🔄 Changed
+
+- _No se realizaron cambios incompatibles en funcionalidades existentes en esta versión._
+
+### ⚠️ Deprecated
+
+- _No se ha marcado ninguna funcionalidad como obsoleta en esta versión._
+
+### ❌ Removed
+
+- _No se ha eliminado ninguna funcionalidad en esta versión._
+
+### 🔒 Security
+
+- _No se han abordaron vulnerabilidades en esta versión._
+
+---
+
 ## [v6.6.0] - 2026-02-06 (Fri)
 
 ### ✨ Added
